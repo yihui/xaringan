@@ -1,0 +1,15 @@
+Package: xaringan
+Type: Package
+Title: Presentation Ninja
+Version: 0.0.0
+Authors@R: c(
+    person("Yihui", "Xie", role = c("aut", "cre"), email = "xie@yihui.name")
+    )
+Description: Create slideshows with R Markdown and the JavaScript library
+    'remark' (http://remarkjs.com).
+Imports:
+    rmarkdown
+License: MIT
+URL: https://github.com/yihui/xaringan
+BugReports: https://github.com/yihui/xaringan/issues
+RoxygenNote: 5.0.1

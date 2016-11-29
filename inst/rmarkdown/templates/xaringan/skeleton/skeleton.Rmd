@@ -55,6 +55,16 @@ abline(fit, lwd = 2)
 
 ---
 
+class: center
+
+# Hand seals (印)
+
+Press `h` or `?` to see the possible ninjutsu you can use.
+
+![](https://upload.wikimedia.org/wikipedia/commons/7/7e/Mudra-Naruto-KageBunshin.svg)
+
+---
+
 class: center, middle
 
 # Thanks!

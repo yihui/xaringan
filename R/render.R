@@ -13,6 +13,15 @@
 #' @param lib_dir A directory name for HTML dependencies.
 #' @param title_slide Whether to generate a title slide automatically using the
 #'   YAML metadata of the R Markdown document.
+#' @param yolo Whether to insert the
+#'   \href{https://kbroman.wordpress.com/2014/08/28/the-mustache-photo/}{Mustache
+#'    Karl (TM)} randomly in the slides. \code{TRUE} means insert his picture on
+#'   one slide, and if you want him to be on multiple slides, set \code{yolo} to
+#'   a positive integer or a percentage (e.g. 0.3 means 30\% of your slides will
+#'   be the Mustache Karl). Alternatively, \code{yolo} can also be a list of the
+#'   form \code{list(times = n, img = path)}: \code{n} is the number of times to
+#'   show an image, and \code{path} is the path to an image (by default, it is
+#'   Karl).
 #' @param chakra A path to the remark.js library (can be either local or
 #'   remote).
 #' @param nature (Nature transformation) A list of configurations to be passed
@@ -22,12 +31,14 @@
 #'   (the number of milliseconds) so the slides will be played every
 #'   \code{autoplay} seconds.
 #' @param ... Arguments passed to \code{moon_reader()}.
+#' @note Do not stare at Karl's picture for too long after you turn on the
+#'   \code{yolo} mode. I believe he has Sharingan.
 #' @references \url{http://naruto.wikia.com/wiki/Tsukuyomi}
 #' @importFrom htmltools tagList tags htmlEscape HTML
 #' @export
 moon_reader = function(
   fig_width = 7, fig_height = 5, dev = 'png', css = 'default',
-  lib_dir = 'libs', title_slide = FALSE,
+  lib_dir = 'libs', title_slide = FALSE, yolo = FALSE,
   chakra = 'https://remarkjs.com/downloads/remark-latest.min.js', nature = list()
 ) {
   deps = if (identical(css, 'default')) {
@@ -55,7 +66,7 @@ moon_reader = function(
     ) {
       res = split_yaml_body(input_file)
       writeUTF8(res$yaml, input_file)
-      writeUTF8(htmlEscape(res$body), tmp_md)
+      writeUTF8(htmlEscape(yolofy(res$body, yolo)), tmp_md)
       if (title_slide) c('--variable', 'title-slide=true')
     },
     base_format = rmarkdown::html_document(

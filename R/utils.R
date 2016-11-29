@@ -51,3 +51,32 @@ split_yaml_body = function(file) {
     list(yaml = x[i[1]:i[2]], body = if (i[2] == n) character() else x[(i[2] + 1):n])
   }
 }
+
+karl = 'https://github.com/yihui/xaringan/releases/download/v0.0.2/karl-moustache.jpg'
+
+yolo = function(img = karl, ...) {
+  knitr::include_graphics(img, ...)
+}
+
+yolofy = function(x, config) {
+  if (!is.list(config)) config = list(times = config, img = karl)
+  n = as.numeric(config$times); img = config$img
+  if (!is.character(img)) img = karl
+  if (n <= 0) return(x)
+  i = grep('^---$', x)
+  b = sprintf('background-image: url(%s)', img)
+  if (length(i) == 0) return(c(x, '---', b))
+  if (n < 1) n = ceiling(n * length(i))
+  n = min(n, length(i))
+  j = sample2(i, n)
+  # randomly add Karl above or below a slide
+  x[j] = paste(c('---', b, '---'), collapse = '\n')
+  x
+}
+
+# sample() without surprise
+sample2 = function(x, size, ...) {
+  if (length(x) == 1) {
+    rep(x, size)  # should consider replace = FALSE in theory
+  } else sample(x, size, ...)
+}

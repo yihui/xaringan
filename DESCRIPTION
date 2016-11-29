@@ -1,7 +1,7 @@
 Package: xaringan
 Type: Package
 Title: Presentation Ninja
-Version: 0.0.1
+Version: 0.0.2
 Authors@R: c(
     person("Yihui", "Xie", role = c("aut", "cre"), email = "xie@yihui.name")
     )

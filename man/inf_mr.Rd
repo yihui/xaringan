@@ -16,3 +16,10 @@ active document is used).}
 Use the \pkg{servr} package to serve and reload slides on change.
 \code{inf_mr()} is an alias of \code{infinite_moon_reader()}.
 }
+\details{
+The Rmd document is compiled continuously to trap the world in the Infinite
+Tsukuyomi.
+}
+\references{
+\url{http://naruto.wikia.com/wiki/Infinite_Tsukuyomi}
+}

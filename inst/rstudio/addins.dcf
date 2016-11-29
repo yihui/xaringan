@@ -1,0 +1,4 @@
+Name: Infinite Moon Reader
+Description: Run xaringan::infinite_moon_reader() to live preview slides.
+Binding: inf_mr
+Interactive: true

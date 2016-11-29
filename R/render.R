@@ -14,8 +14,11 @@
 #'   remote).
 #' @param nature (Nature transformation) A list of configurations to be passed
 #'   to \code{remark.create()}, e.g. \code{list(ratio = '16:9')}; see
-#'   \url{https://github.com/gnab/remark/wiki/Configuration}.
-#' @importFrom htmltools tagList tags htmlEscape
+#'   \url{https://github.com/gnab/remark/wiki/Configuration}. Besides the
+#'   options provided by remark.js, you can also set \code{autoplay} to a number
+#'   (the number of milliseconds) so the slides will be played every
+#'   \code{autoplay} seconds.
+#' @importFrom htmltools tagList tags htmlEscape HTML
 #' @export
 moon_reader = function(
   fig_width = 7, fig_height = 5, dev = 'png', css = 'default',
@@ -29,11 +32,15 @@ moon_reader = function(
   tmp_js = tempfile('xaringan', fileext = '.js')  # write JS config to this file
   tmp_md = tempfile('xaringan', fileext = '.md')  # store md content here (bypass Pandoc)
 
+  play_js = if (is.numeric(autoplay <- nature[['autoplay']]) && autoplay > 0)
+    sprintf('setInterval(function() {slideshow.gotoNextSlide();}, %d);', autoplay)
+  nature[['autoplay']] = NULL
+
   writeUTF8(as.character(tagList(
     tags$script(src = chakra),
-    tags$script(sprintf(
+    tags$script(HTML(paste(c(sprintf(
       'var slideshow = remark.create(%s);', if (length(nature)) tojson(nature) else ''
-    ))
+    ), play_js), collapse = '\n')))
   )), tmp_js)
   includes = rmarkdown::includes(before_body = tmp_md, after_body = tmp_js)
   rmarkdown::output_format(

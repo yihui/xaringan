@@ -83,7 +83,7 @@ infinite_moon_reader = function(input) {
     )
   }
   html = rebuild(input)  # render slides initially
-  servr::httw(dirname(input), init_path = basename(html), handler = rebuild)
+  servr::httw(dirname(input), initpath = basename(html), handler = rebuild)
 }
 
 #' @export

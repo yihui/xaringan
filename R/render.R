@@ -2,6 +2,9 @@
 #'
 #' This output format produces an HTML file that contains the Markdown source
 #' (knitted from R Markdown) and JavaScript code to render slides.
+#' \code{tsukuyomi()} is an alias of \code{moon_reader()}.
+#'
+#' Tsukuyomi is a genjutsu to trap the target in an illusion on eye contact.
 #' @param fig_width,fig_height,dev The figure width/height and graphical device
 #'   for R plots.
 #' @param css A vector of CSS file paths. A default CSS file is provided in this
@@ -18,6 +21,8 @@
 #'   options provided by remark.js, you can also set \code{autoplay} to a number
 #'   (the number of milliseconds) so the slides will be played every
 #'   \code{autoplay} seconds.
+#' @param ... Arguments passed to \code{moon_reader()}.
+#' @references \url{http://naruto.wikia.com/wiki/Tsukuyomi}
 #' @importFrom htmltools tagList tags htmlEscape HTML
 #' @export
 moon_reader = function(
@@ -61,12 +66,20 @@ moon_reader = function(
   )
 }
 
+#' @export
+#' @rdname moon_reader
+tsukuyomi = function(...) moon_reader(...)
+
 #' Serve and live reload slides
 #'
 #' Use the \pkg{servr} package to serve and reload slides on change.
 #' \code{inf_mr()} is an alias of \code{infinite_moon_reader()}.
+#'
+#' The Rmd document is compiled continuously to trap the world in the Infinite
+#' Tsukuyomi.
 #' @param input The input Rmd file path (if missing and in RStudio, the current
 #'   active document is used).
+#' @references \url{http://naruto.wikia.com/wiki/Infinite_Tsukuyomi}
 #' @export
 #' @rdname inf_mr
 infinite_moon_reader = function(input) {

@@ -19,4 +19,4 @@ The [remark.js Wiki](https://github.com/gnab/remark/wiki) contains detailed docu
 
 As the package title indicates, this package is designed for ninja. If you are a beginner of HTML/CSS, you may have to stick with the default CSS (which is not bad). The more you know about CSS, the more you can achieve with this package. The sky is your limit.
 
-Do not forget to try [the option `yolo: true`](https://github.com/yihui/xaringan/issues/1) under `xaringan::moon_reader` in the YAML metadata of your R Markdown document.
+Do not forget to try [the option `yolo: true`](https://github.com/yihui/xaringan/issues/1) under `xaringan::moon_reader` in the YAML metadata of your R Markdown document. Big thanks to [Karl Broman](http://slides.yihui.name/xaringan/karl.html)!

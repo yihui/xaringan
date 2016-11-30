@@ -98,3 +98,21 @@ protect_math = function(x) {
   })
   x
 }
+
+#' Summon remark.js to your local disk
+#'
+#' Download a version of the remark.js script to your local disk, so you can
+#' render slides offline. You need to change the \code{chakra} argument of
+#' \code{\link{moon_reader}()} after downloading remark.js.
+#' @param version The version of remark.js (e.g. \code{latest}, \code{0.13}, or
+#'   \code{0.14.1}).
+#' @param to The destination directory.
+#' @export
+summon_remark = function(version = 'latest', to = 'libs/') {
+  name = sprintf('remark-%s.min.js', version)
+  if (!utils::file_test('-d', to)) dir.create(to, recursive = TRUE)
+  download.file(
+    paste0('https://remarkjs.com/downloads/', name),
+    file.path(to, name)
+  )
+}

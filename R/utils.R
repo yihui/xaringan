@@ -80,3 +80,21 @@ sample2 = function(x, size, ...) {
     rep(x, size)  # should consider replace = FALSE in theory
   } else sample(x, size, ...)
 }
+
+protect_math = function(x) {
+  # replace $x$ with `\(x\)` (protect inline math in <code></code>)
+  m = gregexpr('(?<![`$])[$](?! )[^$]+?(?<! )[$](?![$])', x, perl = TRUE)
+  regmatches(x, m) = lapply(regmatches(x, m), function(z) {
+    if (length(z) == 0) return(z)
+    z = sub('^[$]', '`\\\\(', z)
+    z = sub('[$]$', '\\\\)`', z)
+    z
+  })
+  # replace $$x$$ with `$$x$$` (protect display math)
+  m = gregexpr('(?<!`)[$][$](?! )[^$]+?(?<! )[$][$]', x, perl = TRUE)
+  regmatches(x, m) = lapply(regmatches(x, m), function(z) {
+    if (length(z) == 0) return(z)
+    paste0('`', z, '`')
+  })
+  x
+}

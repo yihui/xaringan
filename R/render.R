@@ -66,8 +66,13 @@ moon_reader = function(
     ) {
       res = split_yaml_body(input_file)
       writeUTF8(res$yaml, input_file)
+      body = res$body
+      res$body = protect_math(body)
       writeUTF8(htmlEscape(yolofy(res$body, yolo)), tmp_md)
-      if (title_slide) c('--variable', 'title-slide=true')
+      c(
+        if (title_slide) c('--variable', 'title-slide=true'),
+        if (!identical(body, res$body)) c('--variable', 'math=true')
+      )
     },
     base_format = rmarkdown::html_document(
       fig_width = fig_width, fig_height = fig_height, dev = dev, css = css,

@@ -1,3 +1,5 @@
+#' @import utils
+
 writeUTF8 = function(x, ...) writeLines(enc2utf8(x), ..., useBytes = TRUE)
 
 pkg_resource = function(...) system.file(

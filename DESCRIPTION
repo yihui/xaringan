@@ -10,7 +10,9 @@ Description: Create slideshows with R Markdown and the JavaScript library
 Imports:
     htmltools,
     servr,
+    knitr,
     rmarkdown
+Suggests: rstudioapi
 License: MIT
 URL: https://github.com/yihui/xaringan
 BugReports: https://github.com/yihui/xaringan/issues

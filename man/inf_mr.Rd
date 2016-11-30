@@ -4,12 +4,12 @@
 \alias{infinite_moon_reader}
 \title{Serve and live reload slides}
 \usage{
-infinite_moon_reader(input)
+infinite_moon_reader(moon)
 
-inf_mr(input)
+inf_mr(moon)
 }
 \arguments{
-\item{input}{The input Rmd file path (if missing and in RStudio, the current
+\item{moon}{The input Rmd file path (if missing and in RStudio, the current
 active document is used).}
 }
 \description{

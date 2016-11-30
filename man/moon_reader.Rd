@@ -4,8 +4,8 @@
 \alias{tsukuyomi}
 \title{An R Markdown output format for remark.js slides}
 \usage{
-moon_reader(fig_width = 7, fig_height = 5, dev = "png", css = "default", 
-    lib_dir = "libs", title_slide = FALSE, yolo = FALSE, 
+moon_reader(fig_width = 7, fig_height = 5, dev = "png", 
+    css = "default", lib_dir = "libs", seal = FALSE, yolo = FALSE, 
     chakra = "https://remarkjs.com/downloads/remark-latest.min.js", 
     nature = list())
 
@@ -21,8 +21,8 @@ package for minimal styling (borrowed from
 
 \item{lib_dir}{A directory name for HTML dependencies.}
 
-\item{title_slide}{Whether to generate a title slide automatically using the
-YAML metadata of the R Markdown document.}
+\item{seal}{Whether to generate a title slide automatically using the YAML
+metadata of the R Markdown document.}
 
 \item{yolo}{Whether to insert the
 \href{https://kbroman.wordpress.com/2014/08/28/the-mustache-photo/}{Mustache

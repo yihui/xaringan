@@ -4,8 +4,8 @@ subtitle: "⚔<br/>with xaringan"
 author: "Yihui Xie"
 date: "2016/11/28"
 output:
-  xaringan::moon_reader: 
-    title_slide: yes
+  xaringan::moon_reader:
+    seal: yes
     nature:
       highlightStyle: github
 ---

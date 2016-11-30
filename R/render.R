@@ -11,8 +11,8 @@
 #'   package for minimal styling (borrowed from
 #'   \url{https://github.com/gnab/remark/wiki}).
 #' @param lib_dir A directory name for HTML dependencies.
-#' @param title_slide Whether to generate a title slide automatically using the
-#'   YAML metadata of the R Markdown document.
+#' @param seal Whether to generate a title slide automatically using the YAML
+#'   metadata of the R Markdown document.
 #' @param yolo Whether to insert the
 #'   \href{https://kbroman.wordpress.com/2014/08/28/the-mustache-photo/}{Mustache
 #'    Karl (TM)} randomly in the slides. \code{TRUE} means insert his picture on
@@ -38,7 +38,7 @@
 #' @export
 moon_reader = function(
   fig_width = 7, fig_height = 5, dev = 'png', css = 'default',
-  lib_dir = 'libs', title_slide = FALSE, yolo = FALSE,
+  lib_dir = 'libs', seal = FALSE, yolo = FALSE,
   chakra = 'https://remarkjs.com/downloads/remark-latest.min.js', nature = list()
 ) {
   deps = if (identical(css, 'default')) {
@@ -70,7 +70,7 @@ moon_reader = function(
       res$body = protect_math(body)
       writeUTF8(htmlEscape(yolofy(res$body, yolo)), tmp_md)
       c(
-        if (title_slide) c('--variable', 'title-slide=true'),
+        if (seal) c('--variable', 'title-slide=true'),
         if (!identical(body, res$body)) c('--variable', 'math=true')
       )
     },
@@ -93,33 +93,33 @@ tsukuyomi = function(...) moon_reader(...)
 #'
 #' The Rmd document is compiled continuously to trap the world in the Infinite
 #' Tsukuyomi.
-#' @param input The input Rmd file path (if missing and in RStudio, the current
+#' @param moon The input Rmd file path (if missing and in RStudio, the current
 #'   active document is used).
 #' @references \url{http://naruto.wikia.com/wiki/Infinite_Tsukuyomi}
 #' @export
 #' @rdname inf_mr
-infinite_moon_reader = function(input) {
+infinite_moon_reader = function(moon) {
   # when this function is called via the RStudio addin, use the dir of the
   # current active document
-  if (missing(input) && requireNamespace('rstudioapi', quietly = TRUE)) {
+  if (missing(moon) && requireNamespace('rstudioapi', quietly = TRUE)) {
     context_fun = tryCatch(
       getFromNamespace('rstudioapi', 'getSourceEditorContext'),
       error = function(e) rstudioapi::getActiveDocumentContext
     )
-    input = context_fun()[['path']]
-    if (is.null(input)) stop('Cannot find the current active document in RStudio')
-    if (!grepl('[.]R?md', input, ignore.case = TRUE)) stop(
+    moon = context_fun()[['path']]
+    if (is.null(moon)) stop('Cannot find the current active document in RStudio')
+    if (!grepl('[.]R?md', moon, ignore.case = TRUE)) stop(
       'The current active document must be an R Markdown or Markdown document'
     )
   }
-  input = normalizePath(input, mustWork = TRUE)
+  moon = normalizePath(moon, mustWork = TRUE)
   rebuild = function(...) {
-    if (input %in% normalizePath(c(...))) rmarkdown::render(
-      input, 'xaringan::moon_reader', envir = globalenv()
+    if (moon %in% normalizePath(c(...))) rmarkdown::render(
+      moon, 'xaringan::moon_reader', envir = globalenv()
     )
   }
-  html = rebuild(input)  # render slides initially
-  servr::httw(dirname(input), initpath = basename(html), handler = rebuild)
+  html = rebuild(moon)  # render slides initially
+  servr::httw(dirname(moon), initpath = basename(html), handler = rebuild)
 }
 
 #' @export

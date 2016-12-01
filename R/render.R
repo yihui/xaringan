@@ -30,7 +30,8 @@
 #'   options provided by remark.js, you can also set \code{autoplay} to a number
 #'   (the number of milliseconds) so the slides will be played every
 #'   \code{autoplay} seconds.
-#' @param ... Arguments passed to \code{moon_reader()}.
+#' @param ... For \code{tsukuyomi()}, arguments passed to \code{moon_reader()};
+#'   for \code{moon_reader()}, ignored.
 #' @note Do not stare at Karl's picture for too long after you turn on the
 #'   \code{yolo} mode. I believe he has Sharingan.
 #' @references \url{http://naruto.wikia.com/wiki/Tsukuyomi}
@@ -39,7 +40,8 @@
 moon_reader = function(
   fig_width = 7, fig_height = 5, dev = 'png', css = 'default',
   lib_dir = 'libs', seal = FALSE, yolo = FALSE,
-  chakra = 'https://remarkjs.com/downloads/remark-latest.min.js', nature = list()
+  chakra = 'https://remarkjs.com/downloads/remark-latest.min.js', nature = list(),
+  ...
 ) {
   deps = if (identical(css, 'default')) {
     css = NULL
@@ -59,6 +61,10 @@ moon_reader = function(
     ), play_js), collapse = '\n')))
   )), tmp_js)
   includes = rmarkdown::includes(before_body = tmp_md, after_body = tmp_js)
+  # when rendering in shiny mode, this resolver will be replaced by a special
+  # resolver; see shiny_dependency_resolver in rmarkdown/R/shiny.R
+  dependency_resolver = list(...)[['dependency_resolver']]
+
   rmarkdown::output_format(
     NULL, NULL, clean_supporting = FALSE,
     pre_processor = function(
@@ -76,8 +82,10 @@ moon_reader = function(
     },
     base_format = rmarkdown::html_document(
       fig_width = fig_width, fig_height = fig_height, dev = dev, css = css,
-      includes = includes, lib_dir = lib_dir, self_contained = FALSE, theme = NULL,
-      highlight = NULL, extra_dependencies = deps, template = pkg_resource('default.html')
+      includes = includes, lib_dir = lib_dir, self_contained = FALSE,
+      theme = NULL, highlight = NULL, extra_dependencies = deps,
+      dependency_resolver = dependency_resolver,
+      template = pkg_resource('default.html')
     )
   )
 }

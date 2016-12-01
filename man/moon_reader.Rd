@@ -7,7 +7,7 @@
 moon_reader(fig_width = 7, fig_height = 5, dev = "png", 
     css = "default", lib_dir = "libs", seal = FALSE, yolo = FALSE, 
     chakra = "https://remarkjs.com/downloads/remark-latest.min.js", 
-    nature = list())
+    nature = list(), ...)
 
 tsukuyomi(...)
 }
@@ -44,7 +44,8 @@ options provided by remark.js, you can also set \code{autoplay} to a number
 (the number of milliseconds) so the slides will be played every
 \code{autoplay} seconds.}
 
-\item{...}{Arguments passed to \code{moon_reader()}.}
+\item{...}{For \code{tsukuyomi()}, arguments passed to \code{moon_reader()};
+for \code{moon_reader()}, ignored.}
 }
 \description{
 This output format produces an HTML file that contains the Markdown source

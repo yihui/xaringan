@@ -4,10 +4,10 @@
 \alias{tsukuyomi}
 \title{An R Markdown output format for remark.js slides}
 \usage{
-moon_reader(fig_width = 7, fig_height = 5, dev = "png", 
-    css = "default", lib_dir = "libs", seal = FALSE, yolo = FALSE, 
-    chakra = "https://remarkjs.com/downloads/remark-latest.min.js", 
-    nature = list(), ...)
+moon_reader(fig_width = 7, fig_height = 5, dev = "png", css = "default", 
+    self_contained = FALSE, lib_dir = "libs", seal = FALSE, yolo = FALSE, 
+    chakra = "https://remarkjs.com/downloads/remark-latest.min.js", nature = list(), 
+    ...)
 
 tsukuyomi(...)
 }
@@ -18,6 +18,12 @@ for R plots.}
 \item{css}{A vector of CSS file paths. A default CSS file is provided in this
 package for minimal styling (borrowed from
 \url{https://github.com/gnab/remark/wiki}).}
+
+\item{self_contained}{Whether to produce a self-contained HTML file. Please
+note local images that you inserted via the Markdown syntax
+\command{![](path/to/image)} will not be embedded into the HTML file when
+\code{self_contained = TRUE} (only CSS, JavaScript, and R plot files will
+be embedded).}
 
 \item{lib_dir}{A directory name for HTML dependencies.}
 

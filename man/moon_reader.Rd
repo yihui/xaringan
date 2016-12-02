@@ -19,11 +19,7 @@ for R plots.}
 package for minimal styling (borrowed from
 \url{https://github.com/gnab/remark/wiki}).}
 
-\item{self_contained}{Whether to produce a self-contained HTML file. Please
-note local images that you inserted via the Markdown syntax
-\command{![](path/to/image)} will not be embedded into the HTML file when
-\code{self_contained = TRUE} (only CSS, JavaScript, and R plot files will
-be embedded).}
+\item{self_contained}{Whether to produce a self-contained HTML file.}
 
 \item{lib_dir}{A directory name for HTML dependencies.}
 
@@ -44,7 +40,8 @@ Karl).}
 remote).}
 
 \item{nature}{(Nature transformation) A list of configurations to be passed
-to \code{remark.create()}, e.g. \code{list(ratio = '16:9')}; see
+to \code{remark.create()}, e.g. \code{list(ratio = '16:9', navigation =
+list(click = TRUE))}; see
 \url{https://github.com/gnab/remark/wiki/Configuration}. Besides the
 options provided by remark.js, you can also set \code{autoplay} to a number
 (the number of milliseconds) so the slides will be played every
@@ -64,6 +61,15 @@ Tsukuyomi is a genjutsu to trap the target in an illusion on eye contact.
 \note{
 Do not stare at Karl's picture for too long after you turn on the
   \code{yolo} mode. I believe he has Sharingan.
+
+  Local images that you inserted via the Markdown syntax
+  \command{![](path/to/image)} will not be embedded into the HTML file when
+  \code{self_contained = TRUE} (only CSS, JavaScript, and R plot files will
+  be embedded). You may also download remark.js (via
+  \code{\link{summon_remark}()}) and use a local copy instead of the default
+  \code{chakra} argument when \code{self_contained = TRUE}, because it may be
+  time-consuming for Pandoc to download remark.js each time you compile your
+  slides.
 }
 \references{
 \url{http://naruto.wikia.com/wiki/Tsukuyomi}

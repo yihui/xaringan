@@ -10,6 +10,11 @@
 #' @param css A vector of CSS file paths. A default CSS file is provided in this
 #'   package for minimal styling (borrowed from
 #'   \url{https://github.com/gnab/remark/wiki}).
+#' @param self_contained Whether to produce a self-contained HTML file. Please
+#'   note local images that you inserted via the Markdown syntax
+#'   \command{![](path/to/image)} will not be embedded into the HTML file when
+#'   \code{self_contained = TRUE} (only CSS, JavaScript, and R plot files will
+#'   be embedded).
 #' @param lib_dir A directory name for HTML dependencies.
 #' @param seal Whether to generate a title slide automatically using the YAML
 #'   metadata of the R Markdown document.
@@ -39,7 +44,7 @@
 #' @export
 moon_reader = function(
   fig_width = 7, fig_height = 5, dev = 'png', css = 'default',
-  lib_dir = 'libs', seal = FALSE, yolo = FALSE,
+  self_contained = FALSE, lib_dir = 'libs', seal = FALSE, yolo = FALSE,
   chakra = 'https://remarkjs.com/downloads/remark-latest.min.js', nature = list(),
   ...
 ) {
@@ -65,8 +70,14 @@ moon_reader = function(
   # resolver; see shiny_dependency_resolver in rmarkdown/R/shiny.R
   dependency_resolver = list(...)[['dependency_resolver']]
 
+  optk = list()
+
   rmarkdown::output_format(
-    NULL, NULL, clean_supporting = FALSE,
+    NULL, NULL, clean_supporting = self_contained,
+    pre_knit = function(...) {
+      optk <<- knitr::opts_knit$get()
+      if (self_contained) knitr::opts_knit$set(upload.fun = knitr::image_uri)
+    },
     pre_processor = function(
       metadata, input_file, runtime, knit_meta, files_dir, output_dir
     ) {
@@ -80,9 +91,13 @@ moon_reader = function(
         if (!identical(body, res$body)) c('--variable', 'math=true')
       )
     },
+    on_exit = function() {
+      unlink(c(tmp_md, tmp_js))
+      if (self_contained) knitr::opts_knit$restore(optk)
+    },
     base_format = rmarkdown::html_document(
       fig_width = fig_width, fig_height = fig_height, dev = dev, css = css,
-      includes = includes, lib_dir = lib_dir, self_contained = FALSE,
+      includes = includes, lib_dir = lib_dir, self_contained = self_contained,
       theme = NULL, highlight = NULL, extra_dependencies = deps,
       dependency_resolver = dependency_resolver,
       template = pkg_resource('default.html')

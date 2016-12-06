@@ -1,4 +1,4 @@
-# xaringan
+# xaringan [ʃæ.'riŋ.ɡæn]
 
 [![Build Status](https://travis-ci.org/yihui/xaringan.svg)](https://travis-ci.org/yihui/xaringan)
 

@@ -71,10 +71,14 @@ moon_reader = function(
       'var slideshow = remark.create(%s);', if (length(nature)) tojson(nature) else ''
     ), play_js), collapse = '\n')))
   )), tmp_js)
-  includes = rmarkdown::includes(before_body = tmp_md, after_body = tmp_js)
+
+  extra = list(...)
+  includes = extra[['includes']]; if (length(includes) == 0) includes = list()
+  includes$before_body = tmp_md; includes$after_body = c(tmp_js, includes$after_body)
+
   # when rendering in shiny mode, this resolver will be replaced by a special
   # resolver; see shiny_dependency_resolver in rmarkdown/R/shiny.R
-  dependency_resolver = list(...)[['dependency_resolver']]
+  dependency_resolver = extra[['dependency_resolver']]
 
   optk = list()
 

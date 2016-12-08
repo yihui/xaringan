@@ -5,15 +5,13 @@
 #' \code{tsukuyomi()} is an alias of \code{moon_reader()}.
 #'
 #' Tsukuyomi is a genjutsu to trap the target in an illusion on eye contact.
-#' @param fig_width,fig_height,dev The figure width/height and graphical device
-#'   for R plots.
 #' @param css A vector of CSS file paths. A default CSS file is provided in this
 #'   package for minimal styling (borrowed from
 #'   \url{https://github.com/gnab/remark/wiki}).
 #' @param self_contained Whether to produce a self-contained HTML file.
-#' @param lib_dir A directory name for HTML dependencies.
 #' @param seal Whether to generate a title slide automatically using the YAML
-#'   metadata of the R Markdown document.
+#'   metadata of the R Markdown document (if \code{FALSE}, you should write the
+#'   title slide by yourself).
 #' @param yolo Whether to insert the
 #'   \href{https://kbroman.wordpress.com/2014/08/28/the-mustache-photo/}{Mustache
 #'    Karl (TM)} randomly in the slides. \code{TRUE} means insert his picture on
@@ -33,7 +31,8 @@
 #'   (the number of milliseconds) so the slides will be played every
 #'   \code{autoplay} seconds.
 #' @param ... For \code{tsukuyomi()}, arguments passed to \code{moon_reader()};
-#'   for \code{moon_reader()}, ignored.
+#'   for \code{moon_reader()}, arguments passed to
+#'   \code{rmarkdown::\link{html_document}()}.
 #' @note Do not stare at Karl's picture for too long after you turn on the
 #'   \code{yolo} mode. I believe he has Sharingan.
 #'
@@ -49,8 +48,7 @@
 #' @importFrom htmltools tagList tags htmlEscape HTML
 #' @export
 moon_reader = function(
-  fig_width = 7, fig_height = 5, dev = 'png', css = 'default',
-  self_contained = FALSE, lib_dir = 'libs', seal = FALSE, yolo = FALSE,
+  css = 'default', self_contained = FALSE, seal = TRUE, yolo = FALSE,
   chakra = 'https://remarkjs.com/downloads/remark-latest.min.js', nature = list(),
   ...
 ) {
@@ -72,13 +70,12 @@ moon_reader = function(
     ), play_js), collapse = '\n')))
   )), tmp_js)
 
-  extra = list(...)
-  includes = extra[['includes']]; if (length(includes) == 0) includes = list()
-  includes$before_body = tmp_md; includes$after_body = c(tmp_js, includes$after_body)
-
-  # when rendering in shiny mode, this resolver will be replaced by a special
-  # resolver; see shiny_dependency_resolver in rmarkdown/R/shiny.R
-  dependency_resolver = extra[['dependency_resolver']]
+  html_document2 = function(..., includes = list()) {
+    if (length(includes) == 0) includes = list()
+    includes$before_body = c(includes$before_body, tmp_md)
+    includes$after_body = c(tmp_js, includes$after_body)
+    rmarkdown::html_document(..., includes = includes)
+  }
 
   optk = list()
 
@@ -105,12 +102,9 @@ moon_reader = function(
       unlink(c(tmp_md, tmp_js))
       if (self_contained) knitr::opts_knit$restore(optk)
     },
-    base_format = rmarkdown::html_document(
-      fig_width = fig_width, fig_height = fig_height, dev = dev, css = css,
-      includes = includes, lib_dir = lib_dir, self_contained = self_contained,
-      theme = NULL, highlight = NULL, extra_dependencies = deps,
-      dependency_resolver = dependency_resolver,
-      template = pkg_resource('default.html')
+    base_format = html_document2(
+      css = css, self_contained = self_contained, theme = NULL, highlight = NULL,
+      extra_dependencies = deps, template = pkg_resource('default.html'), ...
     )
   )
 }

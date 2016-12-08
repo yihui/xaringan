@@ -2,4 +2,3 @@ name: Ninja Presentation
 description: >
   Create a presentation using the xaringan package based on remark.js.
 create_dir: false
-

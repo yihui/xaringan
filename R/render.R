@@ -6,8 +6,7 @@
 #'
 #' Tsukuyomi is a genjutsu to trap the target in an illusion on eye contact.
 #' @param css A vector of CSS file paths. A default CSS file is provided in this
-#'   package for minimal styling (borrowed from
-#'   \url{https://github.com/gnab/remark/wiki}).
+#'   package, which was borrowed from \url{https://remarkjs.com}.
 #' @param self_contained Whether to produce a self-contained HTML file.
 #' @param seal Whether to generate a title slide automatically using the YAML
 #'   metadata of the R Markdown document (if \code{FALSE}, you should write the

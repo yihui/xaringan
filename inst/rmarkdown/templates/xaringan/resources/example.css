@@ -2,7 +2,7 @@
 @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
 @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
 
-body { font-family: 'Droid Serif'; }
+body { font-family: 'Droid Serif', Georgia, "Microsoft YaHei", "Songti SC", serif; }
 h1, h2, h3 {
   font-family: 'Yanone Kaffeesatz';
   font-weight: normal;

@@ -1,5 +1,7 @@
-# xaringan [ʃæ.'riŋ.ɡæn]
+# xaringan
 
+[ʃæ.'riŋ.ɡæn]
+ 
 [![Build Status](https://travis-ci.org/yihui/xaringan.svg)](https://travis-ci.org/yihui/xaringan)
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Sharingan_triple.svg" align="right" alt="Sharingan" width="100" />

@@ -5,7 +5,7 @@ author: "Yihui Xie"
 date: "2016/11/28"
 output:
   xaringan::moon_reader:
-    seal: yes
+    lib_dir: libs
     nature:
       highlightStyle: github
 ---
@@ -41,6 +41,7 @@ Some bullet points:
 # R code
 
 ```{r comment='#'}
+# a boring regression
 fit = lm(dist ~ 1 + speed, data = cars)
 coef(summary(fit))
 dojutsu = c('地爆天星', '天照', '加具土命', '神威', '須佐能乎', '無限月読')

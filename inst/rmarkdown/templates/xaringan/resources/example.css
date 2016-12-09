@@ -53,3 +53,6 @@ a, a > code {
 .pull-right ~ * {
   clear: both;
 }
+img {
+  max-width: 100%;
+}

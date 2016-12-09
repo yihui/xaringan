@@ -1,10 +1,10 @@
 Package: xaringan
 Type: Package
 Title: Presentation Ninja
-Version: 0.0.5
+Version: 0.0.6
 Authors@R: c(
     person("Yihui", "Xie", role = c("aut", "cre"), email = "xie@yihui.name"),
-    person("Ole", "Bang", "Petter", role = "ctb", comment = "CSS in rmarkdown/templates/xaringan/resources/example.css")
+    person("Ole Petter", "Bang", role = "ctb", comment = "CSS in rmarkdown/templates/xaringan/resources/example.css")
     )
 Description: Create slideshows with R Markdown and the JavaScript library
     'remark' (http://remarkjs.com).

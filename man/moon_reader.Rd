@@ -4,27 +4,21 @@
 \alias{tsukuyomi}
 \title{An R Markdown output format for remark.js slides}
 \usage{
-moon_reader(fig_width = 7, fig_height = 5, dev = "png", css = "default", 
-    self_contained = FALSE, lib_dir = "libs", seal = FALSE, yolo = FALSE, 
+moon_reader(css = "default", self_contained = FALSE, seal = TRUE, yolo = FALSE, 
     chakra = "https://remarkjs.com/downloads/remark-latest.min.js", nature = list(), 
     ...)
 
 tsukuyomi(...)
 }
 \arguments{
-\item{fig_width, fig_height, dev}{The figure width/height and graphical device
-for R plots.}
-
 \item{css}{A vector of CSS file paths. A default CSS file is provided in this
-package for minimal styling (borrowed from
-\url{https://github.com/gnab/remark/wiki}).}
+package, which was borrowed from \url{https://remarkjs.com}.}
 
 \item{self_contained}{Whether to produce a self-contained HTML file.}
 
-\item{lib_dir}{A directory name for HTML dependencies.}
-
 \item{seal}{Whether to generate a title slide automatically using the YAML
-metadata of the R Markdown document.}
+metadata of the R Markdown document (if \code{FALSE}, you should write the
+title slide by yourself).}
 
 \item{yolo}{Whether to insert the
 \href{https://kbroman.wordpress.com/2014/08/28/the-mustache-photo/}{Mustache
@@ -48,7 +42,8 @@ options provided by remark.js, you can also set \code{autoplay} to a number
 \code{autoplay} seconds.}
 
 \item{...}{For \code{tsukuyomi()}, arguments passed to \code{moon_reader()};
-for \code{moon_reader()}, ignored.}
+for \code{moon_reader()}, arguments passed to
+\code{rmarkdown::\link{html_document}()}.}
 }
 \description{
 This output format produces an HTML file that contains the Markdown source

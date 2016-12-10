@@ -2,3 +2,6 @@
 ^\.Rproj\.user$
 ^\.travis\.yml$
 ^\.github$
+skeleton/libs$
+skeleton/skeleton\.html$
+skeleton/skeleton_files$

@@ -122,6 +122,7 @@ tsukuyomi = function(...) moon_reader(...)
 #' @param moon The input Rmd file path (if missing and in RStudio, the current
 #'   active document is used).
 #' @references \url{http://naruto.wikia.com/wiki/Infinite_Tsukuyomi}
+#' @seealso \code{servr::\link{httw}}
 #' @export
 #' @rdname inf_mr
 infinite_moon_reader = function(moon) {
@@ -134,8 +135,10 @@ infinite_moon_reader = function(moon) {
     )
     moon = context_fun()[['path']]
     if (is.null(moon)) stop('Cannot find the current active document in RStudio')
+    if (moon == '') stop('Please click the RStudio source editor first')
     if (!grepl('[.]R?md', moon, ignore.case = TRUE)) stop(
-      'The current active document must be an R Markdown or Markdown document'
+      'The current active document must be an R Markdown document. I saw "',
+      basename(moon), '".'
     )
   }
   moon = normalizePath(moon, mustWork = TRUE)

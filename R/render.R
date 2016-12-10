@@ -129,7 +129,7 @@ infinite_moon_reader = function(moon) {
   # current active document
   if (missing(moon) && requireNamespace('rstudioapi', quietly = TRUE)) {
     context_fun = tryCatch(
-      getFromNamespace('rstudioapi', 'getSourceEditorContext'),
+      getFromNamespace('getSourceEditorContext', 'rstudioapi'),
       error = function(e) rstudioapi::getActiveDocumentContext
     )
     moon = context_fun()[['path']]

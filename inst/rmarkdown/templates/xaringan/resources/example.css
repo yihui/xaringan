@@ -14,12 +14,13 @@ a, a > code {
 .footnote {
   position: absolute;
   bottom: 3em;
+  font-size: 90%;
 }
 .remark-code, .remark-inline-code { font-family: 'Source Code Pro'; }
 .remark-code-line-highlighted     { background-color: #373832; }
 
 .inverse {
-  background: #272822;
+  background-color: #272822;
   color: #777872;
   text-shadow: 0 0 20px #333;
 }

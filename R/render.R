@@ -6,7 +6,9 @@
 #'
 #' Tsukuyomi is a genjutsu to trap the target in an illusion on eye contact.
 #' @param css A vector of CSS file paths. A default CSS file is provided in this
-#'   package, which was borrowed from \url{https://remarkjs.com}.
+#'   package, which was borrowed from \url{https://remarkjs.com}. If the
+#'   character vector \code{css} contains the value \code{'default'}, the
+#'   default CSS will be used (e.g. \code{css = c('default', 'extra.css')}).
 #' @param self_contained Whether to produce a self-contained HTML file.
 #' @param seal Whether to generate a title slide automatically using the YAML
 #'   metadata of the R Markdown document (if \code{FALSE}, you should write the
@@ -51,8 +53,8 @@ moon_reader = function(
   chakra = 'https://remarkjs.com/downloads/remark-latest.min.js', nature = list(),
   ...
 ) {
-  deps = if (identical(css, 'default')) {
-    css = NULL
+  deps = if ('default' %in% css) {
+    css = setdiff(css, 'default')
     list(example_css())
   }
   tmp_js = tempfile('xaringan', fileext = '.js')  # write JS config to this file

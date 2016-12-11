@@ -12,7 +12,9 @@ tsukuyomi(...)
 }
 \arguments{
 \item{css}{A vector of CSS file paths. A default CSS file is provided in this
-package, which was borrowed from \url{https://remarkjs.com}.}
+package, which was borrowed from \url{https://remarkjs.com}. If the
+character vector \code{css} contains the value \code{'default'}, the
+default CSS will be used (e.g. \code{css = c('default', 'extra.css')}).}
 
 \item{self_contained}{Whether to produce a self-contained HTML file.}
 

@@ -23,3 +23,6 @@ Tsukuyomi.
 \references{
 \url{http://naruto.wikia.com/wiki/Infinite_Tsukuyomi}
 }
+\seealso{
+\code{servr::\link{httw}}
+}

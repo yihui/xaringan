@@ -17,7 +17,7 @@ a, a > code {
   font-size: 90%;
 }
 .remark-code, .remark-inline-code { font-family: 'Source Code Pro'; }
-.remark-code-line-highlighted     { background-color: #373832; }
+.remark-code-line-highlighted     { background-color: #ffff88; }
 
 .inverse {
   background-color: #272822;

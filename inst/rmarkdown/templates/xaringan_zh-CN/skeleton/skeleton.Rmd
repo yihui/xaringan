@@ -57,7 +57,7 @@ if (!requireNamespace("xaringan"))
 
 --
 
-- 或者点击 [RStudio 插件](https://rstudio.github.io/rstudioaddins/)<sup>*</sup> “Infinite Moon Reader” 在 RStudio 里实时预览你的幻灯片（每次你保存文档的时候，它会自动重新编译）；
+- 或者点击 [RStudio 插件](https://rstudio.github.io/rstudioaddins/)<sup>*</sup> “Infinite Moon Reader” 在 RStudio 里实时预览幻灯片（每次你保存文档的时候，它会自动重新编译）；
 
 .footnote[[*] 如果你看不到模板或者插件，请参见 [#2](https://github.com/yihui/xaringan/issues/2)，你的某些 R 包可能崩坏了，需要重新安装。]
 
@@ -76,7 +76,7 @@ class: center, bottom, inverse
 
 忍者不会停留在“你好世界”里，要用好这个 R 包，你需要了解：
 
-1. JavaScript 库 [remark.js](https://remarkjs.com) 的用法；
+1. JavaScript 库 [remark.js](https://remarkjs.com) 的语法；
 
 1. **xaringan** 包中的选项;
 
@@ -86,7 +86,7 @@ class: center, bottom, inverse
 
 # remark.js
 
-关于 remark.js 的用法可参考它的[首页](https://remarkjs.com)，由于伟大的墙，你可能打不开这个页面（因为里面用了 Google 字体）。不过 [remark.js 的维基页面](https://github.com/gnab/remark/wiki) 已经有足够的信息了，你应该了解：
+关于 remark.js 的用法可参考它的[首页](https://remarkjs.com)，由于伟大的墙，你可能打不开这个页面（因为里面用了 Google 字体）。不过 [remark.js 的维基页面](https://github.com/gnab/remark/wiki) 已经有足够的信息了，你需要学习：
 
 - 如何创建一页新的片子，主要是 Markdown 语法<sup>*</sup> 以及单页片子的属性设置；
 
@@ -163,7 +163,7 @@ remark.js （左）与 **xaringan** （右）：
 
 1. 用 `{{}}` 高亮一行代码;
 
-1. 用 RStudio 插件“Infinite Moon Reader” 自动预览幻灯片；
+1. 用 RStudio 插件“Infinite Moon Reader”自动预览幻灯片；
 ]
 
 .footnote[[*] 下一页有数学公式例子。]

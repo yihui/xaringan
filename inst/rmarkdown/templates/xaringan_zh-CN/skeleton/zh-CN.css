@@ -1,6 +1,8 @@
-body { font-family: 'Droid Serif', Georgia, "Microsoft YaHei", "Songti SC", serif; }
+@import url(https://fonts.useso.com/css?family=Yanone+Kaffeesatz);
+
+body { font-family: 'Droid Serif', 'Palatino Linotype', 'Book Antiqua', Palatino, 'Songti SC', serif; }
 h1, h2, h3 {
-  font-family: 'Yanone Kaffeesatz', "STHeiti";
+  font-family: 'Yanone Kaffeesatz', 'Palatino Linotype', 'Book Antiqua', Palatino, 'STHeiti', 'SimHei', 'Microsoft YaHei';
   font-weight: normal;
 }
 a, a > code {
@@ -12,7 +14,7 @@ a, a > code {
   bottom: 3em;
   font-size: 90%;
 }
-.remark-code, .remark-inline-code { font-family: 'Source Code Pro'; }
+.remark-code, .remark-inline-code { font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace; }
 .remark-code-line-highlighted     { background-color: #ffff88; }
 
 .inverse {

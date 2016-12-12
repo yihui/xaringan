@@ -80,9 +80,26 @@ moon_reader = function(
   }
 
   optk = list()
+  hook_highlight = if (isTRUE(nature$highlightLines)) {
+    # an ugly way to access the `source` hook of markdown output in knitr
+    hook_source = local({
+      ohooks = knitr::knit_hooks$get(); on.exit(knitr::knit_hooks$restore(ohooks))
+      knitr::render_markdown()
+      knitr::knit_hooks$get('source')
+    })
+
+    function(x, options) {
+      res = hook_source(x, options)
+      # replace {{code}} with *code so that this line can be highlighted
+      gsub('(^|\n)([ \t]*)\\{\\{([^\n]+?)\\}\\}', '\\1\\2*\\3', res)
+    }
+  }
 
   rmarkdown::output_format(
-    NULL, NULL, clean_supporting = self_contained,
+    if (!is.null(hook_highlight)) {
+      rmarkdown::knitr_options(knit_hooks = list(source = hook_highlight))
+    },
+    NULL, clean_supporting = self_contained,
     pre_knit = function(...) {
       optk <<- knitr::opts_knit$get()
       if (self_contained) knitr::opts_knit$set(upload.fun = knitr::image_uri)

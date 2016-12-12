@@ -158,7 +158,9 @@ infinite_moon_reader = function(moon) {
     )
     moon = context_fun()[['path']]
     if (is.null(moon)) stop('Cannot find the current active document in RStudio')
-    if (moon == '') stop('Please click the RStudio source editor first')
+    if (moon == '') stop(
+      'Please click the RStudio source editor first, or save the current document'
+    )
     if (!grepl('[.]R?md', moon, ignore.case = TRUE)) stop(
       'The current active document must be an R Markdown document. I saw "',
       basename(moon), '".'

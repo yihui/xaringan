@@ -20,6 +20,11 @@ Use the \pkg{servr} package to serve and reload slides on change.
 The Rmd document is compiled continuously to trap the world in the Infinite
 Tsukuyomi.
 }
+\note{
+This function is not really tied to the output format
+  \code{\link{moon_reader}()}. You can use it to serve any single-HTML-file R
+  Markdown output.
+}
 \references{
 \url{http://naruto.wikia.com/wiki/Infinite_Tsukuyomi}
 }

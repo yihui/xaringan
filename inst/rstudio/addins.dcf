@@ -1,4 +1,5 @@
 Name: Infinite Moon Reader
-Description: Run xaringan::infinite_moon_reader() to live preview slides.
+Description: Run xaringan::infinite_moon_reader() to live preview slides or any
+    single-HTML-file R Markdown output.
 Binding: inf_mr
 Interactive: true

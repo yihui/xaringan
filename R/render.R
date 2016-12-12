@@ -142,6 +142,9 @@ tsukuyomi = function(...) moon_reader(...)
 #' @param moon The input Rmd file path (if missing and in RStudio, the current
 #'   active document is used).
 #' @references \url{http://naruto.wikia.com/wiki/Infinite_Tsukuyomi}
+#' @note This function is not really tied to the output format
+#'   \code{\link{moon_reader}()}. You can use it to serve any single-HTML-file R
+#'   Markdown output.
 #' @seealso \code{servr::\link{httw}}
 #' @export
 #' @rdname inf_mr
@@ -164,7 +167,7 @@ infinite_moon_reader = function(moon) {
   moon = normalizePath(moon, mustWork = TRUE)
   rebuild = function(...) {
     if (moon %in% normalizePath(c(...))) rmarkdown::render(
-      moon, 'xaringan::moon_reader', envir = globalenv()
+      moon, envir = globalenv()
     )
   }
   html = rebuild(moon)  # render slides initially

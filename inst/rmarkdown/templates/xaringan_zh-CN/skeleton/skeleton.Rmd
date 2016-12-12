@@ -1,0 +1,439 @@
+---
+title: "幻灯忍者"
+subtitle: "写轮眼"
+author: "谢益辉"
+date: "2016/12/12"
+output:
+  xaringan::moon_reader:
+    css: zh-CN.css
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+background-image: url(https://upload.wikimedia.org/wikipedia/commons/b/be/Sharingan_triple.svg)
+
+???
+
+图片来源：[Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sharingan_triple.svg)
+
+---
+class: center, middle
+
+# xaringan
+
+### /ʃæ.'riŋ.ɡæn/
+
+---
+class: inverse, center, middle
+
+# 出发！
+
+---
+
+# 你好世界
+
+首先从 [Github](https://github.com/yihui/xaringan) 安装 **xaringan** 包：
+
+```{r tidy=FALSE}
+if (!requireNamespace("xaringan"))
+  devtools::install_github("yihui/xaringan")
+```
+
+--
+
+除非你是六指琴魔，否则我建议安装 [RStudio 编辑器](https://www.rstudio.com/products/rstudio/)，它会让你做幻灯片做得飞起。
+
+- 从菜单 `File -> New File -> R Markdown -> From Template -> Ninja Presentation (Simplified Chinese)` 创建一个新文档；
+
+--
+
+- 点击 `Knit` 按钮编译文档；
+
+--
+
+- 或者点击 [RStudio 插件](https://rstudio.github.io/rstudioaddins/)<sup>*</sup> “Infinite Moon Reader” 在 RStudio 里实时预览你的幻灯片（每次你保存文档的时候，它会自动重新编译）；
+
+.footnote[[*] 如果你看不到模板或者插件，请参见 [#2](https://github.com/yihui/xaringan/issues/2)，你的某些 R 包可能崩坏了，需要重新安装。]
+
+---
+background-image: url(`r xaringan:::karl`)
+background-position: 50% 50%
+class: center, bottom, inverse
+
+### 洛阳亲友如相问，请你不要告诉他
+
+（我是怎么做幻灯片的）
+
+---
+
+# 你好忍者
+
+忍者不会停留在“你好世界”里，要用好这个 R 包，你需要了解：
+
+1. JavaScript 库 [remark.js](https://remarkjs.com) 的用法；
+
+1. **xaringan** 包中的选项;
+
+**xaringan** 将 R Markdown 的查克拉注入了 **remark.js**。浏览器中的幻灯片是 remark.js 渲染出来的，而它的 Markdown 源文档是从 R Markdown 生成的（实际上主要是 **knitr**）。
+
+---
+
+# remark.js
+
+关于 remark.js 的用法可参考它的[首页](https://remarkjs.com)，由于伟大的墙，你可能打不开这个页面（因为里面用了 Google 字体）。不过 [remark.js 的维基页面](https://github.com/gnab/remark/wiki) 已经有足够的信息了，你应该了解：
+
+- 如何创建一页新的片子，主要是 Markdown 语法<sup>*</sup> 以及单页片子的属性设置；
+
+- 如何排版，例如文本对齐；
+
+- 如何设置整个幻灯片的选项（代码高亮样式之类的）；
+
+- 怎样播放幻灯片（快捷键，按 `h` 键基本就知道了）；
+
+
+.footnote[[*] 它和 Pandoc Markdown 语法不同，不过对做幻灯片而言，简单的语法可能也足够了。]
+
+---
+background-image: url(`r xaringan:::karl`)
+background-size: cover
+class: center, bottom, inverse
+
+### 唔，remark.js，朕很满意！
+
+---
+class: inverse, middle, center
+
+# xaringan 包的使用
+
+---
+
+# xaringan
+
+**xaringan** 包提供了一个 R Markdown 输出格式 `xaringan::moon_reader`，你可以在 R Markdown 文档的元数据中使用它，例：
+
+```yaml
+---
+title: "啧啧啧，厉害啊"
+author: "张三"
+date: "2016年12月12日"
+output:
+  xaringan::moon_reader
+    nature:
+      autoplay: 30000
+      highlightStyle: github
+---
+```
+
+欲知所有可能的选项，参见 R 帮助文档 `?xaringan::moon_reader`。
+
+---
+
+# remark.js 与 xaringan 的区别
+
+remark.js （左）与 **xaringan** （右）：
+
+.pull-left[
+1. 需要一个 HTML 容器文件；
+
+1. 只能用 Markdown；
+
+1. 若想自动播放幻灯片需要写 JavaScript；
+
+1. 需手工配置 MathJax；
+
+1. 用 `*` 高亮一行代码；
+
+1. 编辑 Markdown 之后需要刷新浏览器看结果；
+]
+
+.pull-right[
+1. 用 R Markdown 文档生成幻灯片；
+
+1. Markdown 里可以嵌入 R 代码；
+
+1. 可用 `autoplay` 选项自动播放；
+
+1. MathJax 无需特别配置；<sup>*</sup>
+
+1. 用 `{{}}` 高亮一行代码;
+
+1. 用 RStudio 插件“Infinite Moon Reader” 自动预览幻灯片；
+]
+
+.footnote[[*] 下一页有数学公式例子。]
+
+---
+
+# 数学公式
+
+数学公式用 LaTeX 语法写在一对美元符号中间，例如 &#36;\alpha+\beta$ 会生成 $\alpha+\beta$。若要将公式单独显示为一个段落，可以用一对双重美元符号：
+
+```
+$$ math $$
+```
+
+$$\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i$$
+
+局限性：
+
+1. 公式的源代码只能写在一行上，不能换行；
+
+1. 起始美元符号后以及结束美元符号前不能有空格，否则不会被识别为公式；
+
+---
+
+# R 代码
+
+```{r comment='#'}
+# 一个无聊的回归模型
+fit = lm(dist ~ 1 + speed, data = cars)
+coef(summary(fit))
+dojutsu = c('地爆天星', '天照', '加具土命', '神威', '須佐能乎', '無限月読')
+grep('天', dojutsu, value = TRUE)
+```
+
+---
+
+# R 图形
+
+```{r cars, fig.height=3.5, dev='svg'}
+par(mar = c(4, 4, 1, .1))
+plot(cars, pch = 19, col = 'darkgray', las = 1)
+abline(fit, lwd = 2)
+```
+
+---
+
+# HTML 控件
+
+我没有仔细测试 [HTML 控件](https://htmlwidgets.org)，祝你好运。下一页上有两个例子，一个地图，一个表格，目测貌似可用。
+
+目前也不支持 Shiny 模式（即 `runtime: shiny`）。还是别把你的幻灯片搞辣么复杂吧。
+
+---
+
+```{r out.width='100%', fig.height=6, eval=require('leaflet')}
+library(leaflet)
+leaflet() %>% addTiles() %>% setView(-93.65, 42.0285, zoom = 17)
+```
+
+---
+
+```{r eval=require('DT'), tidy=FALSE}
+DT::datatable(
+  head(iris, 10),
+  fillContainer = FALSE, options = list(pageLength = 5)
+)
+```
+
+---
+
+# 一些小技能
+
+- “Infinite Moon Reader”插件默认情况下会锁住你的 R 进程，有它没你，有你没它。你可以设置一个选项，让它一边儿凉快去：
+
+    ```r
+    options(servr.daemon = TRUE)
+    ```
+    
+    你可以把这个设置写在 `~/.Rprofile` 文件中，这样你将来所有 R 进程都不会被这个插件挡住去路。
+    
+    这事情背后的魔法在 [**servr**](https://github.com/yihui/servr) 包中。
+
+--
+
+- 别忘了玩一下 `yolo` 选项，如：
+
+    ```yaml
+    output:
+      xaringan::moon_reader:
+        yolo: 3
+    ```
+
+    它会随机显示 Karl Broman 的照片；这里地方太小，写不下故事的来龙去脉。
+
+---
+
+# 一些小技能
+
+- `nature` 下面的 `autoplay` 选项可以用来自动播放幻灯片，它的取值是毫秒，例如每 30 秒播放一张片子：
+
+    ```yaml
+    output:
+      xaringan::moon_reader:
+        nature:
+          autoplay: 30000
+    ```
+
+--
+
+- 选项 `highlightLines: true` 可以让以 `*` 开头或者双重大括号 `{{ }}` 里面的代码被高亮出来；
+
+    ```yaml
+    output:
+      xaringan::moon_reader:
+        nature:
+          highlightLines: true
+    ```
+
+    下一页我们举两个栗子。
+
+---
+
+# 一些小技能
+
+.pull-left[
+以 `*` 开头的代码：
+
+    ```r
+    if (TRUE) {
+    ** message("敲黑板！划重点！")
+    }
+    ```
+输出：
+```r
+if (TRUE) {
+* message("敲黑板！划重点！")
+}
+```
+
+因为它不是合法的 R 代码，所以不能作为 R 代码段来写，只能用三个反引号直接跟 r（就知道你没听懂）。
+]
+
+.pull-right[
+用 `{{}}` 包裹的代码：
+
+    `r ''````{r tidy=FALSE}
+    if (TRUE) {
+    *{{ message("敲黑板！划重点！") }}
+    }
+    ```
+输出：
+```{r tidy=FALSE}
+if (TRUE) {
+{{ message("敲黑板！划重点！") }}
+}
+```
+
+这是合法的 R 代码，所以你可以真的运行它。
+]
+
+---
+
+# CSS（层叠样式表）
+
+`xaringan::moon_reader` 的所有选项中，最强的魔法在 `css` 选项上，它是自定义幻灯片样式的关键。如果你不懂 CSS 的话，我强烈建议你学习一些 CSS 的基础知识。
+
+**xaringan** 包中的默认 CSS 文件在[这里](https://github.com/yihui/xaringan/blob/master/inst/rmarkdown/templates/xaringan/resources/example.css)，你可以在它的基础上改装，也可以直接定义全新的 CSS 样式。
+
+---
+
+# CSS（层叠样式表）
+
+举个栗子。比如你想将一段文字的颜色改为红色，你可以定义一个 CSSS 类，如：
+
+```css
+.red {
+  color: #FF0000;
+}
+```
+
+我们把这段代码保存在一个 CSS 文件中，如 `extra.css`（假设它跟你的 R Markdown 文件在同一文件夹下），然后通过 `css` 选项将它引入：
+
+```yaml
+output:
+  xaringan::moon_reader:
+    css: ["zh-CN.css", "extra.css"]
+```
+
+其中 `zh-CN.css` 是本包已经为你提供的 CSS 样式文件（你可选择用或不用）。
+
+现在在 R Markdown 中你就可以用 `.red[]` 来标记一段文字为红色，如 `.red[我是红色的]`。
+
+---
+
+# CSS（层叠样式表）
+
+如果想在墙内用 Google 字体的话，可以试试这个 [google-webfonts-helper](https://google-webfonts-helper.herokuapp.com/fonts) 应用，它会把字体下载到本地并生成相应的 CSS 文件。也可以考虑 360 的 [CDN 服务](http://libs.useso.com)。
+
+可惜中文不像英文，没有很新奇酷炫的网络字体，只能靠你电脑上的字体硬撑了。
+
+---
+class: inverse, middle, center
+background-image: url(https://upload.wikimedia.org/wikipedia/commons/3/39/Naruto_Shiki_Fujin.svg)
+background-size: contain
+
+# 火影忍者
+
+---
+background-image: url(https://upload.wikimedia.org/wikipedia/commons/b/be/Sharingan_triple.svg)
+background-size: 100px
+background-position: 90% 8%
+
+# 写轮眼
+
+**xaringan** 这个名字来源于火影中的写轮眼 **Sharingan**。<sup>1</sup> 写轮眼有两大能力：
+
+- 洞察眼
+
+- 催眠眼
+
+其实做演示就是将自己的洞见传递给听众；好的演讲通常有催眠效果，因为它可以深度震撼人心。<sup>2,3</sup>
+
+.footnote[
+[1] 我把 Sh 换成 X 了，因为几乎没有一个歪果仁读对过我的姓。当然主要原因还是 xaringan 搜索起来更容易被搜到。
+
+[2] 糟糕的演讲也可以催眠听众，但显然这两种催眠完全不同。
+
+[3] 我之所以选择了 remark.js 框架，就是因为它可以设置背景图。对我而言，在一页片子上整页显示一幅图最能表达震撼的视觉效果，现有的 R Markdown 幻灯片框架都缺乏这个功能，不开森。当时我发现 remark.js 之后真的是激动地不要不要的，等了一个月才抽出空来把这个包写出来。
+]
+
+---
+
+# 火影术语
+
+简单介绍一下这个包里那些奇怪的术语的由来：
+
+- [写轮眼](http://naruto.wikia.com/wiki/Sharingan)（包名，已解释）
+
+- [月读](http://naruto.wikia.com/wiki/Moon_Reader)（我希望这个 R Markdown 格式 `moon_reader` 能将听众控制在幻象中）
+
+- [查克拉](http://naruto.wikia.com/wiki/Chakra)（月读的参数之一 `chakra`，意思是 remark.js 的路径，它是支撑幻灯片的核心动力）
+
+- [性质变化](http://naruto.wikia.com/wiki/Nature_Transformation)（月读的参数之一 `nature`，意思是通过设置选项改变查克拉的性质）
+
+- [无限月读](http://naruto.wikia.com/wiki/Infinite_Tsukuyomi)（函数 `infinite_moon_reader()` 开启一个服务器不断刷新更新后的幻灯片，RStudio 插件背后对应的就是这个函数）
+
+- [通灵术](http://naruto.wikia.com/wiki/Summoning_Technique)（`summon_remark()` 从网络上把 remark.js 通灵到本地）
+
+月读这个忍术有点邪恶，不过你就当不知道吧。
+
+---
+
+# 结印
+
+使用本包单手就可以结印，按键 `h` 或者 `?` 之后就可以看见所有结印手势，例如 `p` 进入演讲者模式（可看见写给自己的注释，比如提醒自己要讲的笑话），`c` 复制幻灯片到新窗口；演讲时可以在自己面前的屏幕上显示演讲者模式，把新窗口中正常的幻灯片拖到大屏幕投影上给观众看。
+
+.center[![](https://upload.wikimedia.org/wikipedia/commons/7/7e/Mudra-Naruto-KageBunshin.svg)]
+
+???
+
+嗯，我们来讲一个不容易看懂的冷笑话。
+
+![](http://img-9gag-fun.9cache.com/photo/aKBrORN_700b.jpg)
+
+---
+
+class: center, middle
+
+# 蟹蟹
+
+本幻灯片由 R 包 [**xaringan**](https://github.com/yihui/xaringan) 生成；
+
+查克拉来自于 [remark.js](https://remarkjs.com)、[**knitr**](http://yihui.name/knitr)、以及 [R Markdown](https://rmarkdown.rstudio.com)。

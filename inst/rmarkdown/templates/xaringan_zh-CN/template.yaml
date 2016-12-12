@@ -1,0 +1,4 @@
+name: Ninja Presentation (Simplified Chinese)
+description: >
+  Create a presentation using the xaringan package based on remark.js.
+create_dir: true

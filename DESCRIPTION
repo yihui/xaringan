@@ -7,8 +7,8 @@ Authors@R: c(
     person("Yihui", "Xie", role = c("aut", "cre"), email = "xie@yihui.name"),
     person("Ole Petter", "Bang", role = "ctb", comment = "CSS in rmarkdown/templates/xaringan/resources/example.css")
     )
-Description: Create slideshows with R Markdown and the JavaScript library
-    'remark' (http://remarkjs.com).
+Description: Create HTML5 slides with R Markdown and the JavaScript library
+    'remark.js' (http://remarkjs.com).
 Imports:
     htmltools,
     knitr,

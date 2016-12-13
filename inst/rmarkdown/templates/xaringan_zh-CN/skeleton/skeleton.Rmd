@@ -330,13 +330,13 @@ if (TRUE) {
 
 `xaringan::moon_reader` 的所有选项中，最强的魔法在 `css` 选项上，它是自定义幻灯片样式的关键。如果你不懂 CSS 的话，我强烈建议你学习一些 CSS 的基础知识。
 
-**xaringan** 包中的默认 CSS 文件在[这里](https://github.com/yihui/xaringan/blob/master/inst/rmarkdown/templates/xaringan/resources/example.css)，你可以在它的基础上改装，也可以直接定义全新的 CSS 样式。
+对中文幻灯片，**xaringan** 包中的默认 CSS 文件在[这里](https://github.com/yihui/xaringan/blob/master/inst/rmarkdown/templates/xaringan_zh-CN/skeleton/zh-CN.css)，你可以在它的基础上改装，也可以直接定义全新的 CSS 样式。
 
 ---
 
 # CSS（层叠样式表）
 
-举个栗子。比如你想将一段文字的颜色改为红色，你可以定义一个 CSSS 类，如：
+举个栗子。比如你想将一段文字的颜色改为红色，你可以定义一个 CSS 类，如：
 
 ```css
 .red {

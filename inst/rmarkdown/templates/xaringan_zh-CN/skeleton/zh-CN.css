@@ -10,7 +10,7 @@ a, a > code {
   text-decoration: none;
 }
 .footnote {
-  position: absolute;
+  position: static;
   bottom: 3em;
   font-size: 90%;
 }

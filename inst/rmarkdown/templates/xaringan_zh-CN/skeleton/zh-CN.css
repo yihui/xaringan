@@ -12,6 +12,7 @@ a, a > code {
 .footnote {
   position: absolute;
   bottom: 3em;
+  padding-right: 4em;
   font-size: 90%;
 }
 .remark-code, .remark-inline-code { font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace; }

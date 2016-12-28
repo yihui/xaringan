@@ -72,11 +72,21 @@ moon_reader = function(
     play_js), collapse = '\n')))
   )), tmp_js)
 
-  html_document2 = function(..., includes = list()) {
+  html_document2 = function(
+    ..., includes = list(), mathjax = 'default', pandoc_args = NULL
+  ) {
     if (length(includes) == 0) includes = list()
     includes$before_body = c(includes$before_body, tmp_md)
     includes$after_body = c(tmp_js, includes$after_body)
-    rmarkdown::html_document(..., includes = includes)
+    if (identical(mathjax, 'local'))
+      stop("mathjax = 'local' does not work for moon_reader()")
+    if (!identical(mathjax, 'default')) {
+      pandoc_args = c(pandoc_args, '--variable', paste0('mathjax-url:', mathjax))
+      mathjax = NULL
+    }
+    rmarkdown::html_document(
+      ..., includes = includes, mathjax = mathjax, pandoc_args = pandoc_args
+    )
   }
 
   optk = list()

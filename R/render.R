@@ -120,7 +120,8 @@ moon_reader = function(
       res = split_yaml_body(input_file)
       writeUTF8(res$yaml, input_file)
       body = res$body
-      res$body = protect_math(body)
+      i = prose_index(body)
+      res$body[i] = protect_math(body[i])
       writeUTF8(htmlEscape(yolofy(res$body, yolo)), tmp_md)
       c(
         if (seal) c('--variable', 'title-slide=true'),

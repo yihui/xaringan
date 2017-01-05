@@ -2,6 +2,7 @@
 ^\.Rproj\.user$
 ^\.travis\.yml$
 ^\.github$
+^NEWS\.md$
 skeleton/libs$
 skeleton/skeleton\.html$
 skeleton/skeleton_files$

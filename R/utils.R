@@ -83,6 +83,19 @@ sample2 = function(x, size, ...) {
   } else sample(x, size, ...)
 }
 
+# filter out the lines between ``` ```
+prose_index = function(x) {
+  idx = seq_along(x)
+  fence = grep('^\\s*```', x)
+  if (length(fence) %% 2 != 0) {
+    # treat all lines as prose
+    warning('Code fences are not balanced'); return(idx)
+  }
+  idx2 = matrix(fence, nrow = 2)
+  idx2 = unlist(mapply(seq, idx2[1, ], idx2[2, ], SIMPLIFY = FALSE))
+  setdiff(idx, idx2)
+}
+
 protect_math = function(x) {
   # replace $x$ with `\(x\)` (protect inline math in <code></code>)
   m = gregexpr('(?<![`$])[$](?! )[^$]+?(?<! )[$](?![$])', x, perl = TRUE)

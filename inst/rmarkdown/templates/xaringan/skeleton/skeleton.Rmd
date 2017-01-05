@@ -174,7 +174,7 @@ Some differences between using remark.js (left) and using **xaringan** (right):
 You can write LaTeX math expressions inside a pair of dollar signs, e.g. &#36;\alpha+\beta$ renders $\alpha+\beta$. You can use the display style with double dollar signs:
 
 ```
-$$ math $$
+$$\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i$$
 ```
 
 $$\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i$$

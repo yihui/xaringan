@@ -8,10 +8,10 @@ env:
     - secure: S88flwk32PQH+0aTAZkByGYI0se/ZGaNbFyVGTC560PtuU7GHOoA5N1CR6i2gKIOyVjoTwAn7ijGNkNKaDvA+prGtwAgsR0VGgqyjO6Q86u9V2+yLCxwjRHB4WcpZ/BkLvaYH0WMkbFJ/+0peYNYG5a6fjsvphMBTN5/oYg6Vj4smNN5YXUMJgXDxM0/VUaEw4bJdTYajHmmFpz4j4L2FG5gunIgkAkGOIrUKLcQdczYm8jLzVtKSqoeXwTR0m3q/s1S1tpv6M1WGy2zjDTN5EUfCbWf1obxLLvomjddB3FhKRxNJ3y84gpdSKXsZa3DlR6LwbalTmbImvNicatawHAU9t2KoZJq7DvRFZvAulh9SKOznr0ot5FiY0a/T5ONI11bjNEAlGGiB+nL3h2GR/165P2/ILAVwjlSAx0dimlwLynf4indg0Csx/EVn/iSk8i64+LZIyW2OxLExcECeUbO0eMxlL2+jyeF+3I5rlw5k4WIMm8XKuzSYnaBuaJJ911Rrho8ZORXzujRZ49bWmWeBpYC5v/OrQN1oFVz1YGTwmx+zmW8UzY3MJw0uTRGhVqdkru02UnETUuJ5JODh10ZcebIc8CivS8yejXFifpIj9KuukmczFnnCvZhGcr2N295Rc6cwzzNwPuaw11XydWTP8XXpMauxX3Ip4roMcA=
 
 repos:
-  XRAN: http://yihui.name/xran
+  XRAN: https://yihui.name/xran
 
 before_install:
-  - "wget -q http://yihui.name/xran/.gitconfig -O ~/.gitconfig"
+  - "curl -L https://yihui.name/xran/.gitconfig -o ~/.gitconfig"
 
 after_success:
-  - "(wget -q -O - http://yihui.name/xran/r-xran | bash)"
+  - "(curl -L https://yihui.name/xran/r-xran | bash)"

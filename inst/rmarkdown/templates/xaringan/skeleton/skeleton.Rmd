@@ -185,6 +185,8 @@ Limitations:
 
 1. There should not be spaces after the opening `$` or before the closing `$`.
 
+If you are using the RStudio IDE, math expressions should be rendered even if you are offline.
+
 ---
 
 # R Code
@@ -326,9 +328,30 @@ It is valid R code so you can run it.
 
 ---
 
+# Some Tips
+
+- To make slides work offline, you need to download a copy of remark.js in advance, because **xaringan** uses the online version by default (see the help page `?xaringan::moon_reader`).
+
+- You can use `xaringan::summon_remark()` to download the latest or a specified version of remark.js. By default, it is downloaded to `libs/remark-latest.min.js`.
+
+- Then change the `chakra` option in YAML to point to this file, e.g.
+
+    ```yaml
+    output:
+      xaringan::moon_reader:
+        chakra: libs/remark-latest.min.js
+    ```
+
+- If you used Google fonts in slides (the default theme uses _Yanone Kaffeesatz_, _Droid Serif_, and _Source Code Pro_), they won't work offline unless you download or install them locally. The Heroku app [google-webfonts-helper](https://google-webfonts-helper.herokuapp.com/fonts) can help you download fonts and generate the necessary CSS.
+
+
+---
+
 # CSS
 
-Among all options in `xaringan::moon_reader`, the most challenging but perhaps also the most rewarding one is `css`, because it allows you to customize the appearance of your slides using any CSS rules or hacks you know. You can see the default CSS file [here](https://github.com/yihui/xaringan/blob/master/inst/rmarkdown/templates/xaringan/resources/example.css). You can completely replace it with your own CSS files, or define new rules to override the default.
+Among all options in `xaringan::moon_reader`, the most challenging but perhaps also the most rewarding one is `css`, because it allows you to customize the appearance of your slides using any CSS rules or hacks you know.
+
+You can see the default CSS file [here](https://github.com/yihui/xaringan/blob/master/inst/rmarkdown/templates/xaringan/resources/example.css). You can completely replace it with your own CSS files, or define new rules to override the default.
 
 ---
 
@@ -351,8 +374,6 @@ output:
 ```
 
 Here I assume `ubuntu-mono.css` is under the same directory as your Rmd.
-
-You can localize Google fonts via the Heroku app [google-webfonts-helper](https://google-webfonts-helper.herokuapp.com/fonts) so your slides also work offline.
 
 ---
 class: inverse, middle, center

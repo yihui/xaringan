@@ -175,7 +175,7 @@ remark.js （左）与 **xaringan** （右）：
 数学公式用 LaTeX 语法写在一对美元符号中间，例如 &#36;\alpha+\beta$ 会生成 $\alpha+\beta$。若要将公式单独显示为一个段落，可以用一对双重美元符号：
 
 ```
-$$ math $$
+$$ \bar{X}=\frac{1}{n}\sum_{i=1}^nX_i $$
 ```
 
 $$\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i$$

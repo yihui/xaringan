@@ -10,6 +10,8 @@
 
 - Skip fenced code blocks when detecting LaTeX math expressions, e.g. `$api$` in R code `session$api$plot <- ...` should not be treated as a math expression (thanks, @jcheng5).
 
+- Unicode characters can be rendered correctly on Windows now (thanks, @Lchiffon, #20).
+
 # CHANGES IN xaringan VERSION 0.1
 
 ## NEW FEATURES

@@ -14,8 +14,11 @@ Imports:
     knitr,
     servr (>= 0.5),
     rmarkdown
-Suggests: rstudioapi, testit
+Suggests: rstudioapi, testit,
+    knitr,
+    rmarkdown
 License: MIT + file LICENSE
 URL: https://github.com/yihui/xaringan
 BugReports: https://github.com/yihui/xaringan/issues
 RoxygenNote: 5.0.1
+VignetteBuilder: knitr

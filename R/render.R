@@ -122,7 +122,7 @@ moon_reader = function(
       body = res$body
       i = prose_index(body)
       res$body[i] = protect_math(body[i])
-      content = iconv(htmlEscape(yolofy(res$body, yolo)),"UTF-8","UTF-8")
+      content = iconv(htmlEscape(yolofy(res$body, yolo)), "UTF-8", "UTF-8")
       writeUTF8(content, tmp_md)
       c(
         if (seal) c('--variable', 'title-slide=true'),

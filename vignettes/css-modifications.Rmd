@@ -1,0 +1,209 @@
+---
+title: "CSS slide modifications"
+author: "Patrick Schratz"
+date: "`r Sys.Date()`"
+output: 
+  rmarkdown::html_vignette:
+    toc: true
+vignette: >
+  %\VignetteIndexEntry{css-modifications}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+*As most R users will not be familiar with CSS modifications, this vignette will show examples of basic slide modifications. They can be adapted and exented to your desires. However, you are still highly encouraged to familiarize yourself with `remark.js` and read the [Wiki](https://github.com/gnab/remark/wiki)!*  
+
+# Prerequisites
+
+To enable slide modifications, you need to specify a custom `.css` file in the YAML header of your `.Rmd` file.  
+Make sure to insert the relative path to the file if it is not placed in the same directory as your `.Rmd` file.   
+Your YAML header should look as follows:
+
+```YAML
+---
+title: "Presentation Ninja"
+subtitle: "⚔<br/>with xaringan"
+author: "Yihui Xie"
+date: "2016/12/12"
+output:
+  xaringan::moon_reader:
+    css: "my-theme.css"
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+---
+```
+
+In this example I assume that our file is named `my-theme.css`. If you want to specify multiple files and split up your CSS modifications, use square brackets: `css: ["my-theme.css", "my-font.css"]`.
+
+It is recommended to copy the default CSS `example.css` [(Link)](https://github.com/yihui/xaringan/blob/master/inst/rmarkdown/templates/xaringan/resources/example.css) and adapt this copy to your needs.
+
+# Changing fonts
+
+If you look into `example.css`, it comes with several predefined fonts for code: 
+
+```css
+.remark-code, .remark-inline-code { font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace; }
+```
+
+and for the body:
+
+```css
+body { font-family: 'Droid Serif', 'Palatino Linotype', 'Book Antiqua', Palatino, 'Microsoft YaHei', 'Songti SC', serif; }
+``` 
+
+For the headers, only `Yanone Kaffeesatz` is specified. This font is import from Google fonts (@`import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);`). 
+
+```css
+h1, h2, h3 {
+  font-family: 'Yanone Kaffeesatz';
+  font-weight: normal;
+}
+```
+
+If you want to change your code font to "Ubunto Mono", you can just search for that font on Google fonts, import it and set it in the specific code chunk: 
+
+```css
+@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+.remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+```
+
+You do not have to delete the predefined ones - if the first font specified does not work, fallback fonts are a good backup. 
+
+NOTE: If you are using `self_contained: true`, see [this](https://github.com/yihui/xaringan/issues/6https://github.com/yihui/xaringan/issues/6) issue when using custom fonts.
+
+
+# Title slide
+
+Most often you want to have a different style on your title slide. All slide styles in `remark.js` are defined by classes. The "title slide" class in not present in the default `example.css`. There, the title slide is based on the `.inverse` class.  
+All changes to class `.inverse` will hence affect your title slide AND all slides within your presentation which are based on the `.inverse` class. 
+Hence, you may want to seperate your title slide from the `.inverse` class. The class name to use is `.title-slide`. All settings applied to this class will only change the title slide. 
+
+## Background image
+
+To change the background image of the title slide insert the following in your `my-theme.css`:
+
+```css
+.title-slide {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/3/39/Naruto_Shiki_Fujin.svg);
+  background-size: cover;
+}
+```
+`background-size` takes care that your image is scaled to fit into the slide. 
+
+## Color and linespacing of headers
+
+You can also change the appearance of the headers for the title slide only:
+
+```css
+.title-slide h1 {
+  color: #F7F8FA;
+}
+.title-slide h2, .title-slide h3 {
+  color: #e7e8e2; 
+  line-height: 1.5em;
+}
+```
+
+In this example we set the same color for headers `h2` and `h3` (grey) while `h1` gets a different color (the same links are using).  
+You can change the linespacing if you have long headers using `line-height`. Default is `1.0em`. 
+
+Make sure to insert your `title.slide` block after the `.inverse` block - the latter one will always overwrite the first one. 
+
+## Removal of slide number
+
+Usually you do not want to have a slide number on your title slide. There is a specific class in `remark.js` responsible for the slide number. You can change the setting for `.title-slide` by setting `whatever` as a subclass of `.title-slide` and turn the particular setting off:
+
+```css
+.title-slide .whatever {
+  display: none;
+}
+```
+
+## Adjusting vertical space 
+
+Many title slide layouts use predefined blocks with different colours for main title, subtitle and author information etc. If you enter your information and the vertical space of `title`, `author` and `date` do not fit within your title slide layout, you have two options to adjust it:
+
+1. Add the `<br>` html tag right into your `title` field in the YAML header. This will add a defined vertical space to your chosen field. 
+
+2. Go to your specific title slide header, e.g. `title-slide h1{}` and change the margins:
+
+```css
+.title-slide h1{
+  text-shadow: none;
+  color: #F7F8FA;
+  margin-top: -70px;
+}
+```
+
+Setting `margin-top: -70px;` will reduce the vertical space of your header and move it more upwards. You can to the same with `margin-bottom`, `margin-right` or `margin-left`. 
+
+NOTE: Changing the margins of one header level may also have effects on other heading levels! 
+
+# Inline-code highlighting 
+
+By default no background for inline-code is specified. If you want to have the usual grey background for inline-code, add the following chunk to your css file:
+
+```css
+code {
+  /* background: #F5F5F5; /* lighter */
+  background: #e7e8e2; /* darker */
+  border-radius: 3px;
+  padding: 4px;
+} 
+```
+
+You can play around with `background` to find the best color for you. The example provides two types of grey. `border-radius` lets you control the rounding of the edges of the drawn box while `padding` specifies the size of the box. 
+
+# Link color
+
+Link color can be changed inside the `a, a > code` css chunk:
+
+```css
+a, a > code {
+  color: #FF1B70; /*default: rgb(249, 38, 114); || sets color of links */
+  text-decoration: none; /* turns off background coloring of links */
+}
+```
+
+By default, all links have a grey background - this can be turned off by using `text-decoration: none`. 
+
+# Slide layouts
+
+You can have one or more layouts serving for all/specific slides. By this you can give the presentation a personal touch. At the slide at which you want to start with the specific template, initialize an empty slide using `layout: true`. Provide a background image and you are good to go!
+
+```css
+layout: true
+
+background-image: url(http://oxinova.net/wp-content/uploads/2016/12/professional-powerpoint-templates-i2wpubdd.jpg)
+background-size: cover
+
+---
+
+# name of first slide
+```
+
+If you want to insert a break slide, just set `layout: false` and reinitialize your layout afterwards:
+
+```css
+---
+layout: false
+class: inverse, middle, center
+
+# Header of empty slide
+
+
+---
+
+layout: true
+
+background-image: url(http://oxinova.net/wp-content/uploads/2016/12/professional-powerpoint-templates-i2wpubdd.jpg)
+background-size: cover
+---
+
+# Slide with layout again
+```
+
+Simply add `class: inverse` if you want to use this class style for your break slide.

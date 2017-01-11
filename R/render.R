@@ -182,7 +182,7 @@ infinite_moon_reader = function(moon) {
   moon = normalizePath(moon, mustWork = TRUE)
   rebuild = function(...) {
     if (moon %in% normalizePath(c(...))) rmarkdown::render(
-      moon, envir = globalenv()
+      moon, envir = globalenv(), encoding = 'UTF-8'
     )
   }
   html = rebuild(moon)  # render slides initially

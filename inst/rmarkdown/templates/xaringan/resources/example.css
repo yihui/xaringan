@@ -58,3 +58,7 @@ a, a > code {
 img {
   max-width: 100%;
 }
+blockquote {
+  border-left: solid 5px lightgray;
+  padding-left: 1em;
+}

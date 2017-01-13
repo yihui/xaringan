@@ -22,7 +22,7 @@ a, a > code {
 
 .inverse {
   background-color: #272822;
-  color: #777872;
+  color: #d6d6d6;
   text-shadow: 0 0 20px #333;
 }
 .inverse h1, .inverse h2, .inverse h3 {

@@ -18,4 +18,5 @@ Suggests: rstudioapi, testit
 License: MIT + file LICENSE
 URL: https://github.com/yihui/xaringan
 BugReports: https://github.com/yihui/xaringan/issues
+VignetteBuilder: knitr
 RoxygenNote: 5.0.1

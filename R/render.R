@@ -5,6 +5,9 @@
 #' \code{tsukuyomi()} is an alias of \code{moon_reader()}.
 #'
 #' Tsukuyomi is a genjutsu to trap the target in an illusion on eye contact.
+#' If you are unfamiliar with CSS, please see the
+#' \href{https://github.com/yihui/xaringan/wiki}{xaringan wiki on Github}
+#' providing CSS slide modification examples.
 #' @param css A vector of CSS file paths. A default CSS file is provided in this
 #'   package, which was borrowed from \url{https://remarkjs.com}. If the
 #'   character vector \code{css} contains the value \code{'default'}, the

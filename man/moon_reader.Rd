@@ -54,6 +54,10 @@ This output format produces an HTML file that contains the Markdown source
 }
 \details{
 Tsukuyomi is a genjutsu to trap the target in an illusion on eye contact.
+
+If you are unfamiliar with CSS, please see the
+\href{https://github.com/yihui/xaringan/wiki}{xaringan wiki on Github}
+providing CSS slide modification examples.
 }
 \note{
 Do not stare at Karl's picture for too long after you turn on the

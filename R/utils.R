@@ -11,6 +11,10 @@ example_css = function() htmltools::htmlDependency(
   'remark-css', '0.0.1', pkg_resource(), stylesheet = 'example.css', all_files = FALSE
 )
 
+normalize_path = function(path) {
+  normalizePath(path, winslash = '/', mustWork = TRUE)
+}
+
 # a simple JSON serializer
 tojson = function(x) {
   if (is.null(x)) return('null')

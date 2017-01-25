@@ -155,9 +155,12 @@ tsukuyomi = function(...) moon_reader(...)
 #' \code{inf_mr()} is an alias of \code{infinite_moon_reader()}.
 #'
 #' The Rmd document is compiled continuously to trap the world in the Infinite
-#' Tsukuyomi.
+#' Tsukuyomi. The genjutsu is cast from the directory specified by
+#' \code{cast_from}, and the Rinne Sharingan will be reflected off of the
+#' \code{moon}.
 #' @param moon The input Rmd file path (if missing and in RStudio, the current
 #'   active document is used).
+#' @param cast_from The root directory of the server.
 #' @references \url{http://naruto.wikia.com/wiki/Infinite_Tsukuyomi}
 #' @note This function is not really tied to the output format
 #'   \code{\link{moon_reader}()}. You can use it to serve any single-HTML-file R
@@ -165,7 +168,7 @@ tsukuyomi = function(...) moon_reader(...)
 #' @seealso \code{servr::\link{httw}}
 #' @export
 #' @rdname inf_mr
-infinite_moon_reader = function(moon) {
+infinite_moon_reader = function(moon, cast_from = '.') {
   # when this function is called via the RStudio addin, use the dir of the
   # current active document
   if (missing(moon) && requireNamespace('rstudioapi', quietly = TRUE)) {
@@ -183,14 +186,25 @@ infinite_moon_reader = function(moon) {
       basename(moon), '".'
     )
   }
-  moon = normalizePath(moon, mustWork = TRUE)
+  moon = normalize_path(moon)
   rebuild = function(...) {
     if (moon %in% normalizePath(c(...))) rmarkdown::render(
       moon, envir = globalenv(), encoding = 'UTF-8'
     )
   }
-  html = rebuild(moon)  # render slides initially
-  servr::httw(dirname(moon), initpath = basename(html), handler = rebuild)
+  html = normalize_path(rebuild(moon))  # render slides initially
+  d = normalize_path(cast_from)
+  f = rmarkdown::relative_to(d, html)
+  # see if the html output file is under the dir cast_from
+  if (f == html) {
+    d = dirname(html)
+    f = basename(html)
+    warning(
+      "Cannot use '", cast_from, "' as the root directory of the server because ",
+      "the HTML output is not under this directory. Using '", d, "' instead."
+    )
+  }
+  servr::httw(d, initpath = f, handler = rebuild)
 }
 
 #' @export

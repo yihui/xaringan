@@ -121,9 +121,12 @@ escape_math = function(x) {
     if (length(z) == 0) return(z)
     paste0('`', z, '`')
   })
-  # if a line start or end with $$, treat it as math
-  x = gsub('^([$][$])([^ ]+)', '`\\1\\2', x, perl = TRUE)
-  x = gsub('([^ ])([$][$])$', '\\1\\2`', x, perl = TRUE)
+  # if a line start or end with $$, treat it as math under some conditions
+  i = !grepl('^[$].+[$]$', x)
+  if (any(i)) {
+    x[i] = gsub('^([$][$])([^ ]+)', '`\\1\\2', x[i], perl = TRUE)
+    x[i] = gsub('([^ ])([$][$])$', '\\1\\2`', x[i], perl = TRUE)
+  }
   x
 }
 

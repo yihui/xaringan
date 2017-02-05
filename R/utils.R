@@ -102,7 +102,7 @@ prose_index = function(x) {
 
 protect_math = function(x) {
   # replace $x$ with `\(x\)` (protect inline math in <code></code>)
-  m = gregexpr('(?<![`$])[$](?! )[^$]+?(?<! )[$](?![$])', x, perl = TRUE)
+  m = gregexpr('(?<![`$])[$](?! )[^$]+?(?<! )[$](?![$0123456789])', x, perl = TRUE)
   regmatches(x, m) = lapply(regmatches(x, m), function(z) {
     if (length(z) == 0) return(z)
     z = sub('^[$]', '`\\\\(', z)

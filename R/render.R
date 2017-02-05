@@ -123,9 +123,7 @@ moon_reader = function(
     ) {
       res = split_yaml_body(input_file)
       writeUTF8(res$yaml, input_file)
-      body = res$body
-      i = prose_index(body)
-      res$body[i] = protect_math(body[i])
+      res$body = protect_math(res$body)
       content = htmlEscape(yolofy(res$body, yolo))
       Encoding(content) = 'UTF-8'
       writeUTF8(content, tmp_md)

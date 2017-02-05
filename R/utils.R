@@ -101,6 +101,12 @@ prose_index = function(x) {
 }
 
 protect_math = function(x) {
+  i = prose_index(x)
+  if (length(i)) x[i] = escape_math(x[i])
+  x
+}
+
+escape_math = function(x) {
   # replace $x$ with `\(x\)` (protect inline math in <code></code>)
   m = gregexpr('(?<![`$])[$](?! )[^$]+?(?<! )[$](?![$0123456789])', x, perl = TRUE)
   regmatches(x, m) = lapply(regmatches(x, m), function(z) {

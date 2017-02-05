@@ -182,11 +182,9 @@ $$\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i$$
 
 Limitations:
 
-1. The source code of a LaTeX math expression must be in one line;
+1. The source code of a LaTeX math expression must be in one line, unless it is inside a pair of double dollar signs, in which case the starting `$$` must appear in the very beginning of a line, followed immediately by a non-space character, and the ending `$$` must be at the end of a line, led by a non-space character;
 
 1. There should not be spaces after the opening `$` or before the closing `$`.
-
-If you are using the RStudio IDE, math expressions should be rendered even if you are offline.
 
 ---
 

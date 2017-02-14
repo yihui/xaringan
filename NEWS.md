@@ -1,4 +1,4 @@
-# CHANGES IN xaringan VERSION 0.2 (unreleased)
+# CHANGES IN xaringan VERSION 0.2
 
 ## NEW FEATURES
 

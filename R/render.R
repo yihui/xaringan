@@ -186,7 +186,7 @@ infinite_moon_reader = function(moon, cast_from = '.') {
   }
   moon = normalize_path(moon)
   rebuild = function(...) {
-    if (moon %in% normalizePath(c(...))) rmarkdown::render(
+    if (moon %in% normalize_path(c(...))) rmarkdown::render(
       moon, envir = globalenv(), encoding = 'UTF-8'
     )
   }

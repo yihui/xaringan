@@ -5,9 +5,10 @@
 \alias{tsukuyomi}
 \title{An R Markdown output format for remark.js slides}
 \usage{
-moon_reader(css = "default", self_contained = FALSE, seal = TRUE, yolo = FALSE, 
-    chakra = "https://remarkjs.com/downloads/remark-latest.min.js", nature = list(), 
-    ...)
+moon_reader(css = "default", self_contained = FALSE, seal = TRUE,
+  yolo = FALSE,
+  chakra = "https://remarkjs.com/downloads/remark-latest.min.js",
+  nature = list(), ...)
 
 tsukuyomi(...)
 }
@@ -42,7 +43,10 @@ list(click = TRUE))}; see
 \url{https://github.com/gnab/remark/wiki/Configuration}. Besides the
 options provided by remark.js, you can also set \code{autoplay} to a number
 (the number of milliseconds) so the slides will be played every
-\code{autoplay} seconds.}
+\code{autoplay} milliseconds. You can also set \code{countdown} to a number
+(the number of milliseconds) to include a countdown on each slide. If using
+\code{autoplay}, you can optionally set \code{countdown} to \code{true} to
+include a countdown equal to \code{autoplay}.}
 
 \item{...}{For \code{tsukuyomi()}, arguments passed to \code{moon_reader()};
 for \code{moon_reader()}, arguments passed to

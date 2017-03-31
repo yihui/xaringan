@@ -34,7 +34,10 @@
 #'   \url{https://github.com/gnab/remark/wiki/Configuration}. Besides the
 #'   options provided by remark.js, you can also set \code{autoplay} to a number
 #'   (the number of milliseconds) so the slides will be played every
-#'   \code{autoplay} seconds.
+#'   \code{autoplay} milliseconds. You can also set \code{countdown} to a number
+#'   (the number of milliseconds) to include a countdown on each slide. If using
+#'   \code{autoplay}, you can optionally set \code{countdown} to \code{true} to
+#'   include a countdown equal to \code{autoplay}.
 #' @param ... For \code{tsukuyomi()}, arguments passed to \code{moon_reader()};
 #'   for \code{moon_reader()}, arguments passed to
 #'   \code{rmarkdown::\link{html_document}()}.
@@ -66,6 +69,27 @@ moon_reader = function(
 
   play_js = if (is.numeric(autoplay <- nature[['autoplay']]) && autoplay > 0)
     sprintf('setInterval(function() {slideshow.gotoNextSlide();}, %d);', autoplay)
+
+  countdown_js = NULL
+  if (!is.null(countdown <- nature[['countdown']]) && countdown) {
+
+    countdown_js_raw <- "var c = setInterval(function(){}, 1000); var tot = slideshow.getSlideCount(); slideshow.on('afterShowSlide', function (slide) {var time_left = %d; var counter_div = document.getElementsByClassName('remark-slide-number').item(slide.getSlideIndex()); var cur = counter_div.innerHTML; function counter() { return window.setInterval(function() { time_left = time_left - 1000; counter_div.innerHTML = time_left/1000 + 's ' + (slide.getSlideIndex()+1) + ' / ' + tot; if (time_left < 0) counter_div.style.color = 'red';}, 1000);} clearInterval(c); c = counter();})"
+
+    if (is.numeric(autoplay <- nature[['autoplay']]) && autoplay > 0) {
+      countdown_js = sprintf(countdown_js_raw, autoplay)
+    } else {
+      if (is.numeric(countdown)) {
+        countdown_js = sprintf(countdown_js_raw, countdown)
+      } else {
+        stop("Numeric value required for countdown")
+      }
+    }
+    if (!nature[['countIncrementalSlides']])
+      stop('Countdown is only supported if incremental slides are counted!')
+
+  }
+
+  nature[['autoplay_countdown']] = NULL
   nature[['autoplay']] = NULL
 
   writeUTF8(as.character(tagList(
@@ -73,7 +97,7 @@ moon_reader = function(
     tags$script(HTML(paste(c(sprintf(
       'var slideshow = remark.create(%s);', if (length(nature)) tojson(nature) else ''
     ), "if (window.HTMLWidgets) slideshow.on('showSlide', function (slide) {setTimeout(function() {window.dispatchEvent(new Event('resize'));}, 100)});",
-    play_js), collapse = '\n')))
+    play_js, countdown_js), collapse = '\n')))
   )), tmp_js)
 
   html_document2 = function(

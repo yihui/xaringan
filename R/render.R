@@ -73,7 +73,7 @@ moon_reader = function(
   countdown_js = NULL
   if (!is.null(countdown <- nature[['countdown']]) && countdown) {
 
-    countdown_js_raw <- "var c = setInterval(function(){}, 1000); var tot = slideshow.getSlideCount(); slideshow.on('afterShowSlide', function (slide) {var time_left = %d; var counter_div = document.getElementsByClassName('remark-slide-number').item(slide.getSlideIndex()); var cur = counter_div.innerHTML; function counter() { return window.setInterval(function() { time_left = time_left - 1000; counter_div.innerHTML = time_left/1000 + 's ' + (slide.getSlideIndex()+1) + ' / ' + tot; if (time_left < 0) counter_div.style.color = 'red';}, 1000);} clearInterval(c); c = counter();})"
+    countdown_js_raw <- readLines(system.file('/rmarkdown/templates/xaringan/resources/countdown.js', package = "xaringan"))
 
     if (is.numeric(autoplay <- nature[['autoplay']]) && autoplay > 0) {
       countdown_js = sprintf(countdown_js_raw, autoplay)
@@ -84,9 +84,6 @@ moon_reader = function(
         stop("Numeric value required for countdown")
       }
     }
-    if (!nature[['countIncrementalSlides']])
-      stop('Countdown is only supported if incremental slides are counted!')
-
   }
 
   nature[['autoplay_countdown']] = NULL

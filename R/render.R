@@ -35,9 +35,9 @@
 #'   options provided by remark.js, you can also set \code{autoplay} to a number
 #'   (the number of milliseconds) so the slides will be played every
 #'   \code{autoplay} milliseconds. You can also set \code{countdown} to a number
-#'   (the number of milliseconds) to include a countdown on each slide. If using
-#'   \code{autoplay}, you can optionally set \code{countdown} to \code{true} to
-#'   include a countdown equal to \code{autoplay}.
+#'   (the number of milliseconds) to include a countdown timer on each slide. If
+#'   using \code{autoplay}, you can optionally set \code{countdown} to
+#'   \code{TRUE} to include a countdown equal to \code{autoplay}.
 #' @param ... For \code{tsukuyomi()}, arguments passed to \code{moon_reader()};
 #'   for \code{moon_reader()}, arguments passed to
 #'   \code{rmarkdown::\link{html_document}()}.
@@ -52,6 +52,11 @@
 #'   \code{chakra} argument when \code{self_contained = TRUE}, because it may be
 #'   time-consuming for Pandoc to download remark.js each time you compile your
 #'   slides.
+#'
+#'   Each page has its own countdown timer (when the option \code{countdown} is
+#'   set in \code{nature}), and the timer is (re)initialized whenever you
+#'   navigate to a new page. If you need a global timer, you can use the
+#'   presenter's mode (press \kbd{P}).
 #' @references \url{http://naruto.wikia.com/wiki/Tsukuyomi}
 #' @importFrom htmltools tagList tags htmlEscape HTML
 #' @export

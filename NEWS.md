@@ -1,3 +1,9 @@
+# CHANGES IN xaringan VERSION 0.3 (unreleased)
+
+## NEW FEATURES
+
+- A new option `countdown` in the `nature` option of `moon_reader()` can be set so that a countdown timer is added to each page of slides. See `?xaringan::moon_reader` and https://slides.yihui.name/xaringan/ for more information (thanks, @slopp, #43).
+
 # CHANGES IN xaringan VERSION 0.2
 
 ## NEW FEATURES

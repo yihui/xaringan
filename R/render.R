@@ -86,7 +86,7 @@ moon_reader = function(
     tags$script(src = chakra),
     tags$script(HTML(paste(c(sprintf(
       'var slideshow = remark.create(%s);', if (length(nature)) tojson(nature) else ''
-    ), "if (window.HTMLWidgets) slideshow.on('showSlide', function (slide) {setTimeout(function() {window.dispatchEvent(new Event('resize'));}, 100)});",
+    ), "if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {window.dispatchEvent(new Event('resize'));});",
     play_js, countdown_js), collapse = '\n')))
   )), tmp_js)
 

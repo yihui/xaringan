@@ -75,24 +75,12 @@ moon_reader = function(
   play_js = if (is.numeric(autoplay <- nature[['autoplay']]) && autoplay > 0)
     sprintf('setInterval(function() {slideshow.gotoNextSlide();}, %d);', autoplay)
 
-  countdown_js = NULL
-  if (!is.null(countdown <- nature[['countdown']]) && countdown) {
+  if (isTRUE(countdown <- nature[['countdown']])) countdown = autoplay
+  countdown_js = if (is.numeric(countdown) && countdown > 0) sprintf(
+    '(%s)(%d);', paste(readLines(pkg_resource('countdown.js')), collapse = '\n'), countdown
+  )
 
-    countdown_js_raw <- readLines(system.file('/rmarkdown/templates/xaringan/resources/countdown.js', package = "xaringan"))
-
-    if (is.numeric(autoplay <- nature[['autoplay']]) && autoplay > 0) {
-      countdown_js = sprintf(countdown_js_raw, autoplay)
-    } else {
-      if (is.numeric(countdown)) {
-        countdown_js = sprintf(countdown_js_raw, countdown)
-      } else {
-        stop("Numeric value required for countdown")
-      }
-    }
-  }
-
-  nature[['autoplay_countdown']] = NULL
-  nature[['autoplay']] = NULL
+  nature[['countdown']] = nature[['autoplay']] = NULL
 
   writeUTF8(as.character(tagList(
     tags$script(src = chakra),

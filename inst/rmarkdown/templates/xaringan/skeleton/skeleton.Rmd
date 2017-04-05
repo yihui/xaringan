@@ -230,7 +230,7 @@ leaflet() %>% addTiles() %>% setView(-93.65, 42.0285, zoom = 17)
 ```{r eval=require('DT'), tidy=FALSE}
 DT::datatable(
   head(iris, 10),
-  fillContainer = FALSE, options = list(pageLength = 5)
+  fillContainer = FALSE, options = list(pageLength = 8)
 )
 ```
 

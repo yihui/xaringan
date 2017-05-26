@@ -14,7 +14,7 @@ Description: Create HTML5 slides with R Markdown and the JavaScript library
     'remark.js' (<https://remarkjs.com>).
 Imports:
     htmltools,
-    knitr,
+    knitr (>= 1.16),
     servr (>= 0.5),
     rmarkdown
 Suggests: rstudioapi, testit

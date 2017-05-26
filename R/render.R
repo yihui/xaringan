@@ -85,7 +85,7 @@ moon_reader = function(
   writeUTF8(as.character(tagList(
     tags$script(src = chakra),
     tags$script(HTML(paste(c(sprintf(
-      'var slideshow = remark.create(%s);', if (length(nature)) tojson(nature) else ''
+      'var slideshow = remark.create(%s);', if (length(nature)) knitr:::tojson(nature) else ''
     ), "if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {window.dispatchEvent(new Event('resize'));});",
     play_js, countdown_js), collapse = '\n')))
   )), tmp_js)

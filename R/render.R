@@ -199,31 +199,24 @@ infinite_moon_reader = function(moon, cast_from = '.') {
     )
   }
   moon = normalize_path(moon)
-  rebuild = function(...) {
-    if (moon %in% normalize_path(c(...))) rmarkdown::render(
-      moon, envir = globalenv(), encoding = 'UTF-8'
-    )
+  rebuild = function() {
+    rmarkdown::render(moon, envir = globalenv(), encoding = 'UTF-8')
   }
-  html = normalize_path(rebuild(moon))  # render slides initially
+  build = local({
+    mtime = function() file.info(moon)[, 'mtime']
+    time1 = mtime()
+    function(...) {
+      time2 = mtime()
+      if (identical(time1, time2)) return(FALSE)
+      # moon has been changed, recompile it and reload in browser
+      rebuild()
+      time1 <<- time2
+      TRUE
+    }
+  })
+  html = normalize_path(rebuild())  # render slides initially
   d = normalize_path(cast_from)
   f = rmarkdown::relative_to(d, html)
-  if (missing(cast_from) && d == normalize_path('~')) {
-    msg = paste(strwrap(paste0(
-      'There may be too many files under your home directory, and it may be ',
-      'extremely slow for servr::httw() to watch for all changes under this ',
-      'directory. You are recommended to change your working directory or the ',
-      '`cast_from` argument to, for example, "', dirname(moon), '". If you are ',
-      'sure you do not have many files under the home directory, please call ',
-      'xaringan::inf_mr(cast_from = "."). '
-    )), collapse = '\n')
-    if (!interactive()) {
-      warning(msg); return()
-    }
-    message(msg)
-    if ('n' != readline('Change `cast_from`? (y/n) ')) {
-      d = dirname(html); f = basename(html)
-    }
-  }
   # see if the html output file is under the dir cast_from
   if (f == html) {
     d = dirname(html)
@@ -233,7 +226,7 @@ infinite_moon_reader = function(moon, cast_from = '.') {
       "the HTML output is not under this directory. Using '", d, "' instead."
     )
   }
-  servr::httw(d, initpath = f, handler = rebuild)
+  servr:::dynamic_site(d, initpath = f, build = build)
 }
 
 #' @export

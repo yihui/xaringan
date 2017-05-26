@@ -220,7 +220,7 @@ infinite_moon_reader = function(moon, cast_from = '.') {
       warning(msg); return()
     }
     message(msg)
-    if ('y' == readline('Change `cast_from`? (y/n) ')) {
+    if ('n' != readline('Change `cast_from`? (y/n) ')) {
       d = dirname(html); f = basename(html)
     }
   }

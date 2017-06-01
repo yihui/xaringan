@@ -55,7 +55,7 @@ a, a > code {
 .pull-right ~ * {
   clear: both;
 }
-img {
+img, video, iframe {
   max-width: 100%;
 }
 blockquote {

@@ -45,16 +45,19 @@ devtools::install_github("yihui/xaringan")
 ```
 
 --
+count: false
 
 You are recommended to use the [RStudio IDE](https://www.rstudio.com/products/rstudio/), but you do not have to.
 
 - Create a new R Markdown document from the menu `File -> New File -> R Markdown -> From Template -> Ninja Presentation`;<sup>1</sup>
 
 --
+count: false
 
 - Click the `Knit` button to compile it;
 
 --
+count: false
 
 - or use the [RStudio Addin](https://rstudio.github.io/rstudioaddins/)<sup>2</sup> "Infinite Moon Reader" to live preview the slides (every time you update and save the Rmd document, the slides will be automatically reloaded in RStudio Viewer.
 

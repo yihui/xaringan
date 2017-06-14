@@ -116,3 +116,39 @@ summon_remark = function(version = 'latest', to = 'libs/') {
     file.path(to, name)
   )
 }
+
+
+highlight_code = function(x) {
+  # if highlighting on single line, replace
+  x = gsub('(^|\n)([ \t]*)\\{\\{([^\n]+?)\\}\\}', '\\1*\\2\\3', x)
+  # having done that check for multiline replacements
+  if (grepl('(^|\n)([ \t]*)\\{\\{(.+\n+.*)\\}\\}', x)) {
+    # find number of wrapped highlighted lines to sort out
+    n_rep = length(gregexpr('(^|\n)([ \t]*)\\{\\{([^\\}]{1,})\\}\\}', x)[[1]])
+    # for each one to replace
+    for (i in c(1:n_rep)) {
+      # find position of first string to replace
+      str_pos = regexpr('(^|\n)([ \t]*)\\{\\{([^\\}]{1,})\\}\\}', x)
+      start_position = as.numeric(str_pos)
+      end_position = start_position + attr(str_pos, "match.length")
+      # extract actual string to replace
+      string_to_replace =
+        regmatches(x, regexpr('(^|\n)([ \t]*)\\{\\{([^\\}]{1,})\\}\\}', x))[[1]]
+      # replace opening {{
+      string_to_replace = sub("(^|\n)([ \t]*)\\{\\{", "\\1*\\2", string_to_replace)
+      # add * to beginning of any other new lines
+      string_to_replace = gsub("\n([^\\*])", "\n*\\1", string_to_replace)
+      # remove closing }}
+      string_to_replace = sub("\\}\\}$", "", string_to_replace)
+      # split original string
+      x_split = strsplit(x, "")[[1]]
+      # put string back together but with replacement
+      x = paste0(paste0(x_split[1:(start_position - 1)],
+                          collapse = ""),
+                   string_to_replace,
+                   paste0(x_split[end_position:length(x_split)],
+                          collapse = ""))
+    }
+  }
+  return(x)
+}

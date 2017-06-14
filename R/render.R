@@ -135,7 +135,7 @@ moon_reader = function(
           string_to_replace =
             regmatches(res, regexpr('(^|\n)([ \t]*)\\{\\{([^\\}]{1,})\\}\\}', res))[[1]]
           # replace opening {{
-          string_to_replace = sub("(^|\n)([\\s]*)\\{\\{", "\\1*\\2", string_to_replace)
+          string_to_replace = sub("(^|\n)([ \t]*)\\{\\{", "\\1*\\2", string_to_replace)
           # add * to beginning of any other new lines
           string_to_replace = gsub("\n([^\\*])", "\n*\\1", string_to_replace)
           # remove closing }}

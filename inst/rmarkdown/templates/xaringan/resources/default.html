@@ -48,7 +48,7 @@ $for(include-after)$
 $include-after$
 $endfor$
 
-$if(math)$
+$if(mathjax-url)$
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
   tex2jax: {
@@ -61,7 +61,7 @@ MathJax.Hub.Config({
 (function () {
   var script = document.createElement('script');
   script.type = 'text/javascript';
-  script.src  = '$if(mathjax-url)$$mathjax-url$$else$https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML$endif$';
+  script.src  = '$mathjax-url$';
   if (location.protocol !== 'file:' && /^https?:/.test(script.src))
     script.src  = script.src.replace(/^https?:/, '');
   document.getElementsByTagName('head')[0].appendChild(script);

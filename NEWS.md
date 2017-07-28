@@ -1,3 +1,9 @@
+# CHANGES IN xaringan VERSION 0.4 (unreleased)
+
+## BUG FIXES
+
+- The option `mathjax: null` does not work for `moon_reader()`, i.e., it was not possible to exclude MathJax.
+
 # CHANGES IN xaringan VERSION 0.3
 
 ## NEW FEATURES

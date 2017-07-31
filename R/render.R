@@ -122,7 +122,8 @@ moon_reader = function(
     function(x, options) {
       res = hook_source(x, options)
       # replace {{code}} with *code so that this line can be highlighted
-      gsub('(^|\n)([ \t]*)\\{\\{([^\n]+?)\\}\\}', '\\1\\2*\\3', res)
+      res = highlight_code(res)
+      return(res)
     }
   }
 

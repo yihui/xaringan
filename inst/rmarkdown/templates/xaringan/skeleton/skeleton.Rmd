@@ -186,6 +186,8 @@ Limitations:
 
 1. There should not be spaces after the opening `$` or before the closing `$`.
 
+1. Math does not work on the title slide (see [#61](https://github.com/yihui/xaringan/issues/61) for a workaround).
+
 ---
 
 # R Code

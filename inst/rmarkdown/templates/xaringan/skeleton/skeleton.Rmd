@@ -210,6 +210,16 @@ abline(fit, lwd = 2)
 
 ---
 
+# Tables
+
+If you want to generate a table, make sure it is in the HTML format (instead of Markdown or other formats), e.g.,
+
+```{r}
+knitr::kable(head(iris), format = 'html')
+```
+
+---
+
 # HTML Widgets
 
 I have not thoroughly tested HTML widgets against **xaringan**. Some may work well, and some may not. It is a little tricky.

@@ -85,7 +85,7 @@ escape_math = function(x) {
     z
   })
   # replace $$x$$ with `$$x$$` (protect display math)
-  m = gregexpr('(?<!`)[$][$](?! )[^$]+?(?<! )[$][$]', x, perl = TRUE)
+  m = gregexpr('(?<=^|[\\s])[$][$](?! )[^$]+?(?<! )[$][$]', x, perl = TRUE)
   regmatches(x, m) = lapply(regmatches(x, m), function(z) {
     if (length(z) == 0) return(z)
     paste0('`', z, '`')

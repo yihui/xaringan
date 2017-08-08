@@ -73,10 +73,28 @@ a, a > code {
 .pull-right ~ * {
   clear: both;
 }
-img {
+img, video, iframe {
   max-width: 100%;
 }
 blockquote {
   border-left: solid 5px lightgray;
   padding-left: 1em;
+}
+table {
+  margin: auto;
+  border-top: 1px solid #666;
+  border-bottom: 1px solid #666;
+}
+table thead th { border-bottom: 1px solid #ddd; }
+th, td { padding: 5px; }
+thead, tfoot, tr:nth-child(even) { background: #eee }
+
+@media print {
+  .remark-slide-scaler {
+    width: 100% !important;
+    height: 100% !important;
+    transform: scale(1) !important;
+    top: 0 !important;
+    left: 0 !important;
+  }
 }

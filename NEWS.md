@@ -1,5 +1,9 @@
 # CHANGES IN xaringan VERSION 0.4 (unreleased)
 
+## NEW FEATURES
+
+- The PDF printed from the slides in browser looks much nicer now (no extra margins) (thanks, @cboettig and @ekstroem, #65).
+
 ## BUG FIXES
 
 - Line highlighting using `{{}}` does not work with multiple lines (thanks, @HeidiSeibold #53 and @aj2duncan #54).

@@ -71,6 +71,7 @@ table thead th { border-bottom: 1px solid #ddd; }
 th, td { padding: 5px; }
 thead, tfoot, tr:nth-child(even) { background: #eee }
 
+@page { margin: 0; }
 @media print {
   .remark-slide-scaler {
     width: 100% !important;

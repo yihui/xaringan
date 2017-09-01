@@ -287,6 +287,8 @@ DT::datatable(
 
 # 一些小技能
 
+- 一页片子可以分割成一步步播放，参见[这个示例](https://slides.yihui.name/xaringan/incremental.html)。
+
 - 选项 `highlightLines: true` 可以让以 `*` 开头或者双重大括号 `{{ }}` 里面的代码被高亮出来；
 
     ```yaml

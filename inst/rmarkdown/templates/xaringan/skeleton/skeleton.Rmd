@@ -300,6 +300,8 @@ DT::datatable(
 
 # Some Tips
 
+- There are several ways to build incremental slides. See [this presentation](https://slides.yihui.name/xaringan/incremental.html) for examples.
+
 - The option `highlightLines: true` of `nature` will highlight code lines that start with `*` or are wrapped in `{{ }}`;
 
     ```yaml

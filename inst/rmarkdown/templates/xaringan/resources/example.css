@@ -27,7 +27,6 @@ a, a > code {
 }
 .inverse h1, .inverse h2, .inverse h3 {
   color: #f3f3f3;
-  line-height: 1.0em;
 }
 /* Two-column layout */
 .left-column {

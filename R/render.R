@@ -65,9 +65,10 @@ moon_reader = function(
   chakra = 'https://remarkjs.com/downloads/remark-latest.min.js', nature = list(),
   ...
 ) {
-  deps = if ('default' %in% css) {
-    css = setdiff(css, 'default')
-    list(example_css())
+  theme = grep('[.]css$', css, value = TRUE, invert = TRUE)
+  deps = if (length(theme)) {
+    css = setdiff(css, theme)
+    list(css_deps(theme))
   }
   tmp_js = tempfile('xaringan', fileext = '.js')  # write JS config to this file
   tmp_md = tempfile('xaringan', fileext = '.md')  # store md content here (bypass Pandoc)

@@ -7,9 +7,12 @@ pkg_resource = function(...) system.file(
   mustWork = TRUE
 )
 
-example_css = function() htmltools::htmlDependency(
-  'remark-css', '0.0.1', pkg_resource(), stylesheet = 'example.css', all_files = FALSE
-)
+css_deps = function(theme) {
+  htmltools::htmlDependency(
+    'remark-css', '0.0.1', pkg_resource(), stylesheet = paste0(theme, '.css'),
+    all_files = FALSE
+  )
+}
 
 normalize_path = function(path) {
   normalizePath(path, winslash = '/', mustWork = TRUE)

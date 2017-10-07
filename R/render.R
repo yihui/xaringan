@@ -9,10 +9,14 @@
 #' If you are unfamiliar with CSS, please see the
 #' \href{https://github.com/yihui/xaringan/wiki}{xaringan wiki on Github}
 #' providing CSS slide modification examples.
-#' @param css A vector of CSS file paths. A default CSS file is provided in this
-#'   package, which was borrowed from \url{https://remarkjs.com}. If the
-#'   character vector \code{css} contains the value \code{'default'}, the
-#'   default CSS will be used (e.g. \code{css = c('default', 'extra.css')}).
+#' @param css A vector of CSS file paths. Two default CSS files
+#'   (\file{default.css} and \file{fonts.css}) are provided in this package,
+#'   which was borrowed from \url{https://remarkjs.com}. If the character vector
+#'   \code{css} contains a value that does not end with \code{.css}, it is
+#'   supposed to be a built-in CSS file in this package, e.g., for \code{css =
+#'   c('default', 'extra.css')}), it means \code{default.css} in this package
+#'   and a user-provided \code{extra.css}. To find out all built-in CSS files,
+#'   use \code{xaringan:::list_css()}.
 #' @param self_contained Whether to produce a self-contained HTML file.
 #' @param seal Whether to generate a title slide automatically using the YAML
 #'   metadata of the R Markdown document (if \code{FALSE}, you should write the
@@ -61,7 +65,7 @@
 #' @importFrom htmltools tagList tags htmlEscape HTML
 #' @export
 moon_reader = function(
-  css = 'default', self_contained = FALSE, seal = TRUE, yolo = FALSE,
+  css = c('default', 'fonts'), self_contained = FALSE, seal = TRUE, yolo = FALSE,
   chakra = 'https://remarkjs.com/downloads/remark-latest.min.js', nature = list(),
   ...
 ) {

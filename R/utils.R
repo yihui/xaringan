@@ -14,6 +14,11 @@ css_deps = function(theme) {
   )
 }
 
+list_css = function() {
+  css = list.files(pkg_resource(), '[.]css$', full.names = TRUE)
+  setNames(css, gsub('.css$', '', basename(css)))
+}
+
 normalize_path = function(path) {
   normalizePath(path, winslash = '/', mustWork = TRUE)
 }

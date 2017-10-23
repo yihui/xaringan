@@ -444,6 +444,8 @@ output:
 
 Here I assume `ubuntu-mono.css` is under the same directory as your Rmd.
 
+See [yihui/xaringan#83](https://github.com/yihui/xaringan/issues/83) for an example of using the [Fira Code](https://github.com/tonsky/FiraCode) font, which supports ligatures in program code.
+
 ---
 class: inverse, middle, center
 background-image: url(https://upload.wikimedia.org/wikipedia/commons/3/39/Naruto_Shiki_Fujin.svg)

@@ -144,6 +144,8 @@ highlight_code = function(x) {
   gsub('^\n', '', x)
 }
 
-pkg_file = function(file) {
-  paste(readLines(pkg_resource(file)), collapse = '\n')
+file_content = function(file) {
+  paste(readLines(file, encoding = 'UTF-8'), collapse = '\n')
 }
+
+pkg_file = function(file) file_content(pkg_resource(file))

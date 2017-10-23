@@ -82,7 +82,7 @@ moon_reader = function(
 
   if (isTRUE(countdown <- nature[['countdown']])) countdown = autoplay
   countdown_js = if (is.numeric(countdown) && countdown > 0) sprintf(
-    '(%s)(%d);', paste(readLines(pkg_resource('countdown.js')), collapse = '\n'), countdown
+    '(%s)(%d);', pkg_file('countdown.js'), countdown
   )
 
   nature[['countdown']] = nature[['autoplay']] = NULL
@@ -91,8 +91,7 @@ moon_reader = function(
     tags$script(src = chakra),
     tags$script(HTML(paste(c(sprintf(
       'var slideshow = remark.create(%s);', if (length(nature)) knitr:::tojson(nature) else ''
-    ), "if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {window.dispatchEvent(new Event('resize'));});",
-    '(function() {var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler"); if (!r) return; s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }"; d.head.appendChild(s);})();',
+    ), pkg_file('show-widgets.js'), pkg_file('print-css.js'),
     play_js, countdown_js), collapse = '\n')))
   )), tmp_js)
 

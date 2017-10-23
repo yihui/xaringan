@@ -143,3 +143,7 @@ highlight_code = function(x) {
   })
   gsub('^\n', '', x)
 }
+
+pkg_file = function(file) {
+  paste(readLines(pkg_resource(file)), collapse = '\n')
+}

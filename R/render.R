@@ -85,10 +85,14 @@ moon_reader = function(
     '(%s)(%d);', pkg_file('countdown.js'), countdown
   )
 
-  nature[['countdown']] = nature[['autoplay']] = NULL
+  before = nature[['beforeInit']]
+  nature[['countdown']] = nature[['autoplay']] = nature[['beforeInit']] = NULL
 
   writeUTF8(as.character(tagList(
     tags$script(src = chakra),
+    if (is.character(before)) {
+      if (self_contained) tags$script(HTML(file_content(before))) else tags$script(src = before)
+    },
     tags$script(HTML(paste(c(sprintf(
       'var slideshow = remark.create(%s);', if (length(nature)) knitr:::tojson(nature) else ''
     ), pkg_file('show-widgets.js'), pkg_file('print-css.js'),

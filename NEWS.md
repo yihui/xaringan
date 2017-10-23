@@ -6,6 +6,8 @@
 
 - For the `css` argument, if a value does not end with `.css`, it is assumed to be a built-in CSS file in this package. Currently all available CSS files can be found at https://github.com/yihui/xaringan/tree/master/inst/rmarkdown/templates/xaringan/resources. See `?xaringan::moon_reader` for more details. This change was to make it easier for users to contribute custom themes (https://yihui.name/en/2017/10/xaringan-themes/).
 
+- Added a new sub-option `beforeInit` under the `nature` option, which can be used to specify a JavaScript file to be executed before the instantiation of slides (i.e., before `remark.create()`). One application of this new feature is to define custom remark.js macros; see the slide "Macros" at https://slides.yihui.name/xaringan/ for more info (thanks, @gavinsimpson, #80).
+
 # CHANGES IN xaringan VERSION 0.4
 
 ## NEW FEATURES

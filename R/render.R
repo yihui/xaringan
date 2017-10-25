@@ -5,13 +5,18 @@
 #' \code{tsukuyomi()} is an alias of \code{moon_reader()}.
 #'
 #' Tsukuyomi is a genjutsu to trap the target in an illusion on eye contact.
+#'
 #' If you are unfamiliar with CSS, please see the
 #' \href{https://github.com/yihui/xaringan/wiki}{xaringan wiki on Github}
 #' providing CSS slide modification examples.
-#' @param css A vector of CSS file paths. A default CSS file is provided in this
-#'   package, which was borrowed from \url{https://remarkjs.com}. If the
-#'   character vector \code{css} contains the value \code{'default'}, the
-#'   default CSS will be used (e.g. \code{css = c('default', 'extra.css')}).
+#' @param css A vector of CSS file paths. Two default CSS files
+#'   (\file{default.css} and \file{fonts.css}) are provided in this package,
+#'   which was borrowed from \url{https://remarkjs.com}. If the character vector
+#'   \code{css} contains a value that does not end with \code{.css}, it is
+#'   supposed to be a built-in CSS file in this package, e.g., for \code{css =
+#'   c('default', 'extra.css')}), it means \code{default.css} in this package
+#'   and a user-provided \code{extra.css}. To find out all built-in CSS files,
+#'   use \code{xaringan:::list_css()}.
 #' @param self_contained Whether to produce a self-contained HTML file.
 #' @param seal Whether to generate a title slide automatically using the YAML
 #'   metadata of the R Markdown document (if \code{FALSE}, you should write the
@@ -33,7 +38,10 @@
 #'   \url{https://github.com/gnab/remark/wiki/Configuration}. Besides the
 #'   options provided by remark.js, you can also set \code{autoplay} to a number
 #'   (the number of milliseconds) so the slides will be played every
-#'   \code{autoplay} seconds.
+#'   \code{autoplay} milliseconds. You can also set \code{countdown} to a number
+#'   (the number of milliseconds) to include a countdown timer on each slide. If
+#'   using \code{autoplay}, you can optionally set \code{countdown} to
+#'   \code{TRUE} to include a countdown equal to \code{autoplay}.
 #' @param ... For \code{tsukuyomi()}, arguments passed to \code{moon_reader()};
 #'   for \code{moon_reader()}, arguments passed to
 #'   \code{rmarkdown::\link{html_document}()}.
@@ -48,31 +56,47 @@
 #'   \code{chakra} argument when \code{self_contained = TRUE}, because it may be
 #'   time-consuming for Pandoc to download remark.js each time you compile your
 #'   slides.
+#'
+#'   Each page has its own countdown timer (when the option \code{countdown} is
+#'   set in \code{nature}), and the timer is (re)initialized whenever you
+#'   navigate to a new page. If you need a global timer, you can use the
+#'   presenter's mode (press \kbd{P}).
 #' @references \url{http://naruto.wikia.com/wiki/Tsukuyomi}
 #' @importFrom htmltools tagList tags htmlEscape HTML
 #' @export
 moon_reader = function(
-  css = 'default', self_contained = FALSE, seal = TRUE, yolo = FALSE,
+  css = c('default', 'fonts'), self_contained = FALSE, seal = TRUE, yolo = FALSE,
   chakra = 'https://remarkjs.com/downloads/remark-latest.min.js', nature = list(),
   ...
 ) {
-  deps = if ('default' %in% css) {
-    css = setdiff(css, 'default')
-    list(example_css())
+  theme = grep('[.]css$', css, value = TRUE, invert = TRUE)
+  deps = if (length(theme)) {
+    css = setdiff(css, theme)
+    list(css_deps(theme))
   }
   tmp_js = tempfile('xaringan', fileext = '.js')  # write JS config to this file
   tmp_md = tempfile('xaringan', fileext = '.md')  # store md content here (bypass Pandoc)
 
   play_js = if (is.numeric(autoplay <- nature[['autoplay']]) && autoplay > 0)
     sprintf('setInterval(function() {slideshow.gotoNextSlide();}, %d);', autoplay)
-  nature[['autoplay']] = NULL
+
+  if (isTRUE(countdown <- nature[['countdown']])) countdown = autoplay
+  countdown_js = if (is.numeric(countdown) && countdown > 0) sprintf(
+    '(%s)(%d);', pkg_file('countdown.js'), countdown
+  )
+
+  before = nature[['beforeInit']]
+  nature[['countdown']] = nature[['autoplay']] = nature[['beforeInit']] = NULL
 
   writeUTF8(as.character(tagList(
     tags$script(src = chakra),
+    if (is.character(before)) {
+      if (self_contained) tags$script(HTML(file_content(before))) else tags$script(src = before)
+    },
     tags$script(HTML(paste(c(sprintf(
-      'var slideshow = remark.create(%s);', if (length(nature)) tojson(nature) else ''
-    ), "if (window.HTMLWidgets) slideshow.on('showSlide', function (slide) {setTimeout(function() {window.dispatchEvent(new Event('resize'));}, 100)});",
-    play_js), collapse = '\n')))
+      'var slideshow = remark.create(%s);', if (length(nature)) knitr:::tojson(nature) else ''
+    ), pkg_file('show-widgets.js'), pkg_file('print-css.js'),
+    play_js, countdown_js), collapse = '\n')))
   )), tmp_js)
 
   html_document2 = function(
@@ -83,8 +107,11 @@ moon_reader = function(
     includes$after_body = c(tmp_js, includes$after_body)
     if (identical(mathjax, 'local'))
       stop("mathjax = 'local' does not work for moon_reader()")
-    if (!identical(mathjax, 'default')) {
-      pandoc_args = c(pandoc_args, '--variable', paste0('mathjax-url:', mathjax))
+    if (!is.null(mathjax)) {
+      if (identical(mathjax, 'default')) {
+        mathjax = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML'
+      }
+      pandoc_args = c(pandoc_args, '-V', paste0('mathjax-url=', mathjax))
       mathjax = NULL
     }
     rmarkdown::html_document(
@@ -103,8 +130,7 @@ moon_reader = function(
 
     function(x, options) {
       res = hook_source(x, options)
-      # replace {{code}} with *code so that this line can be highlighted
-      gsub('(^|\n)([ \t]*)\\{\\{([^\n]+?)\\}\\}', '\\1\\2*\\3', res)
+      highlight_code(res)
     }
   }
 
@@ -122,9 +148,7 @@ moon_reader = function(
     ) {
       res = split_yaml_body(input_file)
       writeUTF8(res$yaml, input_file)
-      body = res$body
-      i = prose_index(body)
-      res$body[i] = protect_math(body[i])
+      res$body = protect_math(res$body)
       content = htmlEscape(yolofy(res$body, yolo))
       Encoding(content) = 'UTF-8'
       writeUTF8(content, tmp_md)
@@ -154,9 +178,12 @@ tsukuyomi = function(...) moon_reader(...)
 #' \code{inf_mr()} is an alias of \code{infinite_moon_reader()}.
 #'
 #' The Rmd document is compiled continuously to trap the world in the Infinite
-#' Tsukuyomi.
+#' Tsukuyomi. The genjutsu is cast from the directory specified by
+#' \code{cast_from}, and the Rinne Sharingan will be reflected off of the
+#' \code{moon}.
 #' @param moon The input Rmd file path (if missing and in RStudio, the current
 #'   active document is used).
+#' @param cast_from The root directory of the server.
 #' @references \url{http://naruto.wikia.com/wiki/Infinite_Tsukuyomi}
 #' @note This function is not really tied to the output format
 #'   \code{\link{moon_reader}()}. You can use it to serve any single-HTML-file R
@@ -164,7 +191,7 @@ tsukuyomi = function(...) moon_reader(...)
 #' @seealso \code{servr::\link{httw}}
 #' @export
 #' @rdname inf_mr
-infinite_moon_reader = function(moon) {
+infinite_moon_reader = function(moon, cast_from = '.') {
   # when this function is called via the RStudio addin, use the dir of the
   # current active document
   if (missing(moon) && requireNamespace('rstudioapi', quietly = TRUE)) {
@@ -182,14 +209,35 @@ infinite_moon_reader = function(moon) {
       basename(moon), '".'
     )
   }
-  moon = normalizePath(moon, mustWork = TRUE)
-  rebuild = function(...) {
-    if (moon %in% normalizePath(c(...))) rmarkdown::render(
-      moon, envir = globalenv(), encoding = 'UTF-8'
+  moon = normalize_path(moon)
+  rebuild = function() {
+    rmarkdown::render(moon, envir = globalenv(), encoding = 'UTF-8')
+  }
+  build = local({
+    mtime = function() file.info(moon)[, 'mtime']
+    time1 = mtime()
+    function(...) {
+      time2 = mtime()
+      if (identical(time1, time2)) return(FALSE)
+      # moon has been changed, recompile it and reload in browser
+      rebuild()
+      time1 <<- time2
+      TRUE
+    }
+  })
+  html = normalize_path(rebuild())  # render slides initially
+  d = normalize_path(cast_from)
+  f = rmarkdown::relative_to(d, html)
+  # see if the html output file is under the dir cast_from
+  if (f == html) {
+    d = dirname(html)
+    f = basename(html)
+    warning(
+      "Cannot use '", cast_from, "' as the root directory of the server because ",
+      "the HTML output is not under this directory. Using '", d, "' instead."
     )
   }
-  html = rebuild(moon)  # render slides initially
-  servr::httw(dirname(moon), initpath = basename(html), handler = rebuild)
+  servr:::dynamic_site(d, initpath = f, build = build)
 }
 
 #' @export

@@ -12,6 +12,8 @@ assert(
   protect_math('$500 $600') %==% '$500 $600',
   protect_math('$ a $') %==% '$ a $',
   protect_math('`$a$`') %==% '`$a$`',
+  protect_math('b$a$') %==% 'b$a$',  # no space before $; unlikely to be math
+  protect_math(' $a$') %==% ' `\\(a\\)`',
   protect_math('$$a$$') %==% '`$$a$$`',
   protect_math('$$ a$$') %==% '$$ a$$',
   protect_math('$$a$') %==% '$$a$'

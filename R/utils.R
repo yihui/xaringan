@@ -7,41 +7,22 @@ pkg_resource = function(...) system.file(
   mustWork = TRUE
 )
 
-example_css = function() htmltools::htmlDependency(
-  'remark-css', '0.0.1', pkg_resource(), stylesheet = 'example.css', all_files = FALSE
-)
-
-# a simple JSON serializer
-tojson = function(x) {
-  if (is.null(x)) return('null')
-  if (is.logical(x)) {
-    if (length(x) != 1 || any(is.na(x)))
-      stop('Logical values of length > 1 and NA are not supported')
-    return(tolower(as.character(x)))
-  }
-  if (is.character(x) || is.numeric(x)) {
-    return(json_vector(x, length(x) != 1 || inherits(x, 'AsIs'), is.character(x)))
-  }
-  if (is.list(x)) {
-    if (length(x) == 0) return('{}')
-    return(if (is.null(names(x))) {
-      json_vector(unlist(lapply(x, tojson)), TRUE, quote = FALSE)
-    } else {
-      nms = paste0('"', names(x), '"')
-      paste0('{\n', paste(nms, unlist(lapply(x, tojson)), sep = ': ', collapse = ',\n'), '\n}')
-    })
-  }
-  stop('The class of x is not supported: ', paste(class(x), collapse = ', '))
+css_deps = function(theme) {
+  htmltools::htmlDependency(
+    'remark-css', '0.0.1', pkg_resource(), stylesheet = paste0(theme, '.css'),
+    all_files = FALSE
+  )
 }
 
-json_vector = function(x, toArray = FALSE, quote = TRUE) {
-  if (quote) {
-    x = gsub('(["\\])', "\\\\\\1", x)
-    x = gsub('[[:space:]]', " ", x)
-    if (length(x)) x = paste0('"', x, '"')
-  }
-  if (toArray) paste0('[', paste(x, collapse = ', '), ']') else x
+list_css = function() {
+  css = list.files(pkg_resource(), '[.]css$', full.names = TRUE)
+  setNames(css, gsub('.css$', '', basename(css)))
 }
+
+normalize_path = function(path) {
+  normalizePath(path, winslash = '/', mustWork = TRUE)
+}
+
 
 split_yaml_body = function(file) {
   x = readLines(file, encoding = 'UTF-8')
@@ -97,8 +78,14 @@ prose_index = function(x) {
 }
 
 protect_math = function(x) {
+  i = prose_index(x)
+  if (length(i)) x[i] = escape_math(x[i])
+  x
+}
+
+escape_math = function(x) {
   # replace $x$ with `\(x\)` (protect inline math in <code></code>)
-  m = gregexpr('(?<![`$])[$](?! )[^$]+?(?<! )[$](?![$])', x, perl = TRUE)
+  m = gregexpr('(?<=^|[\\s])[$](?! )[^$]+?(?<! )[$](?![$0123456789])', x, perl = TRUE)
   regmatches(x, m) = lapply(regmatches(x, m), function(z) {
     if (length(z) == 0) return(z)
     z = sub('^[$]', '`\\\\(', z)
@@ -106,11 +93,22 @@ protect_math = function(x) {
     z
   })
   # replace $$x$$ with `$$x$$` (protect display math)
-  m = gregexpr('(?<!`)[$][$](?! )[^$]+?(?<! )[$][$]', x, perl = TRUE)
+  m = gregexpr('(?<=^|[\\s])[$][$](?! )[^$]+?(?<! )[$][$]', x, perl = TRUE)
   regmatches(x, m) = lapply(regmatches(x, m), function(z) {
     if (length(z) == 0) return(z)
     paste0('`', z, '`')
   })
+  # if a line start or end with $$, treat it as math under some conditions
+  i = !grepl('^[$].+[$]$', x)
+  if (any(i)) {
+    x[i] = gsub('^([$][$])([^ ]+)', '`\\1\\2', x[i], perl = TRUE)
+    x[i] = gsub('([^ ])([$][$])$', '\\1\\2`', x[i], perl = TRUE)
+  }
+  # equation environments
+  i = grep('^\\\\begin\\{[^}]+\\}$', x)
+  x[i] = paste0('`', x[i])
+  i = grep('^\\\\end\\{[^}]+\\}$', x)
+  x[i] = paste0(x[i], '`')
   x
 }
 
@@ -131,3 +129,23 @@ summon_remark = function(version = 'latest', to = 'libs/') {
     file.path(to, name)
   )
 }
+
+# replace {{code}} with *code so that this line can be highlighted in remark.js;
+# this also works with multiple lines
+highlight_code = function(x) {
+  x = paste0('\n', x)  # prepend \n and remove it later
+  r = '(\n)([ \t]*)\\{\\{(.+?)\\}\\}'
+  m = gregexpr(r, x)
+  regmatches(x, m) = lapply(regmatches(x, m), function(z) {
+    z = gsub(r, '\\1\\2\\3', z)  # remove {{ and }}
+    z = gsub('\n', '\n*', z)     # add * after every \n
+    z
+  })
+  gsub('^\n', '', x)
+}
+
+file_content = function(file) {
+  paste(readLines(file, encoding = 'UTF-8'), collapse = '\n')
+}
+
+pkg_file = function(file) file_content(pkg_resource(file))

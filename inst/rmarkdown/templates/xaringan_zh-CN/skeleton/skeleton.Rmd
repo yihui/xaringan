@@ -5,11 +5,12 @@ author: "谢益辉"
 date: "2016/12/12"
 output:
   xaringan::moon_reader:
-    css: zh-CN.css
+    css: [default, zh-CN.css]
     lib_dir: libs
     nature:
       highlightStyle: github
       highlightLines: true
+      countIncrementalSlides: false
 ---
 
 ```{r setup, include=FALSE}
@@ -182,7 +183,7 @@ $$\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i$$
 
 局限性：
 
-1. 公式的源代码只能写在一行上，不能换行；
+1. 公式的源代码只能写在一行上，不能换行；双重美元符号内的公式允许换行，但条件是起始标记 `$$` 必须在一行的最开头（前面不能有任何字符，后面必须跟一个不是空格的字符），结束标记 `$$` 必须在一行的最末尾（前面必须是一个非空格的字符，后面不能有任何字符）；
 
 1. 起始美元符号后以及结束美元符号前不能有空格，否则不会被识别为公式；
 
@@ -228,7 +229,7 @@ leaflet() %>% addTiles() %>% setView(-93.65, 42.0285, zoom = 17)
 ```{r eval=require('DT'), tidy=FALSE}
 DT::datatable(
   head(iris, 10),
-  fillContainer = FALSE, options = list(pageLength = 5)
+  fillContainer = FALSE, options = list(pageLength = 8)
 )
 ```
 
@@ -272,6 +273,21 @@ DT::datatable(
     ```
 
 --
+
+- `nature` 下面的 `countdown` 选项可以为每一页幻灯片添加一个（倒数）计时器，取值同样为毫秒，例如每一页片子都用 60 秒倒计时：
+
+    ```yaml
+    output:
+      xaringan::moon_reader:
+        nature:
+          countdown: 60000
+    ```
+
+---
+
+# 一些小技能
+
+- 一页片子可以分割成一步步播放，参见[这个示例](https://slides.yihui.name/xaringan/incremental.html)。
 
 - 选项 `highlightLines: true` 可以让以 `*` 开头或者双重大括号 `{{ }}` 里面的代码被高亮出来；
 

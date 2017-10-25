@@ -9,6 +9,7 @@ output:
     nature:
       highlightStyle: github
       highlightLines: true
+      countIncrementalSlides: false
 ---
 
 ```{r setup, include=FALSE}
@@ -181,11 +182,11 @@ $$\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i$$
 
 Limitations:
 
-1. The source code of a LaTeX math expression must be in one line;
+1. The source code of a LaTeX math expression must be in one line, unless it is inside a pair of double dollar signs, in which case the starting `$$` must appear in the very beginning of a line, followed immediately by a non-space character, and the ending `$$` must be at the end of a line, led by a non-space character;
 
 1. There should not be spaces after the opening `$` or before the closing `$`.
 
-If you are using the RStudio IDE, math expressions should be rendered even if you are offline.
+1. Math does not work on the title slide (see [#61](https://github.com/yihui/xaringan/issues/61) for a workaround).
 
 ---
 
@@ -211,6 +212,16 @@ abline(fit, lwd = 2)
 
 ---
 
+# Tables
+
+If you want to generate a table, make sure it is in the HTML format (instead of Markdown or other formats), e.g.,
+
+```{r}
+knitr::kable(head(iris), format = 'html')
+```
+
+---
+
 # HTML Widgets
 
 I have not thoroughly tested HTML widgets against **xaringan**. Some may work well, and some may not. It is a little tricky.
@@ -231,7 +242,7 @@ leaflet() %>% addTiles() %>% setView(-93.65, 42.0285, zoom = 17)
 ```{r eval=require('DT'), tidy=FALSE}
 DT::datatable(
   head(iris, 10),
-  fillContainer = FALSE, options = list(pageLength = 5)
+  fillContainer = FALSE, options = list(pageLength = 8)
 )
 ```
 
@@ -263,7 +274,7 @@ DT::datatable(
 
 # Some Tips
 
-- Slides can be automatically played if you set the `autoplay` option under `nature`, e.g. go to the next slide every 30 seconds (this can be useful for lightning talks):
+- Slides can be automatically played if you set the `autoplay` option under `nature`, e.g. go to the next slide every 30 seconds in a lightning talk:
 
     ```yaml
     output:
@@ -273,6 +284,23 @@ DT::datatable(
     ```
 
 --
+
+- A countdown timer can be added to every page of the slides using the `countdown` option under `nature`, e.g. if you want to spend one minute on every page when you give the talk, you can set:
+
+    ```yaml
+    output:
+      xaringan::moon_reader:
+        nature:
+          countdown: 60000
+    ```
+
+    Then you will see a timer counting down from `01:00`, to `00:59`, `00:58`, ... When the time is out, the timer will continue but the time turns red.
+
+---
+
+# Some Tips
+
+- There are several ways to build incremental slides. See [this presentation](https://slides.yihui.name/xaringan/incremental.html) for examples.
 
 - The option `highlightLines: true` of `nature` will highlight code lines that start with `*` or are wrapped in `{{ }}`;
 
@@ -344,6 +372,47 @@ It is valid R code so you can run it.
 
 - If you used Google fonts in slides (the default theme uses _Yanone Kaffeesatz_, _Droid Serif_, and _Source Code Pro_), they won't work offline unless you download or install them locally. The Heroku app [google-webfonts-helper](https://google-webfonts-helper.herokuapp.com/fonts) can help you download fonts and generate the necessary CSS.
 
+---
+
+# Macros
+
+- remark.js [allows users to define custom macros](https://github.com/yihui/xaringan/issues/80) (JS functions) that can be applied to Markdown text using the syntax `![:macroName arg1 arg2 ...]` or `![macroName](argument)`. For example, before remark.js initializes the slides, you can define a macro named `scale`:
+
+    ```js
+    remark.macros.scale = function (percentage) {
+      var url = this;
+      return '<img src="' + url + '" style="width: ' + percentage + '" />';
+    };
+    ```
+
+    Then the Markdown text
+
+    ```markdown
+    ![:scale 50%](image.jpg)
+    ```
+
+    will be translated to
+    
+    ```html
+    <img src="image.jpg" style="width: 50%" />
+    ```
+
+---
+
+# Macros (continued)
+
+- To insert macros in **xaringan** slides, you can use the option `beforeInit` under the option `nature`, e.g.,
+
+    ```yaml
+    output:
+      xaringan::moon_reader:
+        nature:
+          beforeInit: "macros.js"
+    ```
+
+    You save your remark.js macros in the file `macros.js`.
+
+- The `beforeInit` option can be used to insert arbitrary JS code before `remark.create()`. Inserting macros is just one of its possible applications.
 
 ---
 
@@ -351,7 +420,7 @@ It is valid R code so you can run it.
 
 Among all options in `xaringan::moon_reader`, the most challenging but perhaps also the most rewarding one is `css`, because it allows you to customize the appearance of your slides using any CSS rules or hacks you know.
 
-You can see the default CSS file [here](https://github.com/yihui/xaringan/blob/master/inst/rmarkdown/templates/xaringan/resources/example.css). You can completely replace it with your own CSS files, or define new rules to override the default.
+You can see the default CSS file [here](https://github.com/yihui/xaringan/blob/master/inst/rmarkdown/templates/xaringan/resources/default.css). You can completely replace it with your own CSS files, or define new rules to override the default.
 
 ---
 
@@ -374,6 +443,8 @@ output:
 ```
 
 Here I assume `ubuntu-mono.css` is under the same directory as your Rmd.
+
+See [yihui/xaringan#83](https://github.com/yihui/xaringan/issues/83) for an example of using the [Fira Code](https://github.com/tonsky/FiraCode) font, which supports ligatures in program code.
 
 ---
 class: inverse, middle, center

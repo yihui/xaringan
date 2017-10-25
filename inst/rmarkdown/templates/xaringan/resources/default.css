@@ -1,12 +1,3 @@
-@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
-@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
-@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700);
-
-body { font-family: 'Droid Serif', 'Palatino Linotype', 'Book Antiqua', Palatino, 'Microsoft YaHei', 'Songti SC', serif; }
-h1, h2, h3 {
-  font-family: 'Yanone Kaffeesatz';
-  font-weight: normal;
-}
 a, a > code {
   color: rgb(249, 38, 114);
   text-decoration: none;
@@ -17,7 +8,6 @@ a, a > code {
   padding-right: 4em;
   font-size: 90%;
 }
-.remark-code, .remark-inline-code { font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace; }
 .remark-code-line-highlighted     { background-color: #ffff88; }
 
 .inverse {
@@ -27,7 +17,6 @@ a, a > code {
 }
 .inverse h1, .inverse h2, .inverse h3 {
   color: #f3f3f3;
-  line-height: 1.0em;
 }
 /* Two-column layout */
 .left-column {
@@ -55,10 +44,29 @@ a, a > code {
 .pull-right ~ * {
   clear: both;
 }
-img {
+img, video, iframe {
   max-width: 100%;
 }
 blockquote {
   border-left: solid 5px lightgray;
   padding-left: 1em;
+}
+table {
+  margin: auto;
+  border-top: 1px solid #666;
+  border-bottom: 1px solid #666;
+}
+table thead th { border-bottom: 1px solid #ddd; }
+th, td { padding: 5px; }
+thead, tfoot, tr:nth-child(even) { background: #eee }
+
+@page { margin: 0; }
+@media print {
+  .remark-slide-scaler {
+    width: 100% !important;
+    height: 100% !important;
+    transform: scale(1) !important;
+    top: 0 !important;
+    left: 0 !important;
+  }
 }

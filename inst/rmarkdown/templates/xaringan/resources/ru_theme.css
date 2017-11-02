@@ -1,0 +1,239 @@
+/* 
+CSS for xaringan slides in RU flavor
+Author: Joseph V. Casillas
+Updated: 10/15/2017
+*/
+
+
+/* Package defaults that we slightly tweak */
+
+.inverse {
+  background-color: #272822;
+  color: #777872;
+  text-shadow: 0 0 20px #333;
+}
+.inverse h1, .inverse h2, .inverse h3 {
+  color: #f3f3f3;
+  line-height: 1.0em;
+}
+
+
+
+
+
+
+/*~~~~~~~~~~~~~*/
+/* Title slide */
+/*~~~~~~~~~~~~~*/
+
+/* Add image and change bg color */
+.title-slide {
+  background-image: url(http://www.jvcasillas.com/ru_xaringan/img/logo/ru_shield.png);
+  background-position: 9% 15%;
+  background-size: 55px;
+  background-color: #fff;
+  padding-left: 100px;  /* delete this for 4:3 aspect ratio */
+}
+
+/* H1 fonts */
+.title-slide h1 {
+  color: #515151;
+  padding-top: 250px;
+  font-weight: normal;
+  font-size: 45px;
+  line-height: 0.05;
+  text-align: left;
+  text-shadow: none;
+  padding-bottom: 18px;
+  margin-bottom: 18px;
+}
+
+/* H2 fonts */
+.title-slide h2 {
+  color: #cc0033;
+  font-size: 35px;
+  text-align: left;
+  text-shadow: none;
+  padding-top: 0px;
+  margin-top: 0px;
+}
+
+/* H3 fonts */
+.title-slide h3 {
+  font-size: 28px;
+  font-weight: normal;
+  color: #666666;
+  text-align: left;
+  text-shadow: none;
+  padding: 0px;
+  margin: 0px;
+  line-height: 1;
+}
+
+/* Remove slide count */
+.title-slide .remark-slide-number {
+  text-shadow: none !important;
+}
+
+.title-slide h4 {
+  color: #fff;
+}
+
+
+
+
+
+/*~~~~~~~~~~~~~~~~~~*/
+/* SECTION DIVIDERS */
+/*~~~~~~~~~~~~~~~~~~*/
+
+/* section divider red */
+.title-slide-section-red {
+  background-color: #cc0033;
+  padding-left: 100px;  /* delete this for 4:3 aspect ratio */
+}
+
+/* section divider red H1 fonts */
+.title-slide-section-red h1 {
+  color: #666666;
+}
+
+/* section divider red p fonts */
+.title-slide-section-red p {
+  color: #fff;
+}
+
+/* section divider grey */
+.title-slide-section-grey {
+  background-color: #515151;
+  padding-left: 100px;  /* delete this for 4:3 aspect ratio */
+}
+
+/* section divider grey H1 fonts */
+.title-slide-section-grey h1, .title-slide-section-grey h2, .title-slide-section-grey h3 {
+  color: #cc0033 !important;
+}
+
+.title-slide-section-grey p {
+  color: #fff !important;
+}
+
+
+
+/*~~~~~~~~~~~~~~~~~~*/
+/* FINAL SLIDE      */
+/*~~~~~~~~~~~~~~~~~~*/
+
+.title-slide-final {
+  background-color: #272822;
+  color: #fff !important;
+  padding-left: 100px; 
+  text-shadow: 0 0 20px #333;
+  text-align: center !important;
+}
+
+.title-slide-final h1 {
+  color: #cc0033;
+}
+
+
+
+
+
+
+
+
+/*~~~~~~~~~~~~~~~~~~~~*/
+/* Global adjustments */
+/*~~~~~~~~~~~~~~~~~~~~*/
+
+
+/* Add padding to all slides for 16:9 aspect ratio */
+.remark-slide-content {
+  padding-left: 100px;  /* delete this for 4:3 aspect ratio */
+}
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* Color adjustments for text */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/* Make bold syntax compile to RU-red */
+strong {
+  color: #cc0033 !important;
+}
+
+RUred {
+  color: #cc0033;
+}
+
+/* Add blue tag */
+blue {
+  color: #0000CC;
+  font-weight: bold;
+}
+
+/* Add grey tag */
+grey {
+  color: #515151;
+}
+
+/* Force black */
+black {
+  color: black;
+  font-weight: bold;
+}
+
+/* Add white tag */
+white {
+  color: white;
+}
+
+
+/* Color adjustments to headers */
+h1 {
+  color: #cc0033;
+}
+
+h3 {
+  color: #515151;
+}
+
+/* Font size tags */
+.big {
+  font-size: 1.5em;
+}
+
+
+
+
+/*~~~~~~~~~~~~~*/
+/* Misc. fixes */
+/*~~~~~~~~~~~~~*/
+
+/* fix table horizontal spacing */
+th {
+    padding:0 15px 0 15px;
+}
+
+td {
+    padding:0 15px 0 15px;
+}
+
+/* allow centering of tables and remove cell color */
+table {
+  display: inline-block; 
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+}
+table thead th { border-bottom: 1px solid #fff; }
+thead, tfoot, tr:nth-child(even) { background: #fff }
+
+
+
+
+
+
+
+
+

@@ -10,13 +10,13 @@
 #' \href{https://github.com/yihui/xaringan/wiki}{xaringan wiki on Github}
 #' providing CSS slide modification examples.
 #' @param css A vector of CSS file paths. Two default CSS files
-#'   (\file{default.css} and \file{fonts.css}) are provided in this package,
-#'   which was borrowed from \url{https://remarkjs.com}. If the character vector
-#'   \code{css} contains a value that does not end with \code{.css}, it is
-#'   supposed to be a built-in CSS file in this package, e.g., for \code{css =
-#'   c('default', 'extra.css')}), it means \code{default.css} in this package
-#'   and a user-provided \code{extra.css}. To find out all built-in CSS files,
-#'   use \code{xaringan:::list_css()}.
+#'   (\file{default.css} and \file{default-fonts.css}) are provided in this
+#'   package, which was borrowed from \url{https://remarkjs.com}. If the
+#'   character vector \code{css} contains a value that does not end with
+#'   \code{.css}, it is supposed to be a built-in CSS file in this package,
+#'   e.g., for \code{css = c('default', 'extra.css')}), it means
+#'   \code{default.css} in this package and a user-provided \code{extra.css}. To
+#'   find out all built-in CSS files, use \code{xaringan:::list_css()}.
 #' @param self_contained Whether to produce a self-contained HTML file.
 #' @param seal Whether to generate a title slide automatically using the YAML
 #'   metadata of the R Markdown document (if \code{FALSE}, you should write the
@@ -65,7 +65,7 @@
 #' @importFrom htmltools tagList tags htmlEscape HTML
 #' @export
 moon_reader = function(
-  css = c('default', 'fonts'), self_contained = FALSE, seal = TRUE, yolo = FALSE,
+  css = c('default', 'default-fonts'), self_contained = FALSE, seal = TRUE, yolo = FALSE,
   chakra = 'https://remarkjs.com/downloads/remark-latest.min.js', nature = list(),
   ...
 ) {
@@ -82,7 +82,7 @@ moon_reader = function(
 
   if (isTRUE(countdown <- nature[['countdown']])) countdown = autoplay
   countdown_js = if (is.numeric(countdown) && countdown > 0) sprintf(
-    '(%s)(%d);', pkg_file('countdown.js'), countdown
+    '(%s)(%d);', pkg_file('js/countdown.js'), countdown
   )
 
   before = nature[['beforeInit']]
@@ -95,7 +95,7 @@ moon_reader = function(
     },
     tags$script(HTML(paste(c(sprintf(
       'var slideshow = remark.create(%s);', if (length(nature)) knitr:::tojson(nature) else ''
-    ), pkg_file('show-widgets.js'), pkg_file('print-css.js'),
+    ), pkg_file('js/show-widgets.js'), pkg_file('js/print-css.js'),
     play_js, countdown_js), collapse = '\n')))
   )), tmp_js)
 

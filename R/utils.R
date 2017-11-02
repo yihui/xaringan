@@ -1,4 +1,5 @@
 #' @import utils
+#' @import stats
 
 writeUTF8 = function(x, ...) writeLines(enc2utf8(x), ..., useBytes = TRUE)
 

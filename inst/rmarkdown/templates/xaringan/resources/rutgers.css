@@ -28,7 +28,7 @@ Updated: 10/15/2017
 
 /* Add image and change bg color */
 .title-slide {
-  background-image: url(http://www.jvcasillas.com/ru_xaringan/img/logo/ru_shield.png);
+  /*background-image: url(http://www.jvcasillas.com/ru_xaringan/img/logo/ru_shield.png);*/
   background-position: 9% 15%;
   background-size: 55px;
   background-color: #fff;

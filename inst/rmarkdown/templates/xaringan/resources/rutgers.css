@@ -1,23 +1,127 @@
 /* 
 CSS for xaringan slides in RU flavor
 Author: Joseph V. Casillas
-Updated: 10/15/2017
+Updated: 11/07/2017
 */
 
 
 /* Package defaults that we slightly tweak */
 
+a, a > code {
+  color: #cc0033; /* rgb(249, 38, 114) */
+  text-decoration: none;
+}
+
+/* slightly lower and bigger than default */
+.footnote {
+  position: absolute;
+  bottom: 1em;
+  padding-right: 4em;
+  font-size: 95%;
+}
+
+/* important code slightly red */
+.remark-code-line-highlighted { 
+  background-color: #4B6FEA; 
+}
+
+/* color tweak */
 .inverse {
   background-color: #272822;
   color: #777872;
   text-shadow: 0 0 20px #333;
 }
+
+/* slightly spacing change */
 .inverse h1, .inverse h2, .inverse h3 {
   color: #f3f3f3;
   line-height: 1.0em;
 }
 
+/* Two-column layout (slightly wider for aspect ration) */
+.left-column {
+  color: #777;
+  width: 25%;
+  height: 92%;
+  float: left;
+}
 
+.left-column h2:last-of-type, .left-column h3:last-child {
+  color: #000;
+}
+
+/* slightly thiner to suppor aspect ration */
+.right-column {
+  width: 70%;
+  float: right;
+  padding-top: 1em;
+}
+
+.pull-left {
+  float: left;
+  width: 45%;
+}
+
+.pull-right {
+  float: right;
+  width: 45%;
+}
+
+.pull-right ~ * {
+  clear: both;
+}
+
+img, video, iframe {
+  max-width: 100%;
+}
+
+blockquote {
+  display: block;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 40px;
+  margin-right: 40px;
+  border-left: solid 10px #cc0033;
+  background-color: #818181;
+  padding: 1em;
+  color: #fff;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px; 
+}
+
+/* adjust table horizontal spacing */
+th, td {
+    padding:0 15px 0 15px;
+}
+
+/* remove color from tables */
+table {
+  margin: auto;
+  border-top: none;
+  border-bottom: none;
+}
+
+table thead th { border-bottom: none; }
+thead, tfoot, tr:nth-child(even) { background: none; }
+
+/* leave this alone */
+@page { margin: 0; }
+@media print {
+  .remark-slide-scaler {
+    width: 100% !important;
+    height: 100% !important;
+    transform: scale(1) !important;
+    top: 0 !important;
+    left: 0 !important;
+  }
+}
+
+
+
+
+/*~~~~~~~~~~~~~~*/
+/* RU additions */
+/*~~~~~~~~~~~~~~*/
 
 
 
@@ -28,7 +132,7 @@ Updated: 10/15/2017
 
 /* Add image and change bg color */
 .title-slide {
-  /*background-image: url(http://www.jvcasillas.com/ru_xaringan/img/logo/ru_shield.png);*/
+  background-image: url(https://github.com/jvcasillas/ru_xaringan/raw/master/img/logo/ru_shield.png);
   background-position: 9% 15%;
   background-size: 55px;
   background-color: #fff;
@@ -72,12 +176,9 @@ Updated: 10/15/2017
 
 /* Remove slide count */
 .title-slide .remark-slide-number {
-  text-shadow: none !important;
+  text-shadow: none;
 }
 
-.title-slide h4 {
-  color: #fff;
-}
 
 
 
@@ -94,14 +195,11 @@ Updated: 10/15/2017
 }
 
 /* section divider red H1 fonts */
-.title-slide-section-red h1 {
-  color: #666666;
-}
-
-/* section divider red p fonts */
-.title-slide-section-red p {
+.title-slide-section-red h1, .title-slide-section-red h2, .title-slide-section-red h3, .title-slide-section-red p {
   color: #fff;
 }
+
+
 
 /* section divider grey */
 .title-slide-section-grey {
@@ -111,11 +209,11 @@ Updated: 10/15/2017
 
 /* section divider grey H1 fonts */
 .title-slide-section-grey h1, .title-slide-section-grey h2, .title-slide-section-grey h3 {
-  color: #cc0033 !important;
+  color: #cc0033;
 }
 
 .title-slide-section-grey p {
-  color: #fff !important;
+  color: #fff;
 }
 
 
@@ -126,10 +224,10 @@ Updated: 10/15/2017
 
 .title-slide-final {
   background-color: #272822;
-  color: #fff !important;
+  color: #fff;
   padding-left: 100px; 
   text-shadow: 0 0 20px #333;
-  text-align: center !important;
+  text-align: center;
 }
 
 .title-slide-final h1 {
@@ -160,32 +258,32 @@ Updated: 10/15/2017
 
 /* Make bold syntax compile to RU-red */
 strong {
-  color: #cc0033 !important;
+  color: #cc0033;
 }
 
-RUred {
+.RUred {
   color: #cc0033;
 }
 
 /* Add blue tag */
-blue {
+.blue {
   color: #0000CC;
   font-weight: bold;
 }
 
 /* Add grey tag */
-grey {
+.grey {
   color: #515151;
 }
 
 /* Force black */
-black {
+.black {
   color: black;
   font-weight: bold;
 }
 
 /* Add white tag */
-white {
+.white {
   color: white;
 }
 
@@ -205,29 +303,6 @@ h3 {
 }
 
 
-
-
-/*~~~~~~~~~~~~~*/
-/* Misc. fixes */
-/*~~~~~~~~~~~~~*/
-
-/* fix table horizontal spacing */
-th {
-    padding:0 15px 0 15px;
-}
-
-td {
-    padding:0 15px 0 15px;
-}
-
-/* allow centering of tables and remove cell color */
-table {
-  display: inline-block; 
-  border-top: 1px solid #fff;
-  border-bottom: 1px solid #fff;
-}
-table thead th { border-bottom: 1px solid #fff; }
-thead, tfoot, tr:nth-child(even) { background: #fff }
 
 
 

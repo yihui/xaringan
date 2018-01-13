@@ -12,7 +12,7 @@
 }
 
 .inverse {
-  background-color: #1e1715;
+  background-color: #121316;
   text-shadow: none;
 }
 
@@ -105,128 +105,13 @@ position: absolute;
 }
 
 .remark-inline-code {
-  font-size: 12px;
-  color: #ff058e;
-  border-radius: 3px;
+  font-size: 30px;
+  color: #0072ff;
+  border-radius: 1px;
+  padding: 2px;
+  background: #e0e0e0;
 }
 
-.remark-code {
-  font-size: 12px;
-  color: #ff058e;
-}
-
-.code10 .remark-code {
-  font-size: 10%;
-}
-
-.code20 .remark-code {
-  font-size: 20%;
-}
-
-.code30 .remark-code {
-  font-size: 30%;
-}
-
-.code40 .remark-code {
-  font-size: 40%;
-}
-
-.code50 .remark-code {
-  font-size: 50%;
-}
-
-.code60 .remark-code {
-  font-size: 60%;
-}
-
-.code70 .remark-code {
-  font-size: 70%;
-}
-
-.code80 .remark-code {
-  font-size: 80%;
-}
-
-.code90 .remark-code {
-  font-size: 90%;
-}
-
-.code100 .remark-code {
-  font-size: 100%;
-}
-
-.font10 {
-  font-size: 10%;
-}
-
-.font20 {
-  font-size: 20%;
-}
-
-.font30 {
-  font-size: 30%;
-}
-
-.font40 {
-  font-size: 40%;
-}
-
-.font50 {
-  font-size: 50%;
-}
-
-.font60 {
-  font-size: 60%;
-}
-
-.font70 {
-  font-size: 70%;
-}
-
-.font80 {
-  font-size: 80%;
-}
-
-.font90 {
-  font-size: 90%;
-}
-
-.font100 {
-  font-size: 100%;
-}
-
-.font110 {
-  font-size: 110%;
-}
-
-.font120 {
-  font-size: 120%;
-}
-
-.font130 {
-  font-size: 130%;
-}
-
-.font140 {
-  font-size: 140%;
-}
-
-.font150 {
-  font-size: 150%;
-}
-
-.font160 {
-  font-size: 160%;
-}
-.font170 {
-  font-size: 170%;
-}
-.font180 {
-  font-size: 180%;
-}
-.font190 {
-  font-size: 190%;
-}
-.font200 {
-  font-size: 200%;
+.remark-code-line-highlighted {
+  background-color: #373832;
 }

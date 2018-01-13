@@ -1,10 +1,10 @@
 .remark-slide-content {
   background-color: #FAFAFA;
-  border-top: 80px solid #23373B;
-  font-size: 20px;
+  border-bottom: 5px solid #ff5f0f;
+  font-size: 16px;
   font-weight: 300;
-  line-height: 1.5;
-  padding: 1em 2em 1em 2em
+  line-height: 1.2;
+  padding: 1em 5em 1em 5em
 }
 
 .title-slide .inverse .remark-slide-content {
@@ -12,17 +12,16 @@
 }
 
 .inverse {
-  background-color: #23373B;
+  background-color: #1e1715;
   text-shadow: none;
 }
 
 .remark-slide-content > h1 {
+  margin-top: 2px;
   font-family: 'Oswald';
   font-weight: normal;
   font-size: 35px;
-  margin-top: -95px;
-  margin-left: -00px;
-  color: #f47f09;
+  color: #ff5f0f;
 }
 
 .remark-slide-content > inverse {
@@ -33,20 +32,9 @@ position: absolute;
 }
 
 .remark-slide-content > h2 {
-  padding-top: -15px;
+  padding-top: -30px;
   padding-bottom: 00px;
-  color: #4f4f4f;
-  text-shadow: none;
-  font-weight: 400;
-  font-size: 35px;
-  text-align: left;
-  margin-left: 00px;
-}
-
-.remark-slide-content > h3 {
-  padding-top: -15px;
-  padding-bottom: 10px;
-  color: #1A292C;
+  color: #5b5b5b;
   text-shadow: none;
   font-weight: 400;
   font-size: 30px;
@@ -54,49 +42,59 @@ position: absolute;
   margin-left: 00px;
 }
 
+.remark-slide-content > h3 {
+  padding-top: -30px;
+  padding-bottom: 00px;
+  color: #b7b7b7;
+  text-shadow: none;
+  font-weight: 400;
+  font-size: 25px;
+  text-align: left;
+  margin-left: 00px;
+}
+
 .title-slide {
-  background-color: #FAFAFA;
-  border-top: 80px solid #FAFAFA;
+  background-color: #efe3d7;
 }
 
 .title-slide > h1  {
   color: #1A292C;
-  font-size: 40px;
+  font-size: 50px;
   text-shadow: none;
-  font-weight: 400;
+  font-weight: 500;
   text-align: left;
-  margin-left: 15px;
-  padding-top: 80px;
+  margin-left: 40px;
+  padding-top: 60px;
 }
 .title-slide > h2  {
   margin-top: -25px;
   padding-bottom: -20px;
-  color: #1A292C;
+  color: #5b5b5b;
   text-shadow: none;
-  font-weight: 300;
+  font-weight: 350;
   font-size: 35px;
   text-align: left;
-  margin-left: 15px;
+  margin-left: 40px;
 }
 .title-slide > h3  {
-  color: #1A292C;
+  color: #b7b7b7;
   text-shadow: none;
   font-weight: 300;
   font-size: 25px;
   text-align: left;
-  margin-left: 15px;
-  margin-bottom: -30px;
+  margin-left: 40px;
+  margin-bottom: -20px;
 }
 
 .remark-slide-number {
-  font-size: 13pt;
-  font-family: 'Fira Sans';
+  font-size: 10pt;
+  font-family: 'EB Garamond';
   color: #272822;
   opacity: 1;
 }
 .inverse .remark-slide-number {
-  font-size: 13pt;
-  font-family: 'Fira Sans';
+  font-size: 10pt;
+  font-family: 'EB Garamond';
   color: #FAFAFA;
   opacity: 1;
 }
@@ -107,10 +105,14 @@ position: absolute;
 }
 
 .remark-inline-code {
-  /* background: #F5F5F5; /* lighter */
-  background: #e7e8e2; /* darker */
+  font-size: 12px;
+  color: #ff058e;
   border-radius: 3px;
-  padding: 4px;
+}
+
+.remark-code {
+  font-size: 12px;
+  color: #ff058e;
 }
 
 .code10 .remark-code {

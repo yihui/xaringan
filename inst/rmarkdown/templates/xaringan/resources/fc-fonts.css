@@ -4,4 +4,4 @@
 
 body { font-family: 'EB Garamond', 'Palatino Linotype', 'Book Antiqua', Palatino, 'Microsoft YaHei', 'Songti SC', serif; }
 h1, h2, h3 { font-family: 'Oswald'; }
-.remark-code, .remark-inline-code { font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace; }
+.remark-code, .remark-inline-code { font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace; font-size: 80%;}

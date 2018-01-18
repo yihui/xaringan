@@ -3,6 +3,7 @@
 ^\.travis\.yml$
 ^\.github$
 ^NEWS\.md$
+^LICENSE\.md$
 skeleton/libs$
 skeleton/skeleton\.html$
 skeleton/skeleton_files$

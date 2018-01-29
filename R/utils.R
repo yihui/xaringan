@@ -139,10 +139,21 @@ highlight_code = function(x) {
   m = gregexpr(r, x)
   regmatches(x, m) = lapply(regmatches(x, m), function(z) {
     z = gsub(r, '\\1\\2\\3', z)  # remove {{ and }}
-    z = gsub('\n', '\n*', z)     # add * after every \n
+    z = gsub('\n ?', '\n*', z)   # add * after every \n
     z
   })
-  gsub('^\n', '', x)
+  x = gsub('^\n', '', x)
+  highlight_code2(x)
+}
+
+# adds support for `#<<` line highlight marker at line end in code segments
+highlight_code2 = function(x) {
+  # Catch `#<<` at end of the line but ignores lines that start with `*`
+  # since they came from highlight_code(x)
+  x = strsplit(x, "\n")
+  r = "^[[:blank:]]?([^*].+?)[[:blank:]]*#<<[[:blank:]]*$"
+  x = lapply(x, gsub, pattern = r, replacement = "*\\1")
+  paste(unlist(x), collapse = "\n")
 }
 
 file_content = function(file) {

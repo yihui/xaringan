@@ -1,4 +1,4 @@
-# CHANGES IN xaringan VERSION 0.5 (unreleased)
+# CHANGES IN xaringan VERSION 0.5
 
 ## NEW FEATURES
 

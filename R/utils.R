@@ -146,7 +146,7 @@ highlight_code = function(x) {
 }
 
 file_content = function(file) {
-  paste(readLines(file, encoding = 'UTF-8'), collapse = '\n')
+  paste(unlist(lapply(file, readLines, encoding = 'UTF-8')), collapse = '\n')
 }
 
 pkg_file = function(file) file_content(pkg_resource(file))

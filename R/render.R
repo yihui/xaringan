@@ -90,8 +90,10 @@ moon_reader = function(
 
   writeUTF8(as.character(tagList(
     tags$script(src = chakra),
-    if (is.character(before)) {
-      if (self_contained) tags$script(HTML(file_content(before))) else tags$script(src = before)
+    if (is.character(before)) if (self_contained) {
+      tags$script(HTML(file_content(before)))
+    } else {
+      lapply(before, function(s) tags$script(src = s))
     },
     tags$script(HTML(paste(c(sprintf(
       'var slideshow = remark.create(%s);', if (length(nature)) knitr:::tojson(nature) else ''

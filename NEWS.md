@@ -2,7 +2,7 @@
 
 ## NEW FEATURES
 
-- The default CSS file was split into two files default.css and fonts.css to make it easier to define custom font styles without copying all base CSS definitions. For example, the `css` argument of `xaringan::moon_reader` can take a vector of `default` and `extra.css`, and you define your custom font styles in `extra.css`.
+- The default CSS file was split into two files default.css and default-fonts.css to make it easier to define custom font styles without copying all base CSS definitions. For example, the `css` argument of `xaringan::moon_reader` can take a vector of `default` and `extra.css`, and you define your custom font styles in `extra.css`.
 
 - For the `css` argument, if a value does not end with `.css`, it is assumed to be a built-in CSS file in this package. Currently all available CSS files can be found at https://github.com/yihui/xaringan/tree/master/inst/rmarkdown/templates/xaringan/resources. See `?xaringan::moon_reader` for more details. This change was to make it easier for users to contribute custom themes (https://yihui.name/en/2017/10/xaringan-themes/).
 

@@ -1,6 +1,6 @@
 #' @import utils
 #' @import stats
-#' @importFrom xfun write_utf8 normalize_path
+#' @importFrom xfun read_utf8 write_utf8 normalize_path
 
 pkg_resource = function(...) system.file(
   'rmarkdown', 'templates', 'xaringan', 'resources', ..., package = 'xaringan',
@@ -150,7 +150,7 @@ split_lines = function(x) {
 }
 
 file_content = function(file) {
-  paste(unlist(lapply(file, readLines, encoding = 'UTF-8')), collapse = '\n')
+  paste(unlist(lapply(file, read_utf8)), collapse = '\n')
 }
 
 pkg_file = function(file) file_content(pkg_resource(file))

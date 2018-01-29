@@ -23,7 +23,7 @@ assert(
   "highlight_code handles {{ .code. }} and ...code #<< formats",
   highlight_code("{{paste('a')}}") %==% "*paste('a')",
   highlight_code("paste('a') #<<") %==% "*paste('a')",
-  highlight_code(" {{paste('a')}}") %==% "*paste('a')",
+  highlight_code(" {{paste('a')}}") %==% "* paste('a')",
   highlight_code(" paste('a') #<<") %==% "*paste('a')",
   highlight_code("{{paste('a')}} #<<") %==% "*paste('a') #<<",
   highlight_code("*paste('a') #<<") %==% "*paste('a') #<<",

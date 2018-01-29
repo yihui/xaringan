@@ -133,7 +133,7 @@ highlight_code = function(x) {
   m = gregexpr(r, x)
   regmatches(x, m) = lapply(regmatches(x, m), function(z) {
     z = gsub(r, '\\1\\2\\3', z)  # remove {{ and }}
-    z = gsub('\n ?', '\n*', z)   # add * after every \n
+    z = gsub('\n', '\n*', z)     # add * after every \n
     z
   })
   x = gsub('^\n', '', x)

@@ -1,7 +1,6 @@
 #' @import utils
 #' @import stats
-
-writeUTF8 = function(x, ...) writeLines(enc2utf8(x), ..., useBytes = TRUE)
+#' @importFrom xfun write_utf8
 
 pkg_resource = function(...) system.file(
   'rmarkdown', 'templates', 'xaringan', 'resources', ..., package = 'xaringan',

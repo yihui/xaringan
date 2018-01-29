@@ -88,7 +88,7 @@ moon_reader = function(
   before = nature[['beforeInit']]
   nature[['countdown']] = nature[['autoplay']] = nature[['beforeInit']] = NULL
 
-  writeUTF8(as.character(tagList(
+  write_utf8(as.character(tagList(
     tags$script(src = chakra),
     if (is.character(before)) if (self_contained) {
       tags$script(HTML(file_content(before)))
@@ -149,11 +149,11 @@ moon_reader = function(
       metadata, input_file, runtime, knit_meta, files_dir, output_dir
     ) {
       res = split_yaml_body(input_file)
-      writeUTF8(res$yaml, input_file)
+      write_utf8(res$yaml, input_file)
       res$body = protect_math(res$body)
       content = htmlEscape(yolofy(res$body, yolo))
       Encoding(content) = 'UTF-8'
-      writeUTF8(content, tmp_md)
+      write_utf8(content, tmp_md)
       c(
         if (seal) c('--variable', 'title-slide=true'),
         if (!identical(body, res$body)) c('--variable', 'math=true')

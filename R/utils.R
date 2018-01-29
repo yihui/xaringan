@@ -1,6 +1,6 @@
 #' @import utils
 #' @import stats
-#' @importFrom xfun write_utf8
+#' @importFrom xfun write_utf8 normalize_path
 
 pkg_resource = function(...) system.file(
   'rmarkdown', 'templates', 'xaringan', 'resources', ..., package = 'xaringan',
@@ -18,11 +18,6 @@ list_css = function() {
   css = list.files(pkg_resource(), '[.]css$', full.names = TRUE)
   setNames(css, gsub('.css$', '', basename(css)))
 }
-
-normalize_path = function(path) {
-  normalizePath(path, winslash = '/', mustWork = TRUE)
-}
-
 
 split_yaml_body = function(file) {
   x = readLines(file, encoding = 'UTF-8')

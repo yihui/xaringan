@@ -137,17 +137,16 @@ highlight_code = function(x) {
     z
   })
   x = gsub('^\n', '', x)
-  highlight_code2(x)
+  # adds support for `#<<` line highlight marker at line end in code segments
+  # catch `#<<` at end of the line but ignores lines that start with `*` since
+  # they came from above
+  x = gsub('^\\s?([^*].+?)\\s*#<<\\s*$', '*\\1', split_lines(x))
+  paste(x, collapse = '\n')
 }
 
-# adds support for `#<<` line highlight marker at line end in code segments
-highlight_code2 = function(x) {
-  # Catch `#<<` at end of the line but ignores lines that start with `*`
-  # since they came from highlight_code(x)
-  x = strsplit(x, "\n")
-  r = "^[[:blank:]]?([^*].+?)[[:blank:]]*#<<[[:blank:]]*$"
-  x = lapply(x, gsub, pattern = r, replacement = "*\\1")
-  paste(unlist(x), collapse = "\n")
+# make sure blank lines and trailing \n are not removed by strsplit()
+split_lines = function(x) {
+  unlist(strsplit(paste0(x, '\n'), '\n'))
 }
 
 file_content = function(file) {

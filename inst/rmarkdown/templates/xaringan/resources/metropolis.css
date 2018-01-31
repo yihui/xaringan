@@ -32,40 +32,24 @@ border-bottom: 1px solid black;
 position: absolute;
 }
 
-.remark-slide-content > h2, .pull-left > h2, .pull-right > h2 {
+h2, h3, h4 {
   padding-top: -15px;
   padding-bottom: 00px;
   color: #1A292C;
   text-shadow: none;
   font-weight: 400;
+  text-align: left;
+  margin-left: 00px;
+  margin-bottom: -10px;
+}
+
+.remark-slide-content > h2, .pull-left > h2, .pull-right > h2 {
   font-size: 35px;
-  text-align: left;
-  margin-left: 00px;
-  margin-bottom: -10px;
 }
 
-.remark-slide-content > h3, .pull-left > h3, .pull-right > h3 {
-  padding-top: -15px;
-  padding-bottom: 1px;
-  color: #1A292C;
-  text-shadow: none;
-  font-weight: 400;
+.remark-slide-content > h3, .remark-slide-content > h4,
+.pull-left > h3, .pull-left > h4, .pull-right > h3, .pull-right > h4 {
   font-size: 30px;
-  text-align: left;
-  margin-left: 00px;
-  margin-bottom: -10px;
-}
-
-.remark-slide-content > h4, .pull-left > h4, .pull-right > h4 {
-  padding-top: -15px;
-  padding-bottom: 1px;
-  color: #1A292C;
-  text-shadow: none;
-  font-weight: 400;
-  font-size: 30px;
-  text-align: left;
-  margin-left: 00px;
-  margin-bottom: -10px;
 }
 
 .title-slide {

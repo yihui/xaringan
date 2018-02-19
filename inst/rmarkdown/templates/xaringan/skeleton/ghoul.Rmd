@@ -5,7 +5,7 @@ author: "Claus Thorn Ekstrøm"
 date: "2018/02/16"
 output:
   xaringan::moon_reader:
-    css: ["default", "default-fonts", "tools"]
+    css: ["default", "default-fonts", "hygge"]
     lib_dir: libs
     nature:
       highlightStyle: github
@@ -98,7 +98,7 @@ Wrap in `.full-width` to expand the width
 
 If you have content in columns then you get
 
-.pull-left[.full-width[.content-box-yellow[**WARNING** Look our for minons or bananas]]]
+.pull-left[.full-width[.content-box-yellow[**WARNING** Look out for minons or bananas]]]
 .pull-right[.full-width[.content-box-yellow[The box to the left was created using `.pull-left[.full-width[.content-box-yellow[]]]`]]]
 
 

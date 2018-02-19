@@ -8,7 +8,8 @@ Authors@R: c(
     person("Garrick", "Aden-Buie", role = "ctb"),
     person("Ole Petter", "Bang", role = "ctb", comment = "CSS in rmarkdown/templates/xaringan/resources/default.css"),
     person("Patrick", "Schratz", role = "ctb"),
-    person("Sean", "Lopp", role = "ctb")
+    person("Sean", "Lopp", role = "ctb"),
+    person("Claus Thorn", "Ekstrøm", role = "ctb")
     )
 Description: Create HTML5 slides with R Markdown and the JavaScript library
     'remark.js' (<https://remarkjs.com>).
@@ -23,4 +24,5 @@ License: MIT + file LICENSE
 URL: https://github.com/yihui/xaringan
 BugReports: https://github.com/yihui/xaringan/issues
 VignetteBuilder: knitr
+Encoding: UTF-8
 RoxygenNote: 6.0.1

@@ -10,6 +10,8 @@
 
 - Line highlighting can also be turned on using a special comment `#<<` at the end of a line of code now (thanks, @gadenbuie, #103).
 
+- Added CSS`hygge` - some template-independent CSS code for general formatting. Add as argument to `xaringan::moon_reader`
+
 # CHANGES IN xaringan VERSION 0.4
 
 ## NEW FEATURES

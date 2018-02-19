@@ -64,6 +64,8 @@
 #' @references \url{http://naruto.wikia.com/wiki/Tsukuyomi}
 #' @importFrom htmltools tagList tags htmlEscape HTML
 #' @export
+#' @examples
+#' # rmarkdown::render('foo.Rmd', 'xaringan::moon_reader')
 moon_reader = function(
   css = c('default', 'default-fonts'), self_contained = FALSE, seal = TRUE, yolo = FALSE,
   chakra = 'https://remarkjs.com/downloads/remark-latest.min.js', nature = list(),

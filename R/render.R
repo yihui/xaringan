@@ -96,7 +96,7 @@ moon_reader = function(
       lapply(before, function(s) tags$script(src = s))
     },
     tags$script(HTML(paste(c(sprintf(
-      'var slideshow = remark.create(%s);', if (length(nature)) knitr:::tojson(nature) else ''
+      'var slideshow = remark.create(%s);', if (length(nature)) xfun::tojson(nature) else ''
     ), pkg_file('js/show-widgets.js'), pkg_file('js/print-css.js'),
     play_js, countdown_js), collapse = '\n')))
   )), tmp_js)

@@ -1,15 +1,15 @@
 Package: xaringan
 Type: Package
 Title: Presentation Ninja
-Version: 0.5.1
+Version: 0.5.2
 Authors@R: c(
     person("Yihui", "Xie", role = c("aut", "cre"), email = "xie@yihui.name", comment = c(ORCID = "0000-0003-0645-5666")),
+    person("Claus Thorn", "Ekstrøm", role = "ctb"),
     person("Dawei", "Lang", role = "ctb"),
     person("Garrick", "Aden-Buie", role = "ctb"),
     person("Ole Petter", "Bang", role = "ctb", comment = "CSS in rmarkdown/templates/xaringan/resources/default.css"),
     person("Patrick", "Schratz", role = "ctb"),
-    person("Sean", "Lopp", role = "ctb"),
-    person("Claus Thorn", "Ekstrøm", role = "ctb")
+    person("Sean", "Lopp", role = "ctb")
     )
 Description: Create HTML5 slides with R Markdown and the JavaScript library
     'remark.js' (<https://remarkjs.com>).

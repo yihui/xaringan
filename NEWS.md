@@ -1,3 +1,9 @@
+# CHANGES IN xaringan VERSION 0.6
+
+## NEW FEATURES
+
+- Added CSS `hygge` - some template-independent CSS code for general formatting. Add as argument to `xaringan::moon_reader` (thanks, @ekstroem, #113).
+
 # CHANGES IN xaringan VERSION 0.5
 
 ## NEW FEATURES
@@ -9,8 +15,6 @@
 - Added a new sub-option `beforeInit` under the `nature` option, which can be used to specify JavaScript files to be executed before the instantiation of slides (i.e., before `remark.create()`). One application of this new feature is to define custom remark.js macros; see the slide "Macros" at https://slides.yihui.name/xaringan/ for more info (thanks, @gavinsimpson, #80).
 
 - Line highlighting can also be turned on using a special comment `#<<` at the end of a line of code now (thanks, @gadenbuie, #103).
-
-- Added CSS`hygge` - some template-independent CSS code for general formatting. Add as argument to `xaringan::moon_reader`
 
 # CHANGES IN xaringan VERSION 0.4
 

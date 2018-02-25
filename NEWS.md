@@ -1,3 +1,9 @@
+# CHANGES IN xaringan VERSION 0.7
+
+## NEW FEATURES
+
+- Added a CSS theme `tamu` (Texas A&M) (thanks, @nanhung, #115).
+
 # CHANGES IN xaringan VERSION 0.6
 
 ## NEW FEATURES

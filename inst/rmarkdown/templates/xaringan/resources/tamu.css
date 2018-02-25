@@ -1,0 +1,49 @@
+a, a > code {
+  color: #e4002b;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.footnote {
+  position: absolute;
+  bottom: 3em;
+  padding-right: 4em;
+  font-size: 60%;
+}
+
+.remark-code-line-highlighted     { background-color: fce300 ; }
+
+.remark-slide-content {
+  border-top: 8px solid #500000;
+  border-bottom: 8px solid #500000;
+  border-right: 11px solid #500000;
+  border-left: 11px solid #500000;
+  padding: 1em 2em 1em 2em
+}
+
+.remark-slide-content > h1 {
+  font-weight: normal;
+  margin-top: 10px;
+  margin-left: -00px;
+}
+
+h1, h2, h3 {
+  font-weight: normal;
+  color: #500000;
+}
+
+.inverse {
+  background-color: #500000;
+  color: #d6d6d6;
+}
+
+.inverse h1, .inverse h2, .inverse h3 {
+  color: #f3f3f3;
+}
+
+table {
+  margin: auto;
+  font-size: 90%;
+  border-top: 1px solid #666;
+  border-bottom: 1px solid #666;
+}

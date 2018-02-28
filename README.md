@@ -18,7 +18,7 @@ If you use RStudio, it is easy to get started from the menu `File -> New File ->
 
 The main R Markdown output format in this package is `moon_reader()`. See the R help page `?xaringan::moon_reader` for all possible configurations.
 
-# Slide formatting
+## Slide formatting
 
 The [remark.js Wiki](https://github.com/gnab/remark/wiki) contains detailed documentation about how to format slides and use the presentation (keyboard shortcuts). The **xaringan** package has simplified several things compared to the official remark.js guide, e.g. you don't need a boilerplate HTML file, you can set the autoplay mode via an option of `moon_reader()`, and LaTeX math basically just works (TM). Please note that remark.js does not support Pandoc's Markdown, so you will not be able to use any fancy Pandoc features, but that is probably fine for presentations. BTW, you can use raw HTML when you feel there is something you desparately want but cannot get from the basic Markdown syntax (e.g. `knitr::kable(head(iris), 'html')`).
 

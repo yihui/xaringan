@@ -1,6 +1,6 @@
 #' @import utils
-
-writeUTF8 = function(x, ...) writeLines(enc2utf8(x), ..., useBytes = TRUE)
+#' @import stats
+#' @importFrom xfun read_utf8 write_utf8 normalize_path
 
 pkg_resource = function(...) system.file(
   'rmarkdown', 'templates', 'xaringan', 'resources', ..., package = 'xaringan',
@@ -18,11 +18,6 @@ list_css = function() {
   css = list.files(pkg_resource(), '[.]css$', full.names = TRUE)
   setNames(css, gsub('.css$', '', basename(css)))
 }
-
-normalize_path = function(path) {
-  normalizePath(path, winslash = '/', mustWork = TRUE)
-}
-
 
 split_yaml_body = function(file) {
   x = readLines(file, encoding = 'UTF-8')
@@ -141,11 +136,21 @@ highlight_code = function(x) {
     z = gsub('\n', '\n*', z)     # add * after every \n
     z
   })
-  gsub('^\n', '', x)
+  x = gsub('^\n', '', x)
+  # adds support for `#<<` line highlight marker at line end in code segments
+  # catch `#<<` at end of the line but ignores lines that start with `*` since
+  # they came from above
+  x = gsub('^\\s?([^*].+?)\\s*#<<\\s*$', '*\\1', split_lines(x))
+  paste(x, collapse = '\n')
+}
+
+# make sure blank lines and trailing \n are not removed by strsplit()
+split_lines = function(x) {
+  unlist(strsplit(paste0(x, '\n'), '\n'))
 }
 
 file_content = function(file) {
-  paste(readLines(file, encoding = 'UTF-8'), collapse = '\n')
+  paste(unlist(lapply(file, read_utf8)), collapse = '\n')
 }
 
 pkg_file = function(file) file_content(pkg_resource(file))

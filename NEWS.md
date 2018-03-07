@@ -1,12 +1,26 @@
-# CHANGES IN xaringan VERSION 0.5 (unreleased)
+# CHANGES IN xaringan VERSION 0.7
 
 ## NEW FEATURES
 
-- The default CSS file was split into two files default.css and fonts.css to make it easier to define custom font styles without copying all base CSS definitions. For example, the `css` argument of `xaringan::moon_reader` can take a vector of `default` and `extra.css`, and you define your custom font styles in `extra.css`.
+- Added a CSS theme `tamu` (Texas A&M) (thanks, @nanhung, #115).
+
+# CHANGES IN xaringan VERSION 0.6
+
+## NEW FEATURES
+
+- Added CSS `hygge` - some template-independent CSS code for general formatting. Add as argument to `xaringan::moon_reader` (thanks, @ekstroem, #113).
+
+# CHANGES IN xaringan VERSION 0.5
+
+## NEW FEATURES
+
+- The default CSS file was split into two files default.css and default-fonts.css to make it easier to define custom font styles without copying all base CSS definitions. For example, the `css` argument of `xaringan::moon_reader` can take a vector of `default` and `extra.css`, and you define your custom font styles in `extra.css`.
 
 - For the `css` argument, if a value does not end with `.css`, it is assumed to be a built-in CSS file in this package. Currently all available CSS files can be found at https://github.com/yihui/xaringan/tree/master/inst/rmarkdown/templates/xaringan/resources. See `?xaringan::moon_reader` for more details. This change was to make it easier for users to contribute custom themes (https://yihui.name/en/2017/10/xaringan-themes/).
 
-- Added a new sub-option `beforeInit` under the `nature` option, which can be used to specify a JavaScript file to be executed before the instantiation of slides (i.e., before `remark.create()`). One application of this new feature is to define custom remark.js macros; see the slide "Macros" at https://slides.yihui.name/xaringan/ for more info (thanks, @gavinsimpson, #80).
+- Added a new sub-option `beforeInit` under the `nature` option, which can be used to specify JavaScript files to be executed before the instantiation of slides (i.e., before `remark.create()`). One application of this new feature is to define custom remark.js macros; see the slide "Macros" at https://slides.yihui.name/xaringan/ for more info (thanks, @gavinsimpson, #80).
+
+- Line highlighting can also be turned on using a special comment `#<<` at the end of a line of code now (thanks, @gadenbuie, #103).
 
 # CHANGES IN xaringan VERSION 0.4
 

@@ -10,13 +10,13 @@
 #' \href{https://github.com/yihui/xaringan/wiki}{xaringan wiki on Github}
 #' providing CSS slide modification examples.
 #' @param css A vector of CSS file paths. Two default CSS files
-#'   (\file{default.css} and \file{fonts.css}) are provided in this package,
-#'   which was borrowed from \url{https://remarkjs.com}. If the character vector
-#'   \code{css} contains a value that does not end with \code{.css}, it is
-#'   supposed to be a built-in CSS file in this package, e.g., for \code{css =
-#'   c('default', 'extra.css')}), it means \code{default.css} in this package
-#'   and a user-provided \code{extra.css}. To find out all built-in CSS files,
-#'   use \code{xaringan:::list_css()}.
+#'   (\file{default.css} and \file{default-fonts.css}) are provided in this
+#'   package, which was borrowed from \url{https://remarkjs.com}. If the
+#'   character vector \code{css} contains a value that does not end with
+#'   \code{.css}, it is supposed to be a built-in CSS file in this package,
+#'   e.g., for \code{css = c('default', 'extra.css')}), it means
+#'   \code{default.css} in this package and a user-provided \code{extra.css}. To
+#'   find out all built-in CSS files, use \code{xaringan:::list_css()}.
 #' @param self_contained Whether to produce a self-contained HTML file.
 #' @param seal Whether to generate a title slide automatically using the YAML
 #'   metadata of the R Markdown document (if \code{FALSE}, you should write the
@@ -64,8 +64,10 @@
 #' @references \url{http://naruto.wikia.com/wiki/Tsukuyomi}
 #' @importFrom htmltools tagList tags htmlEscape HTML
 #' @export
+#' @examples
+#' # rmarkdown::render('foo.Rmd', 'xaringan::moon_reader')
 moon_reader = function(
-  css = c('default', 'fonts'), self_contained = FALSE, seal = TRUE, yolo = FALSE,
+  css = c('default', 'default-fonts'), self_contained = FALSE, seal = TRUE, yolo = FALSE,
   chakra = 'https://remarkjs.com/downloads/remark-latest.min.js', nature = list(),
   ...
 ) {
@@ -82,20 +84,22 @@ moon_reader = function(
 
   if (isTRUE(countdown <- nature[['countdown']])) countdown = autoplay
   countdown_js = if (is.numeric(countdown) && countdown > 0) sprintf(
-    '(%s)(%d);', pkg_file('countdown.js'), countdown
+    '(%s)(%d);', pkg_file('js/countdown.js'), countdown
   )
 
   before = nature[['beforeInit']]
   nature[['countdown']] = nature[['autoplay']] = nature[['beforeInit']] = NULL
 
-  writeUTF8(as.character(tagList(
+  write_utf8(as.character(tagList(
     tags$script(src = chakra),
-    if (is.character(before)) {
-      if (self_contained) tags$script(HTML(file_content(before))) else tags$script(src = before)
+    if (is.character(before)) if (self_contained) {
+      tags$script(HTML(file_content(before)))
+    } else {
+      lapply(before, function(s) tags$script(src = s))
     },
     tags$script(HTML(paste(c(sprintf(
-      'var slideshow = remark.create(%s);', if (length(nature)) knitr:::tojson(nature) else ''
-    ), pkg_file('show-widgets.js'), pkg_file('print-css.js'),
+      'var slideshow = remark.create(%s);', if (length(nature)) xfun::tojson(nature) else ''
+    ), pkg_file('js/show-widgets.js'), pkg_file('js/print-css.js'),
     play_js, countdown_js), collapse = '\n')))
   )), tmp_js)
 
@@ -147,11 +151,11 @@ moon_reader = function(
       metadata, input_file, runtime, knit_meta, files_dir, output_dir
     ) {
       res = split_yaml_body(input_file)
-      writeUTF8(res$yaml, input_file)
+      write_utf8(res$yaml, input_file)
       res$body = protect_math(res$body)
       content = htmlEscape(yolofy(res$body, yolo))
       Encoding(content) = 'UTF-8'
-      writeUTF8(content, tmp_md)
+      write_utf8(content, tmp_md)
       c(
         if (seal) c('--variable', 'title-slide=true'),
         if (!identical(body, res$body)) c('--variable', 'math=true')

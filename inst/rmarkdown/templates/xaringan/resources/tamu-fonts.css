@@ -1,0 +1,12 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+@import url('https://fonts.googleapis.com/css?family=Inconsolata:400,700');
+
+body { font-family: 'Open Sans', 'Palatino Linotype', 'Book Antiqua', Palatino, 'Microsoft YaHei', 'Songti SC', serif; }
+
+h1, h2, h3 { font-family: 'Yanone Kaffeesatz'; }
+
+.remark-code, .remark-inline-code { 
+  font-family: 'Inconsolata', 'Lucida Console', Monaco, monospace; color: #500000; 
+  background-color: #f3f3f3;  font-size: 90%; 
+}

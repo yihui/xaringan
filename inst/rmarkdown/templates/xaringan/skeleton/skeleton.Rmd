@@ -302,7 +302,7 @@ DT::datatable(
 
 - There are several ways to build incremental slides. See [this presentation](https://slides.yihui.name/xaringan/incremental.html) for examples.
 
-- The option `highlightLines: true` of `nature` will highlight code lines that start with `*` or are wrapped in `{{ }}`;
+- The option `highlightLines: true` of `nature` will highlight code lines that start with `*`, or are wrapped in `{{ }}`, or have trailing comments `#<<`;
 
     ```yaml
     output:
@@ -351,8 +351,34 @@ if (TRUE) {
 }
 ```
 
-It is valid R code so you can run it.
+It is valid R code so you can run it. Note that `{{}}` can wrap an R expression of multiple lines.
 ]
+
+---
+
+# Some Tips
+
+An example of using the trailing comment `#<<` to highlight lines:
+
+````markdown
+`r ''````{r tidy=FALSE}
+library(ggplot2)
+ggplot(mtcars) + 
+  aes(mpg, disp) + 
+  geom_point() +   #<<
+  geom_smooth()    #<<
+```
+````
+
+Output:
+
+```{r tidy=FALSE, eval=FALSE}
+library(ggplot2)
+ggplot(mtcars) + 
+  aes(mpg, disp) + 
+  geom_point() +   #<<
+  geom_smooth()    #<<
+```
 
 ---
 
@@ -420,7 +446,7 @@ It is valid R code so you can run it.
 
 Among all options in `xaringan::moon_reader`, the most challenging but perhaps also the most rewarding one is `css`, because it allows you to customize the appearance of your slides using any CSS rules or hacks you know.
 
-You can see the default CSS file [here](https://github.com/yihui/xaringan/blob/master/inst/rmarkdown/templates/xaringan/resources/default.css). You can completely replace it with your own CSS files, or define new rules to override the default.
+You can see the default CSS file [here](https://github.com/yihui/xaringan/blob/master/inst/rmarkdown/templates/xaringan/resources/default.css). You can completely replace it with your own CSS files, or define new rules to override the default. See the help page `?xaringan::moon_reader` for more information.
 
 ---
 
@@ -445,6 +471,26 @@ output:
 Here I assume `ubuntu-mono.css` is under the same directory as your Rmd.
 
 See [yihui/xaringan#83](https://github.com/yihui/xaringan/issues/83) for an example of using the [Fira Code](https://github.com/tonsky/FiraCode) font, which supports ligatures in program code.
+
+---
+
+# Themes
+
+Don't want to learn CSS? Okay, you can use some user-contributed themes. A theme typically consists of two CSS files `foo.css` and `foo-fonts.css`, where `foo` is the theme name. Below are some existing themes:
+
+```{r}
+names(xaringan:::list_css())
+```
+
+To use a theme, you can specify the `css` option as an array of CSS filenames (without the `.css` extensions), e.g.,
+
+```yaml
+output:
+  xaringan::moon_reader:
+    css: [default, metropolis, metropolis-fonts]
+```
+
+If you want to contribute a theme to **xaringan**, please read [this blog post](https://yihui.name/en/2017/10/xaringan-themes).
 
 ---
 class: inverse, middle, center

@@ -5,7 +5,7 @@
 \alias{tsukuyomi}
 \title{An R Markdown output format for remark.js slides}
 \usage{
-moon_reader(css = c("default", "fonts"), self_contained = FALSE, seal = TRUE, 
+moon_reader(css = c("default", "default-fonts"), self_contained = FALSE, seal = TRUE, 
     yolo = FALSE, chakra = "https://remarkjs.com/downloads/remark-latest.min.js", 
     nature = list(), ...)
 
@@ -13,13 +13,13 @@ tsukuyomi(...)
 }
 \arguments{
 \item{css}{A vector of CSS file paths. Two default CSS files
-(\file{default.css} and \file{fonts.css}) are provided in this package,
-which was borrowed from \url{https://remarkjs.com}. If the character vector
-\code{css} contains a value that does not end with \code{.css}, it is
-supposed to be a built-in CSS file in this package, e.g., for \code{css =
-c('default', 'extra.css')}), it means \code{default.css} in this package
-and a user-provided \code{extra.css}. To find out all built-in CSS files,
-use \code{xaringan:::list_css()}.}
+(\file{default.css} and \file{default-fonts.css}) are provided in this
+package, which was borrowed from \url{https://remarkjs.com}. If the
+character vector \code{css} contains a value that does not end with
+\code{.css}, it is supposed to be a built-in CSS file in this package,
+e.g., for \code{css = c('default', 'extra.css')}), it means
+\code{default.css} in this package and a user-provided \code{extra.css}. To
+find out all built-in CSS files, use \code{xaringan:::list_css()}.}
 
 \item{self_contained}{Whether to produce a self-contained HTML file.}
 
@@ -84,6 +84,9 @@ Do not stare at Karl's picture for too long after you turn on the
   set in \code{nature}), and the timer is (re)initialized whenever you
   navigate to a new page. If you need a global timer, you can use the
   presenter's mode (press \kbd{P}).
+}
+\examples{
+# rmarkdown::render('foo.Rmd', 'xaringan::moon_reader')
 }
 \references{
 \url{http://naruto.wikia.com/wiki/Tsukuyomi}

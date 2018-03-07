@@ -1,0 +1,183 @@
+---
+title: "Presentation Ronin"
+subtitle: "⚔<br/>with xaringan and a twist of hygge"
+author: "Claus Thorn Ekstrøm"
+date: "2018/02/16"
+output:
+  xaringan::moon_reader:
+    css: ["default", "default-fonts", "hygge"]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+class: center, middle
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+# hygge
+
+### /ˈhʊgə/
+
+A quality of cosiness and comfortable conviviality that engenders a feeling of contentment or well-being (regarded as a defining characteristic of Danish culture)
+
+*‘why not follow the Danish example and bring more hygge into your daily life?’*
+
+---
+class: inverse, center, middle
+
+# Template-independent content-classes
+
+To use, say, the large content class wrap your code in `.large[Large text]`.
+
+---
+
+# Modifying text
+
+.pull-left[
+
+## Font sizes
+
+This is normal size ( $\LaTeX$-friendly terms)
+
+.Large[Large]
+
+.large[large]
+
+.small[small]
+
+.footnotesize[footnotesize]
+
+.scriptsize[scriptsize]
+
+.tiny[tiny]
+
+]
+
+.pull-right[
+
+## Text color
+
+.black[black]
+
+.red[red]
+
+.blue[blue]
+
+.green[green], 
+.yellow[yellow], 
+.orange[orange], 
+.purple[purple], 
+.gray[gray or grey]
+
+You can also use `.bold[]` or `.bolder[]` to emphasize text 
+
+This is .bold[bold], this is .bolder[bolder] and this is regular markdown **double-star bold** (visible differences depend on the font)
+
+
+
+]
+
+---
+
+## Coloured content boxes
+
+Use `.content-box-blue` (or gray/grey, army, green, purple, red, or yellow) to produce a box with coloured background. Size depends on content.
+
+`.content-box-blue[I feel blue]` yields
+
+.content-box-blue[I feel blue]
+
+Wrap in `.full-width` to expand the width
+
+.full-width[.content-box-red[I feel even more blue]]
+
+If you have content in columns then you get
+
+.pull-left[.full-width[.content-box-yellow[**WARNING** Look out for minons or bananas]]]
+.pull-right[.full-width[.content-box-yellow[The box to the left was created using `.pull-left[.full-width[.content-box-yellow[]]]`]]]
+
+
+---
+
+## Fancy picture includes
+
+.pull-left[
+Original:
+
+```{r echo=FALSE, out.width="80%"}
+knitr::include_graphics("https://www.worldtravelguide.net/wp-content/uploads/2017/04/Think-Denmark-Copenhagen-587892190-SeanPavonePhoto-copy.jpg")
+```
+
+Add `.polaroid`
+
+.polaroid[
+```{r echo=FALSE, out.width="80%"}
+knitr::include_graphics("https://www.worldtravelguide.net/wp-content/uploads/2017/04/Think-Denmark-Copenhagen-587892190-SeanPavonePhoto-copy.jpg")
+```
+]
+]
+.pull-right[
+
+Rotated slightly:
+
+.rotate-right[
+```{r echo=FALSE, out.width="80%"}
+knitr::include_graphics("https://www.worldtravelguide.net/wp-content/uploads/2017/04/Think-Denmark-Copenhagen-587892190-SeanPavonePhoto-copy.jpg")
+```
+]
+
+Add `.blur`
+
+.blur[
+```{r echo=FALSE, out.width="80%"}
+knitr::include_graphics("https://www.worldtravelguide.net/wp-content/uploads/2017/04/Think-Denmark-Copenhagen-587892190-SeanPavonePhoto-copy.jpg")
+```
+] 
+]
+
+---
+
+## Stacking fancy picture options
+
+.pull-left[
+Add `.opacity`
+
+.opacity[
+```{r echo=FALSE, out.width="80%"}
+knitr::include_graphics("https://www.worldtravelguide.net/wp-content/uploads/2017/04/Think-Denmark-Copenhagen-587892190-SeanPavonePhoto-copy.jpg")
+```
+]
+
+Stack `.blur` and `.opacity`
+
+.blur[.opacity[
+```{r echo=FALSE, out.width="80%"}
+knitr::include_graphics("https://www.worldtravelguide.net/wp-content/uploads/2017/04/Think-Denmark-Copenhagen-587892190-SeanPavonePhoto-copy.jpg")
+```
+]]
+]
+.pull-right[
+
+Convert to `.grayscale` (oh ... and rotate just for s'n'g):
+
+.rotate-left[
+.grayscale[
+```{r echo=FALSE, out.width="80%"}
+knitr::include_graphics("https://www.worldtravelguide.net/wp-content/uploads/2017/04/Think-Denmark-Copenhagen-587892190-SeanPavonePhoto-copy.jpg")
+```
+]]
+
+Add `.shadow`
+
+.shadow[
+```{r echo=FALSE, out.width="100%"}
+knitr::include_graphics("https://beautifulenvironments.files.wordpress.com/2017/12/twinkly-lights.jpg")
+```
+] 
+]
+

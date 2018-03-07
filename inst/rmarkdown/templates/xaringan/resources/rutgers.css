@@ -1,7 +1,7 @@
-/* 
+/*
 CSS for xaringan slides in RU flavor
 Author: Joseph V. Casillas
-Updated: 11/07/2017
+Updated: 03/06/2018
 */
 
 
@@ -21,8 +21,8 @@ a, a > code {
 }
 
 /* important code slightly red */
-.remark-code-line-highlighted { 
-  background-color: #4B6FEA; 
+.remark-code-line-highlighted {
+  background-color: #FFD3DE !important;
 }
 
 /* color tweak */
@@ -76,17 +76,8 @@ img, video, iframe {
 }
 
 blockquote {
-  display: block;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  margin-left: 40px;
-  margin-right: 40px;
-  border-left: solid 10px #cc0033;
-  background-color: #818181;
-  padding: 1em;
-  color: #fff;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px; 
+  border-left: solid 5px lightgray;
+  padding-left: 1em;
 }
 
 /* adjust table horizontal spacing */
@@ -209,7 +200,7 @@ thead, tfoot, tr:nth-child(even) { background: none; }
 
 /* section divider grey H1 fonts */
 .title-slide-section-grey h1, .title-slide-section-grey h2, .title-slide-section-grey h3 {
-  color: #cc0033;
+  color: #fff;
 }
 
 .title-slide-section-grey p {
@@ -225,7 +216,7 @@ thead, tfoot, tr:nth-child(even) { background: none; }
 .title-slide-final {
   background-color: #272822;
   color: #fff;
-  padding-left: 100px; 
+  padding-left: 100px;
   text-shadow: 0 0 20px #333;
   text-align: center;
 }
@@ -276,6 +267,10 @@ strong {
   color: #515151;
 }
 
+.lightgrey {
+  color: #818181;
+}
+
 /* Force black */
 .black {
   color: black;
@@ -305,10 +300,17 @@ h3 {
 
 
 
-
-
-
-
-
-
-
+/* ru blockquote */
+ru-blockquote {
+  display: block;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 40px;
+  margin-right: 40px;
+  border-left: solid 10px #cc0033;
+  background-color: #818181;
+  padding: 1em;
+  color: #fff;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}

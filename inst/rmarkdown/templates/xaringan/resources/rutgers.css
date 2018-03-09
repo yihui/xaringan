@@ -4,7 +4,6 @@ Author: Joseph V. Casillas
 Updated: 03/06/2018
 */
 
-
 /* Package defaults that we slightly tweak */
 
 a, a > code {
@@ -107,19 +106,11 @@ thead, tfoot, tr:nth-child(even) { background: none; }
   }
 }
 
-
-
-
 /*~~~~~~~~~~~~~~*/
 /* RU additions */
 /*~~~~~~~~~~~~~~*/
 
-
-
-
-/*~~~~~~~~~~~~~*/
 /* Title slide */
-/*~~~~~~~~~~~~~*/
 
 /* Add image and change bg color */
 .title-slide {
@@ -170,11 +161,6 @@ thead, tfoot, tr:nth-child(even) { background: none; }
   text-shadow: none;
 }
 
-
-
-
-
-
 /*~~~~~~~~~~~~~~~~~~*/
 /* SECTION DIVIDERS */
 /*~~~~~~~~~~~~~~~~~~*/
@@ -190,8 +176,6 @@ thead, tfoot, tr:nth-child(even) { background: none; }
   color: #fff;
 }
 
-
-
 /* section divider grey */
 .title-slide-section-grey {
   background-color: #515151;
@@ -206,8 +190,6 @@ thead, tfoot, tr:nth-child(even) { background: none; }
 .title-slide-section-grey p {
   color: #fff;
 }
-
-
 
 /*~~~~~~~~~~~~~~~~~~*/
 /* FINAL SLIDE      */
@@ -225,27 +207,16 @@ thead, tfoot, tr:nth-child(even) { background: none; }
   color: #cc0033;
 }
 
-
-
-
-
-
-
-
 /*~~~~~~~~~~~~~~~~~~~~*/
 /* Global adjustments */
 /*~~~~~~~~~~~~~~~~~~~~*/
-
 
 /* Add padding to all slides for 16:9 aspect ratio */
 .remark-slide-content {
   padding-left: 100px;  /* delete this for 4:3 aspect ratio */
 }
 
-
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /* Color adjustments for text */
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 /* Make bold syntax compile to RU-red */
 strong {
@@ -282,7 +253,6 @@ strong {
   color: white;
 }
 
-
 /* Color adjustments to headers */
 h1 {
   color: #cc0033;
@@ -296,9 +266,6 @@ h3 {
 .big {
   font-size: 1.5em;
 }
-
-
-
 
 /* ru blockquote */
 ru-blockquote {

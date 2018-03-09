@@ -3,6 +3,7 @@
 ## NEW FEATURES
 
 - Added a CSS theme `tamu` (Texas A&M) (thanks, @nanhung, #115).
+- Added a CSS theme `rutgers` (Rutgers University)
 
 # CHANGES IN xaringan VERSION 0.6
 

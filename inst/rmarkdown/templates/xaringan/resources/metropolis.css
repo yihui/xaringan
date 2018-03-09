@@ -32,7 +32,7 @@ border-bottom: 1px solid black;
 position: absolute;
 }
 
-h2, h3, h4 {
+.remark-slide-content > h2, h3, h4 {
   padding-top: -15px;
   padding-bottom: 00px;
   color: #1A292C;

@@ -64,6 +64,8 @@
 #' @references \url{http://naruto.wikia.com/wiki/Tsukuyomi}
 #' @importFrom htmltools tagList tags htmlEscape HTML
 #' @export
+#' @examples
+#' # rmarkdown::render('foo.Rmd', 'xaringan::moon_reader')
 moon_reader = function(
   css = c('default', 'default-fonts'), self_contained = FALSE, seal = TRUE, yolo = FALSE,
   chakra = 'https://remarkjs.com/downloads/remark-latest.min.js', nature = list(),
@@ -88,13 +90,15 @@ moon_reader = function(
   before = nature[['beforeInit']]
   nature[['countdown']] = nature[['autoplay']] = nature[['beforeInit']] = NULL
 
-  writeUTF8(as.character(tagList(
+  write_utf8(as.character(tagList(
     tags$script(src = chakra),
-    if (is.character(before)) {
-      if (self_contained) tags$script(HTML(file_content(before))) else tags$script(src = before)
+    if (is.character(before)) if (self_contained) {
+      tags$script(HTML(file_content(before)))
+    } else {
+      lapply(before, function(s) tags$script(src = s))
     },
     tags$script(HTML(paste(c(sprintf(
-      'var slideshow = remark.create(%s);', if (length(nature)) knitr:::tojson(nature) else ''
+      'var slideshow = remark.create(%s);', if (length(nature)) xfun::tojson(nature) else ''
     ), pkg_file('js/show-widgets.js'), pkg_file('js/print-css.js'),
     play_js, countdown_js), collapse = '\n')))
   )), tmp_js)
@@ -147,11 +151,11 @@ moon_reader = function(
       metadata, input_file, runtime, knit_meta, files_dir, output_dir
     ) {
       res = split_yaml_body(input_file)
-      writeUTF8(res$yaml, input_file)
+      write_utf8(res$yaml, input_file)
       res$body = protect_math(res$body)
       content = htmlEscape(yolofy(res$body, yolo))
       Encoding(content) = 'UTF-8'
-      writeUTF8(content, tmp_md)
+      write_utf8(content, tmp_md)
       c(
         if (seal) c('--variable', 'title-slide=true'),
         if (!identical(body, res$body)) c('--variable', 'math=true')

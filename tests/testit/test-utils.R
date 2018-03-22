@@ -18,3 +18,21 @@ assert(
   protect_math('$$ a$$') %==% '$$ a$$',
   protect_math('$$a$') %==% '$$a$'
 )
+
+assert(
+  "highlight_code handles {{ .code. }} and ...code #<< formats",
+  highlight_code("{{paste('a')}}") %==% "*paste('a')",
+  highlight_code("paste('a') #<<") %==% "*paste('a')",
+  highlight_code(" {{paste('a')}}") %==% "* paste('a')",
+  highlight_code(" paste('a') #<<") %==% "*paste('a')",
+  highlight_code("{{paste('a')}} #<<") %==% "*paste('a') #<<",
+  highlight_code("*paste('a') #<<") %==% "*paste('a') #<<",
+  highlight_code("paste('a') #comment #<<") %==% "*paste('a') #comment",
+  highlight_code("paste('a') #<<    ") %==% "*paste('a')",
+  highlight_code("paste('a')    #<<    ") %==% "*paste('a')",
+  highlight_code("   paste('a') #<<") %==% "*  paste('a')",
+  highlight_code("*  paste('a') #<<") %==% "*  paste('a') #<<",
+  highlight_code("paste('a')#<<") %==% "*paste('a')",
+  # A space is added in following (can't overwrite first space when 2nd char is *)
+  highlight_code(" * paste('a') #<<") %==% "* * paste('a')"
+)

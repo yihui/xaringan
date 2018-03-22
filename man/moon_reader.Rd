@@ -85,6 +85,9 @@ Do not stare at Karl's picture for too long after you turn on the
   navigate to a new page. If you need a global timer, you can use the
   presenter's mode (press \kbd{P}).
 }
+\examples{
+# rmarkdown::render('foo.Rmd', 'xaringan::moon_reader')
+}
 \references{
 \url{http://naruto.wikia.com/wiki/Tsukuyomi}
 }

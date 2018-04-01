@@ -3,7 +3,11 @@
 ## NEW FEATURES
 
 - Added a CSS theme `tamu` (Texas A&M) (thanks, @nanhung, #115).
-- Added a CSS theme `rutgers` (Rutgers University)
+- Added a CSS theme `rutgers` (Rutgers University) (#121)
+
+## Theme updates
+- `metropolis`: Updated weights and margins of all headers (#107)
+- `metropolis`: Added a new CSS class 'clear' that disables the colored box at the top of each slide (#107)
 
 # CHANGES IN xaringan VERSION 0.6
 

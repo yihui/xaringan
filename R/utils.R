@@ -59,17 +59,27 @@ sample2 = function(x, size, ...) {
   } else sample(x, size, ...)
 }
 
-# filter out the lines between ``` ```
+# filter out the lines between ``` ``` (there could be four or more backticks)
 prose_index = function(x) {
-  idx = seq_along(x)
-  fence = grep('^\\s*```', x)
-  if (length(fence) %% 2 != 0) {
-    # treat all lines as prose
-    warning('Code fences are not balanced'); return(idx)
+  idx = NULL; r = '^(\\s*```*).*'; s = ''
+  for (i in grep(r, x)) {
+    if (s == '') {
+      s = gsub(r, '\\1', x[i]); idx = c(idx, i); next
+    }
+    # look for the next line with the same amount of backticks (end of block)
+    if (grepl(paste0('^', s), x[i])) {
+      idx = c(idx, i); s = ''
+    }
   }
-  idx2 = matrix(fence, nrow = 2)
+  xi = seq_along(x); n = length(idx)
+  if (n == 0) return(xi)
+  if (n %% 2 != 0) {
+    # treat all lines as prose
+    warning('Code fences are not balanced'); return(xi)
+  }
+  idx2 = matrix(idx, nrow = 2)
   idx2 = unlist(mapply(seq, idx2[1, ], idx2[2, ], SIMPLIFY = FALSE))
-  setdiff(idx, idx2)
+  xi[-idx2]
 }
 
 protect_math = function(x) {

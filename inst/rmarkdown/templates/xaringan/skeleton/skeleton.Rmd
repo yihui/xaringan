@@ -402,7 +402,7 @@ ggplot(mtcars) +
 
 # Macros
 
-- remark.js [allows users to define custom macros](https://github.com/yihui/xaringan/issues/80) (JS functions) that can be applied to Markdown text using the syntax `![:macroName arg1 arg2 ...]` or `![macroName](argument)`. For example, before remark.js initializes the slides, you can define a macro named `scale`:
+- remark.js [allows users to define custom macros](https://github.com/yihui/xaringan/issues/80) (JS functions) that can be applied to Markdown text using the syntax `![:macroName arg1, arg2, ...]` or `![:macroName arg1, arg2, ...](this)`. For example, before remark.js initializes the slides, you can define a macro named `scale`:
 
     ```js
     remark.macros.scale = function (percentage) {

@@ -1,6 +1,3 @@
-.remark-help-mode .remark-help .remark-help-content .light-keys {
-  background-color-color: #007935;
-}
 .remark-slide-content {
   border-top: 5px solid #007935;
   border-bottom: 5px solid #007935;
@@ -33,7 +30,6 @@
 }
 
 .footnote {
-  /*width: 100%;*/
   border-top: 1px solid #007935;
   font-size: 0.6em;
 }
@@ -60,6 +56,14 @@ a {
   transition: all .2s ease-in-out;
 }
 
+a:hover {
+    font-size: 1.2em;
+    color: #EC008C;
+}
+
+.remark-slide-number {
+  font-size: 0.6em;
+}
 
 .title-slide {
   background-image: url(https://github.com/uo-datasci-specialization/data_sci_specialization/raw/master/xaringan_uo_theme/UOSignature-107-4C.png);
@@ -93,16 +97,7 @@ a {
   line-height: 1;
 }
 
-.remark-slide-number {
-  font-size: 0.6em;
-}
-
 .title-slide .remark-slide-number {
   display: none;
 }
 
-
-a:hover {
-    font-size: 1.2em;
-    color: #EC008C;
-}

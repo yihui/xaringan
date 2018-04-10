@@ -66,7 +66,7 @@ a:hover {
 }
 
 .title-slide {
-  background-image: url(https://github.com/uo-datasci-specialization/data_sci_specialization/raw/master/xaringan_uo_theme/UOSignature-107-4C.png);
+  background-image: url(https://github.com/DJAnderson07/figs/raw/master/UOSignature-107-4C.png);
   background-position: 95% 95%;
   background-size: 250px;
   border: 10px solid #154733;;
@@ -101,3 +101,4 @@ a:hover {
   display: none;
 }
 
+.mjx-chtml{ font-size: 100% !important; }

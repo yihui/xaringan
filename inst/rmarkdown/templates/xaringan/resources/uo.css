@@ -50,7 +50,7 @@ code {
   color: #007935;
 }
 
-a { 
+a {
   color: #3F97B5;
   text-decoration: none;
   transition: all .2s ease-in-out;
@@ -101,4 +101,4 @@ a:hover {
   display: none;
 }
 
-.mjx-chtml{ font-size: 100% !important; }
+.mjx-chtml { font-size: 100% !important; }

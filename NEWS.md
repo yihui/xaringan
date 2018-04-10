@@ -6,6 +6,8 @@
 
 - Added a CSS theme `rutgers` (Rutgers University) (#121).
 
+- Added a CSS theme `uo` (University of Oregon) (#125).
+
 - In the `metropolis` theme, updated weights and margins of all headers, and added a new CSS class `clear` that disables the colored box at the top of each slide (#107).
 
 # CHANGES IN xaringan VERSION 0.6

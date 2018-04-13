@@ -1,0 +1,19 @@
+@import url(https://fonts.googleapis.com/css?family=Inconsolata);
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,400i,700');
+@import url('https://fonts.googleapis.com/css?family=Roboto:700');
+
+body {
+  font-family: 'Roboto Condensed', 'Avenir Next', 'Helvetica Neue', 'Helvetica', sans-serif;
+  font-weight: 400;
+  color: #222;
+}
+.remark-slide-content {
+  font-size: 1.38em;
+  padding: .25em 3.5em .25em 4em;
+}
+h1, h2, h3 {
+  font-family: 'Roboto', 'Avenir Next', 'Helvetica Neue', 'Helvetica', sans-serif;
+  font-weight: 700;
+  color: #222;
+}
+.remark-code, .remark-inline-code { font-family: 'Inconsolata', 'Consolas', Monaco, monospace; }

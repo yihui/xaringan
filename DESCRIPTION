@@ -12,7 +12,8 @@ Authors@R: c(
     person("Nan-Hung", "Hsieh", role = "ctb"),
     person("Ole Petter", "Bang", role = "ctb", comment = "CSS in rmarkdown/templates/xaringan/resources/default.css"),
     person("Patrick", "Schratz", role = "ctb"),
-    person("Sean", "Lopp", role = "ctb")
+    person("Sean", "Lopp", role = "ctb"),
+    person("Michael Wayne", "Kearney", role = "ctb")
     )
 Description: Create HTML5 slides with R Markdown and the JavaScript library
     'remark.js' (<https://remarkjs.com>).

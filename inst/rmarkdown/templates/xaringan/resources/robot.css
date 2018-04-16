@@ -1,21 +1,29 @@
-.title-slide, .title-slide h1, .title-slide h2, .title-slide h3 {
-  background-color: #fff !important;
-  color: #222 !important;
+.title-slide, title-slide h1, .title-slide h2, .title-slide h3,
+.remark-slide .title-slide,
+.remark-slide .title-slide h1,
+.remark-slide .title-slide h2,
+.remark-slide .title-slide h3 {
+  background-color: #fff;
+  color: #222;
 }
-.title-slide h3 {
+.title-slide h3,
+.remark-slide .title-slide h3 {
   font-family: 'Roboto Condensed', 'Avenir Next', 'Helvetica Neue', 'Helvetica', sans-serif;
   font-weight: 400;
   padding-top: 15px;
   font-size: 28px;
 }
-.title-slide h3:nth-of-type(2) {
+.title-slide h3:nth-of-type(2),
+.remark-slide .title-slide h3:nth-of-type(2) {
   margin-top: 10px;
   font-size: 28px;
 }
-.title-slide table {
-  padding-top: 35px !important;
+.title-slide table,
+.remark-slide .title-slide table {
+  padding-top: 35px;
 }
-.title-slide i.fa {
+.title-slide i.fa,
+.remark-slide .title-slide i.fa {
   font-size: 2em;
 }
 a, a > code {
@@ -86,10 +94,10 @@ thead, tfoot, tr:nth-child(even) { background: #f0f0f0 }
 @page { margin: 0; }
 @media print {
   .remark-slide-scaler {
-    width: 100% !important;
-    height: 100% !important;
-    transform: scale(1) !important;
-    top: 0 !important;
-    left: 0 !important;
+    width: 100%;
+    height: 100%;
+    transform: scale(1);
+    top: 0;
+    left: 0;
   }
 }

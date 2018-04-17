@@ -8,7 +8,7 @@
 
 - Added a CSS theme `uo` (University of Oregon) (#125).
 
-- Added a CSS theme `roboto` (Inspired by the Roboto Google font) (#126)
+- Added a CSS theme `roboto` (Inspired by the Roboto Google font) (#126).
 
 - In the `metropolis` theme, updated weights and margins of all headers, and added a new CSS class `clear` that disables the colored box at the top of each slide (#107).
 

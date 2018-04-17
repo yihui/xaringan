@@ -9,6 +9,7 @@ Authors@R: c(
     person("Dawei", "Lang", role = "ctb"),
     person("Garrick", "Aden-Buie", role = "ctb"),
     person("Joseph", "Casillas", role = "ctb"),
+    person("Michael Wayne", "Kearney", role = "ctb"),
     person("Nan-Hung", "Hsieh", role = "ctb"),
     person("Ole Petter", "Bang", role = "ctb", comment = "CSS in rmarkdown/templates/xaringan/resources/default.css"),
     person("Patrick", "Schratz", role = "ctb"),

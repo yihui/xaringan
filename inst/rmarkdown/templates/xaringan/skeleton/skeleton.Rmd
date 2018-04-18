@@ -99,7 +99,7 @@ You can see an introduction of remark.js from [its homepage](https://remarkjs.co
 
 It is important to be familiar with remark.js before you can understand the options in **xaringan**.
 
-.footnote[[*] It is different with Pandoc's Markdown! It is limited but should be enough for presentation purporses. Come on... You do not need a slide for the Table of Contents! Well, the Markdown support in remark.js [may be improved](https://github.com/gnab/remark/issues/142) in the future.]
+.footnote[[*] It is different with Pandoc's Markdown! It is limited but should be enough for presentation purposes. Come on... You do not need a slide for the Table of Contents! Well, the Markdown support in remark.js [may be improved](https://github.com/gnab/remark/issues/142) in the future.]
 
 ---
 background-image: url(`r xaringan:::karl`)

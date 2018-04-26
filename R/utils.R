@@ -19,6 +19,19 @@ list_css = function() {
   setNames(css, gsub('.css$', '', basename(css)))
 }
 
+check_builtin_css = function(theme) {
+  valid = names(list_css())
+  invalid = setdiff(theme, valid)
+  if (length(invalid) == 0) return()
+  invalid = invalid[1]
+  match_maybe = sort(agrep(invalid, valid, value = TRUE))[1]
+  match_text = if (is.na(match_maybe)) '' else paste0(', did you mean "', match_maybe, '"?')
+  stop('"', invalid, '" is not a valid xaringan theme',
+       if (match_text != "") match_text else ".",
+       "\n       Use `xaringan:::list_css()` to view all themes.",
+       call. = FALSE)
+}
+
 split_yaml_body = function(file) {
   x = readLines(file, encoding = 'UTF-8')
   i = grep('^---\\s*$', x)

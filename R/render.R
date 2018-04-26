@@ -74,6 +74,7 @@ moon_reader = function(
   theme = grep('[.]css$', css, value = TRUE, invert = TRUE)
   deps = if (length(theme)) {
     css = setdiff(css, theme)
+    check_builtin_css(theme)
     list(css_deps(theme))
   }
   tmp_js = tempfile('xaringan', fileext = '.js')  # write JS config to this file

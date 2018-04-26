@@ -12,6 +12,10 @@
 
 - In the `metropolis` theme, updated weights and margins of all headers, and added a new CSS class `clear` that disables the colored box at the top of each slide (#107).
 
+## BUG FIXES
+
+- An informative error message is now returned when trying to use an invalid or misspelled CSS theme name (thanks, @gadenbuie, #129).
+
 # CHANGES IN xaringan VERSION 0.6
 
 ## NEW FEATURES

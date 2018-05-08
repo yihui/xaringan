@@ -8,6 +8,7 @@ Authors@R: c(
     person("Daniel", "Anderson", role = "ctb"),
     person("Dawei", "Lang", role = "ctb"),
     person("Garrick", "Aden-Buie", role = "ctb"),
+    person("John", "Little", role = "ctb"),
     person("Joseph", "Casillas", role = "ctb"),
     person("Michael Wayne", "Kearney", role = "ctb"),
     person("Nan-Hung", "Hsieh", role = "ctb"),

@@ -10,6 +10,8 @@
 
 - Added a CSS theme `roboto` (Inspired by the Roboto Google font) (#126).
 
+- Added a CSS theme `duke-blue` and corresponding `hygge-duke` (Duke University) (thanks, @libjohn, #133).
+
 - In the `metropolis` theme, updated weights and margins of all headers, and added a new CSS class `clear` that disables the colored box at the top of each slide (#107).
 
 ## BUG FIXES

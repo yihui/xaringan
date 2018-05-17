@@ -18,6 +18,8 @@
 
 - An informative error message is now returned when trying to use an invalid or misspelled CSS theme name (thanks, @gadenbuie, #129).
 
+- LaTeX math expressions will no longer be rendered inside the `<code></code>` tags (thanks, @garthtarr, #137).
+
 # CHANGES IN xaringan VERSION 0.6
 
 ## NEW FEATURES

@@ -20,6 +20,8 @@
 
 - LaTeX math expressions will no longer be rendered inside the `<code></code>` tags (thanks, @garthtarr, #137).
 
+- The default CSS style for tables should not be applied to the help page of the slides (thanks, @KevCaz, #138).
+
 # CHANGES IN xaringan VERSION 0.6
 
 ## NEW FEATURES

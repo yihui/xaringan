@@ -41,7 +41,10 @@
 #'   \code{autoplay} milliseconds. You can also set \code{countdown} to a number
 #'   (the number of milliseconds) to include a countdown timer on each slide. If
 #'   using \code{autoplay}, you can optionally set \code{countdown} to
-#'   \code{TRUE} to include a countdown equal to \code{autoplay}.
+#'   \code{TRUE} to include a countdown equal to \code{autoplay}. To alter the
+#'   set of classes applied to the title slide, you can optionally set
+#'   \code{titleSlideClass} to a vector of classes; the default is
+#'   \code{c("center", "middle", "inverse")}.
 #' @param ... For \code{tsukuyomi()}, arguments passed to \code{moon_reader()};
 #'   for \code{moon_reader()}, arguments passed to
 #'   \code{rmarkdown::\link{html_document}()}.
@@ -88,8 +91,12 @@ moon_reader = function(
     '(%s)(%d);', pkg_file('js/countdown.js'), countdown
   )
 
+  if (is.null(title_cls <- nature[['titleSlideClass']]))
+    title_cls = c('center', 'middle', 'inverse')
+  title_cls = paste(c(title_cls, 'title-slide'), collapse = ", ")
+
   before = nature[['beforeInit']]
-  nature[['countdown']] = nature[['autoplay']] = nature[['beforeInit']] = NULL
+  for (i in c('countdown', 'autoplay', 'beforeInit', "titleSlideClass")) nature[[i]] = NULL
 
   write_utf8(as.character(tagList(
     tags$script(src = chakra),
@@ -119,6 +126,7 @@ moon_reader = function(
       pandoc_args = c(pandoc_args, '-V', paste0('mathjax-url=', mathjax))
       mathjax = NULL
     }
+    pandoc_args = c(pandoc_args, '-V', paste0('title-slide-class=', title_cls))
     rmarkdown::html_document(
       ..., includes = includes, mathjax = mathjax, pandoc_args = pandoc_args
     )

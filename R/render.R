@@ -91,13 +91,12 @@ moon_reader = function(
     '(%s)(%d);', pkg_file('js/countdown.js'), countdown
   )
 
-  titleSlideClass <- if (!is.null(nature[['titleSlideClass']])) paste(
-    nature[['titleSlideClass']], collapse = ", "
-  ) else "center, middle, inverse"
+  if (is.null(title_cls <- nature[['titleSlideClass']]))
+    title_cls = c('center', 'middle', 'inverse')
+  title_cls = paste(c(title_cls, 'title-slide'), collapse = ", ")
 
   before = nature[['beforeInit']]
-  nature[['countdown']] = nature[['autoplay']] = nature[['beforeInit']] =
-    nature[["titleSlideClass"]] = NULL
+  for (i in c('countdown', 'autoplay', 'beforeInit', "titleSlideClass")) nature[[i]] = NULL
 
   write_utf8(as.character(tagList(
     tags$script(src = chakra),
@@ -124,10 +123,10 @@ moon_reader = function(
       if (identical(mathjax, 'default')) {
         mathjax = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML'
       }
-      pandoc_args = c(pandoc_args, '-V', paste0('mathjax-url=', mathjax),
-                      "-V", paste0('title-slide-class=', titleSlideClass, ''))
+      pandoc_args = c(pandoc_args, '-V', paste0('mathjax-url=', mathjax))
       mathjax = NULL
     }
+    pandoc_args = c(pandoc_args, '-V', paste0('title-slide-class=', title_cls))
     rmarkdown::html_document(
       ..., includes = includes, mathjax = mathjax, pandoc_args = pandoc_args
     )

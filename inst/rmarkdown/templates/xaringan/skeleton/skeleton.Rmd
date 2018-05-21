@@ -2,7 +2,7 @@
 title: "Presentation Ninja"
 subtitle: "⚔<br/>with xaringan"
 author: "Yihui Xie"
-date: "2016/12/12"
+date: "2016/12/12 (updated: `r Sys.Date()`)"
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -506,6 +506,10 @@ Don't want to learn CSS? Okay, you can use some user-contributed themes. A theme
 ```{r}
 names(xaringan:::list_css())
 ```
+
+---
+
+# Themes
 
 To use a theme, you can specify the `css` option as an array of CSS filenames (without the `.css` extensions), e.g.,
 

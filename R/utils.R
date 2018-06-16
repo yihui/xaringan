@@ -71,63 +71,8 @@ sample2 = function(x, size, ...) {
   } else sample(x, size, ...)
 }
 
-# filter out the lines between ``` ``` (there could be four or more backticks)
-prose_index = function(x) {
-  idx = NULL; r = '^(\\s*```*).*'; s = ''
-  for (i in grep(r, x)) {
-    if (s == '') {
-      s = gsub(r, '\\1', x[i]); idx = c(idx, i); next
-    }
-    # look for the next line with the same amount of backticks (end of block)
-    if (grepl(paste0('^', s), x[i])) {
-      idx = c(idx, i); s = ''
-    }
-  }
-  xi = seq_along(x); n = length(idx)
-  if (n == 0) return(xi)
-  if (n %% 2 != 0) {
-    # treat all lines as prose
-    warning('Code fences are not balanced'); return(xi)
-  }
-  idx2 = matrix(idx, nrow = 2)
-  idx2 = unlist(mapply(seq, idx2[1, ], idx2[2, ], SIMPLIFY = FALSE))
-  xi[-idx2]
-}
-
-protect_math = function(x) {
-  i = prose_index(x)
-  if (length(i)) x[i] = escape_math(x[i])
-  x
-}
-
-escape_math = function(x) {
-  # replace $x$ with `\(x\)` (protect inline math in <code></code>)
-  m = gregexpr('(?<=^|[\\s])[$](?! )[^$]+?(?<! )[$](?![$0123456789])', x, perl = TRUE)
-  regmatches(x, m) = lapply(regmatches(x, m), function(z) {
-    if (length(z) == 0) return(z)
-    z = sub('^[$]', '`\\\\(', z)
-    z = sub('[$]$', '\\\\)`', z)
-    z
-  })
-  # replace $$x$$ with `$$x$$` (protect display math)
-  m = gregexpr('(?<=^|[\\s])[$][$](?! )[^$]+?(?<! )[$][$]', x, perl = TRUE)
-  regmatches(x, m) = lapply(regmatches(x, m), function(z) {
-    if (length(z) == 0) return(z)
-    paste0('`', z, '`')
-  })
-  # if a line start or end with $$, treat it as math under some conditions
-  i = !grepl('^[$].+[$]$', x)
-  if (any(i)) {
-    x[i] = gsub('^([$][$])([^ ]+)', '`\\1\\2', x[i], perl = TRUE)
-    x[i] = gsub('([^ ])([$][$])$', '\\1\\2`', x[i], perl = TRUE)
-  }
-  # equation environments
-  i = grep('^\\\\begin\\{[^}]+\\}$', x)
-  x[i] = paste0('`', x[i])
-  i = grep('^\\\\end\\{[^}]+\\}$', x)
-  x[i] = paste0(x[i], '`')
-  x
-}
+prose_index = function(x) xfun::prose_index(x)
+protect_math = function(x) xfun::protect_math(x)
 
 #' Summon remark.js to your local disk
 #'

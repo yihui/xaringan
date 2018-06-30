@@ -2,6 +2,8 @@
 
 ## NEW FEATURES
 
+- Added a CSS theme `middlebury` (Middlebury College, #150)
+
 - Added a CSS theme `tamu` (Texas A&M) (thanks, @nanhung, #115).
 
 - Added a CSS theme `rutgers` (Rutgers University) (#121).

@@ -10,7 +10,7 @@
 
 - Added a CSS theme `uo` (University of Oregon) (#125).
 
-- Added a CSS theme `roboto` (Inspired by the Roboto Google font) (#126).
+- Added a CSS theme `robot` (inspired by the Roboto Google font) (#126).
 
 - Added a CSS theme `duke-blue` and corresponding `hygge-duke` (Duke University) (thanks, @libjohn, #133).
 

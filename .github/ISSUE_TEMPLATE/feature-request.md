@@ -1,7 +1,6 @@
 ---
 name: Feature request
 about: Want a new feature?
-
 ---
 
 Please note that **xaringan** is a wrapper of the JS library remark.js: https://github.com/gnab/remark It is likely that the new feature request should be filed to the remark.js repo. If you are sure it belongs to **xaringan**, please file it here.

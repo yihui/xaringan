@@ -15,6 +15,11 @@ output:
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
+
+### code output coloring. uncomment to use. 
+### See https://twitter.com/BrodieGaslam/status/1029059002225721344 for a preview
+# old.hooks = fansi::set_knit_hooks(knitr::knit_hooks)
+# options(crayon.enabled = TRUE)
 ```
 
 background-image: url(https://upload.wikimedia.org/wikipedia/commons/b/be/Sharingan_triple.svg)

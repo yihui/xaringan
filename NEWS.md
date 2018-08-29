@@ -2,7 +2,7 @@
 
 ## NEW FEATURES
 
-
+- Colored terminal output (through the `fansi` package) can be enabled by uncommenting two code lines in the setup chunk of the template (#160)
 
 # CHANGES IN xaringan VERSION 0.7
 

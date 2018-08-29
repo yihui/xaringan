@@ -1,5 +1,5 @@
-Package: xaringan
 Type: Package
+Package: xaringan
 Title: Presentation Ninja
 Version: 0.7.1
 Authors@R: c(
@@ -18,16 +18,19 @@ Authors@R: c(
     )
 Description: Create HTML5 slides with R Markdown and the JavaScript library
     'remark.js' (<https://remarkjs.com>).
-Imports:
-    htmltools,
-    knitr (>= 1.16),
-    servr (>= 0.5),
-    xfun (>= 0.2),
-    rmarkdown
-Suggests: rstudioapi, testit
 License: MIT + file LICENSE
 URL: https://github.com/yihui/xaringan
 BugReports: https://github.com/yihui/xaringan/issues
+Imports: 
+    htmltools,
+    knitr (>= 1.16),
+    rmarkdown,
+    servr (>= 0.5),
+    xfun (>= 0.2)
+Suggests: 
+    fansi (>= 0.3),
+    rstudioapi,
+    testit
 VignetteBuilder: knitr
 Encoding: UTF-8
 RoxygenNote: 6.0.1

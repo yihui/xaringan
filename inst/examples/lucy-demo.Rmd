@@ -4,10 +4,10 @@ author: "Lucy D'Agostino McGowan"
 date: "2018/02/16"
 output:
   xaringan::moon_reader:
-    css: ["default", "lucy-fonts", "lucy"]
+    css: ["default", "lucy", "lucy-fonts"]
     lib_dir: libs
     nature:
-      highlightStyle: github
+      highlightStyle: agate
       highlightLines: true
       countIncrementalSlides: false
 ---
@@ -49,3 +49,6 @@ ggplot(mtcars, aes(am)) +
 
 * this is one thing
 * this is another, this next part is **important**
+* this is a bit of `inline code`
+* this is a [link](www.lucymcgowan.com)
+

@@ -12,10 +12,6 @@ h2, h3 {
   color: #92d050;
 }
 
-a, a > code {
-  color: #88398a;
-}
-
 .inverse {
   background-color: #add9f1;
   text-shadow: 0 0 0;
@@ -40,6 +36,10 @@ a, a > code {
 
 .title-slide h3 {
   color: #92d050;
+}
+
+a, a > code {
+  color: #add9f1;
 }
 
 .footer {
@@ -67,7 +67,6 @@ ol {
   font-size: 40px;
 }
 ol li {
-  margin: 0 0 0.5rem 0;
   counter-increment: my-counter;
   position: relative;
   margin: 20px 0;
@@ -78,11 +77,10 @@ ol li::before {
   font-size: 40px;
   font-weight: bold;
   position: absolute;
-  --size: 50px;
-  left: calc(-1 * var(--size) - 10px);
-  line-height: var(--size);
-  width: var(--size);
-  height: var(--size);
+  left: -60px;
+  line-height: 50px;
+  width: 50px;
+  height: 50px;
   top: 0;
   background: #92d050;
   border-radius: 50%;

@@ -1,0 +1,88 @@
+.remark-slide-content {
+  background-color: #000;
+  color: #fff;
+}
+
+strong {
+  color: #92d050;
+}
+
+h2, h3 {
+  font-weight: normal;
+  color: #92d050;
+}
+
+.inverse {
+  background-color: #add9f1;
+  text-shadow: 0 0 0;
+}
+
+.inverse, .inverse h1, .inverse h2, .inverse h3, .inverse a, inverse a > code {
+  color: #000;
+}
+
+.inverse h1 {
+  font-size: 100px;
+}
+
+.title-slide {
+  background-color: #000;
+  color: #fff;
+}
+
+.title-slide h1, .title-slide h2 {
+  color: #fff;
+}
+
+.title-slide h3 {
+  color: #92d050;
+}
+
+a, a > code {
+  color: #add9f1;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 20px;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 10px;
+}
+
+li {
+ font-size: 40px;
+  margin: 18px 0;
+}
+
+ol {
+  max-width: 350px;
+  counter-reset: my-counter;
+  list-style: none;
+  padding-left: 40px;
+  font-size: 40px;
+}
+ol li {
+  counter-increment: my-counter;
+  position: relative;
+  margin: 20px 0;
+}
+ol li::before {
+  content: counter(my-counter);
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  position: absolute;
+  left: -60px;
+  line-height: 50px;
+  width: 50px;
+  height: 50px;
+  top: 0;
+  background: #92d050;
+  border-radius: 50%;
+  text-align: center;
+}

@@ -2,7 +2,7 @@
 
 ## NEW FEATURES
 
-
+- Added a CSS theme `lucy` (@LucyMcGowan, #163)
 
 # CHANGES IN xaringan VERSION 0.7
 

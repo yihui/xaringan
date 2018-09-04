@@ -1,0 +1,54 @@
+---
+title: "My presentation"
+author: "Lucy D'Agostino McGowan"
+date: "2018/02/16"
+output:
+  xaringan::moon_reader:
+    css: ["default", "lucy", "lucy-fonts"]
+    lib_dir: libs
+    nature:
+      highlightStyle: agate
+      highlightLines: true
+      countIncrementalSlides: false
+---
+layout: true
+
+<div class = "footer">MY CONFERENCE 2018</div>
+
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+# Overview
+
+1. First thing
+2. Second thing
+3. Third thing
+
+---
+class: inverse, left, bottom
+
+# First thing
+
+
+---
+
+# Some code
+
+```{r, fig.height = 4}
+library(ggplot2)
+ggplot(mtcars, aes(am)) + 
+  geom_bar(fill = "#92d050")
+```
+
+---
+
+# A list
+
+* this is one thing
+* this is another, this next part is **important**
+* this is a bit of `inline code`
+* this is a [link](www.lucymcgowan.com)
+

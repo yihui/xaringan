@@ -47,12 +47,15 @@
 
 .remark-slide {
   background-color: var(--main-color4);
-  background-image: var(--title-background), var(--logo);
+  background-image: var(--logo), var(--title-background);
   background-size:  10%, cover;
   background-position: right bottom, 100%;
   background-repeat: no-repeat;
 }
 
+.font-mono {
+  font-family: monospace;
+}
 
 .title-slide h1 { padding-top: 20%; font-size: 4em;}
 .title-slide h1, .title-slide h2, .title-slide h3  {

@@ -2,6 +2,8 @@
 
 ## NEW FEATURES
 
+- Added a set of CSS theme `kunoichi`, `shinobi` and `ninjutsu` - see [here for example](https://emitanaka.github.io/ninja-theme) (@emitanaka, #165)
+
 - Added a CSS theme `lucy` (@LucyMcGowan, #163)
 
 # CHANGES IN xaringan VERSION 0.7

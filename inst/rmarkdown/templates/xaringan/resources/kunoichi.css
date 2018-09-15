@@ -30,8 +30,7 @@
     --color-opacity70: rgba(86,36,87,0.7);
     --color-opacity50: rgba(86,36,87,0.5);
     --color-opacity30: rgba(86,36,87,0.3);
-    --logo: url("../images/R-LadiesGlobal-transparent.png");
-    --title-background: url("../bkgs/bg1.jpg");
+    --logo: url("https://emitanaka.github.io/ninja-theme/images/R-LadiesGlobal-transparent.png");
 }
 
 .title-slide {
@@ -51,10 +50,10 @@
 }
 
 .remark-slide {
-  background-color: var(--main-color4);
-  background-image: var(--logo), var(--title-background);
-  background-size:  10%, cover;
-  background-position: left bottom, 100%;
+  background-color: var(--main-color3);
+  background-image: var(--logo);
+  background-size:  10%;
+  background-position: left bottom;
   background-repeat: no-repeat;
 }
 

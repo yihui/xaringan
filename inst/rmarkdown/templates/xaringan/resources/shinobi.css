@@ -28,8 +28,6 @@
     --color-opacity70: rgba(26,23,56 ,0.7);
     --color-opacity50: rgba(26,23,56 ,0.5);
     --color-opacity30: rgba(26,23,56 ,0.3);
-    --title-background: url("");
-    --logo: url("");
 }
 
 .title-slide {
@@ -47,10 +45,6 @@
 
 .remark-slide {
   background-color: var(--main-color4);
-  background-image: var(--logo), var(--title-background);
-  background-size:  10%, cover;
-  background-position: right bottom, 100%;
-  background-repeat: no-repeat;
 }
 
 .font-mono {

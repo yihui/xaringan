@@ -20,11 +20,11 @@ The main R Markdown output format in this package is `moon_reader()`. See the R 
 
 ## Slide formatting
 
-The [remark.js Wiki](https://github.com/gnab/remark/wiki) contains detailed documentation about how to format slides and use the presentation (keyboard shortcuts). The **xaringan** package has simplified several things compared to the official remark.js guide, e.g. you don't need a boilerplate HTML file, you can set the autoplay mode via an option of `moon_reader()`, and LaTeX math basically just works (TM). Please note that remark.js does not support Pandoc's Markdown, so you will not be able to use any fancy Pandoc features, but that is probably fine for presentations. BTW, you can use raw HTML when you feel there is something you desparately want but cannot get from the basic Markdown syntax (e.g. `knitr::kable(head(iris), 'html')`).
+The [remark.js Wiki](https://github.com/gnab/remark/wiki) contains detailed documentation about how to format slides and use the presentation (keyboard shortcuts). The **xaringan** package has simplified several things compared to the official remark.js guide, e.g. you don't need a boilerplate HTML file, you can set the autoplay mode via an option of `moon_reader()`, and LaTeX math basically just works (TM). Please note that remark.js does not support Pandoc's Markdown, so you will not be able to use any fancy Pandoc features, but that is probably fine for presentations. BTW, you can use raw HTML when you feel there is something you desperately want but cannot get from the basic Markdown syntax (e.g. `knitr::kable(head(iris), 'html')`).
 
-As the package title indicates, this package is designed for ninja. If you are a beginner of HTML/CSS, you may have to stick with the default CSS (which is not bad). The more you know about CSS, the more you can achieve with this package. The sky is your limit.
+As the package title indicates, this package is designed for ninjas. If you are a beginner of HTML/CSS, you may have to stick with the default CSS (which is not bad). The more you know about CSS, the more you can achieve with this package. The sky is your limit.
 
-We have a [wiki](https://github.com/yihui/xaringan/wiki) that might help you to use CSS to alter the appeareance of your presentation. 
+We have a [wiki](https://github.com/yihui/xaringan/wiki) that might help you to use CSS to alter the appearance of your presentation. 
 Make sure to check it out before opening an issue. 
 You might also consider posting simple usage questions on [stackoverflow](https://stackoverflow.com/questions/tagged/xaringan) using the `#xaringan`tag.
 We will read all questions with the `#xaringan` tag so please be patient if we don't answer within a day :smile:

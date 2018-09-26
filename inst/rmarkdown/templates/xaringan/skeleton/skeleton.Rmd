@@ -123,7 +123,7 @@ Provides an R Markdown output format `xaringan::moon_reader` as a wrapper for re
 ---
 title: "A Cool Presentation"
 output:
-  xaringan::moon_reader
+  xaringan::moon_reader:
     yolo: true
     nature:
       autoplay: 30000

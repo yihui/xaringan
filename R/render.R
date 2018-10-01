@@ -121,7 +121,7 @@ moon_reader = function(
       stop("mathjax = 'local' does not work for moon_reader()")
     if (!is.null(mathjax)) {
       if (identical(mathjax, 'default')) {
-        mathjax = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML'
+        mathjax = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML'
       }
       pandoc_args = c(pandoc_args, '-V', paste0('mathjax-url=', mathjax))
       mathjax = NULL

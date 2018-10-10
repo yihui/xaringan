@@ -16,7 +16,8 @@ Authors@R: c(
     person("Patrick", "Schratz", role = "ctb"),
     person("Sean", "Lopp", role = "ctb"),
     person("Lucy", "D'Agostino McGowan", role = "ctb", comment = c(ORCID = "0000-0001-7297-9359")),
-    person("Emi", "Tanaka", role = "ctb")
+    person("Emi", "Tanaka", role = "ctb"),
+    person("Yongfu", "Liao", role = "ctb")
     )
 Description: Create HTML5 slides with R Markdown and the JavaScript library
     'remark.js' (<https://remarkjs.com>).

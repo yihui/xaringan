@@ -2,6 +2,8 @@
 
 ## NEW FEATURES
 
+- Added a CSS theme `chocolate`. See [here](https://liao961120.github.io/slides/xaringan/index.html) for an example slide. (@Yongfu, #171)
+
 - Added a set of CSS theme `kunoichi`, `shinobi` and `ninjutsu` - see [here for example](https://emitanaka.github.io/ninja-theme) (@emitanaka, #165)
 
 - Added a CSS theme `lucy` (@LucyMcGowan, #163)

@@ -111,6 +111,27 @@ highlight_code = function(x) {
   paste(x, collapse = '\n')
 }
 
+highlight_output = function(x, options) {
+  highlight.output = options$highlight.output %||% FALSE
+  if (!is.null(options$highlight.lines)) highlight.output = TRUE
+  if (highlight.output) {
+    x = strsplit(x, '\n')[[1]]
+    highlight.lines = options$highlight.lines %||% seq_along(x)
+    x[highlight.lines] = paste0('*', x[highlight.lines])
+    x = paste(x, collapse = '\n')
+   }
+  x
+}
+
+`%||%` = function(x, y) {
+  if (is.null(x)) {
+      y
+  }
+  else {
+      x
+  }
+}
+
 # make sure blank lines and trailing \n are not removed by strsplit()
 split_lines = function(x) {
   unlist(strsplit(paste0(x, '\n'), '\n'))

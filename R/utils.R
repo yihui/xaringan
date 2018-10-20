@@ -112,24 +112,21 @@ highlight_code = function(x) {
 }
 
 highlight_output = function(x, options) {
-  highlight.output = options$highlight.output %||% FALSE
-  if (!is.null(options$highlight.lines)) highlight.output = TRUE
-  if (highlight.output) {
-    x = strsplit(x, '\n')[[1]]
-    highlight.lines = options$highlight.lines %||% seq_along(x)
-    x[highlight.lines] = paste0('*', x[highlight.lines])
-    x = paste(x, collapse = '\n')
-   }
-  x
-}
+  highlight.output = options$highlight.output
+  if (is.null(highlight.output)) return(x)
+  if (is.logical(highlight.output) & !highlight.output) return(x)
+  x = strsplit(x, '\n')[[1]]
 
-`%||%` = function(x, y) {
-  if (is.null(x)) {
-      y
+  if (isTRUE(highlight.output)) {
+     highlight.lines = seq_along(x)
+  } else if (is.numeric(highlight.output)) {
+    highlight.lines = highlight.output
+  } else {
+    stop("`highlight.output` must be numeric or logical")
   }
-  else {
-      x
-  }
+
+  x[highlight.lines] = paste0('*', x[highlight.lines])
+  paste(x, collapse = '\n')
 }
 
 # make sure blank lines and trailing \n are not removed by strsplit()

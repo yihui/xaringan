@@ -2,6 +2,8 @@
 
 ## NEW FEATURES
 
+- Added output highlighting using the chunk option `highlight.output`. (@malcolmbarrett, #175)
+
 - Added a CSS theme `chocolate`. See [here](https://liao961120.github.io/slides/xaringan/) for an example slide. (@liao961120, #171)
 
 - Added a set of CSS theme `kunoichi`, `shinobi` and `ninjutsu` - see [here for example](https://emitanaka.github.io/ninja-theme) (@emitanaka, #165)

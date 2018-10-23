@@ -134,34 +134,31 @@ moon_reader = function(
 
   optk = list()
 
-  hooks = local({
-    ohooks = knitr::knit_hooks$get(); on.exit(knitr::knit_hooks$restore(ohooks))
-    knitr::render_markdown()
-    knitr::knit_hooks$get(c('source', 'output'))
-  })
-
-  hook_highlight = if (isTRUE(nature$highlightLines)) {
-    # an ugly way to access the `source` hook of markdown output in knitr
-    function(x, options) {
-      hook_source = hooks[['source']]
-      res = hook_source(x, options)
-      highlight_code(res)
-    }
+  highlight_hooks = NULL
+  if (isTRUE(nature$highlightLines)) {
+    # an ugly way to access hooks of markdown output in knitr
+    hooks = local({
+      ohooks = knitr::knit_hooks$get(); on.exit(knitr::knit_hooks$restore(ohooks))
+      knitr::render_markdown()
+      knitr::knit_hooks$get(c('source', 'output'))
+    })
+    highlight_hooks = list(
+      source = function(x, options) {
+        hook = hooks[['source']]
+        res = hook(x, options)
+        highlight_code(res)
+      },
+      output = function(x, options) {
+        hook = hooks[['output']]
+        res = highlight_output(x, options)
+        hook(res, options)
+      }
+    )
   }
 
-  hook_highlight_output = if (isTRUE(nature$highlightLines)) {
-    function(x, options) {
-      hook_output = hooks[['output']]
-      res = highlight_output(x, options)
-      hook_output(res, options)
-    }
-  }
 
   rmarkdown::output_format(
-    if (!is.null(hook_highlight)) {
-      rmarkdown::knitr_options(knit_hooks = list(source = hook_highlight,
-                                                 output = hook_highlight_output))
-    },
+    rmarkdown::knitr_options(knit_hooks = highlight_hooks),
     NULL, clean_supporting = self_contained,
     pre_knit = function(...) {
       optk <<- knitr::opts_knit$get()

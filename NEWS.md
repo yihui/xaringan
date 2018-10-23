@@ -2,13 +2,13 @@
 
 ## NEW FEATURES
 
-- Added output highlighting using the chunk option `highlight.output`. (@malcolmbarrett, #175)
+- Added output highlighting using the chunk option `highlight.output` (thanks, @malcolmbarrett, #175).
 
-- Added a CSS theme `chocolate`. See [here](https://liao961120.github.io/slides/xaringan/) for an example slide. (@liao961120, #171)
+- Added a CSS theme `chocolate`. See [here](https://liao961120.github.io/slides/xaringan/) for an example slide (thanks, @liao961120, #171).
 
-- Added a set of CSS theme `kunoichi`, `shinobi` and `ninjutsu` - see [here for example](https://emitanaka.github.io/ninja-theme) (@emitanaka, #165)
+- Added a set of CSS theme `kunoichi`, `shinobi` and `ninjutsu` - see [here for example](https://emitanaka.github.io/ninja-theme) (thanks, @emitanaka, #165).
 
-- Added a CSS theme `lucy` (@LucyMcGowan, #163)
+- Added a CSS theme `lucy` (thanks, @LucyMcGowan, #163).
 
 # CHANGES IN xaringan VERSION 0.7
 

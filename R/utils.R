@@ -112,20 +112,9 @@ highlight_code = function(x) {
 }
 
 highlight_output = function(x, options) {
-  highlight.output = options$highlight.output
-  if (is.null(highlight.output)) return(x)
-  if (is.logical(highlight.output) & !highlight.output) return(x)
-  x = strsplit(x, '\n')[[1]]
-
-  if (isTRUE(highlight.output)) {
-     highlight.lines = seq_along(x)
-  } else if (is.numeric(highlight.output)) {
-    highlight.lines = highlight.output
-  } else {
-    stop("`highlight.output` must be numeric or logical")
-  }
-
-  x[highlight.lines] = paste0('*', x[highlight.lines])
+  if (is.null(i <- options$highlight.output) || isFALSE(i)) return(x)
+  x = split_lines(x)
+  x[i] = paste0('*', x[i])
   paste(x, collapse = '\n')
 }
 

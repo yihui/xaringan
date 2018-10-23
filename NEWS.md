@@ -1,3 +1,7 @@
+# CHANGES IN xaringan VERSION 0.9
+
+
+
 # CHANGES IN xaringan VERSION 0.8
 
 ## NEW FEATURES

@@ -1,0 +1,92 @@
+/*****
+See https://liao961120.github.io/slides/xaringan/index.html for example slide.
+*****/
+
+h1, h2, h3, h4 { font-weight: bold; }
+
+.remark-code, .remark-inline-code { 
+    color: #824323;
+    font-weight: 600;
+    }
+    
+.inverse .remark-inline-code {
+    color: rgb(63, 42, 33);
+    background-color: rgb(227, 209, 202);
+    border-bottom-left-radius: 7.35px;
+    border-bottom-right-radius: 7.35px;
+    border-top-left-radius: 7.35px;
+    border-top-right-radius: 7.35px;
+    padding-bottom: 2.5px;
+    padding-left: 8.1px;
+    padding-right: 8.1px;
+    padding-top: 2.5px;
+}
+
+a, a > code {
+  color: #f46a0e;  /* #F2EBE6 */
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* Code block code */
+.hljs .remark-code-line { font-weight: normal; }
+
+/* Code Chunk Highlight */
+.remark-code-line-highlighted { background-color: rgba(252, 209, 70, 0.4); }
+
+/* Inverse Colors */
+.inverse { background-color: #7F5543; }
+.inverse, .inverse h1, .inverse h2, .inverse h3, .inverse a, inverse a > code { color: #fff; }
+
+/* Sidebar Layout: grey out */
+.left-column h2, .left-column h3, .left-column h4 { color: #a5a5a5; }
+.left-column h2:last-of-type, .left-column h3:last-child , .left-column h4:last-child { color: #824323; }
+
+/* Two Column Layout*/
+.pull-left h2, .pull-left h3, .pull-left h4 { color: #824323; }
+.pull-right h2, .pull-right h3, .pull-right h4 { color: #824323; }
+
+
+
+/* Title Slide */
+
+.title-slide {
+  background-image: url("https://liao961120.github.io/slides/img/bg/coffee-blur.jpg");
+  background-position: center; 
+  background-size: cover;
+}
+
+
+.title-slide .bg-text{
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  text-align: left;
+  color: #F7F8FA;
+}
+
+.title-slide .remark-slide-number {
+  display: none;
+}
+
+
+/* Helpers */
+.red { color: red; }
+.large { font-size: 130% }
+.small { font-size: 70% }
+
+.img90 { width: 90%;}
+.img80 { width: 80%;}
+.img70 { width: 70%;}
+.img60 { width: 60%;}
+.img50 { width: 50%;}
+.img40 { width: 40%;}
+.img30 { width: 30%;}
+.img20 { width: 20%;}
+.img10 { width: 10%;}
+
+.shadow {
+    border-radius: 15px;
+    box-shadow: 4.2px 4.5px 2.5px rgba(65, 65, 65, 0.737);
+}
+

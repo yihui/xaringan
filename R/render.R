@@ -256,3 +256,44 @@ infinite_moon_reader = function(moon, cast_from = '.') {
 #' @export
 #' @rdname inf_mr
 inf_mr = infinite_moon_reader
+
+
+#' Converting xaringan HTML slides to PDF
+#'
+#' This function uses the hosted docker image of the nodejs library 'decktape'
+#' to convert xaringan HTML slides (which are based on 'remark.js' under
+#' the hood) to PDF.
+#'
+#' @param xaringan_path The path to the xaringan HTML slides.
+#' @param pdf_path The desired output path.
+#' @param decktape_version Which version of 'decktape' to use.
+#' @param open_pdf Should the resulting PDF be opened with your default PDF
+#'   viewer?
+#'
+#' To run this function you need to have a working installation of
+#' [docker](https://www.docker.com/). In some operating systems you may need
+#' to [add yourself to the "docker" group](https://stackoverflow.com/questions/48957195/how-to-fix-docker-got-permission-denied-issue?noredirect=1&lq=1)
+#' and restart your machine.
+#'
+#' This function uses the nodejs library [decktape](https://github.com/astefanutti/decktape).
+#' The hosted docker version of decktape is used here and its behavior depends
+#' on the combination of the installed docker version and your operating system.
+#' By default the latest decktape version is used.
+#' In case of errors you may want to try older decktape versions (version
+#' 2.8.0 works fine) using the `decktape_version` argument.
+#'
+#' @export
+
+export_pdf = function(xaringan_path = NULL, pdf_path = NULL, decktape_version = NULL,
+                      open_pdf = FALSE) {
+
+  if (is.null(decktape_version)) {
+    system(glue::glue("docker run --rm -t -v `pwd`:/slides -v $HOME:$HOME astefanutti/decktape {xaringan_path} {pdf_path}"))
+  } else {
+    system(glue::glue("docker run --rm -t -v `pwd`:/slides -v $HOME:$HOME astefanutti/decktape:{decktape_version} {xaringan_path} {pdf_path}"))
+  }
+
+  if (isTRUE(open_pdf)) {
+    PBSmodelling::openFile(pdf_path)
+  }
+}

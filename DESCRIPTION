@@ -4,6 +4,7 @@ Title: Presentation Ninja
 Version: 0.8.1
 Authors@R: c(
     person("Yihui", "Xie", role = c("aut", "cre"), email = "xie@yihui.name", comment = c(ORCID = "0000-0003-0645-5666")),
+    person("Benjamin", "Allévius", role = "ctb", comment = c(ORCID = "0000-0002-0927-7183")),
     person("Claus Thorn", "Ekstrøm", role = "ctb"),
     person("Daniel", "Anderson", role = "ctb"),
     person("Dawei", "Lang", role = "ctb"),

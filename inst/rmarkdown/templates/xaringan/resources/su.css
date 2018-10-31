@@ -1,0 +1,135 @@
+.remark-slide-content {
+  border-top: 5px solid #002F5F;
+  border-bottom: 5px solid #002F5F;
+  font-size: 1.2em;
+  padding: 20px 60px;
+}
+
+.remark-slide-content > h1 {
+  margin-top: 20px;
+  margin-bottom: 0px;
+}
+
+.inverse {
+  background-color: #002F5F;
+  border:none;
+  font-color: #fff;
+  text-shadow: none;
+}
+
+.inverse, .inverse h1, .inverse h2, .inverse h3, .inverse h4 {
+  color: #fff;
+}
+
+.inverse code {
+  color: #EC008C;
+}
+
+.footnote {
+  border-top: 1px solid #002F5F;
+  font-size: 0.6em;
+}
+
+.remark-code{
+  color: #500000;
+}
+
+.remark-inline-code {
+  color: #500000;
+}
+
+.inverse .remark-code {
+  background-color: #ebf0f5;
+}
+
+.inverse .remark-inline-code {
+  background-color: #ebf0f5;
+}
+
+.remark-code-line-highlighted {
+  background-color: rgba(225, 224, 0, 0.6);
+}
+
+.inverse .remark-code-line-highlighted {
+  background-color: #f7dfcc;
+}
+
+.inverse .hljs-github {
+    background: #33597f;
+}
+
+.inverse .hljs {
+    background: #33597f;
+}
+
+h1, h2, h3, h4 {
+  color: #002F5F;
+}
+
+code {
+  color: #002F5F;
+}
+
+a {
+  color: #3F97B5;
+  text-decoration: none;
+  transition: all .2s ease-in-out;
+}
+
+a:hover {
+    font-size: 1.2em;
+    color: #d95e00;
+}
+
+.inverse a {
+  color: #d95e00;
+  text-decoration: none;
+  transition: all .2s ease-in-out;
+}
+
+.inverse a:hover {
+    font-size: 1.2em;
+    color: #a3a86b;
+}
+
+.remark-slide-number {
+  font-size: 0.6em;
+}
+
+.title-slide {
+  background-image: url(https://pp-prod-admin.it.su.se/polopoly_fs/1.403917.1538464558!/menu/standard/file/SU_logo_NEG_ENGELSK.gif);
+  background-position: 95% 95%;
+  background-size: 200px;
+  border: 10px solid #002F5F;
+}
+
+.title-slide h1 {
+  padding-top: 100px;
+  font-size: 60px;
+  text-align: left;
+  padding-bottom: 18px;
+  margin-bottom: 18px;
+}
+
+.title-slide h2 {
+  font-size: 40px;
+  text-align: left;
+  padding-top: 0px;
+  margin-top: 0px;
+}
+
+.title-slide h3 {
+  font-size: 30px;
+  color: #fff;
+  text-align: left;
+  text-shadow: none;
+  padding: 0px;
+  margin: 0px;
+  line-height: 1;
+}
+
+.title-slide .remark-slide-number {
+  display: none;
+}
+
+.mjx-chtml { font-size: 100% !important; }

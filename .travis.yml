@@ -2,6 +2,13 @@ language: r
 sudo: false
 cache: packages
 
+addons:
+  apt:
+    packages:
+      - libgmp-dev
+      - libgsl0-dev
+      - libmagick++-dev # for animation
+
 env:
   global:
     - R_PKG="$(basename $TRAVIS_REPO_SLUG)"

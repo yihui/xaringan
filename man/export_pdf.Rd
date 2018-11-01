@@ -4,33 +4,47 @@
 \alias{export_pdf}
 \title{Converting xaringan HTML slides to PDF}
 \usage{
-export_pdf(xaringan_path = NULL, pdf_path = NULL, decktape_version = NULL, 
-    open_pdf = FALSE)
+export_pdf(xaringan_path = NULL, pdf_path = NULL,
+  decktape_version = NULL, open_pdf = FALSE)
 }
 \arguments{
 \item{xaringan_path}{The path to the xaringan HTML slides.}
 
-\item{pdf_path}{The desired output path.}
+\item{pdf_path}{The desired output path of the PDF file.}
 
-\item{decktape_version}{Which version of 'decktape' to use.}
+\item{decktape_version}{Which \code{decktape} version should be used. Default is
+to use the latest one.}
 
-\item{open_pdf}{Should the resulting PDF be opened with your default PDF
-  viewer?
-
-To run this function you need to have a working installation of
-[docker](https://www.docker.com/). In some operating systems you may need
-to [add yourself to the "docker" group](https://stackoverflow.com/questions/48957195/how-to-fix-docker-got-permission-denied-issue?noredirect=1&lq=1)
-and restart your machine.
-
-This function uses the nodejs library [decktape](https://github.com/astefanutti/decktape).
-The hosted docker version of decktape is used here and its behavior depends
-on the combination of the installed docker version and your operating system.
-By default the latest decktape version is used.
-In case of errors you may want to try older decktape versions (version
-2.8.0 works fine) using the `decktape_version` argument.}
+\item{open_pdf}{Should the resulting PDF be opened with your system PDF
+viewer?}
 }
 \description{
 This function uses the hosted docker image of the nodejs library 'decktape'
 to convert xaringan HTML slides (which are based on 'remark.js' under
 the hood) to PDF.
 }
+\section{Docker}{
+
+To run this function you need to have a working installation of
+\href{https://www.docker.com/}{docker}. For some operating systems you may need
+to \href{https://stackoverflow.com/questions/48957195/how-to-fix-docker-got-permission-denied-issue?noredirect=1&lq=1}{add yourself to the "docker" group}
+and restart your machine.
+}
+
+\section{Decktape}{
+
+This function uses the nodejs library \href{https://github.com/astefanutti/decktape}{decktape}.
+In fact the hosted docker version of decktape is used here.
+By default the latest decktape version is used.
+In case of errors you may want to try older decktape versions (version
+2.8.0 works fine for example) using the \code{decktape_version} argument.
+}
+
+\section{Open-PDF}{
+
+The opening of PDF relies on two points: Your operating system and your
+PDF viewer. Some setups work, some do not. It is recommended to use full paths
+as the internal function used (\code{animation:::auto_browse()}) does not like
+paths like "~/file.pdf".
+}
+

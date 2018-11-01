@@ -273,27 +273,35 @@ inf_mr = infinite_moon_reader
 #' the hood) to PDF.
 #'
 #' @param xaringan_path The path to the xaringan HTML slides.
-#' @param pdf_path The desired output path.
-#' @param decktape_version Which version of 'decktape' to use.
-#' @param open_pdf Should the resulting PDF be opened with your default PDF
+#' @param pdf_path The desired output path of the PDF file.
+#' @param decktape_version Which `decktape` version should be used. Default is
+#'   to use the latest one.
+#' @param open_pdf Should the resulting PDF be opened with your system PDF
 #'   viewer?
 #'
+#' @section Docker:
 #' To run this function you need to have a working installation of
-#' [docker](https://www.docker.com/). In some operating systems you may need
+#' [docker](https://www.docker.com/). For some operating systems you may need
 #' to [add yourself to the "docker" group](https://stackoverflow.com/questions/48957195/how-to-fix-docker-got-permission-denied-issue?noredirect=1&lq=1)
 #' and restart your machine.
 #'
+#' @section Decktape:
 #' This function uses the nodejs library [decktape](https://github.com/astefanutti/decktape).
-#' The hosted docker version of decktape is used here and its behavior depends
-#' on the combination of the installed docker version and your operating system.
+#' In fact the hosted docker version of decktape is used here.
 #' By default the latest decktape version is used.
 #' In case of errors you may want to try older decktape versions (version
-#' 2.8.0 works fine) using the `decktape_version` argument.
+#' 2.8.0 works fine for example) using the `decktape_version` argument.
+#'
+#' @section Open-PDF:
+#' The opening of PDF relies on two points: Your operating system and your
+#' PDF viewer. Some setups work, some do not. It is recommended to use full paths
+#' as the internal function used (`animation:::auto_browse()`) does not like
+#' paths like "~/file.pdf".
 #'
 #' @export
 
-export_pdf = function(xaringan_path = NULL, pdf_path = NULL, decktape_version = NULL,
-                      open_pdf = FALSE) {
+export_pdf = function(xaringan_path = NULL, pdf_path = NULL,
+                      decktape_version = NULL, open_pdf = FALSE) {
 
   if (is.null(decktape_version)) {
     system(sprintf("docker run --rm -t -v `pwd`:/slides -v $HOME:$HOME astefanutti/decktape %s %s",

@@ -296,12 +296,14 @@ export_pdf = function(xaringan_path = NULL, pdf_path = NULL, decktape_version = 
                       open_pdf = FALSE) {
 
   if (is.null(decktape_version)) {
-    system(glue::glue("docker run --rm -t -v `pwd`:/slides -v $HOME:$HOME astefanutti/decktape {xaringan_path} {pdf_path}"))
+    system(sprintf("docker run --rm -t -v `pwd`:/slides -v $HOME:$HOME astefanutti/decktape %s %s",
+                   xaringan_path, pdf_path))
   } else {
-    system(glue::glue("docker run --rm -t -v `pwd`:/slides -v $HOME:$HOME astefanutti/decktape:{decktape_version} {xaringan_path} {pdf_path}"))
+    system(sprintf("docker run --rm -t -v `pwd`:/slides -v $HOME:$HOME astefanutti/decktape:%s %s %s",
+                   decktape_version, xaringan_path, pdf_path))
   }
 
   if (isTRUE(open_pdf)) {
-    PBSmodelling::openFile(pdf_path)
+    animation:::auto_browse(pdf_path)
   }
 }

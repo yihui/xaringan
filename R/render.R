@@ -300,8 +300,8 @@ inf_mr = infinite_moon_reader
 #'
 #' @export
 
-export_pdf = function(xaringan_path, pdf_path, decktape_version = NULL,
-                      open_pdf = FALSE) {
+decktape = function(xaringan_path, pdf_path, decktape_version = NULL,
+                    open_pdf = FALSE) {
 
   if (is.null(decktape_version)) {
     decktape_version = ""

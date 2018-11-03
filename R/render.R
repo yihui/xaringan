@@ -282,7 +282,7 @@ inf_mr = infinite_moon_reader
 #' @section Docker:
 #' To run this function you need to have a working installation of
 #' [docker](https://www.docker.com/). For some operating systems you may need
-#' to [add yourself to the "docker" group](https://stackoverflow.com/questions/48957195/how-to-fix-docker-got-permission-denied-issue?noredirect=1&lq=1)
+#' to [add yourself to the "docker" group](https://stackoverflow.com/questions/48957195)
 #' and restart your machine.
 #'
 #' @section Decktape:

@@ -35,4 +35,3 @@ BugReports: https://github.com/yihui/xaringan/issues
 VignetteBuilder: knitr
 Encoding: UTF-8
 RoxygenNote: 6.1.0
-Roxygen: list(markdown = TRUE)

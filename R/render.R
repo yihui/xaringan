@@ -281,12 +281,12 @@ inf_mr = infinite_moon_reader
 #'
 #' @section Docker:
 #' To run this function you need to have a working installation of
-#' [docker](https://www.docker.com/). For some operating systems you may need
-#' to [add yourself to the "docker" group](https://stackoverflow.com/questions/48957195)
+#' \href{https://www.docker.com/}{docker}. For some operating systems you may need
+#' to \href{https://stackoverflow.com/questions/48957195}{add yourself to the "docker" group}
 #' and restart your machine.
 #'
 #' @section Decktape:
-#' This function uses the nodejs library [decktape](https://github.com/astefanutti/decktape).
+#' This function uses the nodejs library \href{(https://github.com/astefanutti/decktape}{decktape}.
 #' In fact the hosted docker version of decktape is used here.
 #' By default the latest decktape version is used.
 #' In case of errors you may want to try older decktape versions (version
@@ -295,8 +295,7 @@ inf_mr = infinite_moon_reader
 #' @section Open-PDF:
 #' The opening of PDF relies on two points: Your operating system and your
 #' PDF viewer. Some setups work, some do not. It is recommended to use full paths
-#' as the internal function used (`animation:::auto_browse()`) does not like
-#' paths like "~/file.pdf".
+#' as the internal function used does not like paths like "~/file.pdf".
 #'
 #' @export
 

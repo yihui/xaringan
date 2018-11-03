@@ -128,3 +128,12 @@ file_content = function(file) {
 }
 
 pkg_file = function(file) file_content(pkg_resource(file))
+
+auto_browse = function(output){
+  if(!ani.options('autobrowse')) return()
+  if (.Platform$OS.type == 'windows') {
+    try(shell.exec(output))
+  } else if (Sys.info()['sysname'] == 'Darwin') {
+    system(paste('open ', shQuote(output)))
+  } else system(paste('xdg-open ', shQuote(output)))
+}

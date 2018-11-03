@@ -312,6 +312,6 @@ export_pdf = function(xaringan_path = NULL, pdf_path = NULL,
   }
 
   if (isTRUE(open_pdf)) {
-    animation:::auto_browse(pdf_path)
+    auto_browse(pdf_path)
   }
 }

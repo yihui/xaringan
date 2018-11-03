@@ -304,12 +304,12 @@ export_pdf = function(xaringan_path, pdf_path, decktape_version = NULL,
                       open_pdf = FALSE) {
 
   if (is.null(decktape_version)) {
-    system(sprintf("docker run --rm -t -v `pwd`:/slides -v $HOME:$HOME astefanutti/decktape %s %s",
-                   xaringan_path, pdf_path))
+    decktape_version = ""
   } else {
-    system(sprintf("docker run --rm -t -v `pwd`:/slides -v $HOME:$HOME astefanutti/decktape:%s %s %s",
-                   decktape_version, xaringan_path, pdf_path))
+    decktape_version = sprintf(":%s", decktape_version)
   }
+  system(sprintf("docker run --rm -t -v `pwd`:/slides -v $HOME:$HOME astefanutti/decktape%s %s %s",
+                 decktape_version, xaringan_path, pdf_path))
 
   if (isTRUE(open_pdf)) {
     auto_browse(pdf_path)

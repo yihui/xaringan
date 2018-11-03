@@ -300,8 +300,8 @@ inf_mr = infinite_moon_reader
 #'
 #' @export
 
-export_pdf = function(xaringan_path = NULL, pdf_path = NULL,
-                      decktape_version = NULL, open_pdf = FALSE) {
+export_pdf = function(xaringan_path, pdf_path, decktape_version = NULL,
+                      open_pdf = FALSE) {
 
   if (is.null(decktape_version)) {
     system(sprintf("docker run --rm -t -v `pwd`:/slides -v $HOME:$HOME astefanutti/decktape %s %s",

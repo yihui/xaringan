@@ -271,7 +271,8 @@ inf_mr = infinite_moon_reader
 #' This function can use either the \command{decktape} command or the hosted
 #' docker image of the \pkg{decktape} library to convert HTML slides to PDF
 #' (including slides produced by \pkg{xaringan}).
-#' @param file The path to the HTML presentation file.
+#' @param file The path to the HTML presentation file. When \code{docker =
+#'   FALSE}, this path could be a URL to online slides.
 #' @param output The desired output path of the PDF file.
 #' @param docker Whether to use Docker (\code{TRUE}) or use the
 #'   \command{decktape} command directly (\code{FALSE}). By default, if
@@ -290,7 +291,7 @@ inf_mr = infinite_moon_reader
 #' @return The output file path (invisibly).
 #' @export
 #' @examples if (interactive()) {
-#'   xaringan::decktape('https://slides.yihui.name/xaringan', 'xaringan.pdf')
+#'   xaringan::decktape('https://slides.yihui.name/xaringan', 'xaringan.pdf', docker = FALSE)
 #' }
 decktape = function(
   file, output, docker = Sys.which('decktape') == '', version = '', open = FALSE

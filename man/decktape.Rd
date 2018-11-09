@@ -7,7 +7,8 @@
 decktape(file, output, docker = Sys.which("decktape") == "", version = "", open = FALSE)
 }
 \arguments{
-\item{file}{The path to the HTML presentation file.}
+\item{file}{The path to the HTML presentation file. When \code{docker =
+FALSE}, this path could be a URL to online slides.}
 
 \item{output}{The desired output path of the PDF file.}
 
@@ -38,7 +39,8 @@ For some operating systems you may need to
 }
 \examples{
 if (interactive()) {
-    xaringan::decktape("https://slides.yihui.name/xaringan", "xaringan.pdf")
+    xaringan::decktape("https://slides.yihui.name/xaringan", "xaringan.pdf", 
+        docker = FALSE)
 }
 }
 \references{

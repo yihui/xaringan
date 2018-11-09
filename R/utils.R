@@ -128,3 +128,11 @@ file_content = function(file) {
 }
 
 pkg_file = function(file) file_content(pkg_resource(file))
+
+open_file = function(path){
+  if (xfun::is_windows()) {
+    shell.exec(path)
+  } else {
+    system2(if (xfun::is_macos()) 'open' else 'xdg-open', shQuote(path))
+  }
+}

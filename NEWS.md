@@ -1,6 +1,8 @@
 # CHANGES IN xaringan VERSION 0.9
 
+## NEW FEATURES
 
+- Added a function `decktape()` to export slides to PDF via the DeckTape library (thanks, @pat-s, #177).
 
 # CHANGES IN xaringan VERSION 0.8
 

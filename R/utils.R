@@ -129,10 +129,10 @@ file_content = function(file) {
 
 pkg_file = function(file) file_content(pkg_resource(file))
 
-auto_browse = function(output){
-  if (.Platform$OS.type == 'windows') {
-    try(shell.exec(output))
-  } else if (Sys.info()['sysname'] == 'Darwin') {
-    system(paste('open ', shQuote(output)))
-  } else system(paste('xdg-open ', shQuote(output)))
+open_file = function(path){
+  if (xfun::is_windows()) {
+    shell.exec(path)
+  } else {
+    system2(if (xfun::is_macos()) 'open' else 'xdg-open', shQuote(path))
+  }
 }

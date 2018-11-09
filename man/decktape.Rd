@@ -2,48 +2,46 @@
 % Please edit documentation in R/render.R
 \name{decktape}
 \alias{decktape}
-\title{Converting xaringan HTML slides to PDF}
+\title{Convert HTML presentations to PDF via DeckTape}
 \usage{
-decktape(xaringan_path, pdf_path, decktape_version = NULL,
-  open_pdf = FALSE)
+decktape(file, output, docker = Sys.which("decktape") == "", version = "", open = FALSE)
 }
 \arguments{
-\item{xaringan_path}{The path to the xaringan HTML slides.}
+\item{file}{The path to the HTML presentation file.}
 
-\item{pdf_path}{The desired output path of the PDF file.}
+\item{output}{The desired output path of the PDF file.}
 
-\item{decktape_version}{Which `decktape` version should be used. Default is
-to use the latest one.}
+\item{docker}{Whether to use Docker (\code{TRUE}) or use the
+\command{decktape} command directly (\code{FALSE}). By default, if
+\pkg{decktape} has been installed in your system and can be found via
+\code{Sys.which('decktape')}, it will be uesd directly.}
 
-\item{open_pdf}{Should the resulting PDF be opened with your system PDF
-viewer?}
+\item{version}{The \pkg{decktape} version when you use Docker.}
+
+\item{open}{Whether to open the resulting PDF with your system PDF viewer.}
+}
+\value{
+The output file path (invisibly).
 }
 \description{
-This function uses the hosted docker image of the nodejs library 'decktape'
-to convert xaringan HTML slides (which are based on 'remark.js' under
-the hood) to PDF.
+This function can use either the \command{decktape} command or the hosted
+docker image of the \pkg{decktape} library to convert HTML slides to PDF
+(including slides produced by \pkg{xaringan}).
 }
-\section{Docker}{
-
-To run this function you need to have a working installation of
-\href{https://www.docker.com/}{docker}. For some operating systems you may need
-to \href{https://stackoverflow.com/questions/48957195}{add yourself to the "docker" group}
-and restart your machine.
+\note{
+For some operating systems you may need to
+  \href{https://stackoverflow.com/questions/48957195}{add yourself to the
+  \command{docker} group} and restart your machine if you use DeckTape via
+  Docker. By default, the latest version of the \pkg{decktape} Docker image
+  is used. In case of errors, you may want to try older versions (e.g.,
+  \code{version = '2.8.0'}).
 }
-
-\section{Decktape}{
-
-This function uses the nodejs library \href{(https://github.com/astefanutti/decktape}{decktape}.
-In fact the hosted docker version of decktape is used here.
-By default the latest decktape version is used.
-In case of errors you may want to try older decktape versions (version
-2.8.0 works fine for example) using the `decktape_version` argument.
+\examples{
+if (interactive()) {
+    xaringan::decktape("https://slides.yihui.name/xaringan", "xaringan.pdf")
 }
-
-\section{Open-PDF}{
-
-The opening of PDF relies on two points: Your operating system and your
-PDF viewer. Some setups work, some do not. It is recommended to use full paths
-as the internal function used does not like paths like "~/file.pdf".
 }
-
+\references{
+DeckTape: \url{https://github.com/astefanutti/decktape}. Docker:
+  \url{https://www.docker.com}.
+}

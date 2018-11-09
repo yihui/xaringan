@@ -6,7 +6,7 @@ about: Create a report to help us improve
 Before reporting a bug, please make sure to test the current development version of this package and [update all your R packages](https://yihui.name/en/2017/05/when-in-doubt-upgrade/) (and R itself) if possible:
 
 ```r
-devtools::install_github('yihui/xaringan')
+remotes::install_github('yihui/xaringan')
 update.packages(ask = FALSE, checkBuilt = TRUE)
 ```
 

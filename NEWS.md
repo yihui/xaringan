@@ -4,6 +4,8 @@
 
 - Added a function `decktape()` to export slides to PDF via the DeckTape library (thanks, @pat-s, #177).
 
+- Added a CSS theme `uol` (University of Leicester) (thanks, @ellessenne, #183).
+
 # CHANGES IN xaringan VERSION 0.8
 
 ## NEW FEATURES

@@ -1,0 +1,99 @@
+---
+title: "UoL Theme"
+subtitle: "...powered by xaringan"
+author: "Alessandro Gasparini"
+date: "Last updated: `r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    css: ["uol", "uol-fonts"]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      countIncrementalSlides: false
+---
+
+```{r setup, include = FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+# Hello World
+
+Install the **xaringan** package from [Github](https://github.com/yihui/xaringan):
+
+```{r eval=FALSE, tidy=FALSE}
+devtools::install_github("yihui/xaringan")
+```
+
+--
+
+You are recommended to use the [RStudio IDE](https://www.rstudio.com/products/rstudio/), but you do not have to.
+
+- Create a new R Markdown document from the menu `File -> New File -> R Markdown -> From Template -> Ninja Presentation`;<sup>1</sup>
+
+--
+
+- Click the `Knit` button to compile it;
+
+--
+
+- or use the [RStudio Addin](https://rstudio.github.io/rstudioaddins/)<sup>2</sup> "Infinite Moon Reader" to live preview the slides (every time you update and save the Rmd document, the slides will be automatically reloaded in RStudio Viewer.
+
+.footnote[
+[1] 中文用户请看[这份教程](http://slides.yihui.name/xaringan/zh-CN.html)
+
+[2] See [#2](https://github.com/yihui/xaringan/issues/2) if you do not see the template or addin in RStudio.
+]
+
+---
+
+# Extra colours
+
+The `uol` theme includes extra colours and font sizes.
+
+Colours: .corporate-red[`.corporate-red[]`], .corporate-grey[`.corporate-grey[]`], .white[`.white[]`], .vibrant-red[`.vibrant-red[]`], .orange[`.orange[]`], .warm-yellow[`.warm-yellow[]`], .vc-green[`.vc-green[]`], .dark-green[`.dark-green[]`], .mid-green[`.mid-green[]`], .acid-green[`.acid-green[]`], .dark-blue[`dark-blue[]`], .mid-blue[`.mid-blue[]`], .light-blue[`.light-blue[]`], .mauve-blue[`.mauve-blue[]`], .dark-warm-grey[`.dark-warm-grey[]`], .mid-warm-grey[`.mid-warm-grey[]`], .light-warm-grey[`.light-warm-grey[]`], .black[`.black[]`], .mid-cool-grey[`.mid-cool-grey[]`], .light-cool-grey[`.light-cool-grey[]`], .digi-gold[`.digi-gold[]`], .light-digi-gold[`.light-digi-gold[]`], .magenta[`.magenta[]`], .bright-yellow[`.bright-yellow[]`], .cyan[`.cyan[]`], .royal-blue[`.royal-blue[]`], .metallic-gold[`.metallic-gold[]`], .metallic-gold-70p[`.metallic-gold-70p[]`], .metallic-silver[`.metallic-silver[]`], .metallic-silver-70p[`.metallic-silver-70p[]`], .main[`.main[]`], .accent[`.accent[]`], .text[`.text[]`], .text-inverse[`.text-inverse[]`].
+
+The colours of the theme can be easily customised - see `uol.css`.
+
+---
+
+# Extra font sizes:
+
+The `uol` theme includes extra colours and font sizes.
+
+Font-sizes: .tiny[`.tiny[]`], .scriptsize[`.scriptsize[]`], .footnotesize[`.footnotesize[]`], .small[`.small[]`], .normalsize[`.normalsize[]`], .large[`.large[]`], .Large[`.Large[]`], .LARGE[`.LARGE[]`], .huge[`.huge[]`], .Huge[`.Huge[]`], .references[`.references[]`].
+
+---
+
+# Lists
+
+1. One
+2. Two
+3. Three
+
+* A
+* B
+* C
+
+---
+
+# R output
+
+```{r cars}
+summary(cars)
+```
+
+---
+
+# Plot
+
+```{r pressure, echo = FALSE}
+plot(pressure)
+```
+
+---
+
+# Disclaimer
+
+The university logo is used for dissemination purposes only - please read the webpage with the visual identity guidelines: https://www2.le.ac.uk/offices/external/marcomms/creative/identity
+
+The logo is still property of the University of Leicester (https://le.ac.uk/).

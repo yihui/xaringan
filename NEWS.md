@@ -1,6 +1,6 @@
 # CHANGES IN xaringan VERSION 0.9
 
-
+- Added a CSS theme `uol` (University of Leicester) (thanks, @ellessenne, #183).
 
 # CHANGES IN xaringan VERSION 0.8
 

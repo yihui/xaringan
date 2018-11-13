@@ -75,6 +75,8 @@ Colours: .corporate-red[`.corporate-red[]`], .corporate-grey[`.corporate-grey[]`
 
 Font-sizes: .tiny[`.tiny[]`], .scriptsize[`.scriptsize[]`], .footnotesize[`.footnotesize[]`], .small[`.small[]`], .normalsize[`.normalsize[]`], .large[`.large[]`], .Large[`.Large[]`], .LARGE[`.LARGE[]`], .huge[`.huge[]`], .Huge[`.Huge[]`], .references[`.references[]`].
 
+The colours of the theme can be easily customised - check `uol.css`!
+
 ---
 background-image: url(`r xaringan:::karl`)
 background-position: 50% 50%

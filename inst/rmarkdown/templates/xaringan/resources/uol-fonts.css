@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css?family=Hind");
+@import url("https://fonts.googleapis.com/css?family=Lusitana");
+@import url("https://fonts.googleapis.com/css?family=Inconsolata");
+
+body {
+  font-family: "Hind", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Lusitana", serif;
+}
+
+.remark-code, .remark-inline-code {
+  font-family: "Inconsolata", monospace;
+}

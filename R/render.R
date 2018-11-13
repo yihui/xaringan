@@ -93,10 +93,10 @@ moon_reader = function(
 
   if (is.null(title_cls <- nature[['titleSlideClass']]))
     title_cls = c('center', 'middle', 'inverse')
-  title_cls = paste(c(title_cls, 'title-slide'), collapse = ", ")
+  title_cls = paste(c(title_cls, 'title-slide'), collapse = ', ')
 
   before = nature[['beforeInit']]
-  for (i in c('countdown', 'autoplay', 'beforeInit', "titleSlideClass")) nature[[i]] = NULL
+  for (i in c('countdown', 'autoplay', 'beforeInit', 'titleSlideClass')) nature[[i]] = NULL
 
   write_utf8(as.character(tagList(
     tags$script(src = chakra),
@@ -264,3 +264,44 @@ infinite_moon_reader = function(moon, cast_from = '.') {
 #' @export
 #' @rdname inf_mr
 inf_mr = infinite_moon_reader
+
+
+#' Convert HTML presentations to PDF via DeckTape
+#'
+#' This function can use either the \command{decktape} command or the hosted
+#' docker image of the \pkg{decktape} library to convert HTML slides to PDF
+#' (including slides produced by \pkg{xaringan}).
+#' @param file The path to the HTML presentation file. When \code{docker =
+#'   FALSE}, this path could be a URL to online slides.
+#' @param output The desired output path of the PDF file.
+#' @param docker Whether to use Docker (\code{TRUE}) or use the
+#'   \command{decktape} command directly (\code{FALSE}). By default, if
+#'   \pkg{decktape} has been installed in your system and can be found via
+#'   \code{Sys.which('decktape')}, it will be uesd directly.
+#' @param version The \pkg{decktape} version when you use Docker.
+#' @param open Whether to open the resulting PDF with your system PDF viewer.
+#' @note For some operating systems you may need to
+#'   \href{https://stackoverflow.com/questions/48957195}{add yourself to the
+#'   \command{docker} group} and restart your machine if you use DeckTape via
+#'   Docker. By default, the latest version of the \pkg{decktape} Docker image
+#'   is used. In case of errors, you may want to try older versions (e.g.,
+#'   \code{version = '2.8.0'}).
+#' @references DeckTape: \url{https://github.com/astefanutti/decktape}. Docker:
+#'   \url{https://www.docker.com}.
+#' @return The output file path (invisibly).
+#' @export
+#' @examples if (interactive()) {
+#'   xaringan::decktape('https://slides.yihui.name/xaringan', 'xaringan.pdf', docker = FALSE)
+#' }
+decktape = function(
+  file, output, docker = Sys.which('decktape') == '', version = '', open = FALSE
+) {
+  args = shQuote(c(file, output))
+  res = if (docker) system2('docker', c(
+    'run', '--rm', '-t', '-v', '`pwd`:/slides', '-v', '$HOME:$HOME',
+    paste0('astefanutti/decktape', if (version != '') ':', version), args
+  )) else system2('decktape', args)
+  if (res != 0) stop('Failed to convert ', file, ' to PDF')
+  if (open) open_file(output)
+  invisible(output)
+}

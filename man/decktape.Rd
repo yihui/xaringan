@@ -4,13 +4,16 @@
 \alias{decktape}
 \title{Convert HTML presentations to PDF via DeckTape}
 \usage{
-decktape(file, output, docker = Sys.which("decktape") == "", version = "", open = FALSE)
+decktape(file, output, args = "--chrome-arg=--allow-file-access-from-files", 
+    docker = Sys.which("decktape") == "", version = "", open = FALSE)
 }
 \arguments{
 \item{file}{The path to the HTML presentation file. When \code{docker =
 FALSE}, this path could be a URL to online slides.}
 
 \item{output}{The desired output path of the PDF file.}
+
+\item{args}{Command-line arguments to be passed to \code{decktape}.}
 
 \item{docker}{Whether to use Docker (\code{TRUE}) or use the
 \command{decktape} command directly (\code{FALSE}). By default, if

@@ -274,6 +274,7 @@ inf_mr = infinite_moon_reader
 #' @param file The path to the HTML presentation file. When \code{docker =
 #'   FALSE}, this path could be a URL to online slides.
 #' @param output The desired output path of the PDF file.
+#' @param args Command-line arguments to be passed to \code{decktape}.
 #' @param docker Whether to use Docker (\code{TRUE}) or use the
 #'   \command{decktape} command directly (\code{FALSE}). By default, if
 #'   \pkg{decktape} has been installed in your system and can be found via
@@ -294,9 +295,10 @@ inf_mr = infinite_moon_reader
 #'   xaringan::decktape('https://slides.yihui.name/xaringan', 'xaringan.pdf', docker = FALSE)
 #' }
 decktape = function(
-  file, output, docker = Sys.which('decktape') == '', version = '', open = FALSE
+  file, output, args = '--chrome-arg=--allow-file-access-from-files',
+  docker = Sys.which('decktape') == '', version = '', open = FALSE
 ) {
-  args = shQuote(c(file, output))
+  args = shQuote(c(args, file, output))
   res = if (docker) system2('docker', c(
     'run', '--rm', '-t', '-v', '`pwd`:/slides', '-v', '$HOME:$HOME',
     paste0('astefanutti/decktape', if (version != '') ':', version), args

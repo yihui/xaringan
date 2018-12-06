@@ -235,7 +235,13 @@ infinite_moon_reader = function(moon, cast_from = '.') {
     rmarkdown::render(moon, envir = globalenv(), encoding = 'UTF-8')
   }
   build = local({
-    mtime = function() file.info(moon)[, 'mtime']
+
+    tmp_lines = rmarkdown:::read_lines_utf8(moon,"UTF-8")
+    tmp_css = rmarkdown:::parse_yaml_front_matter(tmp_lines)$output$`xaringan::moon_reader`$css
+
+    moon_deps = c(moon, tmp_css)
+
+    mtime = function() file.info(moon_deps)[, 'mtime']
     time1 = mtime()
     function(...) {
       time2 = mtime()

@@ -136,3 +136,8 @@ open_file = function(path){
     system2(if (xfun::is_macos()) 'open' else 'xdg-open', shQuote(path))
   }
 }
+
+# does the current dir look like an R package dir?
+is_package = function() {
+  all(c(file.exists(c('DESCRIPTION', 'NAMESPACE')), dir.exists(c('R', 'inst'))))
+}

@@ -6,6 +6,8 @@
 
 - Added a CSS theme `uol` (University of Leicester) (thanks, @ellessenne, #183).
 
+- `xaringan::inf_mr()` can detect changes in CSS/JS and common images now. When any of these files are changed, it will rebuild the Rmd document and reload the output in the browser (thanks, @mrchypark @tcgriffith, #185).
+
 # CHANGES IN xaringan VERSION 0.8
 
 ## NEW FEATURES

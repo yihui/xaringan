@@ -234,19 +234,28 @@ infinite_moon_reader = function(moon, cast_from = '.') {
   rebuild = function() {
     rmarkdown::render(moon, envir = globalenv(), encoding = 'UTF-8')
   }
+  html = NULL
+  # rebuild if moon or any dependencies (CSS/JS/images) have been updated
   build = local({
-    mtime = function() file.info(moon)[, 'mtime']
-    time1 = mtime()
+    # if Rmd is inside a package, listen to changes under the inst/ dir,
+    # otherwise watch files under the dir of the moon
+    d = if (is_package()) 'inst' else dirname(moon)
+    files = if (getOption('xaringan.inf_mr.aggressive', TRUE)) function() {
+      c(list.files(
+        d, '[.](css|js|png|gif|jpeg)$', full.names = TRUE, recursive = TRUE
+      ), moon)
+    } else function() moon
+    mtime = function() file.info(files())[, 'mtime']
+    html <<- normalize_path(rebuild())  # render Rmd initially
+    l = max(mtime())  # record the latest timestamp of files
     function(...) {
-      time2 = mtime()
-      if (identical(time1, time2)) return(FALSE)
-      # moon has been changed, recompile it and reload in browser
+      if (!any(mtime() > l)) return(FALSE)
+      # moon or dependencies have been updated, recompile and reload in browser
       rebuild()
-      time1 <<- time2
+      l <<- max(mtime())
       TRUE
     }
   })
-  html = normalize_path(rebuild())  # render slides initially
   d = normalize_path(cast_from)
   f = rmarkdown::relative_to(d, html)
   # see if the html output file is under the dir cast_from

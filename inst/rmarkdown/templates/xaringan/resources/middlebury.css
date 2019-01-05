@@ -1,13 +1,22 @@
 /*
-CSS for xaringan slides in RU flavor
+CSS for xaringan slides in Middlebury College flavor
 Author: Joseph V. Casillas
-Updated: 03/06/2018
+Updated: 06/29/2018
+*/
+
+
+/*
+Blue (official): #0D395F, PMS 294
+Blue accent 1:   #75A3CD, PMS 292
+Blue accent 2:   #97BBD5, PMS 544
+Grey accent 1:   #4C4B4C, PMS 426
+Grey accent 2:   #AAA59F, PMS 401
 */
 
 /* Package defaults that we slightly tweak */
 
 a, a > code {
-  color: #cc0033; /* rgb(249, 38, 114) */
+  color: #97BBD5; /* blue accent 2 */
   text-decoration: none;
 }
 
@@ -19,9 +28,9 @@ a, a > code {
   font-size: 95%;
 }
 
-/* important code slightly red */
+/* important code slightly blue */
 .remark-code-line-highlighted {
-  background-color: #FFD3DE !important;
+  background-color: #97BBD5 !important;
 }
 
 /* color tweak */
@@ -106,27 +115,28 @@ thead, tfoot, tr:nth-child(even) { background: none; }
   }
 }
 
-/*~~~~~~~~~~~~~~*/
-/* RU additions */
-/*~~~~~~~~~~~~~~*/
+/*~~~~~>>~~~~~~~~~*/
+/* MIDD additions */
+/*~~~~~~~>>~~~~~~~*/
 
 /* Title slide */
 
 /* Add image and change bg color */
 .title-slide {
-  background-image: url(https://github.com/jvcasillas/ru_xaringan/raw/master/img/logo/ru_shield.png);
+  background-image: url(https://github.com/jvcasillas/midd_xaringan/raw/master/img/logo/middlebury_shield.png);
   background-position: 9% 15%;
-  background-size: 55px;
+  background-size: 75px;
   background-color: #fff;
   padding-left: 100px;  /* delete this for 4:3 aspect ratio */
 }
 
 /* H1 fonts */
 .title-slide h1 {
-  color: #515151;
+  color: #0D395F; /* Middlebury blue */
   padding-top: 250px;
   font-weight: normal;
   font-size: 45px;
+  line-height: 0.05;
   text-align: left;
   text-shadow: none;
   padding-bottom: 18px;
@@ -135,7 +145,7 @@ thead, tfoot, tr:nth-child(even) { background: none; }
 
 /* H2 fonts */
 .title-slide h2 {
-  color: #cc0033;
+  color: #4C4B4C; /* Middlebury grey accent 1 */ 
   font-size: 35px;
   text-align: left;
   text-shadow: none;
@@ -147,7 +157,7 @@ thead, tfoot, tr:nth-child(even) { background: none; }
 .title-slide h3 {
   font-size: 28px;
   font-weight: normal;
-  color: #666666;
+  color: #AAA59F; /* Middlebury grey accent 2 */
   text-align: left;
   text-shadow: none;
   padding: 0px;
@@ -164,26 +174,30 @@ thead, tfoot, tr:nth-child(even) { background: none; }
 /* SECTION DIVIDERS */
 /*~~~~~~~~~~~~~~~~~~*/
 
-/* section divider red */
-.title-slide-section-red {
-  background-color: #cc0033;
+/* section divider blue */
+.title-slide-section-blue {
+  background-color: #0D395F;
   padding-left: 100px;  /* delete this for 4:3 aspect ratio */
 }
 
-/* section divider red H1 fonts */
-.title-slide-section-red h1, .title-slide-section-red h2, .title-slide-section-red h3, .title-slide-section-red p {
+/* section divider blue H1 fonts */
+.title-slide-section-blue h1, .title-slide-section-blue h2, .title-slide-section-blue h3, .title-slide-section-blue p {
+  color: #AAA59F;
+}
+
+.title-slide-section-blue p {
   color: #fff;
 }
 
 /* section divider grey */
 .title-slide-section-grey {
-  background-color: #515151;
+  background-color: #4C4B4C;
   padding-left: 100px;  /* delete this for 4:3 aspect ratio */
 }
 
 /* section divider grey H1 fonts */
 .title-slide-section-grey h1, .title-slide-section-grey h2, .title-slide-section-grey h3 {
-  color: #fff;
+  color: #AAA59F;
 }
 
 .title-slide-section-grey p {
@@ -195,15 +209,23 @@ thead, tfoot, tr:nth-child(even) { background: none; }
 /*~~~~~~~~~~~~~~~~~~*/
 
 .title-slide-final {
-  background-color: #272822;
+  background-color: #AAA59F;
   color: #fff;
   padding-left: 100px;
-  text-shadow: 0 0 20px #333;
+/*  text-shadow: 0 0 3px #333; */  
   text-align: center;
 }
 
 .title-slide-final h1 {
-  color: #cc0033;
+  color: #4C4B4C;
+}
+
+.title-slide-final h2 {
+  color: #4C4B4C;
+}
+
+.title-slide-final h3 {
+  color: #0D395F;
 }
 
 /*~~~~~~~~~~~~~~~~~~~~*/
@@ -217,9 +239,9 @@ thead, tfoot, tr:nth-child(even) { background: none; }
 
 /* Color adjustments for text */
 
-/* Make bold syntax compile to RU-red */
+/* Make bold syntax compile to midd-blue */
 strong {
-  color: #cc0033;
+  color: #0D395F;
 }
 
 .RUred {
@@ -228,17 +250,17 @@ strong {
 
 /* Add blue tag */
 .blue {
-  color: #0000CC;
+  color: #0D395F;
   font-weight: bold;
 }
 
 /* Add grey tag */
 .grey {
-  color: #515151;
+  color: #4C4B4C;
 }
 
 .lightgrey {
-  color: #818181;
+  color: #AAA59F;
 }
 
 /* Force black */
@@ -254,11 +276,11 @@ strong {
 
 /* Color adjustments to headers */
 h1 {
-  color: #cc0033;
+  color: #0D395F;
 }
 
 h3 {
-  color: #515151;
+  color: #4C4B4C;
 }
 
 /* Font size tags */
@@ -266,15 +288,15 @@ h3 {
   font-size: 1.5em;
 }
 
-/* ru blockquote */
-ru-blockquote {
+/* midd blockquote */
+midd-blockquote {
   display: block;
   margin-top: 1em;
   margin-bottom: 1em;
   margin-left: 40px;
   margin-right: 40px;
-  border-left: solid 10px #cc0033;
-  background-color: #818181;
+  border-left: solid 10px #0D395F;
+  background-color: #AAA59F;
   padding: 1em;
   color: #fff;
   -moz-border-radius: 5px;

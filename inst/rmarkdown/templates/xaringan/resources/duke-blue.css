@@ -1,0 +1,81 @@
+/* Colors are defined by the          */
+/* Duke Branding Color Palette        */
+/* https://styleguide.duke.edu/color-palette/   */
+
+a, a > code {
+  color: rgb(6,128,205);
+  text-decoration: none;
+}
+
+h1, h2, h3 {
+  color: #003366;
+  line-height: 0.6em;
+  text-shadow: 0 0 10px #666666;
+}
+
+.duke-orange {
+  background-color: #F09905;
+}
+
+.duke-orange a, .dk_orange a > code {
+  color: rgb(6,128,205);
+  text-decoration: none;
+}
+
+.duke-orange h1, .duke-orange h2, .duke-orange h3 {
+  color: #001A57;
+  line-height: 0.8em;
+  text-shadow: 0 0 10px #666666;
+}
+
+.duke-softblue {
+  background-color: #339999;
+  color: #FFD960;
+}
+
+.duke-softblue a, .duke-softblue a > code {
+  /* color: rgb(153,50, 153); */
+  color: rgb(19,2,131);
+  text-decoration: none;
+}
+.duke-softblue h1, .duke-softblue h2, .duke-softblue h3 {
+  color: #001A57;
+  line-height: 0.8em;
+  text-shadow: 0 0 10px #728302;
+}
+
+.duke-green {
+  background-color: #728302;
+  /* color: #FFD960; */
+}
+.duke-green h1, .duke-green h2, .duke-green h3 {
+  color: #001A57;
+  line-height: 0.8em;
+  text-shadow: 0 0 10px #FFD960;
+}
+
+.duke-green a, .duke-green a > code {
+  color: rgb(19,2,131);
+  text-decoration: none;
+}
+
+.inverse {
+  background-color: #003366;
+  color: #B5B5B5;
+  text-shadow: 0 0 20px #728302;
+  /* 001A57 728302*/
+}
+
+.inverse h1, .inverse h2, .inverse h3 {
+  color: #B5B5B5;
+  line-height: 0.8em;
+}
+
+.imageTop {
+  vertical-align: top;
+}
+
+h4 {
+  font-family: 'Yanone Kaffeesatz';
+  font-weight: normal;
+}

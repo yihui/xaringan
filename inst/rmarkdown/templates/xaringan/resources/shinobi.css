@@ -1,0 +1,109 @@
+@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700);
+
+/******************
+ shinobi.css must also be coupled with ninjutsu.css to be effective
+ See https://emitanaka.github.io/ninja-theme for the kunoichi example (replace with shinobi to see the shinobi in action).
+
+******************/
+
+:root {
+    --main-color1: #161738;
+    --main-color2: #202040;
+    --main-color3: #282c4b;
+    --main-color4: #282747;
+    --main-color5: #474863;
+    --text-color1: white;
+    --text-color2: white;
+    --text-color3: white;
+    --text-color4: white;
+    --text-color5: white;
+    --text-opacity: white;
+    --link-color: rgba(67,160,71 ,1);
+    --alert-color: #CF3C18;
+    --text-alert: white;
+    --code-background: transparent;
+    --code-text-color: #FFD740;
+    --code-highlight: rgba(251,192,45 ,0.3);
+    --color-opacity70: rgba(26,23,56 ,0.7);
+    --color-opacity50: rgba(26,23,56 ,0.5);
+    --color-opacity30: rgba(26,23,56 ,0.3);
+}
+
+.title-slide {
+  width: 60%;
+  text-align: left!important;
+  height:100%;
+  display: table;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--color-opacity70);
+  color: white;
+  padding: 0;
+}
+
+.remark-slide {
+  background-color: var(--main-color4);
+}
+
+.font-mono {
+  font-family: monospace;
+}
+
+.title-slide h1 { padding-top: 20%; font-size: 4em;}
+.title-slide h1, .title-slide h2, .title-slide h3  {
+  padding-left: 4%!important;
+  padding-right: 4%!important;
+}
+
+.title-slide .remark-slide-number { display: none; }
+
+.bg-main1 { background-color: var(--main-color1); color: var(--text-color1);}
+.bg-main2 { background-color: var(--main-color2); color: var(--text-color2);}
+.bg-main3 { background-color: var(--main-color3); color: var(--text-color3);}
+.bg-main4 { background-color: var(--main-color4); color: var(--text-color4);}
+.bg-main5 { background-color: var(--main-color5); color: var(--text-color5);}
+.bgcolor_alert { background-color: var(--alert-color)!important; color: var(--text-alert); }
+
+.color-main1 { color: var(--main-color1);}
+.color-main2 { color: var(--main-color2);}
+.color-main3 { color: var(--main-color3);}
+.color-main4 { color: var(--main-color4);}
+.color-main4 { color: var(--main-color5);}
+.color-alert { color: var(--alert-color);}
+
+.shade_main  {
+    background-color: var(--color-opacity70);
+    color: var(--text-opacity);
+    width: 100%;
+    padding: 0;
+}
+
+.remark-visible .remark-slide-scaler {overflow-y: auto;}
+.remark-code {font-size: 20px; line-height: 1.25;}
+
+.remark-code-line-highlighted { background-color: var(--code-highlight); }
+
+
+h1, h2, h3, body{
+  font-family: 'Yanone Kaffeesatz';
+  font-weight: normal;
+}
+.remark-code, .remark-inline-code {
+  font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;
+  color: var(--code-text-color);
+  background-color: var(--code-background);
+}
+
+h1, h2, h3, h4 {
+    font-weight: 400;
+    margin-bottom: 0;
+    margin-top: 10px;
+}
+h1 { font-size: 3.5em; }
+h2 { font-size: 3em; }
+h3 { font-size: 1.6em; }
+h4 { font-size: 1em; }
+
+a { color: var(--link-color); text-decoration: none; }

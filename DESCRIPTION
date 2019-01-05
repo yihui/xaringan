@@ -1,17 +1,25 @@
 Package: xaringan
 Type: Package
 Title: Presentation Ninja
-Version: 0.6.1
+Version: 0.8.5
 Authors@R: c(
     person("Yihui", "Xie", role = c("aut", "cre"), email = "xie@yihui.name", comment = c(ORCID = "0000-0003-0645-5666")),
     person("Claus Thorn", "Ekstrøm", role = "ctb"),
+    person("Daniel", "Anderson", role = "ctb"),
     person("Dawei", "Lang", role = "ctb"),
     person("Garrick", "Aden-Buie", role = "ctb"),
+    person("John", "Little", role = "ctb"),
     person("Joseph", "Casillas", role = "ctb"),
+    person("Michael Wayne", "Kearney", role = "ctb"),
     person("Nan-Hung", "Hsieh", role = "ctb"),
     person("Ole Petter", "Bang", role = "ctb", comment = "CSS in rmarkdown/templates/xaringan/resources/default.css"),
     person("Patrick", "Schratz", role = "ctb"),
-    person("Sean", "Lopp", role = "ctb")
+    person("Sean", "Lopp", role = "ctb"),
+    person("Lucy", "D'Agostino McGowan", role = "ctb", comment = c(ORCID = "0000-0001-7297-9359")),
+    person("Emi", "Tanaka", role = "ctb"),
+    person("Yongfu", "Liao", role = "ctb"),
+    person("Malcolm", "Barrett", role = "ctb", comment = c(ORCID = "0000-0003-0299-5825")),
+    person("Alessandro", "Gasparini", role = "ctb", comment = c(ORCID = "0000-0002-8319-7624"))
     )
 Description: Create HTML5 slides with R Markdown and the JavaScript library
     'remark.js' (<https://remarkjs.com>).
@@ -19,7 +27,7 @@ Imports:
     htmltools,
     knitr (>= 1.16),
     servr (>= 0.5),
-    xfun,
+    xfun (>= 0.2),
     rmarkdown
 Suggests: rstudioapi, testit
 License: MIT + file LICENSE
@@ -27,4 +35,4 @@ URL: https://github.com/yihui/xaringan
 BugReports: https://github.com/yihui/xaringan/issues
 VignetteBuilder: knitr
 Encoding: UTF-8
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.1

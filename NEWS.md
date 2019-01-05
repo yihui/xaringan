@@ -1,9 +1,52 @@
+# CHANGES IN xaringan VERSION 0.9
+
+## NEW FEATURES
+
+- Added a function `decktape()` to export slides to PDF via the DeckTape library (thanks, @pat-s, #177).
+
+- Added a CSS theme `uol` (University of Leicester) (thanks, @ellessenne, #183).
+
+- `xaringan::inf_mr()` can detect changes in CSS/JS and common images now. When any of these files are changed, it will rebuild the Rmd document and reload the output in the browser (thanks, @mrchypark @tcgriffith, #185).
+
+# CHANGES IN xaringan VERSION 0.8
+
+## NEW FEATURES
+
+- Added output highlighting using the chunk option `highlight.output` (thanks, @malcolmbarrett, #175).
+
+- Added a CSS theme `chocolate`. See [here](https://liao961120.github.io/slides/xaringan/) for an example slide (thanks, @liao961120, #171).
+
+- Added a set of CSS theme `kunoichi`, `shinobi` and `ninjutsu` - see [here for example](https://emitanaka.github.io/ninja-theme) (thanks, @emitanaka, #165).
+
+- Added a CSS theme `lucy` (thanks, @LucyMcGowan, #163).
+
 # CHANGES IN xaringan VERSION 0.7
 
 ## NEW FEATURES
 
+- Added a CSS theme `middlebury` (Middlebury College) (thanks, @jvcasillas, #150).
+
 - Added a CSS theme `tamu` (Texas A&M) (thanks, @nanhung, #115).
-- Added a CSS theme `rutgers` (Rutgers University)
+
+- Added a CSS theme `rutgers` (Rutgers University) (#121).
+
+- Added a CSS theme `uo` (University of Oregon) (#125).
+
+- Added a CSS theme `robot` (inspired by the Roboto Google font) (#126).
+
+- Added a CSS theme `duke-blue` and corresponding `hygge-duke` (Duke University) (thanks, @libjohn, #133).
+
+- In the `metropolis` theme, updated weights and margins of all headers, and added a new CSS class `clear` that disables the colored box at the top of each slide (#107).
+
+- It is possible to customize the CSS classes of the title slide using the option `titleSlideClass` under the `nature` option of `xaringan::moon_reader()` now (thanks, @gadenbuie, #139, #136).
+
+## BUG FIXES
+
+- An informative error message is now returned when trying to use an invalid or misspelled CSS theme name (thanks, @gadenbuie, #129).
+
+- LaTeX math expressions will no longer be rendered inside the `<code></code>` tags (thanks, @garthtarr, #137).
+
+- The default CSS style for tables should not be applied to the help page of the slides (thanks, @KevCaz, #138).
 
 # CHANGES IN xaringan VERSION 0.6
 

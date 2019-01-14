@@ -1,102 +1,106 @@
-/* override left and right column, define my own fc-columns */
-.fc-left {
-  width: 30%;
-  float: left;
+/* Various left and right split columns*/
+
+.pull-left-70 { float: left; width: 66.5%; }
+.pull-right-30 { float: right; width: 28.5%; }
+.pull-right-30 ~ * { clear: both; }
+
+.pull-left-60 { float: left; width: 57%; }
+.pull-right-40 { float: right; width: 38%; }
+.pull-right-40 ~ * { clear: both; }
+
+.pull-left-50 { float: left; width: 47.5%; }
+.pull-right-50 { float: right; width: 47.5%; }
+.pull-right-50 ~ * { clear: both; }
+
+.pull-left-40 { float: left; width: 38%; }
+.pull-right-60 { float: right; width: 57%; }
+.pull-right-60 ~ * { clear: both; }
+
+.pull-left-30 { float: left; width: 28.5%; }
+.pull-right-70 { float: right; width: 66.5%; }
+.pull-right-70 ~ * { clear: both; }
+
+/* headers and fonts*/
+h1, h2, h3 {
+  margin-top: 0;
+  padding-top: 0.5em;
+  font-family: 'Oswald';
+  font-weight: 400;
+  margin-left: 0;
 }
 
-.fc-right {
-  width: 66%;
-  float: left;
+.large {
+  font-size: 23px;
 }
 
+.small {
+  font-size: 15px;
+}
+
+/* regular slide */
 .remark-slide-content {
   background-color: #FAFAFA;
   border-bottom: 5px solid #ff5f0f;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 300;
   line-height: 1.2;
-  padding: 1em 5em 1em 5em
+  padding: 1em 3em 1em 3em;
 }
 
-.title-slide .inverse .remark-slide-content {
-  background-color: #FAFAFA;
-}
-
+/* inverse slide */
 .inverse {
   background-color: #121316;
-  text-shadow: none;
+  color: #ffffff;
 }
 
-.fc-left > h1, .fc-right > h1, .remark-slide-content > h1 {
-  margin-top: 20px;
-  font-family: 'Oswald';
-  font-weight: 400;
-  font-size: 35px;
+/* header colors are the same regardless of inverse or not*/
+.remark-slide-content h1, .inverse h1 {
   color: #ff5f0f;
+  font-size: 35px;
 }
 
-.remark-slide-content > inverse {
-width: 112px;
-height: 47px;
-border-bottom: 1px solid black;
-position: absolute;
-}
-
-.fc-left > h2, .fc-right > h2, .remark-slide-content > h2 {
-  padding-top: 00px;
-  padding-bottom: 00px;
-  color: #5b5b5b;
-  text-shadow: none;
-  font-weight: 400;
-  font-size: 30px;
-  text-align: left;
-  margin-left: 00px;
-}
-
-.fc-left > h3, .fc-right > h3, .remark-slide-content > h3 {
-  padding-top: 00px;
-  padding-bottom: 00px;
+.remark-slide-content h2, .inverse h2 {
   color: #b7b7b7;
-  text-shadow: none;
-  font-weight: 400;
-  font-size: 25px;
-  text-align: left;
-  margin-left: 00px;
+  font-size: 30px;
 }
 
+.remark-slide-content h3, .inverse h3 {
+  color: #5b5b5b;
+  font-size: 25px;
+}
+
+/* title slide */
 .title-slide {
   background-color: #121316;
 }
 
-.title-slide > h1  {
+.title-slide h1  {
   color: #ff5f0f;
   font-size: 50px;
-  text-shadow: none;
   font-weight: 500;
   text-align: left;
   margin-left: 40px;
   padding-top: 60px;
 }
-.title-slide > h2  {
+.title-slide h2  {
+  color: #FAFAFA;
+  font-size: 35px;
+  font-weight: 350;
+  text-align: left;
+  margin-left: 40px;
   margin-top: -25px;
   padding-bottom: -20px;
-  color: #FAFAFA;
-  text-shadow: none;
-  font-weight: 350;
-  font-size: 35px;
-  text-align: left;
-  margin-left: 40px;
 }
-.title-slide > h3  {
+.title-slide h3  {
   color: #b7b7b7;
-  text-shadow: none;
-  font-weight: 300;
   font-size: 25px;
+  font-weight: 300;
   text-align: left;
   margin-left: 40px;
-  margin-bottom: -20px;
+  margin-bottom: 0;
 }
 
+/* slide number */
 .remark-slide-number {
   font-size: 10pt;
   font-family: 'EB Garamond';
@@ -110,19 +114,18 @@ position: absolute;
   opacity: 1;
 }
 
-/* turns off slide numbers for title page: https://github.com/gnab/remark/issues/298 */
-.title-slide .remark-slide-number {
-  display: none;
-}
-
+/* code */
 .remark-inline-code {
-  font-size: 30px;
-  color: #ff0000;
+  color: #ff4c00;
   border-radius: 1px;
-  padding: 0px;
+  padding: 0;
   background: #e0e0e0;
 }
 
+.inverse .remark-inline-code {
+  background: #333333;
+}
+
 .remark-code-line-highlighted {
-  background-color: #373832;
+  background-color: #ffead3;
 }

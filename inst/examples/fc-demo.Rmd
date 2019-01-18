@@ -1,0 +1,185 @@
+---
+title: "FC Theme"
+subtitle: "powered by xaringan"
+author: "Yue Jiang"
+date: "Last updated: `r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    css: ["default", "fc", "fc-fonts"]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      countIncrementalSlides: false
+      highlightLines: true
+---
+
+```{r setup, include = FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+# Headers and fonts
+
+# h1
+## h2
+### h3
+.large[large content font size] `.large[large content font size]`
+
+regular content font size
+
+.small[small content font size] `.small[small content font size]`
+
+---
+class: center, middle
+
+# Various two-column splits
+
+---
+# 30-70 split columns
+
+.pull-left-30[
+## left column
+### `.pull-left-30`
+### I am 30%
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+]
+.pull-right-70[
+## right column
+### `.pull-right-70`
+### I am 70%
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+]
+
+I am a new line, not those two columns anymore. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+---
+# 40-60 split columns
+
+.pull-left-40[
+## left column
+### `.pull-left-40`
+### I am 40%
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+]
+.pull-right-60[
+## right column
+### `.pull-right-60`
+### I am 60%
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+]
+
+I am a new line, not those two columns anymore. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+---
+# 50-50 split columns
+
+This is not much different than the default `.pull-left` and `.pull-right`. Only 1% less white space in the middle.
+
+.pull-left-50[
+## left column
+### `.pull-left-50`
+### I am 50%
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+]
+.pull-right-50[
+## right column
+### `.pull-right-50`
+### I am 50%
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+]
+
+I am a new line, not those two columns anymore. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+---
+# 60-40 split columns
+
+.pull-left-60[
+## left column
+### `.pull-left-60`
+### I am 60%
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+]
+.pull-right-40[
+## right column
+### `.pull-right-40`
+### I am 40%
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+]
+
+I am a new line, not those two columns anymore. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+---
+# 70-30 split columns
+
+.pull-left-70[
+## left column
+### `.pull-left-70`
+### I am 70%
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+]
+.pull-right-30[
+## right column
+### `.pull-right-30`
+### I am 30%
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+]
+
+I am a new line, not those two columns anymore. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+---
+class: inverse
+
+# Inverse `class: inverse`
+# h1
+## h2
+### h3
+.large[large content font size] `.large[large content font size]`
+
+regular content font size
+
+.small[small content font size] `.small[small content font size]`
+
+---
+# Code and math
+
+- In line code `I will mess with time`
+- In line math $E=mc^2$
+- Display math 
+
+$$E=mc^2$$
+- Code chunk (highlight with the `#<<` as line comment)
+
+```{r, eval=FALSE}
+for (i in 1:3) {
+  print("I will mess with time") #<<
+}
+```
+
+---
+class: inverse
+# Code and math, inverse
+
+- In line code `I will mess with time`
+- In line math $E=mc^2$
+- Display math 
+
+$$E=mc^2$$
+- Code chunk (highlight with the `#<<` as line comment)
+
+```{r, eval=FALSE}
+for (i in 1:3) {
+  print("I will mess with time") #<<
+}
+```
+
+
+

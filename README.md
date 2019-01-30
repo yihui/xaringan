@@ -2,7 +2,7 @@
 
 <img src="https://user-images.githubusercontent.com/163582/45438104-ea200600-b67b-11e8-80fa-d9f2a99a03b0.png" align="right" alt="Sharingan" width="180" />
 
-[ʃæ.'riŋ.ɡæn]
+[ʃaː.'riŋ.ɡan]
  
 [![Build Status](https://travis-ci.org/yihui/xaringan.svg)](https://travis-ci.org/yihui/xaringan)
 

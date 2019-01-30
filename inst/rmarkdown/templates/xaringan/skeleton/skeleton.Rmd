@@ -27,7 +27,7 @@ class: center, middle
 
 # xaringan
 
-### /ʃæ.'riŋ.ɡæn/
+### /ʃaː.'riŋ.ɡan/
 
 ---
 class: inverse, center, middle

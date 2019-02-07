@@ -1,9 +1,10 @@
 Package: xaringan
 Type: Package
 Title: Presentation Ninja
-Version: 0.8.6
+Version: 0.8.7
 Authors@R: c(
     person("Yihui", "Xie", role = c("aut", "cre"), email = "xie@yihui.name", comment = c(ORCID = "0000-0003-0645-5666")),
+    person("Benjie", "Gillam", role = "ctb"),
     person("Claus Thorn", "Ekstrøm", role = "ctb"),
     person("Daniel", "Anderson", role = "ctb"),
     person("Dawei", "Lang", role = "ctb"),

@@ -2,6 +2,8 @@
 
 ## NEW FEATURES
 
+- When printing slides to PDF, only the last slide of a series of incremental slides will be printed (thanks, @sebpardo @@benjie, #192).
+
 - Added a function `decktape()` to export slides to PDF via the DeckTape library (thanks, @pat-s, #177).
 
 - Added a CSS theme `uol` (University of Leicester) (thanks, @ellessenne, #183).

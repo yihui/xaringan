@@ -99,6 +99,7 @@ moon_reader = function(
   for (i in c('countdown', 'autoplay', 'beforeInit', 'titleSlideClass')) nature[[i]] = NULL
 
   write_utf8(as.character(tagList(
+    tags$style(`data-target` = 'print-only', '.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}'),
     tags$script(src = chakra),
     if (is.character(before)) if (self_contained) {
       tags$script(HTML(file_content(before)))
@@ -107,7 +108,7 @@ moon_reader = function(
     },
     tags$script(HTML(paste(c(sprintf(
       'var slideshow = remark.create(%s);', if (length(nature)) xfun::tojson(nature) else ''
-    ), pkg_file('js/show-widgets.js'), pkg_file('js/print-css.js'),
+    ), pkg_file(c('js/show-widgets.js', 'js/print-css.js', 'js/after.js')),
     play_js, countdown_js), collapse = '\n')))
   )), tmp_js)
 

@@ -14,6 +14,10 @@
 
 - External links (URLs starting with `http://` or `https://`) on slides will be opened in new browser tabs/windows.
 
+## BUG FIXES
+
+- Fixed several long-lasting issues related to MathJax fonts and printing to PDF (#62, #73, #143, #148, #168).
+
 # CHANGES IN xaringan VERSION 0.8
 
 ## NEW FEATURES

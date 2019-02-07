@@ -1,10 +1,12 @@
-(function() {
-  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
   if (!r) return;
   s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
   d.head.appendChild(s);
+})(document);
 
-  var el = document.getElementsByClassName("remark-slides-area");
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
   if (!el) return;
   var slide, slides = slideshow.getSlides(), els = el[0].children;
   for (var i = 1; i < slides.length; i++) {
@@ -13,7 +15,7 @@
       els[i - 1].className += ' has-continuation';
     }
   }
-  s = d.createElement("style");
+  var s = d.createElement("style");
   s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
   d.head.appendChild(s);
-})();
+})(document);

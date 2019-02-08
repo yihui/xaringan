@@ -99,7 +99,7 @@ moon_reader = function(
   for (i in c('countdown', 'autoplay', 'beforeInit', 'titleSlideClass')) nature[[i]] = NULL
 
   write_utf8(as.character(tagList(
-    tags$style(`data-target` = 'print-only', '.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}'),
+    tags$style(`data-target` = 'print-only', '@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}'),
     tags$script(src = chakra),
     if (is.character(before)) if (self_contained) {
       tags$script(HTML(file_content(before)))

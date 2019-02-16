@@ -251,6 +251,7 @@ infinite_moon_reader = function(moon, cast_from = '.') {
     l = max(mtime())  # record the latest timestamp of files
     function(...) {
       if (!any(mtime() > l)) return(FALSE)
+      l <<- max(mtime())
       # moon or dependencies have been updated, recompile and reload in browser
       rebuild()
       l <<- max(mtime())

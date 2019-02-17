@@ -240,7 +240,7 @@ infinite_moon_reader = function(moon, cast_from = '.') {
   build = local({
     # if Rmd is inside a package, listen to changes under the inst/ dir,
     # otherwise watch files under the dir of the moon
-    d = if (is_package()) 'inst' else dirname(moon)
+    d = if (p <- is_package()) 'inst' else dirname(moon)
     files = if (getOption('xaringan.inf_mr.aggressive', TRUE)) function() {
       c(list.files(
         d, '[.](css|js|png|gif|jpeg)$', full.names = TRUE, recursive = TRUE
@@ -248,13 +248,14 @@ infinite_moon_reader = function(moon, cast_from = '.') {
     } else function() moon
     mtime = function() file.info(files())[, 'mtime']
     html <<- normalize_path(rebuild())  # render Rmd initially
-    l = max(mtime())  # record the latest timestamp of files
+    l = max(m <- mtime())  # record the latest timestamp of files
     function(...) {
-      if (!any(mtime() > l)) return(FALSE)
-      l <<- max(mtime())
+      m2 = mtime()
+      if (!any(m2 > l)) return(FALSE)
+      l <<- max(m2)
       # moon or dependencies have been updated, recompile and reload in browser
-      rebuild()
-      l <<- max(mtime())
+      if (p || tail(m2, 1) > tail(m, 1)) rebuild()
+      l <<- max(m <<- mtime())
       TRUE
     }
   })

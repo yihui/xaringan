@@ -217,16 +217,10 @@ infinite_moon_reader = function(moon, cast_from = '.') {
   # when this function is called via the RStudio addin, use the dir of the
   # current active document
   if (missing(moon) && requireNamespace('rstudioapi', quietly = TRUE)) {
-    context_fun = tryCatch(
-      getFromNamespace('getSourceEditorContext', 'rstudioapi'),
-      error = function(e) rstudioapi::getActiveDocumentContext
-    )
-    moon = context_fun()[['path']]
-    if (is.null(moon)) stop('Cannot find the current active document in RStudio')
-    if (moon == '') stop(
-      'Please click the RStudio source editor first, or save the current document'
-    )
-    if (!grepl('[.]R?md', moon, ignore.case = TRUE)) stop(
+    moon = rstudioapi::getSourceEditorContext()[['path']]
+    if (is.null(moon)) stop('Cannot find an open document in the RStudio editor')
+    if (moon == '') stop('Please save the current document')
+    if (!grepl('[.]R?md$', moon, ignore.case = TRUE)) stop(
       'The current active document must be an R Markdown document. I saw "',
       basename(moon), '".'
     )

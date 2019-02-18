@@ -364,11 +364,13 @@ This is invalid R code, so it is a plain fenced code block that is not executed.
 .pull-right[
 An example using `{{}}`:
 
-    `r ''````{r tidy=FALSE}
-    if (TRUE) {
-    *{{ message("Very important!") }}
-    }
-    ```
+````
+`r ''````{r tidy=FALSE}
+if (TRUE) {
+*{{ message("Very important!") }}
+}
+```
+````
 Output:
 ```{r tidy=FALSE}
 if (TRUE) {

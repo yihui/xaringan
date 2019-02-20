@@ -71,8 +71,8 @@ sample2 = function(x, size, ...) {
   } else sample(x, size, ...)
 }
 
-prose_index = function(x) xfun::prose_index(x)
-protect_math = function(x) xfun::protect_math(x)
+prose_index = function(...) xfun::prose_index(...)
+protect_math = function(...) xfun::protect_math(...)
 
 #' Summon remark.js to your local disk
 #'

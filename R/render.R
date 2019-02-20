@@ -82,6 +82,7 @@ moon_reader = function(
   }
   tmp_js = tempfile('xaringan', fileext = '.js')  # write JS config to this file
   tmp_md = tempfile('xaringan', fileext = '.md')  # store md content here (bypass Pandoc)
+  options(xaringan.page_number.offset = if (seal) 0L else -1L)
 
   play_js = if (is.numeric(autoplay <- nature[['autoplay']]) && autoplay > 0)
     sprintf('setInterval(function() {slideshow.gotoNextSlide();}, %d);', autoplay)
@@ -243,12 +244,37 @@ infinite_moon_reader = function(moon, cast_from = '.') {
     mtime = function() file.info(files())[, 'mtime']
     html <<- normalize_path(rebuild())  # render Rmd initially
     l = max(m <- mtime())  # record the latest timestamp of files
-    function(...) {
-      m2 = mtime()
-      if (!any(m2 > l)) return(FALSE)
+    r = servr:::is_rstudio(); info = if (r) slide_context()
+    function(message) {
+      m2 = mtime(); u = !any(m2 > l)
+      # when running inside RStudio and only Rmd is possibly changed
+      if (u) {
+        if (!r) return(FALSE)
+        ctx = rstudioapi::getSourceEditorContext()
+        if (identical(normalize_path(as.character(ctx[['path']])), moon)) {
+          if (isTRUE(message[['focused']])) {
+            # auto-navigate to the slide source corresponding to current HTML
+            # page only when the slides are on focus
+            slide_navigate(ctx, message, moon)
+          } else {
+            # navigate to HTML page and update it incrementally if necessary
+            info2 = slide_context(ctx)
+            # incremental update only if the total number of pages (N) matches
+            if (!is.null(info2) && identical(message$N, info2$N)) {
+              on.exit(info <<- info2, add = TRUE)
+              return(list(page = info2$n, markdown = if (
+                identical(info$c, info2$c) || is.null(info2$c) || !identical(info$n, info2$n)
+              ) FALSE else process_slide(info2$c)))
+            }
+          }
+        }
+        return(FALSE)
+      }
       l <<- max(m2)
       # moon or dependencies have been updated, recompile and reload in browser
-      if (p || tail(m2, 1) > tail(m, 1)) rebuild()
+      if (p || tail(m2, 1) > tail(m, 1)) {
+        rebuild(); if (r) info <<- slide_context()
+      }
       l <<- max(m <<- mtime())
       TRUE
     }
@@ -264,7 +290,9 @@ infinite_moon_reader = function(moon, cast_from = '.') {
       "the HTML output is not under this directory. Using '", d, "' instead."
     )
   }
-  servr:::dynamic_site(d, initpath = f, build = build)
+  servr:::dynamic_site(
+    d, initpath = f, build = build, ws_handler = pkg_resource('js', 'ws-handler.js')
+  )
 }
 
 #' @export

@@ -249,7 +249,7 @@ infinite_moon_reader = function(moon, cast_from = '.') {
       m2 = mtime(); u = !any(m2 > l)
       # when running inside RStudio and only Rmd is possibly changed
       if (u) {
-        if (!r) return(FALSE)
+        if (!r || missing(message)) return(FALSE)
         ctx = rstudioapi::getSourceEditorContext()
         if (identical(normalize_path(as.character(ctx[['path']])), moon)) {
           if (isTRUE(message[['focused']])) {

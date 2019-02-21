@@ -2,6 +2,8 @@
 
 ## NEW FEATURES
 
+- The Infinite Moon Reader (`xaringan::inf_mr()`) has been significantly enhanced for a much smoother user experience of authoring slides with the `xaringan::moon_reader` format in RStudio. The preview of the current slide will be instant (as you type in the RStudio editor), and the navigation in the source editor will be linked to the navigation of slides output. See https://yihui.name/en/2019/02/ultimate-inf-mr/ for details.
+
 - When printing slides to PDF, only the last slide of a series of incremental slides will be printed (thanks, @sebpardo @@benjie, #192).
 
 - Added a function `decktape()` to export slides to PDF via the DeckTape library (thanks, @pat-s, #177).

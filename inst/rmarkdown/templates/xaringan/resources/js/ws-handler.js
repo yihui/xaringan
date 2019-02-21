@@ -7,7 +7,7 @@ ws.onmessage = function(event) {
     Event && document.dispatchEvent(new Event('servr:reload'));
     return location.reload();
   }
-  if (!slideshow || !remark || d === false || d === null) return;
+  if (!window.slideshow || !window.remark || d === false || d === null) return;
   var p = d.page; if (p < 1) p = 1;
   if (!focused) slideshow.gotoSlide(p);
   if (d.markdown === false) return;
@@ -15,7 +15,7 @@ ws.onmessage = function(event) {
   el = el[0].children[p - 1].querySelector('.remark-slide-content');
   var n = el.querySelector('.remark-slide-number').outerHTML.toString();
   el.innerHTML = remark.convert(d.markdown) + n;
-  if (MathJax) {
+  if (window.MathJax) {
     slideshow._releaseMath(el);
     MathJax.Hub.Queue(['Typeset', MathJax.Hub, el]);
   }
@@ -30,11 +30,11 @@ ws.onmessage = function(event) {
 setInterval(function() {
   if (flag === false || ws.readyState !== ws.OPEN) return;
   flag = false;
-  ws.send((slideshow && remark) ? JSON.stringify({
+  ws.send((window.slideshow && window.remark) ? JSON.stringify({
     'n': slideshow.getCurrentSlideIndex() + 1,
     'N': slideshow.getSlideCount(),
     'focused': focused
-  }) : '');
+  }) : '{}');
 }, !!SERVR_INTERVAL);
 
 window.addEventListener('focus', function(e) { focused = true; });

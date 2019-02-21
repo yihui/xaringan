@@ -179,7 +179,9 @@ slide_navigate = function(ctx = rstudioapi::getSourceEditorContext(), message, t
 
 flatten_chunk = function(x) {
   if (length(i <- grep(knitr::all_patterns$md$chunk.begin, x)) == 0) return(x)
-  x[i] = gsub('\\{.+', '', x[i])
+  k = grepl('\\W(echo|include)\\s*=\\s*FALSE\\W', x[i])
+  x[i][!k] = gsub('\\{.+', '', x[i][!k])
+  x[i][k]  = gsub('\\{.+', '.hidden', x[i][k])
   x
 }
 

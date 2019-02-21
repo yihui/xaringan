@@ -19,8 +19,12 @@ ws.onmessage = function(event) {
     slideshow._releaseMath(el);
     MathJax.Hub.Queue(['Typeset', MathJax.Hub, el]);
   }
-  var i, codes = el.getElementsByTagName('pre');
+  var i, code, codes = el.getElementsByTagName('pre');
   for (i = 0; i < codes.length; i++) {
+    code = codes[i];
+    if (code.querySelector('.\\.hidden')) {
+      code.style.display = 'none'; continue;
+    }
     remark.highlighter.engine.highlightBlock(codes[i]);
   }
 };

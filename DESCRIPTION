@@ -29,7 +29,7 @@ Imports:
     htmltools,
     knitr (>= 1.16),
     servr (>= 0.5),
-    xfun (>= 0.2),
+    xfun (>= 0.5),
     rmarkdown
 Suggests: rstudioapi, testit
 License: MIT + file LICENSE
@@ -38,4 +38,4 @@ BugReports: https://github.com/yihui/xaringan/issues
 VignetteBuilder: knitr
 Encoding: UTF-8
 RoxygenNote: 6.1.1
-Remotes: yihui/servr, yihui/xfun
+Remotes: yihui/servr

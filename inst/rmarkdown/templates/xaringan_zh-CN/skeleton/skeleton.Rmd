@@ -325,11 +325,14 @@ if (TRUE) {
 .pull-right[
 用 `{{}}` 包裹的代码：
 
-    `r ''````{r tidy=FALSE}
-    if (TRUE) {
-    *{{ message("敲黑板！划重点！") }}
-    }
-    ```
+````
+`r ''````{r tidy=FALSE}
+if (TRUE) {
+*{{ message("敲黑板！划重点！") }}
+}
+```
+````
+
 输出：
 ```{r tidy=FALSE}
 if (TRUE) {

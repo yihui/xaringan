@@ -163,7 +163,7 @@ slide_context = function(ctx = rstudioapi::getSourceEditorContext()) {
   )
 }
 
-slide_navigate = function(ctx = rstudioapi::getSourceEditorContext(), message, target) {
+slide_navigate = function(ctx = rstudioapi::getSourceEditorContext(), message) {
   if (!is.list(message) || !is.numeric(p <- message$n)) return()
   sel = ctx$selection[[1]]
   if (sel$text != '') return()  # when user has selected some text, don't navigate

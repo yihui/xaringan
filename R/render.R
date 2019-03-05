@@ -255,7 +255,7 @@ infinite_moon_reader = function(moon, cast_from = '.') {
           if (isTRUE(message[['focused']])) {
             # auto-navigate to the slide source corresponding to current HTML
             # page only when the slides are on focus
-            slide_navigate(ctx, message, moon)
+            slide_navigate(ctx, message)
           } else {
             # navigate to HTML page and update it incrementally if necessary
             info2 = slide_context(ctx)

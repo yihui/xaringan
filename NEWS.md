@@ -1,3 +1,9 @@
+# CHANGES IN xaringan VERSION 0.10
+
+## BUG FIXES
+
+- The Infinite Moon Reader (`xaringan::inf_mr()`) didn't take slide properties `layout: true` and `exclude: true` into consideration (thanks, @fmmattioni, #198).
+
 # CHANGES IN xaringan VERSION 0.9
 
 ## NEW FEATURES

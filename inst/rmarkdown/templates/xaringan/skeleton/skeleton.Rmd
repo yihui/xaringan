@@ -2,6 +2,7 @@
 title: "Presentation Ninja"
 subtitle: "⚔<br/>with xaringan"
 author: "Yihui Xie"
+institute: "RStudio"
 date: "2016/12/12 (updated: `r Sys.Date()`)"
 output:
   xaringan::moon_reader:

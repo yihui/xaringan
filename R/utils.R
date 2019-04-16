@@ -236,8 +236,8 @@ process_self_contained_images = function(x) {
 
   if (length(images) > 0) {
     # Get a list of file paths or URLs to encode
-    encode_tag <- regmatches(x, gregexpr(image_regex, x[images]))
-    encode_list <- gsub(image_regex, "\\2", encode_tag)
+    encode_tag <- regmatches(x[images], gregexpr(image_regex, x[images]))
+    encode_list <- unique(gsub(image_regex, "\\2", unlist(encode_tag)))
     encode_file <- function(y) {
       if (grepl("^(https|www|http)", y)) {
         tf <- tempfile()
@@ -245,21 +245,26 @@ process_self_contained_images = function(x) {
       } else {
         tf <- y
       }
-      knitr::image_uri(tf)
+      if (file.exists(y)) {
+        knitr::image_uri(tf)
+      } else {
+        y
+      }
     }
     encoded_list <- sapply(encode_list, encode_file)
+    encoded_list_worked <- encode_list != encoded_list
+    if (sum(!encoded_list_worked) > 0) {
+      warning(sprintf("URI encoding failed for %s images", sum(!encoded_list_worked)))
+    }
 
-    encoded_swap <- cbind(orig = encode_list,
-                          new = encoded_list,
-                          str = x[images])
+    tmp <- x[images]
 
-    final[images] <- sapply(1:nrow(encoded_swap),
-                            function(i) {
-                              gsub(pattern = encoded_swap[i,1],
-                                   replacement = encoded_swap[i,2],
-                                   x = encoded_swap[i,3],
-                                   fixed = T)
-                            })
+    # Replace only those pieces where the encoding actually worked
+    for(i in which(encoded_list_worked)) {
+      regmatches(tmp, gregexpr(encode_list[i], tmp, fixed = T)) <- encoded_list[i]
+    }
+
+    final[images] <- tmp
   }
   final
 }

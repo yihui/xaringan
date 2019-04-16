@@ -44,6 +44,8 @@ assert(
     paste0("background-image: url(", test_uri, ")"),
   process_self_contained_images("testing, testing <img src='https://www.htmlgoodies.com/images/1x1.gif'/>") %==%
     paste0("testing, testing <img src='", test_uri, "'/>"),
+  process_self_contained_images("testing, testing <img src='https://www.htmlgoodies.com/images/1x1.gif'></img>") %==%
+    paste0("testing, testing <img src='", test_uri, "'></img>"),
   process_self_contained_images("testing, testing `<img src='https://www.htmlgoodies.com/images/1x1.gif'/>`") %==%
     "testing, testing `<img src='https://www.htmlgoodies.com/images/1x1.gif'/>`",
   process_self_contained_images("testing, testing !()[https://www.htmlgoodies.com/images/1x1.gif]") %==%

@@ -37,11 +37,13 @@ assert(
   highlight_code(" * paste('a') #<<") %==% "* * paste('a')"
 )
 
-test_uri = "data:text/plain;base64,R0lGODdhAgACAIAAAAAAAP///ywAAAAAAgACAAACAoRRADs="
+test_uri = "data:image/gif;base64,R0lGODdhAgACAIAAAAAAAP///ywAAAAAAgACAAACAoRRADs="
 assert(
   "process_self_contained_images handles image specifications correctly",
   process_self_contained_images("background-image: url(https://www.htmlgoodies.com/images/1x1.gif)") %==%
     paste0("background-image: url(", test_uri, ")"),
+  process_self_contained_images("background-image: ../1x1.gif") %==%
+    paste0("background-image: ", test_uri),
   process_self_contained_images("testing, testing <img src='https://www.htmlgoodies.com/images/1x1.gif'/>") %==%
     paste0("testing, testing <img src='", test_uri, "'/>"),
   process_self_contained_images("testing, testing <img src='https://www.htmlgoodies.com/images/1x1.gif'></img>") %==%

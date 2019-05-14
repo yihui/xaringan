@@ -1,3 +1,7 @@
+# CHANGES IN xaringan VERSION 0.11
+
+
+
 # CHANGES IN xaringan VERSION 0.10
 
 ## NEW FEATURES

@@ -6,6 +6,7 @@
 
 ## NEW FEATURES
 
+- Added a CSS theme `hiddencloud` (@malcolmbarrett, #210)
 - Added the ability to specify an `institute` in the YAML header that is automatically added to the title slide (@paullemmens, #200).
 
 ## BUG FIXES

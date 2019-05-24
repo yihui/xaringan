@@ -1,0 +1,14 @@
+.hiddencloud .remark-code-line-highlighted {
+  background-color:transparent;
+  color: #000 !important;
+  font-weight: bold;
+}
+
+.hiddencloud .remark-code-line {
+  color: #E5E5E5;
+}
+
+.hljs-github .hljs-number, .hljs-github .hljs-keyword, .hljs-github .hljs-literal, .hljs-github .hljs-variable, .hljs-github .hljs-template-variable, .hljs-github .hljs-tag .hljs-attr {
+  color: #E5E5E5;
+}
+

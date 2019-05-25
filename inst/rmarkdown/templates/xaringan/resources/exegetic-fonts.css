@@ -11,5 +11,9 @@ h1, h2, h3 {
   font-weight: normal;
 }
 
-.remark-code, .remark-inline-code { font-family: 'Inconsolata', monospace; }
-.remark-code-line-highlighted     { background-color: #ffff88; }
+.remark-code, .remark-inline-code {
+  font-family: 'Inconsolata', monospace;
+}
+.remark-code-line-highlighted     {
+  background-color: #ffff88;
+}

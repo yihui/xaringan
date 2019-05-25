@@ -35,8 +35,17 @@ a, a > code {
   color: #777872;
   text-shadow: 0 0 20px #333;
 }
-
 .inverse h1, .inverse h2, .inverse h3 {
+  color: #f3f3f3;
+  line-height: 1.0em;
+}
+
+.section {
+  background-color: #3498db;
+  color: #777872;
+  text-shadow: 0 0 20px #333;
+}
+.section h1, .section h2, .section h3 {
   color: #f3f3f3;
   line-height: 1.0em;
 }

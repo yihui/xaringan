@@ -12,7 +12,8 @@ h1, h2, h3 {
 }
 
 .remark-code, .remark-inline-code {
-  font-family: 'Inconsolata', monospace;
+  font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;
+  font-size: 16px;
 }
 .remark-code-line-highlighted     {
   background-color: #ffff88;

@@ -7,9 +7,9 @@ Based originally on the rutgers theme.
 
 These are also worth looking at for inspiration:
 
-- uo and uo-fonts]
-- uol and uol-fonts]
-- metropolis and metropolis-fonts]
+- uo and uo-fonts
+- uol and uol-fonts
+- metropolis and metropolis-fonts
 - kunoichi and ninjutsu
 - shinobi
 */
@@ -138,7 +138,7 @@ thead, tfoot, tr:nth-child(even) { background: none; }
 }
 
 .title-slide h2 {
-  color: #cc0033;
+  color: #3498db;
   font-size: 35px;
   text-align: left;
   text-shadow: none;
@@ -212,7 +212,7 @@ thead, tfoot, tr:nth-child(even) { background: none; }
 }
 
 strong {
-  color: #cc0033;
+  color: #3498db;
 }
 
 .blue {

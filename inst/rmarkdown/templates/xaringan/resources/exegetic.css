@@ -5,6 +5,10 @@ Updated: 2019-05-25
 
 Based originally on the rutgers theme.
 
+Relies on some functionality implemented in ninjutsu. Load CSS in the following order:
+
+css: [default, ninjutsu, exegetic, exegetic-fonts]
+
 These are also worth looking at for inspiration:
 
 - uo and uo-fonts
@@ -17,6 +21,10 @@ These are also worth looking at for inspiration:
 a, a > code {
   color: #cc0033; /* rgb(249, 38, 114) */
   text-decoration: none;
+}
+
+h1, h2, h3, p {
+  padding-left: 0% !important;
 }
 
 .footnote {
@@ -201,6 +209,13 @@ thead, tfoot, tr:nth-child(even) { background: none; }
 .title-slide-final h1 {
   color: #cc0033;
 }
+
+/* ================================================================================================================= */
+/* SPLITS (Based on ninjutsu.css)                                                                                    */
+/* ================================================================================================================= */
+
+.split-two>.column:first-of-type  { width: 48%; left: 2%; }
+.split-two>.column:nth-of-type(2) { width: 48%; }
 
 /* ================================================================================================================= */
 /* GLOBAL ADJUSTMENTS                                                                                                */

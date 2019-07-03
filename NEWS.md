@@ -1,6 +1,8 @@
 # CHANGES IN xaringan VERSION 0.11
 
+## BUG FIXES
 
+- `{{ }}` in source code could incorrectly highlight a line when `}}` is not at the end of a line (thanks, @filipwastberg, #215).
 
 # CHANGES IN xaringan VERSION 0.10
 

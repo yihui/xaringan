@@ -96,10 +96,10 @@ summon_remark = function(version = 'latest', to = 'libs/') {
 # this also works with multiple lines
 highlight_code = function(x) {
   x = paste0('\n', x)  # prepend \n and remove it later
-  r = '(\n)([ \t]*)\\{\\{(.+?)\\}\\}'
-  m = gregexpr(r, x)
+  r = '(\n)([ \t]*)\\{\\{(.+?)\\}\\}(?=(\n|$))'
+  m = gregexpr(r, x, perl = TRUE)
   regmatches(x, m) = lapply(regmatches(x, m), function(z) {
-    z = gsub(r, '\\1\\2\\3', z)  # remove {{ and }}
+    z = gsub(r, '\\1\\2\\3', z, perl = TRUE)  # remove {{ and }}
     z = gsub('\n', '\n*', z)     # add * after every \n
     z
   })

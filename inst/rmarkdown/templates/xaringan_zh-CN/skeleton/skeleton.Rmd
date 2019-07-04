@@ -80,7 +80,7 @@ class: center, bottom, inverse
 
 1. JavaScript 库 [remark.js](https://remarkjs.com) 的语法；
 
-1. **xaringan** 包中的选项;
+2. **xaringan** 包中的选项;
 
 **xaringan** 将 R Markdown 的查克拉注入了 **remark.js**。浏览器中的幻灯片是 remark.js 渲染出来的，而它的 Markdown 源文档是从 R Markdown 生成的（实际上主要是 **knitr**）。
 

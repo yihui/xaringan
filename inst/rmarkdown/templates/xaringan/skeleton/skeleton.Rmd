@@ -80,7 +80,7 @@ As a presentation ninja, you certainly should not be satisfied by the "Hello Wor
 
 1. The [remark.js](https://remarkjs.com) library;
 
-1. The **xaringan** package;
+2. The **xaringan** package;
 
 Basically **xaringan** injected the chakra of R Markdown (minus Pandoc) into **remark.js**. The slides are rendered by remark.js in the web browser, and the Markdown source needed by remark.js is generated from R Markdown (**knitr**).
 

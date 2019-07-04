@@ -3,6 +3,7 @@
 ## BUG FIXES
 
 - `{{ }}` in source code could incorrectly highlight a line when `}}` is not at the end of a line (thanks, @filipwastberg, #215).
+- Small typo fix in template presentation.
 
 # CHANGES IN xaringan VERSION 0.10
 

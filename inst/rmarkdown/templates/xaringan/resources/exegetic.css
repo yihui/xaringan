@@ -265,6 +265,8 @@ h1 {
 }
 h3 {
   color: #515151;
+  margin-block-start: 0.75em;
+  margin-block-end: 0.75em;
 }
 
 .big {

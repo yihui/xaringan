@@ -92,6 +92,9 @@ moon_reader = function(
     '(%s)(%d);', pkg_file('js/countdown.js'), countdown
   )
 
+  hl_pre_js = if (isTRUE(nature$highlightLines))
+    pkg_file('js/highlight-pre-parent.js')
+
   if (is.null(title_cls <- nature[['titleSlideClass']]))
     title_cls = c('center', 'middle', 'inverse')
   title_cls = paste(c(title_cls, 'title-slide'), collapse = ', ')
@@ -110,7 +113,7 @@ moon_reader = function(
     tags$script(HTML(paste(c(sprintf(
       'var slideshow = remark.create(%s);', if (length(nature)) xfun::tojson(nature) else ''
     ), pkg_file(c('js/show-widgets.js', 'js/print-css.js', 'js/after.js')),
-    play_js, countdown_js), collapse = '\n')))
+    play_js, countdown_js, hl_pre_js), collapse = '\n')))
   )), tmp_js)
 
   html_document2 = function(

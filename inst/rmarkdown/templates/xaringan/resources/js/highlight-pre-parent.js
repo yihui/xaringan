@@ -13,5 +13,5 @@
     let pre = findPreParent(line);
     if (pre && !preParents.includes(pre)) preParents.push(pre);
   }
-  preParents.forEach(p => p.classList += " remark-code-has-line-highlighted");
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
 })(document);

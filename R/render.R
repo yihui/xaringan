@@ -93,7 +93,7 @@ moon_reader = function(
   )
 
   hl_pre_js = if (isTRUE(nature$highlightLines))
-    pkg_file("js/highlight-pre-parent.js") else ""
+    pkg_file('js/highlight-pre-parent.js')
 
   if (is.null(title_cls <- nature[['titleSlideClass']]))
     title_cls = c('center', 'middle', 'inverse')

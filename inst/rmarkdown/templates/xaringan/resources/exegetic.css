@@ -30,7 +30,7 @@ h1, h2, h3, p {
 .footnote {
   position: absolute;
   bottom: 1em;
-  padding-right: 4em;
+  width: 100%;
   font-size: 95%;
 }
 

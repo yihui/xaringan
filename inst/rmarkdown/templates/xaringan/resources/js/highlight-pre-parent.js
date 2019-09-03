@@ -6,11 +6,7 @@
   const findPreParent = function(line, p = 0) {
     if (p > 1) return null; // traverse up no further than grandparent
     const el = line.parentElement;
-    if (el.tagName === "PRE") {
-      return el;
-    } else {
-      return findPreParent(el, ++p);
-    }
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
   };
 
   for (let line of hlines) {

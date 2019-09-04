@@ -1,6 +1,8 @@
 # CHANGES IN xaringan VERSION 0.12
 
+## NEW FEATURES
 
+- Added the class `.remark-code-has-line-highlighted` to the `<pre>` parent element containing code with highlighted lines (@gadenbuie, #220).
 
 # CHANGES IN xaringan VERSION 0.11
 

@@ -19,7 +19,7 @@ These are also worth looking at for inspiration:
 */
 
 a, a > code {
-  color: #cc0033; /* rgb(249, 38, 114) */
+  color: #3498db; /* rgb(249, 38, 114) */
   text-decoration: none;
 }
 
@@ -244,6 +244,10 @@ thead, tfoot, tr:nth-child(even) { background: none; }
 }
 .huge {
   font-size: 6rem;
+}
+
+.small {
+  font-size: 0.75rem;
 }
 
 /* ================================================================================================================= */

@@ -48,6 +48,12 @@ h1, h2, h3, p {
   line-height: 1.0em;
 }
 
+.inverse-red {
+  background-color: #e74c3c;
+  color: white;
+  text-shadow: 0 0 20px #333;
+}
+
 .section {
   background-color: #3498db;
   color: #777872;

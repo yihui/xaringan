@@ -49,7 +49,7 @@ h1, h2, h3, p {
 }
 
 .inverse-red {
-  background-color: #e74c3c;
+  background-color: #c0392b;
   color: white;
   text-shadow: 0 0 20px #333;
 }

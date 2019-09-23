@@ -1,0 +1,71 @@
+@import url(https://fonts.googleapis.com/css?family=Turret+Road);
+
+h1 {
+  font-family: 'Turret Road';
+  font-weight: bold;
+  font-size: 120px !important;
+  color: #000000;
+}
+
+.inverse {
+  background-color: #000000;
+  color: #white;
+  text-shadow: 0 0 20px #333;
+}
+.inverse h1, .inverse h2 {
+}
+.inverse h1 {
+  color: #33FF00;
+}
+.inverse h2 {
+}
+
+/* ================================================================================================================= */
+/* TITLE SLIDE                                                                                                       */
+/* ================================================================================================================= */
+
+.title-slide {
+  background-image: url(https://raw.githack.com/datawookie/www-exegetic-biz/master/static/img/exegetic-logo.svg);
+  background-position: 95% 95%;
+  background-size: 200px;
+  background-color: #000;
+  padding-left: 100px;  /* delete this for 4:3 aspect ratio */
+}
+
+.title-slide h1 {
+  color: #33FF00;
+  padding-top: 100px;
+  font-family: 'Turret Road';
+  font-weight: bold;
+  font-size: 120px;
+  text-align: left;
+  text-shadow: none;
+  padding-bottom: 18px;
+  margin-bottom: 0px;
+}
+
+.title-slide h2 {
+  color: #33FF00;
+  font-size: 35px;
+  text-align: left;
+  text-shadow: none;
+  padding-top: 0px;
+  margin-top: 0px;
+  margin-bottom: 150px;
+}
+
+.title-slide h3 {
+  font-size: 28px;
+  font-weight: normal;
+  color: #FFFFFF;
+  text-align: left;
+  text-shadow: none;
+  padding: 0px;
+  margin: 0px;
+  line-height: 1;
+}
+
+/* Remove slide count */
+.title-slide .remark-slide-number {
+  text-shadow: none;
+}

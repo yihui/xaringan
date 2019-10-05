@@ -27,6 +27,10 @@ h1, h2, h3, p {
   padding-left: 0% !important;
 }
 
+h1 > code { font-size: 2.0em !important; }
+h2 > code { font-size: 1.5em !important; }
+h3 > code { font-size: 1.25em !important; }
+
 .footnote {
   position: absolute;
   bottom: 1em;
@@ -78,7 +82,7 @@ h1, h2, h3, p {
 .right-column {
   width: 70%;
   float: right;
-  padding-top: 1em;
+  padding-top: 0;
 }
 
 .pull-left {
@@ -91,17 +95,16 @@ h1, h2, h3, p {
   width: 45%;
 }
 
+.pull-left :first-child, .pull-right :first-child {
+  margin-block-start: 0;
+}
+
 .pull-right ~ * {
   clear: both;
 }
 
 img, video, iframe {
   max-width: 100%;
-}
-
-blockquote {
-  border-left: solid 5px lightgray;
-  padding-left: 1em;
 }
 
 th, td {
@@ -126,6 +129,11 @@ thead, tfoot, tr:nth-child(even) { background: none; }
     top: 0 !important;
     left: 0 !important;
   }
+}
+
+.no-margin {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 /* ================================================================================================================= */
@@ -239,26 +247,38 @@ thead, tfoot, tr:nth-child(even) { background: none; }
 /* SIZES                                                                                                             */
 /* ================================================================================================================= */
 
+.big {
+  font-size: 1.5em;
+}
+.big2x {
+  font-size: 2.5rem !important;
+}
 .big3x {
-  font-size: 3rem;
+  font-size: 3rem !important;
 }
 .big4x {
-  font-size: 4rem;
+  font-size: 4rem !important;
 }
 .big5x {
-  font-size: 5rem;
+  font-size: 5rem !important;
 }
 .huge {
-  font-size: 6rem;
+  font-size: 6rem !important;
+}
+.massive {
+  font-size: 7rem !important;
+}
+.gigantic {
+  font-size: 9rem !important;
 }
 
 .small {
   font-size: 0.75rem;
 }
 
-.huge p {
-  margin-block-start: 0.5em;
-  margin-block-end: 0.5em;
+.huge p, .massive p {
+  margin-block-start: 1rem;
+  margin-block-end: 1rem;
 }
 
 /* ================================================================================================================= */
@@ -292,29 +312,63 @@ strong {
   color: white;
 }
 
+p {
+  margin-block-start: 1rem;
+  margin-block-end: 1rem;
+}
 h1 {
   color: #cc0033;
+  margin-block-start: 1rem;
+  margin-block-end: 1rem;
+}
+h2 {
+  margin-block-start: 1rem;
+  margin-block-end: 1rem;
 }
 h3 {
   color: #515151;
-  margin-block-start: 0.75em;
-  margin-block-end: 0.75em;
-}
-
-.big {
-  font-size: 1.5em;
+  margin-block-start: 1rem;
+  margin-block-end: 1rem;
 }
 
 blockquote {
   display: block;
   margin-top: 1em;
   margin-bottom: 1em;
-  margin-left: 40px;
-  margin-right: 40px;
-  border-left: solid 10px #cc0033;
-  background-color: #818181;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0.5em 1em 0.5em 1em !important;
+  border-left: solid 10px #3498db;
+  background-color: #8b9196;
   padding: 1em;
   color: #fff;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
+}
+
+/* DIV TIPS -------------------------------------------------------------------------------------------------------- */
+
+/* http://desiree.rbind.io/post/2019/making-tip-boxes-with-bookdown-and-rmarkdown/ */
+
+div.hot-tip {
+  padding-left: 1em;
+  padding-right: 1em;
+  margin: 1em 0;
+  background-size: 70px;
+  background-repeat: no-repeat;
+  background-position: 15px center;
+  min-height: 120px;
+  color: white;
+  background-color: #e74c3c;
+  border: solid 5px #FF7364;
+}
+
+div.hot-tip {
+    padding-left: 100px;
+}
+div.hot-tip {
+  background-image: url("https://github.com/datawookie/useful-images/raw/master/icon/fire.png");
+}
+.hot-tip strong {
+  color: white;
 }

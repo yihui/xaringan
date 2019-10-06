@@ -25,6 +25,7 @@ a, a > code {
 
 h1, h2, h3, p {
   padding-left: 0% !important;
+  padding-right: 0% !important;
 }
 
 h1 > code { font-size: 2.0em !important; }
@@ -39,7 +40,13 @@ h3 > code { font-size: 1.25em !important; }
 }
 
 .remark-code-line-highlighted {
-  background-color: #FFD3DE !important;
+  background-color: #85C4ED !important;
+}
+.highlight, .highlight-blue {
+  background-color: #85C4ED !important;
+}
+.highlight-orange {
+  background-color: #FFB456 !important;
 }
 
 .inverse {

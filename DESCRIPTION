@@ -23,7 +23,7 @@ Authors@R: c(
     person("Malcolm", "Barrett", role = "ctb", comment = c(ORCID = "0000-0003-0299-5825")),
     person("Alessandro", "Gasparini", role = "ctb", comment = c(ORCID = "0000-0002-8319-7624")),
     person("Yue", "Jiang", role = "ctb", comment = c(ORCID = "0000-0002-9798-5517")),
-    person("Iñaki", "Ucar", role = "ctb, comment = c(ORCID = "0000-0001-6403-5550"))
+    person("Iñaki", "Ucar", role = "ctb", comment = c(ORCID = "0000-0001-6403-5550"))
     )
 Description: Create HTML5 slides with R Markdown and the JavaScript library
     'remark.js' (<https://remarkjs.com>).

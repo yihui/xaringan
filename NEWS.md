@@ -1,5 +1,6 @@
 # CHANGES IN xaringan VERSION 0.13
 
+In the `metropolis` theme, fixed titles to look the same everywhere, and added support to gray out non-active h2 and h3 titles in a `.left-column` (@Enchufa2, #229).
 
 # CHANGES IN xaringan VERSION 0.12
 

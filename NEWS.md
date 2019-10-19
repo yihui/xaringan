@@ -2,7 +2,7 @@
 
 ## NEW FEATURES
 
-- In the `metropolis` theme, added support for automatic orange break lines under the subtitle in the title slide and in `inverse` slides using the new class `mline` (@Enchufa2, #230).
+- In the `metropolis` theme, added support for automatic orange break lines under the subtitle in the title slide and in `inverse` slides using the new class `mline` (@Enchufa2, #231).
 
 ## BUG FIXES
 

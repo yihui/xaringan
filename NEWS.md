@@ -1,6 +1,12 @@
 # CHANGES IN xaringan VERSION 0.13
 
-In the `metropolis` theme, fixed titles to look the same everywhere, and added support to gray out non-active h2 and h3 titles in a `.left-column` (@Enchufa2, #229).
+## NEW FEATURES
+
+- In the `metropolis` theme, added support for automatic orange break lines under the subtitle in the title slide and in `inverse` slides using the new class `mline` (@Enchufa2, #231).
+
+## BUG FIXES
+
+- In the `metropolis` theme, fixed titles to look the same everywhere, and added support to gray out non-active h2 and h3 titles in a `.left-column` (@Enchufa2, #229).
 
 # CHANGES IN xaringan VERSION 0.12
 

@@ -1,3 +1,6 @@
+# CHANGES IN xaringan VERSION 0.14
+
+
 # CHANGES IN xaringan VERSION 0.13
 
 ## NEW FEATURES

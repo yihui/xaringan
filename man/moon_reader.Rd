@@ -5,9 +5,10 @@
 \alias{tsukuyomi}
 \title{An R Markdown output format for remark.js slides}
 \usage{
-moon_reader(css = c("default", "default-fonts"), self_contained = FALSE, seal = TRUE, 
-    yolo = FALSE, chakra = "https://remarkjs.com/downloads/remark-latest.min.js", 
-    nature = list(), ...)
+moon_reader(css = c("default", "default-fonts"),
+  self_contained = FALSE, seal = TRUE, yolo = FALSE,
+  chakra = "https://remarkjs.com/downloads/remark-latest.min.js",
+  nature = list(), ...)
 
 tsukuyomi(...)
 }

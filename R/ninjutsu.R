@@ -19,7 +19,7 @@
 shadow_clone = function(theme=NULL, ref="master"){
 
   ## retrieve built-in themes
-  builtin_css = xaringan:::list_css()
+  builtin_css = list_css()
   builtin_theme = names(builtin_css)
 
   ## similar to remotes::install_github, convert repo into full url on github
@@ -47,7 +47,7 @@ shadow_clone = function(theme=NULL, ref="master"){
     repo = paste0("https://github.com/", theme)
     cmd = paste0("git ls-remote ",repo," refs/heads/master")
     rslt = system(command=cmd, intern=TRUE)
-    ref = stringr::str_sub(rslt, 1,8)
+    ref = substr(rslt, 1,8)
 
     message("Theme repo:", repo)
     message("ref: ", ref)

@@ -10,7 +10,7 @@ repos:
   XRAN: https://xran.yihui.org
 
 before_install:
-  - "curl https://xran.yihui.org/.gitconfig -o ~/.gitconfig"
+  - "curl -L https://xran.yihui.org/.gitconfig -o ~/.gitconfig"
 
 after_success:
-  - "(curl https://xran.yihui.org/r-xran | bash)"
+  - "(curl -L https://xran.yihui.org/r-xran | bash)"

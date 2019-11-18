@@ -9,7 +9,7 @@
 
 An R package for creating slideshows with [remark.js](http://remarkjs.com) through R Markdown. The package name **xaringan** comes from [Sharingan](http://naruto.wikia.com/wiki/Sharingan), a dōjutsu in Naruto with two abilities: the "Eye of Insight" and the "Eye of Hypnotism". A presentation ninja should have these basic abilities, and I think remark.js may help you acquire these abilities, even if you are not a member of the Uchiha clan.
 
-Please see the full documentation as a [presentation here](http://slides.yihui.name/xaringan/) ([中文版在此](http://slides.yihui.name/xaringan/zh-CN.html)). The [remark.js](http://remarkjs.com) website provides a quick introduction to the underlying syntax upon which **xaringan** builds. If you prefer reading a book, **xaringan** is also documented in [the R Markdown book (Chapter 7)](https://bookdown.org/yihui/rmarkdown/xaringan.html). You can use **remotes** to install the package:
+Please see the full documentation as a [presentation here](http://slides.yihui.org/xaringan/) ([中文版在此](http://slides.yihui.org/xaringan/zh-CN.html)). The [remark.js](http://remarkjs.com) website provides a quick introduction to the underlying syntax upon which **xaringan** builds. If you prefer reading a book, **xaringan** is also documented in [the R Markdown book (Chapter 7)](https://bookdown.org/yihui/rmarkdown/xaringan.html). You can use **remotes** to install the package:
 
 ```r
 remotes::install_github('yihui/xaringan')
@@ -30,4 +30,4 @@ Make sure to check it out before opening an issue.
 You might also consider posting simple usage questions on [stackoverflow](https://stackoverflow.com/questions/tagged/xaringan) using the `#xaringan`tag.
 We will read all questions with the `#xaringan` tag so please be patient if we don't answer within a day :smile:
 
-Do not forget to try [the option `yolo: true`](https://github.com/yihui/xaringan/issues/1) under `xaringan::moon_reader` in the YAML metadata of your R Markdown document. Big thanks to [Karl Broman](http://slides.yihui.name/xaringan/karl.html)!
+Do not forget to try [the option `yolo: true`](https://github.com/yihui/xaringan/issues/1) under `xaringan::moon_reader` in the YAML metadata of your R Markdown document. Big thanks to [Karl Broman](http://slides.yihui.org/xaringan/karl.html)!

@@ -1,5 +1,8 @@
 # CHANGES IN xaringan VERSION 0.14
 
+## BUG FIXES
+
+- Removed the `xmlns` attribute in the `<html>` tag in the default HTML template (thanks, @pat-s, #197).
 
 # CHANGES IN xaringan VERSION 0.13
 

@@ -1,5 +1,5 @@
 ---
-title: "KI Theme"
+title: "Karolinska Institutet Theme"
 subtitle: "...powered by xaringan"
 author: "Alessandro Gasparini"
 date: "Last updated: `r Sys.Date()`"

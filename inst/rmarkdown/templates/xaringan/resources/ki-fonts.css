@@ -4,6 +4,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: Cambria, "Hoefler Text", Utopia, "Liberation Serif", "Nimbus Roman No9 L Regular", Times, "Times New Roman", serif;
+  font-weight: 400;
 }
 
 .remark-code, .remark-inline-code {

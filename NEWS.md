@@ -1,5 +1,9 @@
 # CHANGES IN xaringan VERSION 0.14
 
+## NEW FEATURES
+
+- Added a theme following the Karolinska Institutet design guidelines (@ellessenne, #238).
+
 ## BUG FIXES
 
 - Removed the `xmlns` attribute in the `<html>` tag in the default HTML template (thanks, @pat-s, #197).

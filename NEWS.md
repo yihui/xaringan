@@ -1,5 +1,9 @@
 # CHANGES IN xaringan VERSION 0.14
 
+## NEW FEATURES
+
+- Inline `<script>` tags and JavaScript code chunks are now possible with xaringan. `<script>` tags that start on a new line (single- or multi-line) will be moved out of the remarkjs markdown area. These tags are included at the end of the `<body>` and after the remarkjs slideshow is initialized (thanks @gadenbuie, #239).
+
 ## BUG FIXES
 
 - Removed the `xmlns` attribute in the `<html>` tag in the default HTML template (thanks, @pat-s, #197).

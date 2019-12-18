@@ -22,3 +22,21 @@ assert('highlight_code handles {{ .code. }} and ...code #<< formats', {
   # A space is added in following (can't overwrite first space when 2nd char is *)
   (highlight_code(' * paste(1) #<<') %==% '* * paste(1)')
 })
+
+assert('code fence blocks are correctly identified', {
+  (outside_chunk(c('', '```', '', '```', '')) %==% c(TRUE, FALSE, FALSE, FALSE, TRUE))
+  (outside_chunk(c('', '``', '', '``', '')) %==% rep(TRUE, 5))
+  (outside_chunk(c('', '```', '````', '```', '')) %==% c(TRUE, FALSE, FALSE, FALSE, TRUE))
+  (outside_chunk(c('', '````', '```', '````', '')) %==% c(TRUE, FALSE, FALSE, FALSE, TRUE))
+})
+
+assert('bare script tags are correctly identified', {
+  body1 <- c('', '<script>', 'line', '</script>')
+  body2 <- c('', '<script>line</script>', '')
+  body3 <- c('', 'blah `<script>`', '')
+  body4 <- c('', '```', '<script>something</script>', '```', '', '<script>line</script')
+  (bare_script_lines(body1) %==% 2:4)
+  (bare_script_lines(body2) %==% 2L)
+  (bare_script_lines(body3) %==% integer(0))
+  (bare_script_lines(body4) %==% 6L)
+})

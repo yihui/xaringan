@@ -175,6 +175,18 @@ moon_reader = function(
       res = split_yaml_body(input_file)
       write_utf8(res$yaml, input_file)
       res$body = protect_math(res$body)
+      script_lines = bare_script_lines(res$body)
+      if (length(script_lines)) {
+        # extract <script> tags and move outside markdown area
+        scripts = c(
+          '<!-- scripts from markdown source start -->',
+          res$body[script_lines],
+          '<!-- scripts from markdown source end -->'
+        )
+        res$body = res$body[-script_lines]
+        tmp_js2 = c(readLines(tmp_js), scripts)
+        write_utf8(tmp_js2, tmp_js)
+      }
       content = htmlEscape(yolofy(res$body, yolo))
       Encoding(content) = 'UTF-8'
       write_utf8(content, tmp_md)

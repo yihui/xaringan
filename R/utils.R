@@ -74,6 +74,52 @@ sample2 = function(x, size, ...) {
 prose_index = function(...) xfun::prose_index(...)
 protect_math = function(...) xfun::protect_math(...)
 
+within_fence = function(x, pattern) {
+  level = cumsum(grepl(pattern, x))
+  lag = c(0, level[-length(level)])
+  adjust = (level - lag) & level %% 2 == 0
+  (level - adjust) %% 2 == 1
+}
+
+outside_chunk = function(body) {
+  if (length(body) == 1) return(TRUE)
+  level = lapply(
+    regexec('^[`]{3,}', body),
+    function(x) max(attributes(x)$match.length, 0)
+  )
+  level = unlist(level)
+  current_level = 0
+  for (i in seq_along(level)) {
+    if (level[i] == current_level) {
+      # exiting or outside of code block
+      current_level = 0
+    } else if (level[i] > 0) {
+      if (current_level == 0) {
+        # entering code block
+        current_level = level[i]
+      } else {
+        # inside (nested) code block
+        level[i] = current_level
+      }
+    } else if (current_level > 0) {
+      # inside code block
+      level[i] = current_level
+    }
+  }
+  level == 0
+}
+
+within_script = function(body) {
+  in_script = single_line = grepl('^<script>.+</script>\\s*$', body)
+  in_script[!single_line] = within_fence(body[!single_line], '^</?script>')
+  in_script
+}
+
+bare_script_lines = function(body) {
+  which(within_script(body) & outside_chunk(body))
+}
+
+
 #' Summon remark.js to your local disk
 #'
 #' Download a version of the remark.js script to your local disk, so you can

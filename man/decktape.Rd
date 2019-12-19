@@ -43,8 +43,7 @@ For some operating systems you may need to
 }
 \examples{
 if (interactive()) {
-    xaringan::decktape("https://slides.yihui.org/xaringan", "xaringan.pdf", 
-        docker = FALSE)
+  xaringan::decktape('https://slides.yihui.org/xaringan', 'xaringan.pdf', docker = FALSE)
 }
 }
 \references{

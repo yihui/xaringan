@@ -5,15 +5,18 @@
 \alias{inf_mr}
 \title{Serve and live reload slides}
 \usage{
-infinite_moon_reader(moon, cast_from = ".")
+infinite_moon_reader(moon, cast_from = ".", params = NULL)
 
-inf_mr(moon, cast_from = ".")
+inf_mr(moon, cast_from = ".", params = NULL)
 }
 \arguments{
 \item{moon}{The input Rmd file path (if missing and in RStudio, the current
 active document is used).}
 
 \item{cast_from}{The root directory of the server.}
+
+\item{params}{List of named parameters that override custom params
+specified within the YAML front-matter}
 }
 \description{
 Use the \pkg{servr} package to serve and reload slides on change.

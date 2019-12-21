@@ -14,9 +14,9 @@ Define UoL Colors
 
 /*
 Define font size, to mimick beamer.
-Base font size: 20px
+Base font size: 22px
 Calculate relative font sizes:
-round(20 * data.frame(
+round(22 * data.frame(
   tiny = 0.763650977,
   scriptsize = 0.916712714,
   footnotesize = 0.916712714,
@@ -30,18 +30,18 @@ round(20 * data.frame(
   references = 0.8401818))
 */
 
-  --size-tiny: 15px;
-  --size-scriptsize: 18px;
-  --size-footnotesize: 18px;
-  --size-small: 18px;
-  --size-normalsize: 22px;
-  --size-large: 26px;
-  --size-Large: 32px;
-  --size-LARGE: 38px;
-  --size-huge: 46px;
-  --size-Huge: 46px;
+  --size-tiny: 17px;
+  --size-scriptsize: 20px;
+  --size-footnotesize: 20px;
+  --size-small: 20px;
+  --size-normalsize: 24px;
+  --size-large: 29px;
+  --size-Large: 35px;
+  --size-LARGE: 42px;
+  --size-huge: 50px;
+  --size-Huge: 50px;
 /* New size for list of reference: halfway through tiny and small */
-  --size-references: 17px;
+  --size-references: 18px;
 }
 
 .remark-slide-content,
@@ -78,6 +78,10 @@ a:hover {
   text-decoration: underline;
 }
 
+ul {
+  list-style: square;
+}
+
 .footnote {
   position: absolute;
   bottom: 0%;
@@ -91,7 +95,7 @@ a:hover {
 }
 
 .remark-code {
-  border-radius: 5px;
+  border-radius: 10px;
   font-size: var(--size-scriptsize);
 }
 
@@ -191,7 +195,7 @@ th, td {
 .title-slide {
   background-image: url(https://user-images.githubusercontent.com/10330005/71024315-eee82b00-2104-11ea-928b-be412b1f3687.png);
   background-position: 95% 5%;
-  background-size: 5cm;
+  background-size: 6cm;
 }
 
 .title-slide h1 {

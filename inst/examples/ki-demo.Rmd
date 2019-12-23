@@ -1,0 +1,104 @@
+---
+title: "Karolinska Institutet Theme"
+subtitle: "...powered by xaringan"
+author: "Alessandro Gasparini"
+date: "Last updated: `r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    css: ["ki", "ki-fonts"]
+    nature:
+      highlightStyle: solarized-dark
+      countIncrementalSlides: false
+---
+
+```{r setup, include = FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+# Hello World
+
+Install the **xaringan** package from [Github](https://github.com/yihui/xaringan):
+
+```{r eval=FALSE, tidy=FALSE}
+devtools::install_github("yihui/xaringan")
+```
+
+--
+
+You are recommended to use the [RStudio IDE](https://www.rstudio.com/products/rstudio/), but you do not have to.
+
+- Create a new R Markdown document from the menu `File -> New File -> R Markdown -> From Template -> Ninja Presentation`;<sup>1</sup>
+
+--
+
+- Click the `Knit` button to compile it;
+
+--
+
+- or use the [RStudio Addin](https://rstudio.github.io/rstudioaddins/)<sup>2</sup> "Infinite Moon Reader".
+
+.footnote[
+[1] 中文用户请看[这份教程](http://slides.yihui.org/xaringan/zh-CN.html)
+
+[2] See [#2](https://github.com/yihui/xaringan/issues/2) if you do not see the template or addin in RStudio.
+]
+
+---
+
+# Extra colours
+
+The `ki` theme includes extra colours and font sizes.
+
+Colours: .plum[`.plum[]`], .grey[`.grey[]`], .white[`.white[]`], .black[`.black[]`], .cyclamen[`.cyclamen[]`], .main[`.main[]`], .accent[`.accent[]`], .text[`.text[]`], .text-inverse[`.text-inverse[]`].
+
+The colours of the theme can be easily customised - see `ki.css`.
+
+---
+
+# Extra font sizes:
+
+The `ki` theme includes extra colours and font sizes.
+
+Font-sizes: .tiny[(.)tiny[]], .scriptsize[(.)scriptsize[]], .footnotesize[(.)footnotesize[]], .small[(.)small[]], .normalsize[(.)normalsize[]], .large[(.)large[]], .Large[(.)Large[]], .LARGE[(.)LARGE[]], .huge[(.)huge[]], .Huge[(.)Huge[]], .references[(.)references[]].
+
+---
+
+# Lists
+
+1. One
+
+2. Two
+
+3. Three
+
+
+* A
+
+* B
+
+* C
+
+---
+
+# R output
+
+```{r cars}
+s <- summary(cars)
+s
+```
+
+As you can see above, the monospaced font supports ligatures.
+
+---
+
+# Plot
+
+```{r pressure, echo = FALSE}
+plot(pressure)
+```
+
+---
+
+# Disclaimer
+
+The Karolinska Institutet logo is used for dissemination purposes only - please read the webpage with the visual identity guidelines: https://staff.ki.se/download-karolinska-institutets-logo

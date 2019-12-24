@@ -210,8 +210,7 @@ tsukuyomi = function(...) moon_reader(...)
 #' @param moon The input Rmd file path (if missing and in RStudio, the current
 #'   active document is used).
 #' @param cast_from The root directory of the server.
-#' @param params List of named parameters that override custom params
-#'   specified within the YAML front-matter.
+#' @param params Passed to [rmarkdown::render()].
 #' @references \url{http://naruto.wikia.com/wiki/Infinite_Tsukuyomi}
 #' @note This function is not really tied to the output format
 #'   \code{\link{moon_reader}()}. You can use it to serve any single-HTML-file R

@@ -4,6 +4,8 @@
 
 - Added a theme following the Karolinska Institutet design guidelines (@ellessenne, #238).
 
+- Added the argument `params` to `infinite_moon_reader()` (@paulklemm, #240).
+
 ## BUG FIXES
 
 - Removed the `xmlns` attribute in the `<html>` tag in the default HTML template (thanks, @pat-s, #197).
@@ -13,7 +15,6 @@
 ## NEW FEATURES
 
 - In the `metropolis` theme, added support for automatic orange break lines under the subtitle in the title slide and in `inverse` slides using the new class `mline` (@Enchufa2, #231).
-- Add argument `params` to `infinite_moon_reader()` (@paulklemm, #280)
 
 ## BUG FIXES
 

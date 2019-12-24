@@ -232,9 +232,7 @@ infinite_moon_reader = function(moon, cast_from = '.', params = NULL) {
   }
   moon = normalize_path(moon)
   rebuild = function() {
-    rmarkdown::render(
-      moon, envir = parent.frame(2), encoding = 'UTF-8', params = params
-    )
+    rmarkdown::render(moon, envir = parent.frame(2), params = params)
   }
   html = NULL
   # rebuild if moon or any dependencies (CSS/JS/images) have been updated

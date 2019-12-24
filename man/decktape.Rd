@@ -4,9 +4,14 @@
 \alias{decktape}
 \title{Convert HTML presentations to PDF via DeckTape}
 \usage{
-decktape(file, output,
+decktape(
+  file,
+  output,
   args = "--chrome-arg=--allow-file-access-from-files",
-  docker = Sys.which("decktape") == "", version = "", open = FALSE)
+  docker = Sys.which("decktape") == "",
+  version = "",
+  open = FALSE
+)
 }
 \arguments{
 \item{file}{The path to the HTML presentation file. When \code{docker =
@@ -43,7 +48,8 @@ For some operating systems you may need to
 }
 \examples{
 if (interactive()) {
-  xaringan::decktape('https://slides.yihui.org/xaringan', 'xaringan.pdf', docker = FALSE)
+    xaringan::decktape("https://slides.yihui.org/xaringan", "xaringan.pdf", 
+        docker = FALSE)
 }
 }
 \references{

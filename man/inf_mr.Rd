@@ -15,8 +15,7 @@ active document is used).}
 
 \item{cast_from}{The root directory of the server.}
 
-\item{params}{List of named parameters that override custom params
-specified within the YAML front-matter}
+\item{params}{Passed to \code{rmarkdown::\link[rmarkdown]{render}()}.}
 }
 \description{
 Use the \pkg{servr} package to serve and reload slides on change.

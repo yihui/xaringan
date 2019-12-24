@@ -4,6 +4,8 @@
 
 - Added a theme following the Karolinska Institutet design guidelines (@ellessenne, #238).
 
+- Added the argument `params` to `infinite_moon_reader()` (@paulklemm, #240).
+
 ## BUG FIXES
 
 - Removed the `xmlns` attribute in the `<html>` tag in the default HTML template (thanks, @pat-s, #197).

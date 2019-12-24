@@ -210,6 +210,7 @@ tsukuyomi = function(...) moon_reader(...)
 #' @param moon The input Rmd file path (if missing and in RStudio, the current
 #'   active document is used).
 #' @param cast_from The root directory of the server.
+#' @param params Passed to \code{rmarkdown::\link[rmarkdown]{render}()}.
 #' @references \url{http://naruto.wikia.com/wiki/Infinite_Tsukuyomi}
 #' @note This function is not really tied to the output format
 #'   \code{\link{moon_reader}()}. You can use it to serve any single-HTML-file R
@@ -217,7 +218,7 @@ tsukuyomi = function(...) moon_reader(...)
 #' @seealso \code{servr::\link{httw}}
 #' @export
 #' @rdname inf_mr
-infinite_moon_reader = function(moon, cast_from = '.') {
+infinite_moon_reader = function(moon, cast_from = '.', params = NULL) {
   # when this function is called via the RStudio addin, use the dir of the
   # current active document
   if (missing(moon) && requireNamespace('rstudioapi', quietly = TRUE)) {
@@ -231,7 +232,7 @@ infinite_moon_reader = function(moon, cast_from = '.') {
   }
   moon = normalize_path(moon)
   rebuild = function() {
-    rmarkdown::render(moon, envir = globalenv(), encoding = 'UTF-8')
+    rmarkdown::render(moon, envir = parent.frame(2), params = params)
   }
   html = NULL
   # rebuild if moon or any dependencies (CSS/JS/images) have been updated

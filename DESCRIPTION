@@ -4,26 +4,29 @@ Title: Presentation Ninja
 Version: 0.13.2
 Authors@R: c(
     person("Yihui", "Xie", role = c("aut", "cre"), email = "xie@yihui.name", comment = c(ORCID = "0000-0003-0645-5666")),
+    # contributors ordered alphabetically below
+    person("Alessandro", "Gasparini", role = "ctb", comment = c(ORCID = "0000-0002-8319-7624")),
     person("Benjie", "Gillam", role = "ctb"),
     person("Claus Thorn", "Ekstrøm", role = "ctb"),
     person("Daniel", "Anderson", role = "ctb"),
     person("Dawei", "Lang", role = "ctb"),
+    person("Emi", "Tanaka", role = "ctb"),
     person("Garrick", "Aden-Buie", role = "ctb"),
+    person("Iñaki", "Ucar", role = "ctb", comment = c(ORCID = "0000-0001-6403-5550")),
     person("John", "Little", role = "ctb"),
     person("Joseph", "Casillas", role = "ctb"),
+    person("Lucy", "D'Agostino McGowan", role = "ctb", comment = c(ORCID = "0000-0001-7297-9359")),
+    person("Malcolm", "Barrett", role = "ctb", comment = c(ORCID = "0000-0003-0299-5825")),
     person("Michael Wayne", "Kearney", role = "ctb"),
     person("Nan-Hung", "Hsieh", role = "ctb"),
     person("Ole Petter", "Bang", role = "ctb", comment = "CSS in rmarkdown/templates/xaringan/resources/default.css"),
     person("Patrick", "Schratz", role = "ctb"),
+    person("Paul", "Klemm", role = "ctb", comment = c(ORCID = "0000-0002-5985-1737")),
     person("Paul", "Lemmens", role = "ctb"),
     person("Sean", "Lopp", role = "ctb"),
-    person("Lucy", "D'Agostino McGowan", role = "ctb", comment = c(ORCID = "0000-0001-7297-9359")),
-    person("Emi", "Tanaka", role = "ctb"),
     person("Yongfu", "Liao", role = "ctb"),
-    person("Malcolm", "Barrett", role = "ctb", comment = c(ORCID = "0000-0003-0299-5825")),
-    person("Alessandro", "Gasparini", role = "ctb", comment = c(ORCID = "0000-0002-8319-7624")),
     person("Yue", "Jiang", role = "ctb", comment = c(ORCID = "0000-0002-9798-5517")),
-    person("Iñaki", "Ucar", role = "ctb", comment = c(ORCID = "0000-0001-6403-5550"))
+    person()
     )
 Description: Create HTML5 slides with R Markdown and the JavaScript library
     'remark.js' (<https://remarkjs.com>).
@@ -39,4 +42,4 @@ URL: https://github.com/yihui/xaringan
 BugReports: https://github.com/yihui/xaringan/issues
 VignetteBuilder: knitr
 Encoding: UTF-8
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.2

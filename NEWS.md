@@ -2,7 +2,11 @@
 
 ## NEW FEATURES
 
-- Inline `<script>` tags and JavaScript code chunks are now possible with xaringan. `<script>` tags that start on a new line (single- or multi-line) will be moved out of the remarkjs markdown area. These tags are included at the end of the `<body>` and after the remarkjs slideshow is initialized (thanks @gadenbuie, #239).
+- Added a theme following the Karolinska Institutet design guidelines (@ellessenne, #238).
+
+- Added the argument `params` to `infinite_moon_reader()` (@paulklemm, #240).
+
+- Inline `<script>` tags and JavaScript code chunks are now possible with xaringan. `<script>` tags that start on a new line (single- or multi-line) will be moved out of the remarkjs markdown area. These tags are included before the closing `</body>` tag, after the remarkjs slideshow is initialized (@gadenbuie, #239).
 
 ## BUG FIXES
 

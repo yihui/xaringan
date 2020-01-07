@@ -211,6 +211,10 @@ th, td {
   margin-top: 0%;
 }
 
+.title-slide a {
+  color: var(--text-inverse);
+}
+
 .inverse {
   text-shadow: none;
 }

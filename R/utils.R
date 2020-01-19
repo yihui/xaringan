@@ -110,7 +110,7 @@ outside_chunk = function(body) {
 }
 
 within_script = function(body) {
-  in_script = single_line = grepl('^<script(.*)?>.+</script>\\s*$', body)
+  in_script = single_line = grepl('^<script(.*)?>.*</script>\\s*$', body)
   in_script[!single_line] = within_fence(body[!single_line], '^</?script(.*)?>')
   in_script
 }

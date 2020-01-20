@@ -48,6 +48,9 @@ h3 > code { font-size: 1.25em !important; }
 .highlight-orange {
   background-color: #FFB456 !important;
 }
+.highlight-green {
+  background-color: #DBFCC7 !important;
+}
 
 .inverse {
   background-color: #272822;
@@ -75,6 +78,13 @@ h3 > code { font-size: 1.25em !important; }
   color: #777872;
   text-shadow: 0 0 20px #333;
 }
+
+.section-orange {
+  background-color: #ffa330;
+  color: #777872;
+  text-shadow: 0 0 20px #333;
+}
+
 .section h1, .section h2, .section h3 {
   color: #f3f3f3;
   line-height: 1.0em;

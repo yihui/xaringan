@@ -1,3 +1,9 @@
+# CHANGES IN xaringan VERSION 0.15
+
+## MINOR CHANGES
+
+- Small tweaks to the Karolinska Institutet theme (thanks, ellessenne, #244).
+
 # CHANGES IN xaringan VERSION 0.14
 
 ## NEW FEATURES

@@ -90,6 +90,10 @@ ul {
   font-size: var(--size-footnotesize);
 }
 
+.footnote p, .footnote a {
+  font-size: var(--size-footnotesize);
+}
+
 .remark-code-line-highlighted {
   background-color: var(--accent);
 }
@@ -209,6 +213,10 @@ th, td {
   text-align: left;
   padding-top: 0%;
   margin-top: 0%;
+}
+
+.title-slide a {
+  color: var(--text-inverse);
 }
 
 .inverse {

@@ -1,5 +1,9 @@
 # CHANGES IN xaringan VERSION 0.15
 
+## BUG FIXES
+
+- Pinned the remark.js version to v0.14 to until upstream support for the latest release is available
+
 ## MINOR CHANGES
 
 - Small tweaks to the Karolinska Institutet theme (thanks, ellessenne, #244).

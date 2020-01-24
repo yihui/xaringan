@@ -71,7 +71,7 @@
 #' # rmarkdown::render('foo.Rmd', 'xaringan::moon_reader')
 moon_reader = function(
   css = c('default', 'default-fonts'), self_contained = FALSE, seal = TRUE, yolo = FALSE,
-  chakra = 'https://remarkjs.com/downloads/remark-latest.min.js', nature = list(),
+  chakra = 'https://cdnjs.cloudflare.com/ajax/libs/remark/0.14.0/remark.min.js', nature = list(),
   ...
 ) {
   theme = grep('[.]css$', css, value = TRUE, invert = TRUE)

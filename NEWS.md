@@ -2,7 +2,7 @@
 
 ## BUG FIXES
 
-- Pinned the remark.js version to v0.14 to until upstream support for the latest release is available
+- Pinned the remark.js version to v0.14 until upstream support for the latest release is available
 
 ## MINOR CHANGES
 

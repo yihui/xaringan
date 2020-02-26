@@ -219,6 +219,8 @@ tsukuyomi = function(...) moon_reader(...)
 #' @export
 #' @rdname inf_mr
 infinite_moon_reader = function(moon, cast_from = '.', params = NULL) {
+  parameters <- params
+  rm(params)
   # when this function is called via the RStudio addin, use the dir of the
   # current active document
   if (missing(moon) && requireNamespace('rstudioapi', quietly = TRUE)) {
@@ -232,7 +234,7 @@ infinite_moon_reader = function(moon, cast_from = '.', params = NULL) {
   }
   moon = normalize_path(moon)
   rebuild = function() {
-    rmarkdown::render(moon, envir = parent.frame(2), params = params)
+    rmarkdown::render(moon, envir = parent.frame(2), params = parameters)
   }
   html = NULL
   # rebuild if moon or any dependencies (CSS/JS/images) have been updated

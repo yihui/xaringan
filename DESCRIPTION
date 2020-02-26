@@ -17,6 +17,7 @@ Authors@R: c(
     person("Joseph", "Casillas", role = "ctb"),
     person("Lucy", "D'Agostino McGowan", role = "ctb", comment = c(ORCID = "0000-0001-7297-9359")),
     person("Malcolm", "Barrett", role = "ctb", comment = c(ORCID = "0000-0003-0299-5825")),
+    person(c("Matthew", "Mark"), "Strasiotto", role = "ctb", comment = c(github = "mstr3336")),
     person("Michael Wayne", "Kearney", role = "ctb"),
     person("Nan-Hung", "Hsieh", role = "ctb"),
     person("Ole Petter", "Bang", role = "ctb", comment = "CSS in rmarkdown/templates/xaringan/resources/default.css"),

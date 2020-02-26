@@ -3,6 +3,7 @@
 ## BUG FIXES
 
 - Pinned the remark.js version to v0.14 until upstream support for the latest release is available
+- Fixed bug with parameterized reports and `infinite_moon_reader()` where `rmarkdown::render()` would throw an error about `params` being in the environment, due to the `params` argument being defined in the calling scope ( `infinite_moon_reader()` ). (thanks @mstr3336, #253)
 
 ## MINOR CHANGES
 

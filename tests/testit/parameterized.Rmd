@@ -1,0 +1,18 @@
+---
+title: "Issue #253"
+subtitle: "https://github.com/yihui/xaringan/issues/253"
+params:
+  foo: oof
+  bar: rab
+  baz: zab
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    seal: false
+---
+
+```{r display, echo=FALSE, results="asis"}
+for (nm in names(params)) {
+  cat("\n\nparams$", nm, " = ", params[[nm]], sep = "")
+}
+```

@@ -10,7 +10,7 @@ moon_reader(
   self_contained = FALSE,
   seal = TRUE,
   yolo = FALSE,
-  chakra = "https://cdnjs.cloudflare.com/ajax/libs/remark/0.14.0/remark.min.js",
+  chakra = "https://remarkjs.com/downloads/remark-0.14.0.min.js",
   nature = list(),
   ...
 )

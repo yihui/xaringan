@@ -31,7 +31,11 @@
 #'   show an image, and \code{path} is the path to an image (by default, it is
 #'   Karl).
 #' @param chakra A path to the remark.js library (can be either local or
-#'   remote).
+#'   remote). Please note that if you use the default remote latest version of
+#'   remark.js, your slides will not work when you do not have Internet access.
+#'   They might also be broken after a newer version of remark.js is released.
+#'   If these issues concern you, you should download remark.js locally (e.g.,
+#'   via \code{\link{summon_remark}()}), and use the local version instead.
 #' @param nature (Nature transformation) A list of configurations to be passed
 #'   to \code{remark.create()}, e.g. \code{list(ratio = '16:9', navigation =
 #'   list(click = TRUE))}; see
@@ -71,7 +75,7 @@
 #' # rmarkdown::render('foo.Rmd', 'xaringan::moon_reader')
 moon_reader = function(
   css = c('default', 'default-fonts'), self_contained = FALSE, seal = TRUE, yolo = FALSE,
-  chakra = 'https://remarkjs.com/downloads/remark-0.14.0.min.js', nature = list(),
+  chakra = 'https://remarkjs.com/downloads/remark-latest.min.js', nature = list(),
   ...
 ) {
   theme = grep('[.]css$', css, value = TRUE, invert = TRUE)

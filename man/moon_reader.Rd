@@ -10,7 +10,7 @@ moon_reader(
   self_contained = FALSE,
   seal = TRUE,
   yolo = FALSE,
-  chakra = "https://remarkjs.com/downloads/remark-0.14.0.min.js",
+  chakra = "https://remarkjs.com/downloads/remark-latest.min.js",
   nature = list(),
   ...
 )
@@ -44,7 +44,11 @@ show an image, and \code{path} is the path to an image (by default, it is
 Karl).}
 
 \item{chakra}{A path to the remark.js library (can be either local or
-remote).}
+remote). Please note that if you use the default remote latest version of
+remark.js, your slides will not work when you do not have Internet access.
+They might also be broken after a newer version of remark.js is released.
+If these issues concern you, you should download remark.js locally (e.g.,
+via \code{\link{summon_remark}()}), and use the local version instead.}
 
 \item{nature}{(Nature transformation) A list of configurations to be passed
 to \code{remark.create()}, e.g. \code{list(ratio = '16:9', navigation =

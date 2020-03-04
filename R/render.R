@@ -116,7 +116,9 @@ moon_reader = function(
     },
     tags$script(HTML(paste(c(sprintf(
       'var slideshow = remark.create(%s);', if (length(nature)) xfun::tojson(nature) else ''
-    ), pkg_file(c('js/show-widgets.js', 'js/print-css.js', 'js/after.js', 'js/script-tags.js')),
+    ), pkg_file(sprintf('js/%s.js', c(
+      'show-widgets', 'print-css', 'after', 'script-tags', 'target-blank'
+    ))),
     play_js, countdown_js, hl_pre_js), collapse = '\n')))
   )), tmp_js)
 

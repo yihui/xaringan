@@ -53,17 +53,6 @@ $for(include-after)$
 $include-after$
 $endfor$
 
-<script>
-(function() {
-  var links = document.getElementsByTagName('a');
-  for (var i = 0; i < links.length; i++) {
-    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
-      links[i].target = '_blank';
-    }
-  }
-})();
-</script>
-
 $if(mathjax-url)$
 <script>
 slideshow._releaseMath = function(el) {

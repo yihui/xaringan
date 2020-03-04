@@ -1,3 +1,6 @@
+# CHANGES IN xaringan VERSION 0.16
+
+
 # CHANGES IN xaringan VERSION 0.15
 
 ## BUG FIXES

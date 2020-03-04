@@ -2,8 +2,6 @@
 
 ## BUG FIXES
 
-- Pinned the remark.js version to v0.14 until upstream support for the latest release is available (thanks, @ekstroem, #247).
-
 - `infinite_moon_reader()` now accepts additional arguments via `...` that are passed to `rmarkdown::render()`. This improves the addition of the `params` argument in `infinite_moon_reader()` in version 0.14 and allows users to over-ride parameters defined in the top-level YAML in the slides at run time. It also lets users set rendering options, such as `quiet = TRUE` or setting `output_file` (thanks @mstr3336, @gadenbuie, #253).
 
 - Inline `<script>` tags and JavaScript code chunks in the R Markdown source now run in the browser with **xaringan** (thanks @gadenbuie, #256).

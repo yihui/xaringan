@@ -55,10 +55,7 @@
 #' @note Do not stare at Karl's picture for too long after you turn on the
 #'   \code{yolo} mode. I believe he has Sharingan.
 #'
-#'   Local images that you inserted via the Markdown syntax
-#'   \command{![](path/to/image)} will not be embedded into the HTML file when
-#'   \code{self_contained = TRUE} (only CSS, JavaScript, and R plot files will
-#'   be embedded). You may also download remark.js (via
+#    You may download remark.js (via
 #'   \code{\link{summon_remark}()}) and use a local copy instead of the default
 #'   \code{chakra} argument when \code{self_contained = TRUE}, because it may be
 #'   time-consuming for Pandoc to download remark.js each time you compile your

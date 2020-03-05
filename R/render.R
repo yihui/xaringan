@@ -181,6 +181,9 @@ moon_reader = function(
       res = split_yaml_body(input_file)
       write_utf8(res$yaml, input_file)
       res$body = protect_math(res$body)
+      if (self_contained) {
+        res$body = process_self_contained_images(res$body)
+      }
       content = htmlEscape(yolofy(res$body, yolo))
       Encoding(content) = 'UTF-8'
       write_utf8(content, tmp_md)

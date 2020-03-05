@@ -205,3 +205,61 @@ process_slide = function(x) {
   x = protect_math(flatten_chunk(x))
   paste(x, collapse = '\n')
 }
+
+process_self_contained_images = function(x) {
+  # Identify prose lines, don't process further
+  isprose <- xfun::prose_index(x)
+  notprose <- setdiff(1:length(x), isprose)
+  final <- x
+
+  # This is the full regular expression.
+  # \\1 captures the whole tag,
+  # \\2 captures the file link/url
+  # image_regex <- "((?:(?:!\\[.*?\\]\\()|(?:<img .*?src=[\'\"])|(?:background-image: url\\())(.*?)(?:(?:\\))|(?:[\'\"].*?/(?:img)?>)|(?:\\))))"
+
+  # Here it is broken down into reasonable bits and then reassembled
+  open_options <- c("!\\[.*?\\]\\(", "<img .*?src=[\'\"]", "background-image: url\\(")
+  close_options <- c("\\)", "[\'\"].*?/(?:img)?>", "\\)")
+  all_open <- paste0("(?:", paste0("(?:", open_options, ")", collapse = "|"), ")")
+  all_close <- paste0("(?:", paste0("(?:", close_options, ")", collapse = "|"), ")")
+  image_regex <- paste0("(", all_open, "(.*?)", all_close, ")")
+
+  # This part captures situations where the image specification is enclosed in backticks.
+  backtick_regex <- paste0("`[^`]*", image_regex, "[^`]*`")
+
+  images <- which(grepl(image_regex, x))
+  not_images <- which(grepl(backtick_regex, x))
+
+  # Remove any backtick-images and notprose lines from the set of identified images
+  images <- setdiff(images, not_images)
+  images <- setdiff(images, notprose)
+
+  if (length(images) > 0) {
+    # Get a list of file paths or URLs to encode
+    encode_tag <- regmatches(x, regexpr(image_regex, x[images]))
+    encode_list <- gsub(image_regex, "\\2", encode_tag)
+    encode_file <- function(x) {
+      if (grepl("^(https|www|http)", x)) {
+        tf <- tempfile()
+        download.file(x, tf, mode = "wb", quiet = T)
+      } else {
+        tf <- x
+      }
+      knitr::image_uri(tf)
+    }
+    encoded_list <- sapply(encode_list, encode_file)
+
+    encoded_swap <- cbind(orig = encode_list,
+                          new = encoded_list,
+                          str = x[images])
+
+    final[images] <- sapply(1:nrow(encoded_swap),
+                            function(i) {
+                              gsub(pattern = encoded_swap[i,1],
+                                   replacement = encoded_swap[i,2],
+                                   x = encoded_swap[i,3],
+                                   fixed = T)
+                            })
+  }
+  final
+}

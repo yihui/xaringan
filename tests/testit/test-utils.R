@@ -22,3 +22,24 @@ assert('highlight_code handles {{ .code. }} and ...code #<< formats', {
   # A space is added in following (can't overwrite first space when 2nd char is *)
   (highlight_code(' * paste(1) #<<') %==% '* * paste(1)')
 })
+
+test_uri <-
+  "data:text/plain;base64,R0lGODdhAgACAIAAAAAAAP///ywAAAAAAgACAAACAoRRADs="
+assert(
+  "process_self_contained_images handles image specifications correctly",
+  process_self_contained_images(
+    "background-image: url(https://www.htmlgoodies.com/images/1x1.gif)") %==%
+    paste0("background-image: url(", test_uri, ")"),
+  process_self_contained_images(
+    "testing <img src='https://www.htmlgoodies.com/images/1x1.gif'/>") %==%
+    paste0("testing <img src='", test_uri, "'/>"),
+  process_self_contained_images(
+    "testing `<img src='https://www.htmlgoodies.com/images/1x1.gif'/>`") %==%
+    "testing `<img src='https://www.htmlgoodies.com/images/1x1.gif'/>`",
+  process_self_contained_images(
+    "testing !()[https://www.htmlgoodies.com/images/1x1.gif]") %==%
+    paste0("testing !()[https://www.htmlgoodies.com/images/1x1.gif]"),
+  process_self_contained_images(
+    "testing, testing `!()[https://www.htmlgoodies.com/images/1x1.gif]`") %==%
+    "testing, testing `!()[https://www.htmlgoodies.com/images/1x1.gif]`"
+)

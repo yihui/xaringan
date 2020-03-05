@@ -89,6 +89,10 @@ Do not stare at Karl's picture for too long after you turn on the
   time-consuming for Pandoc to download remark.js each time you compile your
   slides.
 
+  \code{self_contained: true} will now encode linked files as long as the file name
+  does not contain parentheses, brackets, or <> characters, and as long as
+  local files actually exist.
+
   Each page has its own countdown timer (when the option \code{countdown} is
   set in \code{nature}), and the timer is (re)initialized whenever you
   navigate to a new page. If you need a global timer, you can use the

@@ -30,6 +30,8 @@ assert(
   process_self_contained_images(
     "background-image: url(https://www.htmlgoodies.com/images/1x1.gif)") %==%
     paste0("background-image: url(", test_uri, ")"),
+  process_self_contained_images("background-image: ../1x1.gif") %==%
+    paste0("background-image: ", test_uri),
   process_self_contained_images(
     "testing <img src='https://www.htmlgoodies.com/images/1x1.gif'/>") %==%
     paste0("testing <img src='", test_uri, "'/>"),

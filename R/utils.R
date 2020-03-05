@@ -218,7 +218,7 @@ process_self_contained_images = function(x) {
   # image_regex <- "((?:(?:!\\[.*?\\]\\()|(?:<img .*?src=[\'\"])|(?:background-image: url\\())(.*?)(?:(?:\\))|(?:[\'\"].*?/(?:img)?>)|(?:\\))))"
 
   # Here it is broken down into reasonable bits and then reassembled
-  open_options <- c("!\\[.*?\\]\\(", "<img .*?src=[\'\"]", "background-image: url\\(")
+  open_options <- c("!\\[.*?\\]\\(", "<img .*?src ?= ?[\'\"]", "background-image: url\\(")
   close_options <- c("\\)", "[\'\"].*?/(?:img)?>", "\\)")
   all_open <- paste0("(?:", paste0("(?:", open_options, ")", collapse = "|"), ")")
   all_close <- paste0("(?:", paste0("(?:", close_options, ")", collapse = "|"), ")")
@@ -236,14 +236,14 @@ process_self_contained_images = function(x) {
 
   if (length(images) > 0) {
     # Get a list of file paths or URLs to encode
-    encode_tag <- regmatches(x, regexpr(image_regex, x[images]))
+    encode_tag <- regmatches(x, gregexpr(image_regex, x[images]))
     encode_list <- gsub(image_regex, "\\2", encode_tag)
-    encode_file <- function(x) {
-      if (grepl("^(https|www|http)", x)) {
+    encode_file <- function(y) {
+      if (grepl("^(https|www|http)", y)) {
         tf <- tempfile()
-        download.file(x, tf, mode = "wb", quiet = T)
+        download.file(y, tf, mode = "wb", quiet = T)
       } else {
-        tf <- x
+        tf <- y
       }
       knitr::image_uri(tf)
     }

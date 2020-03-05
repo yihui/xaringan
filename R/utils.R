@@ -26,7 +26,8 @@ check_builtin_css = function(theme) {
   maybe = sort(agrep(invalid, valid, value = TRUE))[1]
   hint = if (is.na(maybe)) '' else paste0('; did you mean "', maybe, '"?')
   stop(
-    '"', invalid, '" is not a valid xaringan theme', if (hint != "") hint else ".",
+    '"', invalid, '" is not a valid xaringan theme',
+    if (hint != "") hint else ".",
     " Use `xaringan:::list_css()` to view all built-in themes.", call. = FALSE
   )
 }
@@ -38,7 +39,11 @@ split_yaml_body = function(file) {
   if (length(i) < 2) {
     list(yaml = character(), body = x)
   } else {
-    list(yaml = x[i[1]:i[2]], body = if (i[2] == n) character() else x[(i[2] + 1):n])
+    list(yaml = x[i[1]:i[2]], body = if (i[2] == n) {
+      character()
+      } else {
+        x[(i[2] + 1):n]
+      })
   }
 }
 
@@ -218,19 +223,24 @@ process_self_contained_images = function(x) {
   # image_regex <- "((?:(?:!\\[.*?\\]\\()|(?:<img .*?src=[\'\"])|(?:background-image: url\\())(.*?)(?:(?:\\))|(?:[\'\"].*?/(?:img)?>)|(?:\\))))"
 
   # Here it is broken down into reasonable bits and then reassembled
-  open_options <- c("!\\[.*?\\]\\(", "<img .*?src ?= ?[\'\"]", "background-image: url\\(", "background-image: ")
+  open_options <- c("!\\[.*?\\]\\(", "<img .*?src ?= ?[\'\"]",
+                    "background-image: url\\(", "background-image: ")
   close_options <- c("\\)", "[\'\"].*?/(?:img)?>", "\\)", "\\b$")
-  all_open <- paste0("(?:", paste0("(?:", open_options, ")", collapse = "|"), ")")
-  all_close <- paste0("(?:", paste0("(?:", close_options, ")", collapse = "|"), ")")
+  all_open <- paste0("(?:", paste0("(?:", open_options, ")",
+                                   collapse = "|"), ")")
+  all_close <- paste0("(?:", paste0("(?:", close_options, ")",
+                                    collapse = "|"), ")")
   image_regex <- paste0("(", all_open, "(.*?)", all_close, ")")
 
-  # This part captures situations where the image specification is enclosed in backticks.
+  # This part captures situations where the image specification
+  # is enclosed in backticks.
   backtick_regex <- paste0("`[^`]*", image_regex, "[^`]*`")
 
   images <- which(grepl(image_regex, x))
   not_images <- which(grepl(backtick_regex, x))
 
-  # Remove any backtick-images and notprose lines from the set of identified images
+  # Remove any backtick-images and notprose lines from the set of
+  # identified images
   images <- setdiff(images, not_images)
   images <- setdiff(images, notprose)
 
@@ -255,14 +265,16 @@ process_self_contained_images = function(x) {
     encoded_list <- sapply(encode_list, encode_file)
     encoded_list_worked <- encode_list != encoded_list
     if (sum(!encoded_list_worked) > 0) {
-      warning(sprintf("URI encoding failed for %s images", sum(!encoded_list_worked)))
+      warning(sprintf("URI encoding failed for %s images",
+                      sum(!encoded_list_worked)))
     }
 
     tmp <- x[images]
 
     # Replace only those pieces where the encoding actually worked
     for(i in which(encoded_list_worked)) {
-      regmatches(tmp, gregexpr(encode_list[i], tmp, fixed = T)) <- encoded_list[i]
+      regmatches(tmp, gregexpr(encode_list[i], tmp, fixed = T)) <-
+        encoded_list[i]
     }
 
     final[images] <- tmp

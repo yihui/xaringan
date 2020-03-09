@@ -1,5 +1,8 @@
 # CHANGES IN xaringan VERSION 0.16
 
+## BUG FIXES
+
+- Fixed a bug introduced in #256 that caused htmlwidgets not to render (@gadenbuie #258, thanks @eniso-partners #257).
 
 # CHANGES IN xaringan VERSION 0.15
 

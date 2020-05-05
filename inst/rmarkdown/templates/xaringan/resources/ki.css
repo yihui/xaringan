@@ -219,6 +219,11 @@ th, td {
   text-shadow: none;
 }
 
+.outline h2, h3, h4, h5, h6 {
+  color: black;
+  line-height: 200%;
+}
+
 /*
 Extra classes for size and color
 */

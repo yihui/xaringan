@@ -51,7 +51,12 @@
   font-size: var(--size-normalsize);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: var(--main);
   border: 0px;
   margin: 0px;
@@ -69,7 +74,9 @@ h3 {
   font-size: var(--size-large);
 }
 
-a, a > code, a:visited {
+a,
+a > code,
+a:visited {
   color: var(--accent);
   text-decoration: none;
 }
@@ -90,7 +97,8 @@ ul {
   font-size: var(--size-footnotesize);
 }
 
-.footnote p, .footnote a {
+.footnote p,
+.footnote a {
   font-size: var(--size-footnotesize);
 }
 
@@ -205,7 +213,11 @@ th, td {
   margin-bottom: 3%;
 }
 
-.title-slide h2, h3, h4, h5, h6 {
+.title-slide h2,
+.title-slide h3,
+.title-slide h4,
+.title-slide h5,
+.title-slide h6 {
   text-align: left;
   padding-top: 0%;
   margin-top: 0%;
@@ -219,7 +231,11 @@ th, td {
   text-shadow: none;
 }
 
-.outline h2, h3, h4, h5, h6 {
+.outline h2,
+.outline h3,
+.outline h4,
+.outline h5,
+.outline h6 {
   color: black;
   line-height: 200%;
 }

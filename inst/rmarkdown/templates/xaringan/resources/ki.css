@@ -1,7 +1,7 @@
 :root {
-/*
-Define UoL Colors
-*/
+  /*
+  Define KI colours
+  */
   --plum: #870052;
   --cyclamen: #D40963;
   --grey: #808080;
@@ -12,36 +12,36 @@ Define UoL Colors
   --text: var(--black);
   --text-inverse: var(--white);
 
-/*
-Define font size, to mimick beamer.
-Base font size: 22px
-Calculate relative font sizes:
-round(22 * data.frame(
-  tiny = 0.763650977,
-  scriptsize = 0.916712714,
-  footnotesize = 0.916712714,
-  small = 0.916712714,
-  normalsize = 1.10,
-  large = 1.320088411,
-  Large = 1.583664038,
-  LARGE = 1.900838901,
-  huge = 2.281006681,
-  Huge = 2.281006681,
-  references = 0.8401818))
-*/
+  /*
+  Define font size, to mimick beamer.
+  Base font size: 24px
+  Calculate relative font sizes:
+  round(24 * data.frame(
+    tiny = 0.763650977,
+    scriptsize = 0.916712714,
+    footnotesize = 0.916712714,
+    small = 0.916712714,
+    normalsize = 1.10,
+    large = 1.320088411,
+    Large = 1.583664038,
+    LARGE = 1.900838901,
+    huge = 2.281006681,
+    Huge = 2.281006681,
+    references = 0.8401818))
+  */
 
-  --size-tiny: 17px;
-  --size-scriptsize: 20px;
-  --size-footnotesize: 20px;
-  --size-small: 20px;
-  --size-normalsize: 24px;
-  --size-large: 29px;
-  --size-Large: 35px;
-  --size-LARGE: 42px;
-  --size-huge: 50px;
-  --size-Huge: 50px;
-/* New size for list of reference: halfway through tiny and small */
-  --size-references: 18px;
+  --size-tiny: 18px;
+  --size-scriptsize: 22px;
+  --size-footnotesize: 22px;
+  --size-small: 22px;
+  --size-normalsize: 26px;
+  --size-large: 32px;
+  --size-Large: 38px;
+  --size-LARGE: 46px;
+  --size-huge: 55px;
+  --size-Huge: 55px;
+  /* New size for list of reference: halfway through tiny and small */
+  --size-references: 20px;
 }
 
 .remark-slide-content,
@@ -101,10 +101,6 @@ ul {
 .remark-code {
   border-radius: 10px;
   font-size: var(--size-scriptsize);
-}
-
-.remark-inline-code {
-  font-size: var(--size-normalsize);
 }
 
 .inverse {
@@ -198,8 +194,8 @@ th, td {
 
 .title-slide {
   background-image: url(https://user-images.githubusercontent.com/10330005/71024315-eee82b00-2104-11ea-928b-be412b1f3687.png);
-  background-position: 95% 5%;
-  background-size: 6cm;
+  background-position: 97.5% 2.5%;
+  background-size: 10cm;
 }
 
 .title-slide h1 {

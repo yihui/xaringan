@@ -1,5 +1,20 @@
 # CHANGES IN xaringan VERSION 0.17
 
+## Accessibility
+
+- Resolved some major shorcut-key conflicts between xaringan and the popular screen reader JAWS for Windows in its virtual cursor environment.
+  - In JAWS 16.0.2136 or later, users must keep turning on a setting called "Allow Web Application Reserved Keystrokes," which is enabled by default.
+  - The following shorcut keys are supported in xaringan slides for JAWS in virtual cursor:
+    - 'h': 'Toggle help page'
+    - 'k': 'Go the previous slide'
+    - 'j': 'Go the next slide'
+    - 'b': 'Toggle black out a slide'
+    - 'm': 'Toggle mirror a slide'
+    - 'f': 'Toggle fullscreen mode'
+    - 'c': 'Clone slides to a new browser window'
+    - 'p': 'Toggle the presenter mode'
+    - 't': 'Restart timer'
+
 
 # CHANGES IN xaringan VERSION 0.16
 

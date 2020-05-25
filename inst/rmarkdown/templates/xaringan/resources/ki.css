@@ -159,7 +159,10 @@ iframe {
 blockquote {
   border-left: solid 5px var(--accent);
   padding-left: 1em;
-  color: var(--main);
+}
+
+.remark-slide-content blockquote p {
+  font-size: 1.1em;
 }
 
 .remark-slide table {

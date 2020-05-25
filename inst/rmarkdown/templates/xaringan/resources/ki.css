@@ -290,46 +290,46 @@ Extra classes for size and color
   color: var(--text-inverse);
 }
 
-.tiny {
+.tiny, .tiny p {
   font-size: var(--size-tiny);
 }
 
-.scriptsize {
+.scriptsize, .scriptsize p {
   font-size: var(--size-scriptsize);
 }
 
-.footnotesize {
+.footnotesize, .footnotesize p {
   font-size: var(--size-footnotesize);
 }
 
-.small {
+.small, .small p {
   font-size: var(--size-small);
 }
 
-.normalsize {
+.normalsize, .normalsize p {
   font-size: var(--size-normalsize);
 }
 
-.large {
+.large, .large p{
   font-size: var(--size-large);
 }
 
-.Large {
+.Large, .Large p {
   font-size: var(--size-Large);
 }
 
-.LARGE {
+.LARGE, .LARGE p {
   font-size: var(--size-LARGE);
 }
 
-.huge {
+.huge, .huge p{
   font-size: var(--size-huge);
 }
 
-.Huge {
+.Huge, .Huge p {
   font-size: var(--size-Huge);
 }
 
-.references {
+.references, .references p {
   font-size: var(--size-references);
 }

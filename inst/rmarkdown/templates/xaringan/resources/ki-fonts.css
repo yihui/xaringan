@@ -4,6 +4,7 @@
 
 body {
   font-family: "Fira Sans", sans-serif;
+  font-variant-ligatures: common-ligatures;
 }
 
 h1, h2, h3, h4, h5, h6, .remark-slide-number {

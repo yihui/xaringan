@@ -122,8 +122,18 @@ ul {
 .inverse h3,
 .inverse h4,
 .inverse h5,
-.inverse h6 {
+.inverse h6,
+.inverse p,
+.inverse a {
   color: var(--text-inverse);
+}
+
+.inverse a {
+  text-decoration: underline;
+}
+
+.inverse a:hover {
+  text-decoration: underline wavy;
 }
 
 .pull-left {

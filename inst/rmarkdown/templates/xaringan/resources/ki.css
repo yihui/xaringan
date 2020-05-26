@@ -253,6 +253,10 @@ th, td {
   line-height: 200%;
 }
 
+.mjx-chtml {
+  font-size: inherit;
+}
+
 /*
 Extra classes for size and color
 */

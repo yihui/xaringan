@@ -11,7 +11,6 @@
   --accent: var(--cyclamen);
   --text: var(--black);
   --text-inverse: var(--white);
-
   /*
   Define font size, to mimick beamer.
   Base font size: 24px
@@ -29,7 +28,6 @@
     Huge = 2.281006681,
     references = 0.8401818))
   */
-
   --size-tiny: 18px;
   --size-scriptsize: 22px;
   --size-footnotesize: 22px;
@@ -44,19 +42,12 @@
   --size-references: 20px;
 }
 
-.remark-slide-content,
-.remark-slide-content p,
-.remark-slide-content li p {
+.remark-slide-content, .remark-slide-content p, .remark-slide-content li p {
   color: var(--text);
   font-size: var(--size-normalsize);
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   color: var(--main);
   border: 0px;
   margin: 0px;
@@ -74,9 +65,7 @@ h3 {
   font-size: var(--size-large);
 }
 
-a,
-a > code,
-a:visited {
+a, a>code, a:visited {
   color: var(--accent);
   text-decoration: none;
 }
@@ -97,8 +86,7 @@ ul {
   font-size: var(--size-footnotesize);
 }
 
-.footnote p,
-.footnote a {
+.footnote p, .footnote a {
   font-size: var(--size-footnotesize);
 }
 
@@ -117,14 +105,7 @@ ul {
   color: var(--text-inverse);
 }
 
-.inverse h1,
-.inverse h2,
-.inverse h3,
-.inverse h4,
-.inverse h5,
-.inverse h6,
-.inverse p,
-.inverse a {
+.inverse h1, .inverse h2, .inverse h3, .inverse h4, .inverse h5, .inverse h6, .inverse p, .inverse a {
   color: var(--text-inverse);
 }
 
@@ -146,13 +127,11 @@ ul {
   width: 45%;
 }
 
-.pull-right ~ * {
+.pull-right~* {
   clear: both;
 }
 
-img,
-video,
-iframe {
+img, video, iframe {
   max-width: 100%;
 }
 
@@ -179,9 +158,7 @@ th, td {
   padding: 5px;
 }
 
-.remark-slide thead,
-.remark-slide tfoot,
-.remark-slide tr:nth-child(even) {
+.remark-slide thead, .remark-slide tfoot, .remark-slide tr:nth-child(even) {
   background: var(--white);
 }
 
@@ -204,8 +181,7 @@ th, td {
   color: var(--text);
 }
 
-.title-slide .remark-slide-number,
-.inverse .remark-slide-number {
+.title-slide .remark-slide-number, .inverse .remark-slide-number {
   display: none;
 }
 
@@ -226,11 +202,7 @@ th, td {
   margin-bottom: 3%;
 }
 
-.title-slide h2,
-.title-slide h3,
-.title-slide h4,
-.title-slide h5,
-.title-slide h6 {
+.title-slide h2, .title-slide h3, .title-slide h4, .title-slide h5, .title-slide h6 {
   text-align: left;
   padding-top: 0%;
   margin-top: 0%;
@@ -244,11 +216,7 @@ th, td {
   text-shadow: none;
 }
 
-.outline h2,
-.outline h3,
-.outline h4,
-.outline h5,
-.outline h6 {
+.outline h2, .outline h3, .outline h4, .outline h5, .outline h6 {
   color: black;
   line-height: 200%;
 }
@@ -317,7 +285,7 @@ Extra classes for size and color
   font-size: var(--size-normalsize);
 }
 
-.large, .large p{
+.large, .large p {
   font-size: var(--size-large);
 }
 
@@ -329,7 +297,7 @@ Extra classes for size and color
   font-size: var(--size-LARGE);
 }
 
-.huge, .huge p{
+.huge, .huge p {
   font-size: var(--size-huge);
 }
 

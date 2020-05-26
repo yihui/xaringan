@@ -11,6 +11,7 @@
   --accent: var(--cyclamen);
   --text: var(--black);
   --text-inverse: var(--white);
+  --highlight: var(--plum);
   /*
   Define font size, to mimick beamer.
   Base font size: 24px
@@ -223,6 +224,11 @@ th, td {
 
 .mjx-chtml {
   font-size: inherit;
+}
+
+.remark-code-line-highlighted {
+  background-color: var(--highlight);
+  border-radius: 10px;
 }
 
 /*

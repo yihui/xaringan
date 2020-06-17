@@ -45,9 +45,12 @@
 #'   \code{autoplay} milliseconds. You can also set \code{countdown} to a number
 #'   (the number of milliseconds) to include a countdown timer on each slide. If
 #'   using \code{autoplay}, you can optionally set \code{countdown} to
-#'   \code{TRUE} to include a countdown equal to \code{autoplay}. To alter the
-#'   set of classes applied to the title slide, you can optionally set
-#'   \code{titleSlideClass} to a vector of classes; the default is
+#'   \code{TRUE} to include a countdown equal to \code{autoplay}. In addition,
+#'   when \code{autoplay} is set you can optionally restart the slideshow after
+#'   the last slide by either setting \code{restart_slideshow} to 'true' or by
+#'   passing an absolute value in milliseconds after which to start over again.
+#'   To alter the set of classes applied to the title slide, you can optionally
+#'   set \code{titleSlideClass} to a vector of classes; the default is
 #'   \code{c("center", "middle", "inverse")}.
 #' @param ... For \code{tsukuyomi()}, arguments passed to \code{moon_reader()};
 #'   for \code{moon_reader()}, arguments passed to
@@ -90,6 +93,15 @@ moon_reader = function(
 
   play_js = if (is.numeric(autoplay <- nature[['autoplay']]) && autoplay > 0)
     sprintf('setInterval(function() {slideshow.gotoNextSlide();}, %d);', autoplay)
+  if (autoplay > 0) {
+    if (isTRUE(nature[['restart_slideshow']])) {
+      play_js = append(play_js, sprintf('setInterval(function() {slideshow.gotoFirstSlide();}, slideshow.getSlideCount()*%d);', autoplay))
+    } else if (is.numeric(nature[['restart_slideshow']])) {
+      play_js = append(play_js, sprintf('setInterval(function() {slideshow.gotoFirstSlide();}, %d);', autoplay))
+    } else {
+      stop("restart_slideshow must be either 'true' or set to a numeric value in milliseconds.")
+    }
+  }
 
   if (isTRUE(countdown <- nature[['countdown']])) countdown = autoplay
   countdown_js = if (is.numeric(countdown) && countdown > 0) sprintf(

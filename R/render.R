@@ -91,9 +91,9 @@ moon_reader = function(
   tmp_md = tempfile('xaringan', fileext = '.md')  # store md content here (bypass Pandoc)
   options(xaringan.page_number.offset = if (seal) 0L else -1L)
 
-  play_js = if (is.numeric(autoplay <- nature[['autoplay']]) && autoplay > 0)
-    sprintf('setInterval(function() {slideshow.gotoNextSlide();}, %d);', autoplay)
-  if (autoplay > 0) {
+  if (is.numeric(autoplay <- nature[['autoplay']]) && autoplay > 0) {
+    play_js = sprintf('setInterval(function() {slideshow.gotoNextSlide();}, %d);', autoplay)
+
     if (isTRUE(nature[['restart_slideshow']])) {
       play_js = append(play_js, sprintf('setInterval(function() {slideshow.gotoFirstSlide();}, slideshow.getSlideCount()*%d);', autoplay))
     } else if (is.numeric(nature[['restart_slideshow']])) {
@@ -101,6 +101,8 @@ moon_reader = function(
     } else {
       stop("restart_slideshow must be either 'true' or set to a numeric value in milliseconds.")
     }
+  } else {
+    play_js = NULL
   }
 
   if (isTRUE(countdown <- nature[['countdown']])) countdown = autoplay

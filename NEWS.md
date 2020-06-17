@@ -4,6 +4,8 @@
 
 - The `.pull-right` CSS class has been updated so that multiple `.pull-left`/`.pull-right` columns can be used on one slide (@gandebuie #271, thanks @ramongallego #260).
 
+- Add nature option `restart_slideshow` to restart a slideshow after it finished. Accepts `true` and numeric values in milliseconds. Only works if nature option `autoplay` is set.
+
 # CHANGES IN xaringan VERSION 0.16
 
 ## BUG FIXES

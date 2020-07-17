@@ -1,6 +1,7 @@
 # CHANGES IN xaringan VERSION 0.17
 
 - Small updates to KI theme (@ellessenne, #267).
+- Added UiO theme (@wleoncio).
 
 # CHANGES IN xaringan VERSION 0.16
 

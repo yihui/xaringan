@@ -27,6 +27,7 @@ Authors@R: c(
     person("Sean", "Lopp", role = "ctb"),
     person("Yongfu", "Liao", role = "ctb"),
     person("Yue", "Jiang", role = "ctb", comment = c(ORCID = "0000-0002-9798-5517")),
+    person("Waldir", "Leoncio", role = "ctb", email = "w.l.netto@medisin.uio.no"),
     person()
     )
 Description: Create HTML5 slides with R Markdown and the JavaScript library

@@ -2,6 +2,8 @@
 
 - Small updates to KI theme (@ellessenne, #267).
 
+- The `.pull-right` CSS class has been updated so that multiple `.pull-left`/`.pull-right` columns can be used on one slide (@gandebuie #271, thanks @ramongallego #260).
+
 # CHANGES IN xaringan VERSION 0.16
 
 ## BUG FIXES

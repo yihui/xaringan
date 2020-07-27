@@ -2,23 +2,23 @@
 
 .pull-left-70 { float: left; width: 66.5%; }
 .pull-right-30 { float: right; width: 28.5%; }
-.pull-right-30 ~ * { clear: both; }
+.pull-right-30 + * { clear: both; }
 
 .pull-left-60 { float: left; width: 57%; }
 .pull-right-40 { float: right; width: 38%; }
-.pull-right-40 ~ * { clear: both; }
+.pull-right-40 + * { clear: both; }
 
 .pull-left-50 { float: left; width: 47.5%; }
 .pull-right-50 { float: right; width: 47.5%; }
-.pull-right-50 ~ * { clear: both; }
+.pull-right-50 + * { clear: both; }
 
 .pull-left-40 { float: left; width: 38%; }
 .pull-right-60 { float: right; width: 57%; }
-.pull-right-60 ~ * { clear: both; }
+.pull-right-60 + * { clear: both; }
 
 .pull-left-30 { float: left; width: 28.5%; }
 .pull-right-70 { float: right; width: 66.5%; }
-.pull-right-70 ~ * { clear: both; }
+.pull-right-70 + * { clear: both; }
 
 /* headers and fonts*/
 h1, h2, h3 {

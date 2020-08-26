@@ -147,12 +147,7 @@ moon_reader = function(
 
   highlight_hooks = NULL
   if (isTRUE(nature$highlightLines)) {
-    # an ugly way to access hooks of markdown output in knitr
-    hooks = local({
-      ohooks = knitr::knit_hooks$get(); on.exit(knitr::knit_hooks$restore(ohooks))
-      knitr::render_markdown()
-      knitr::knit_hooks$get(c('source', 'output'))
-    })
+    hooks = knitr::hooks_markdown()[c('source', 'output')]
     highlight_hooks = list(
       source = function(x, options) {
         hook = hooks[['source']]

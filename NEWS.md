@@ -6,6 +6,8 @@
 
 - Added a useR theme based on the conference [useR2020 guidelines](https://gitlab.com/R-conferences/user2020/-/blob/master/content/program/guidelines.md) (thanks, @josschavezf, #276).
 
+- Add nature option `autoplay` can take either a numeric value, or a list of the form `list(interval = N, loop = TRUE)`. The latter form can be used to specify if the autoplay should restart after reaching the last slide (i.e., go to the first slide). By default, the autoplay will not restart after reaching the last slide. See the help page `xaringan::moon_reader` for more information (thanks, @pat-s, #266).
+
 # CHANGES IN xaringan VERSION 0.16
 
 ## BUG FIXES

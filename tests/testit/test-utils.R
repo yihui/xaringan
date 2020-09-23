@@ -35,9 +35,6 @@ assert(
     "testing <img src='https://www.htmlgoodies.com/images/1x1.gif'/>") %==%
     paste0("testing <img src='", test_uri, "'/>"),
   process_self_contained_images(
-    "testing <img src='https://www.htmlgoodies.com/images/1x1.gif'></img>") %==%
-    paste0("testing <img src='", test_uri, "'></img>"),
-  process_self_contained_images(
     "testing `<img src='https://www.htmlgoodies.com/images/1x1.gif'/>`") %==%
     "testing `<img src='https://www.htmlgoodies.com/images/1x1.gif'/>`",
   process_self_contained_images(

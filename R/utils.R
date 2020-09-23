@@ -215,12 +215,12 @@ process_self_contained_images = function(x) {
   # This is the full regular expression.
   # \\1 captures the whole tag,
   # \\2 captures the file link/url
-  # image_regex <- "((?:(?:!\\[.*?\\]\\()|(?:<img .*?src=[\'\"])|(?:background-image: url\\())(.*?)(?:(?:\\))|(?:[\'\"].*?/(?:img)?>)|(?:\\))))"
+  # image_regex <- "((?:(?:!\\[.*?\\]\\()|(?:<img .*?src=[\'\"])|(?:background-image: url\\())(.*?)(?:(?:\\))|(?:[\'\"].*?/?>)|(?:\\))))"
 
   # Here it is broken down into reasonable bits and then reassembled
   open_options <- c("!\\[.*?\\]\\(", "<img .*?src ?= ?[\'\"]",
                     "background-image: url\\(", "background-image: ")
-  close_options <- c("\\)", "[\'\"].*?/(?:img)?>", "\\)", "\\b$")
+  close_options <- c("\\)", "[\'\"].*?/>", "\\)", "\\b$")
   all_open <- paste0("(?:", paste0("(?:", open_options, ")",
                                    collapse = "|"), ")")
   all_close <- paste0("(?:", paste0("(?:", close_options, ")",

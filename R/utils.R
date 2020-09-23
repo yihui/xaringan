@@ -206,50 +206,51 @@ process_slide = function(x) {
   paste(x, collapse = '\n')
 }
 
-process_self_contained_images = function(x) {
-  # Identify prose lines, don't process further
-  isprose <- xfun::prose_index(x)
-  notprose <- setdiff(1:length(x), isprose)
-  final <- x
+# find images in Markdown, encode them in base64, and store the data in JSON
+# (the data will be used when post-processing remark.js slides in browser)
+encode_images = function(x) {
+  # only process prose lines and not code blocks
+  if (length(p <- prose_index(x)) == 0) return(x)
+  xp = x[p]
 
   # This is the full regular expression.
   # \\1 captures the whole tag,
   # \\2 captures the file link/url
-  # image_regex <- "((?:(?:!\\[.*?\\]\\()|(?:<img .*?src=[\'\"])|(?:background-image: url\\())(.*?)(?:(?:\\))|(?:[\'\"].*?/?>)|(?:\\))))"
+  # image_regex = "((?:(?:!\\[.*?\\]\\()|(?:<img .*?src=[\'\"])|(?:background-image: url\\())(.*?)(?:(?:\\))|(?:[\'\"].*?/?>)|(?:\\))))"
 
   # Here it is broken down into reasonable bits and then reassembled
-  open_options <- c("!\\[.*?\\]\\(", "<img .*?src ?= ?[\'\"]",
+  open_options = c("!\\[.*?\\]\\(", "<img .*?src ?= ?[\'\"]",
                     "background-image: url\\(", "background-image: ")
-  close_options <- c("\\)", "[\'\"].*?/>", "\\)", "\\b$")
-  all_open <- paste0("(?:", paste0("(?:", open_options, ")",
+  close_options = c("\\)", "[\'\"].*?/>", "\\)", "\\b$")
+  all_open = paste0("(?:", paste0("(?:", open_options, ")",
                                    collapse = "|"), ")")
-  all_close <- paste0("(?:", paste0("(?:", close_options, ")",
+  all_close = paste0("(?:", paste0("(?:", close_options, ")",
                                     collapse = "|"), ")")
-  image_regex <- paste0("(", all_open, "(.*?)", all_close, ")")
+  image_regex = paste0("(", all_open, "(.*?)", all_close, ")")
 
   # This part captures situations where the image specification
   # is enclosed in backticks.
-  backtick_regex <- paste0("`[^`]*", image_regex, "[^`]*`")
+  backtick_regex = paste0("`[^`]*", image_regex, "[^`]*`")
 
-  images <- which(grepl(image_regex, x))
-  not_images <- which(grepl(backtick_regex, x))
+  images = which(grepl(image_regex, x))
+  not_images = which(grepl(backtick_regex, x))
 
   # Remove any backtick-images and notprose lines from the set of
   # identified images
-  images <- setdiff(images, not_images)
-  images <- setdiff(images, notprose)
+  images = setdiff(images, not_images)
+  images = setdiff(images, notprose)
 
   if (length(images) > 0) {
     # Get a list of file paths or URLs to encode
-    encode_tag <- regmatches(x[images], gregexpr(image_regex, x[images]))
-    encode_list <- unique(gsub(image_regex, "\\2", unlist(encode_tag)))
-    encode_file <- function(y) {
+    encode_tag = regmatches(x[images], gregexpr(image_regex, x[images]))
+    encode_list = unique(gsub(image_regex, "\\2", unlist(encode_tag)))
+    encode_file = function(y) {
       if (grepl("^(https|www|http)", y)) {
-        ext <- regmatches(y, regexpr("\\.\\w{1,}$", y))
-        tf <- tempfile(fileext = ext)
+        ext = regmatches(y, regexpr("\\.\\w{1,}$", y))
+        tf = tempfile(fileext = ext)
         download.file(y, tf, mode = "wb", quiet = T)
       } else {
-        tf <- y
+        tf = y
       }
       if (file.exists(tf)) {
         knitr::image_uri(tf)
@@ -257,22 +258,22 @@ process_self_contained_images = function(x) {
         y
       }
     }
-    encoded_list <- sapply(encode_list, encode_file)
-    encoded_list_worked <- encode_list != encoded_list
+    encoded_list = sapply(encode_list, encode_file)
+    encoded_list_worked = encode_list != encoded_list
     if (sum(!encoded_list_worked) > 0) {
       warning(sprintf("URI encoding failed for %s images",
                       sum(!encoded_list_worked)))
     }
 
-    tmp <- x[images]
+    tmp = x[images]
 
     # Replace only those pieces where the encoding actually worked
     for(i in which(encoded_list_worked)) {
-      regmatches(tmp, gregexpr(encode_list[i], tmp, fixed = T)) <-
+      regmatches(tmp, gregexpr(encode_list[i], tmp, fixed = T)) =
         encoded_list[i]
     }
 
-    final[images] <- tmp
+    final[images] = tmp
   }
   final
 }

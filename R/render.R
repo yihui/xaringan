@@ -71,7 +71,7 @@
 #'   set in \code{nature}), and the timer is (re)initialized whenever you
 #'   navigate to a new page. If you need a global timer, you can use the
 #'   presenter's mode (press \kbd{P}).
-#' @references \url{https://naruto.wikia.com/wiki/Tsukuyomi}
+#' @references \url{https://naruto.fandom.com/wiki/Tsukuyomi}
 #' @importFrom htmltools tagList tags htmlEscape HTML
 #' @export
 #' @examples
@@ -222,7 +222,7 @@ tsukuyomi = function(...) moon_reader(...)
 #'   active document is used).
 #' @param cast_from The root directory of the server.
 #' @param ... Passed to \code{rmarkdown::\link[rmarkdown]{render}()}.
-#' @references \url{https://naruto.wikia.com/wiki/Infinite_Tsukuyomi}
+#' @references \url{https://naruto.fandom.com/wiki/Infinite_Tsukuyomi}
 #' @note This function is not really tied to the output format
 #'   \code{\link{moon_reader}()}. You can use it to serve any single-HTML-file R
 #'   Markdown output.

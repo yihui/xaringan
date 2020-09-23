@@ -579,17 +579,17 @@ I think a presentation is basically a way to communicate insights to the audienc
 
 The **xaringan** package borrowed a few terms from Naruto, such as
 
-- [Sharingan](https://naruto.wikia.com/wiki/Sharingan) (写輪眼; the package name)
+- [Sharingan](https://naruto.fandom.com/wiki/Sharingan) (写輪眼; the package name)
 
-- The [moon reader](https://naruto.wikia.com/wiki/Moon_Reader) (月読; an attractive R Markdown output format)
+- The [moon reader](https://naruto.fandom.com/wiki/Moon_Reader) (月読; an attractive R Markdown output format)
 
-- [Chakra](https://naruto.wikia.com/wiki/Chakra) (查克拉; the path to the remark.js library, which is the power to drive the presentation)
+- [Chakra](https://naruto.fandom.com/wiki/Chakra) (查克拉; the path to the remark.js library, which is the power to drive the presentation)
 
-- [Nature transformation](https://naruto.wikia.com/wiki/Nature_Transformation) (性質変化; transform the chakra by setting different options)
+- [Nature transformation](https://naruto.fandom.com/wiki/Nature_Transformation) (性質変化; transform the chakra by setting different options)
 
-- The [infinite moon reader](https://naruto.wikia.com/wiki/Infinite_Tsukuyomi) (無限月読; start a local web server to continuously serve your slides)
+- The [infinite moon reader](https://naruto.fandom.com/wiki/Infinite_Tsukuyomi) (無限月読; start a local web server to continuously serve your slides)
 
-- The [summoning technique](https://naruto.wikia.com/wiki/Summoning_Technique) (download remark.js from the web)
+- The [summoning technique](https://naruto.fandom.com/wiki/Summoning_Technique) (download remark.js from the web)
 
 You can click the links to know more about them if you want. The jutsu "Moon Reader" may seem a little evil, but that does not mean your slides are evil.
 

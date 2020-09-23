@@ -105,5 +105,5 @@ Do not stare at Karl's picture for too long after you turn on the
 # rmarkdown::render('foo.Rmd', 'xaringan::moon_reader')
 }
 \references{
-\url{https://naruto.wikia.com/wiki/Tsukuyomi}
+\url{https://naruto.fandom.com/wiki/Tsukuyomi}
 }

@@ -1,10 +1,10 @@
-.hljs-github {
+.remark-slide-content {
   background-image: url("https://www.r-project.org/conferences/useR.png"), linear-gradient(to bottom, white 85%, rgba(227, 227, 227) 95%) ;
   background-position: 8% 95% , center;
   background-size: 85px , 100% 100%, cover ;
 }
 
-.hljs-github h1, .hljs-github h2, .hljs-github h3 {
+.remark-slide-content h1, .remark-slide-content h2, .remark-slide-content h3 {
   color: #454647;
   font-weight: bold;
 }

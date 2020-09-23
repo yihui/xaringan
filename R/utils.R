@@ -26,8 +26,7 @@ check_builtin_css = function(theme) {
   maybe = sort(agrep(invalid, valid, value = TRUE))[1]
   hint = if (is.na(maybe)) '' else paste0('; did you mean "', maybe, '"?')
   stop(
-    '"', invalid, '" is not a valid xaringan theme',
-    if (hint != "") hint else ".",
+    '"', invalid, '" is not a valid xaringan theme', if (hint != "") hint else ".",
     " Use `xaringan:::list_css()` to view all built-in themes.", call. = FALSE
   )
 }
@@ -39,11 +38,7 @@ split_yaml_body = function(file) {
   if (length(i) < 2) {
     list(yaml = character(), body = x)
   } else {
-    list(yaml = x[i[1]:i[2]], body = if (i[2] == n) {
-      character()
-      } else {
-        x[(i[2] + 1):n]
-      })
+    list(yaml = x[i[1]:i[2]], body = if (i[2] == n) character() else x[(i[2] + 1):n])
   }
 }
 

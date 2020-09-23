@@ -42,16 +42,16 @@
 #'   \url{https://github.com/gnab/remark/wiki/Configuration}. Besides the
 #'   options provided by remark.js, you can also set \code{autoplay} to a number
 #'   (the number of milliseconds) so the slides will be played every
-#'   \code{autoplay} milliseconds. You can also set \code{countdown} to a number
-#'   (the number of milliseconds) to include a countdown timer on each slide. If
-#'   using \code{autoplay}, you can optionally set \code{countdown} to
-#'   \code{TRUE} to include a countdown equal to \code{autoplay}. In addition,
-#'   when \code{autoplay} is set you can optionally restart the slideshow after
-#'   the last slide by either setting \code{restart_slideshow} to 'true' or by
-#'   passing an absolute value in milliseconds after which to start over again.
-#'   To alter the set of classes applied to the title slide, you can optionally
-#'   set \code{titleSlideClass} to a vector of classes; the default is
-#'   \code{c("center", "middle", "inverse")}.
+#'   \code{autoplay} milliseconds; alternatively, \code{autoplay} can be a list
+#'   of the form \code{list(interval = N, loop = TRUE)}, so the slides will go
+#'   to the next page every \code{N} milliseconds, and optionally go back to the
+#'   first page to restart the play when \code{loop = TRUE}. You can also set
+#'   \code{countdown} to a number (the number of milliseconds) to include a
+#'   countdown timer on each slide. If using \code{autoplay}, you can optionally
+#'   set \code{countdown} to \code{TRUE} to include a countdown equal to
+#'   \code{autoplay}. To alter the set of classes applied to the title slide,
+#'   you can optionally set \code{titleSlideClass} to a vector of classes; the
+#'   default is \code{c("center", "middle", "inverse")}.
 #' @param ... For \code{tsukuyomi()}, arguments passed to \code{moon_reader()};
 #'   for \code{moon_reader()}, arguments passed to
 #'   \code{rmarkdown::\link{html_document}()}.
@@ -91,19 +91,15 @@ moon_reader = function(
   tmp_md = tempfile('xaringan', fileext = '.md')  # store md content here (bypass Pandoc)
   options(xaringan.page_number.offset = if (seal) 0L else -1L)
 
-  if (is.numeric(autoplay <- nature[['autoplay']]) && autoplay > 0) {
-    play_js = sprintf('setInterval(function() {slideshow.gotoNextSlide();}, %d);', autoplay)
-
-    if (isTRUE(nature[['restart_slideshow']])) {
-      play_js = append(play_js, sprintf('setInterval(function() {slideshow.gotoFirstSlide();}, slideshow.getSlideCount()*%d);', autoplay))
-    } else if (is.numeric(nature[['restart_slideshow']])) {
-      play_js = append(play_js, sprintf('setInterval(function() {slideshow.gotoFirstSlide();}, %d);', autoplay))
-    } else {
-      stop("restart_slideshow must be either 'true' or set to a numeric value in milliseconds.")
-    }
-  } else {
-    play_js = NULL
+  if (is.numeric(autoplay <- nature[['autoplay']])) {
+    autoplay = list(interval = autoplay, loop = FALSE)
   }
+  play_js = if (is.numeric(intv <- autoplay$interval) && intv > 0) sprintf(
+    'setInterval(function() {slideshow.gotoNextSlide();%s}, %d);',
+    if (!isTRUE(autoplay$loop)) '' else
+      ' if (slideshow.getCurrentSlideIndex() == slideshow.getSlideCount() - 1) slideshow.gotoFirstSlide();',
+    intv
+  )
 
   if (isTRUE(countdown <- nature[['countdown']])) countdown = autoplay
   countdown_js = if (is.numeric(countdown) && countdown > 0) sprintf(

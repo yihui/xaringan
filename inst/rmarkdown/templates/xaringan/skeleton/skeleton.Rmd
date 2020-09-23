@@ -284,7 +284,20 @@ DT::datatable(
           autoplay: 30000
     ```
 
---
+- If you want to restart the play after it reaches the last slide, you may set the sub-option `loop` to TRUE, e.g.,
+
+    ```yaml
+    output:
+      xaringan::moon_reader:
+        nature:
+          autoplay:
+            interval: 30000
+            loop: true
+    ```
+
+---
+
+# Some Tips
 
 - A countdown timer can be added to every page of the slides using the `countdown` option under `nature`, e.g. if you want to spend one minute on every page when you give the talk, you can set:
 

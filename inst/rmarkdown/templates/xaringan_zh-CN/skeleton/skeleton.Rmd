@@ -2,7 +2,7 @@
 title: "幻灯忍者"
 subtitle: "写轮眼"
 author: "谢益辉"
-institute: "RStudio"
+institute: "RStudio, PBC"
 date: "2016/12/12"
 output:
   xaringan::moon_reader:
@@ -456,4 +456,4 @@ class: center, middle
 
 本幻灯片由 R 包 [**xaringan**](https://github.com/yihui/xaringan) 生成；
 
-查克拉来自于 [remark.js](https://remarkjs.com)、[**knitr**](http://yihui.org/knitr)、以及 [R Markdown](https://rmarkdown.rstudio.com)。
+查克拉来自于 [remark.js](https://remarkjs.com)、[**knitr**](https://yihui.org/knitr)、以及 [R Markdown](https://rmarkdown.rstudio.com)。

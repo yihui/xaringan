@@ -56,13 +56,16 @@ list(click = TRUE))}; see
 \url{https://github.com/gnab/remark/wiki/Configuration}. Besides the
 options provided by remark.js, you can also set \code{autoplay} to a number
 (the number of milliseconds) so the slides will be played every
-\code{autoplay} milliseconds. You can also set \code{countdown} to a number
-(the number of milliseconds) to include a countdown timer on each slide. If
-using \code{autoplay}, you can optionally set \code{countdown} to
-\code{TRUE} to include a countdown equal to \code{autoplay}. To alter the
-set of classes applied to the title slide, you can optionally set
-\code{titleSlideClass} to a vector of classes; the default is
-\code{c("center", "middle", "inverse")}.}
+\code{autoplay} milliseconds; alternatively, \code{autoplay} can be a list
+of the form \code{list(interval = N, loop = TRUE)}, so the slides will go
+to the next page every \code{N} milliseconds, and optionally go back to the
+first page to restart the play when \code{loop = TRUE}. You can also set
+\code{countdown} to a number (the number of milliseconds) to include a
+countdown timer on each slide. If using \code{autoplay}, you can optionally
+set \code{countdown} to \code{TRUE} to include a countdown equal to
+\code{autoplay}. To alter the set of classes applied to the title slide,
+you can optionally set \code{titleSlideClass} to a vector of classes; the
+default is \code{c("center", "middle", "inverse")}.}
 
 \item{...}{For \code{tsukuyomi()}, arguments passed to \code{moon_reader()};
 for \code{moon_reader()}, arguments passed to

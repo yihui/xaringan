@@ -1,3 +1,7 @@
+# CHANGES IN xaringan VERSION 0.18
+
+- Added a useR theme based on the conference [useR2020 guidelines](https://gitlab.com/R-conferences/user2020/-/blob/master/content/program/guidelines.md) (@josschavezf)
+
 # CHANGES IN xaringan VERSION 0.17
 
 - Small updates to KI theme (@ellessenne, #267).

@@ -14,6 +14,7 @@ Authors@R: c(
     person("Garrick", "Aden-Buie", role = "ctb", comment = c(ORCID = "0000-0002-7111-0077")),
     person("Iñaki", "Ucar", role = "ctb", comment = c(ORCID = "0000-0001-6403-5550")),
     person("John", "Little", role = "ctb"),
+    person("Joselyn", "Chávez", role = "ctb", comment = c(ORCID = "0000-0002-4974-4591")),
     person("Joseph", "Casillas", role = "ctb"),
     person("Lucy", "D'Agostino McGowan", role = "ctb", comment = c(ORCID = "0000-0001-7297-9359")),
     person("Malcolm", "Barrett", role = "ctb", comment = c(ORCID = "0000-0003-0299-5825")),

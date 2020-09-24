@@ -1,6 +1,6 @@
 #' @import utils
 #' @import stats
-#' @importFrom xfun read_utf8 write_utf8 normalize_path
+#' @importFrom xfun read_utf8 write_utf8 normalize_path prose_index protect_math
 
 pkg_resource = function(...) system.file(
   'rmarkdown', 'templates', 'xaringan', 'resources', ..., package = 'xaringan',
@@ -70,9 +70,6 @@ sample2 = function(x, size, ...) {
     rep(x, size)  # should consider replace = FALSE in theory
   } else sample(x, size, ...)
 }
-
-prose_index = function(...) xfun::prose_index(...)
-protect_math = function(...) xfun::protect_math(...)
 
 #' Summon remark.js to your local disk
 #'

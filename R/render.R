@@ -17,7 +17,9 @@
 #'   e.g., for \code{css = c('default', 'extra.css')}), it means
 #'   \code{default.css} in this package and a user-provided \code{extra.css}. To
 #'   find out all built-in CSS files, use \code{xaringan:::list_css()}.
-#' @param self_contained Whether to produce a self-contained HTML file.
+#' @param self_contained Whether to produce a self-contained HTML file by
+#'   embedding all external resources into the HTML file. See the \sQuote{Note}
+#'   section below.
 #' @param seal Whether to generate a title slide automatically using the YAML
 #'   metadata of the R Markdown document (if \code{FALSE}, you should write the
 #'   title slide by yourself).
@@ -58,12 +60,6 @@
 #' @note Do not stare at Karl's picture for too long after you turn on the
 #'   \code{yolo} mode. I believe he has Sharingan.
 #'
-#'   You may download remark.js (via
-#'   \code{\link{summon_remark}()}) and use a local copy instead of the default
-#'   \code{chakra} argument when \code{self_contained = TRUE}, because it may be
-#'   time-consuming for Pandoc to download remark.js each time you compile your
-#'   slides.
-#'
 #'   For the option \code{self_contained = TRUE}, it encodes images as base64
 #'   data in the HTML output file. The image path should not contain the string
 #'   \code{")"} when the image is written with the syntax \verb{![](PATH)} or
@@ -71,7 +67,20 @@
 #'   \code{"/>"} when it is written with the syntax \verb{<img src="PATH" />}.
 #'   Rendering slides in the self-contained mode can be time-consuming when you
 #'   have remote resources (such as images or JS libraries) in your slides
-#'   because these resources need to be downloaded first.
+#'   because these resources need to be downloaded first. We strongly recommend
+#'   that you download remark.js (via \code{\link{summon_remark}()}) and use a
+#'   local copy instead of the default \code{chakra} argument when
+#'   \code{self_contained = TRUE}, so remark.js does not need to be downloaded
+#'   each time you compile your slides.
+#'
+#'   When the slides are previewed via \code{xaringan::\link{inf_mr}()},
+#'   \code{self_contained} will be temporarily changed to \code{FALSE} even if
+#'   the author of the slides set it to \code{TRUE}. This will make it faster to
+#'   preview slides locally (by avoiding downloading remote resources explicitly
+#'   and base64 encoding them). You can always click the Knit button in RStudio
+#'   or call \code{rmarkdown::render()} to render the slides in the
+#'   self-contained mode (these approaches will respect the
+#'   \code{self_contained} setting).
 #'
 #'   Each page has its own countdown timer (when the option \code{countdown} is
 #'   set in \code{nature}), and the timer is (re)initialized whenever you
@@ -96,6 +105,20 @@ moon_reader = function(
   tmp_js = tempfile('xaringan', fileext = '.js')  # write JS config to this file
   tmp_md = tempfile('xaringan', fileext = '.md')  # store md content here (bypass Pandoc)
   options(xaringan.page_number.offset = if (seal) 0L else -1L)
+  if (self_contained && isTRUE(getOption('xaringan.inf_mr.running'))) {
+    if (interactive()) xfun::do_once({
+      message(
+        'You are currently using xaringan::inf_mr() to preview your slides, and ',
+        'you have turned on the self_contained option in xaringan::moon_reader. ',
+        'To make it faster for you to preview slides, I have temporarily turned ',
+        'this option off. If you need self-contained slides at the end, you may ',
+        'click the Knit button in RStudio, or call rmarkdown::render() to render ',
+        'this document.'
+      )
+      readline('Press Enter to continue...')
+    }, 'xaringan.self_contained.message')
+    self_contained = FALSE
+  }
 
   if (is.numeric(autoplay <- nature[['autoplay']])) {
     autoplay = list(interval = autoplay, loop = FALSE)
@@ -251,7 +274,12 @@ infinite_moon_reader = function(moon, cast_from = '.', ...) {
   dots = list(...)
   dots$envir = parent.frame()
   dots$input = moon
-  rebuild = function() do.call(rmarkdown::render, dots)
+  rebuild = function() {
+    # set an option so we know that the inf moon reader is running
+    opts = options(xaringan.inf_mr.running = TRUE)
+    on.exit(options(opts), add = TRUE)
+    do.call(rmarkdown::render, dots)
+  }
   html = NULL
   # rebuild if moon or any dependencies (CSS/JS/images) have been updated
   build = local({

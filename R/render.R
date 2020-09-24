@@ -177,7 +177,7 @@ moon_reader = function(
       write_utf8(res$yaml, input_file)
       res$body = protect_math(res$body)
       if (self_contained) {
-        rm(list = ls(env_images, all.names = TRUE), envir = env_images)
+        clean_env_images()
         res$body = encode_images(res$body)
         cat(sprintf(
           '<script>(%s)(%s);</script>', pkg_file('js/data-uri.js'),

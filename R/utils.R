@@ -208,6 +208,10 @@ process_slide = function(x) {
 
 # store the base64 data of images (indexed by image paths)
 env_images = new.env(parent = emptyenv())
+clean_env_images = function() {
+  rm(list = ls(env_images, all.names = TRUE), envir = env_images)
+}
+url_token = 'data:image/png;base64,#'
 
 # find images in Markdown, encode them in base64, and store the data in JSON
 # (the data will be used when post-processing remark.js slides in browser)
@@ -243,7 +247,7 @@ encode_reg = function(r, x) {
       }
       # dirty hack: hide paths after a base64 string and we'll replace it
       # will the actual base64 data after the slides are rendered in browser
-      if (ok) x2[i] = paste0('data:image/png;base64,#', f)
+      if (ok) x2[i] = paste0(url_token, f)
     }
     paste0(x1, x2, x3)
   })

@@ -176,7 +176,6 @@ moon_reader = function(
     )
   }
 
-
   rmarkdown::output_format(
     rmarkdown::knitr_options(knit_hooks = highlight_hooks),
     NULL, clean_supporting = self_contained,
@@ -190,8 +189,8 @@ moon_reader = function(
         clean_env_images()
         res$body = encode_images(res$body)
         cat(sprintf(
-          '<script>(%s)(%s);</script>', pkg_file('js/data-uri.js'),
-          xfun::tojson(as.list(env_images, all.names = TRUE))
+          "<script>(%s)(%s, '%s');</script>", pkg_file('js/data-uri.js'),
+          xfun::tojson(as.list(env_images, all.names = TRUE)), url_token
         ), file = tmp_js, append = TRUE)
       }
       content = htmlEscape(yolofy(res$body, yolo))

@@ -87,14 +87,20 @@ providing CSS slide modification examples.
 Do not stare at Karl's picture for too long after you turn on the
   \code{yolo} mode. I believe he has Sharingan.
 
-  Local images that you inserted via the Markdown syntax
-  \command{![](path/to/image)} will not be embedded into the HTML file when
-  \code{self_contained = TRUE} (only CSS, JavaScript, and R plot files will
-  be embedded). You may also download remark.js (via
+  You may download remark.js (via
   \code{\link{summon_remark}()}) and use a local copy instead of the default
   \code{chakra} argument when \code{self_contained = TRUE}, because it may be
   time-consuming for Pandoc to download remark.js each time you compile your
   slides.
+
+  For the option \code{self_contained = TRUE}, it encodes images as base64
+  data in the HTML output file. The image path should not contain the string
+  \code{")"} when the image is written with the syntax \verb{![](PATH)} or
+  \verb{background-image: url(PATH)}, and should not contain the string
+  \code{"/>"} when it is written with the syntax \verb{<img src="PATH" />}.
+  Rendering slides in the self-contained mode can be time-consuming when you
+  have remote resources (such as images or JS libraries) in your slides
+  because these resources need to be downloaded first.
 
   Each page has its own countdown timer (when the option \code{countdown} is
   set in \code{nature}), and the timer is (re)initialized whenever you

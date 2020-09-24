@@ -58,14 +58,20 @@
 #' @note Do not stare at Karl's picture for too long after you turn on the
 #'   \code{yolo} mode. I believe he has Sharingan.
 #'
-#'   Local images that you inserted via the Markdown syntax
-#'   \command{![](path/to/image)} will not be embedded into the HTML file when
-#'   \code{self_contained = TRUE} (only CSS, JavaScript, and R plot files will
-#'   be embedded). You may also download remark.js (via
+#'   You may download remark.js (via
 #'   \code{\link{summon_remark}()}) and use a local copy instead of the default
 #'   \code{chakra} argument when \code{self_contained = TRUE}, because it may be
 #'   time-consuming for Pandoc to download remark.js each time you compile your
 #'   slides.
+#'
+#'   For the option \code{self_contained = TRUE}, it encodes images as base64
+#'   data in the HTML output file. The image path should not contain the string
+#'   \code{")"} when the image is written with the syntax \verb{![](PATH)} or
+#'   \verb{background-image: url(PATH)}, and should not contain the string
+#'   \code{"/>"} when it is written with the syntax \verb{<img src="PATH" />}.
+#'   Rendering slides in the self-contained mode can be time-consuming when you
+#'   have remote resources (such as images or JS libraries) in your slides
+#'   because these resources need to be downloaded first.
 #'
 #'   Each page has its own countdown timer (when the option \code{countdown} is
 #'   set in \code{nature}), and the timer is (re)initialized whenever you
@@ -153,8 +159,6 @@ moon_reader = function(
     )
   }
 
-  optk = list()
-
   highlight_hooks = NULL
   if (isTRUE(nature$highlightLines)) {
     hooks = knitr::hooks_markdown()[c('source', 'output')]
@@ -176,16 +180,20 @@ moon_reader = function(
   rmarkdown::output_format(
     rmarkdown::knitr_options(knit_hooks = highlight_hooks),
     NULL, clean_supporting = self_contained,
-    pre_knit = function(...) {
-      optk <<- knitr::opts_knit$get()
-      if (self_contained) knitr::opts_knit$set(upload.fun = knitr::image_uri)
-    },
     pre_processor = function(
       metadata, input_file, runtime, knit_meta, files_dir, output_dir
     ) {
       res = split_yaml_body(input_file)
       write_utf8(res$yaml, input_file)
       res$body = protect_math(res$body)
+      if (self_contained) {
+        clean_env_images()
+        res$body = encode_images(res$body)
+        cat(sprintf(
+          '<script>(%s)(%s);</script>', pkg_file('js/data-uri.js'),
+          xfun::tojson(as.list(env_images, all.names = TRUE))
+        ), file = tmp_js, append = TRUE)
+      }
       content = htmlEscape(yolofy(res$body, yolo))
       Encoding(content) = 'UTF-8'
       write_utf8(content, tmp_md)
@@ -196,7 +204,6 @@ moon_reader = function(
     },
     on_exit = function() {
       unlink(c(tmp_md, tmp_js))
-      if (self_contained) knitr::opts_knit$restore(optk)
     },
     base_format = html_document2(
       css = css, self_contained = self_contained, theme = NULL, highlight = NULL,

@@ -53,7 +53,7 @@
 
 - Added the ability to specify an `institute` in the YAML header that is automatically added to the title slide (@paullemmens, #200).
 
-- Added encoding of images specified with markdown/HTML when `self_contained: true`
+- The option `self_contained: true` for the output format `xaringan::moon_reader` supports images written in the syntax `![]()` (Markdown), `background-image: url()` (background images for slides), and `<img src="" />` (HTML) now. Slides generated in the self-contained mode are also much faster to render in web browsers now, especially for slides containing a lot of images (thanks, @srvanderplas #207, @wolass @RLesur @jaredlander #3).
 
 ## BUG FIXES
 

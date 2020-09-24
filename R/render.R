@@ -144,8 +144,6 @@ moon_reader = function(
     )
   }
 
-  optk = list()
-
   highlight_hooks = NULL
   if (isTRUE(nature$highlightLines)) {
     # an ugly way to access hooks of markdown output in knitr
@@ -172,10 +170,6 @@ moon_reader = function(
   rmarkdown::output_format(
     rmarkdown::knitr_options(knit_hooks = highlight_hooks),
     NULL, clean_supporting = self_contained,
-    pre_knit = function(...) {
-      optk <<- knitr::opts_knit$get()
-      if (self_contained) knitr::opts_knit$set(upload.fun = knitr::image_uri)
-    },
     pre_processor = function(
       metadata, input_file, runtime, knit_meta, files_dir, output_dir
     ) {
@@ -183,7 +177,12 @@ moon_reader = function(
       write_utf8(res$yaml, input_file)
       res$body = protect_math(res$body)
       if (self_contained) {
+        rm(list = ls(env_images, all.names = TRUE), envir = env_images)
         res$body = encode_images(res$body)
+        cat(sprintf(
+          '<script>(%s)(%s);</script>', pkg_file('js/data-uri.js'),
+          xfun::tojson(as.list(env_images, all.names = TRUE))
+        ), file = tmp_js, append = TRUE)
       }
       content = htmlEscape(yolofy(res$body, yolo))
       Encoding(content) = 'UTF-8'
@@ -195,7 +194,6 @@ moon_reader = function(
     },
     on_exit = function() {
       unlink(c(tmp_md, tmp_js))
-      if (self_contained) knitr::opts_knit$restore(optk)
     },
     base_format = html_document2(
       css = css, self_contained = self_contained, theme = NULL, highlight = NULL,

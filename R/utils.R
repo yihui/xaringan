@@ -206,74 +206,61 @@ process_slide = function(x) {
   paste(x, collapse = '\n')
 }
 
+# store the base64 data of images (indexed by image paths)
+env_images = new.env(parent = emptyenv())
+
 # find images in Markdown, encode them in base64, and store the data in JSON
 # (the data will be used when post-processing remark.js slides in browser)
 encode_images = function(x) {
   # only process prose lines and not code blocks
   if (length(p <- prose_index(x)) == 0) return(x)
   xp = x[p]
+  # opening and closing tags of images
+  r1 = c('!\\[.*?\\]\\(', '<img .*?src\\s*=\\s*"', '^background-image: url\\("?')
+  r2 = c('\\)',           '".*?/>',                '"?\\)')
+  regs = paste0('(?<!`)(', r1, ')(.*?)(', r2, ')(?!`)')
+  for (r in regs) xp = encode_reg(r, xp)
+  x[p] = xp
+  x
+}
 
-  # This is the full regular expression.
-  # \\1 captures the whole tag,
-  # \\2 captures the file link/url
-  # image_regex = "((?:(?:!\\[.*?\\]\\()|(?:<img .*?src=[\'\"])|(?:background-image: url\\())(.*?)(?:(?:\\))|(?:[\'\"].*?/?>)|(?:\\))))"
-
-  # Here it is broken down into reasonable bits and then reassembled
-  open_options = c("!\\[.*?\\]\\(", "<img .*?src ?= ?[\'\"]",
-                    "background-image: url\\(", "background-image: ")
-  close_options = c("\\)", "[\'\"].*?/>", "\\)", "\\b$")
-  all_open = paste0("(?:", paste0("(?:", open_options, ")",
-                                   collapse = "|"), ")")
-  all_close = paste0("(?:", paste0("(?:", close_options, ")",
-                                    collapse = "|"), ")")
-  image_regex = paste0("(", all_open, "(.*?)", all_close, ")")
-
-  # This part captures situations where the image specification
-  # is enclosed in backticks.
-  backtick_regex = paste0("`[^`]*", image_regex, "[^`]*`")
-
-  images = which(grepl(image_regex, x))
-  not_images = which(grepl(backtick_regex, x))
-
-  # Remove any backtick-images and notprose lines from the set of
-  # identified images
-  images = setdiff(images, not_images)
-  images = setdiff(images, notprose)
-
-  if (length(images) > 0) {
-    # Get a list of file paths or URLs to encode
-    encode_tag = regmatches(x[images], gregexpr(image_regex, x[images]))
-    encode_list = unique(gsub(image_regex, "\\2", unlist(encode_tag)))
-    encode_file = function(y) {
-      if (grepl("^(https|www|http)", y)) {
-        ext = regmatches(y, regexpr("\\.\\w{1,}$", y))
-        tf = tempfile(fileext = ext)
-        download.file(y, tf, mode = "wb", quiet = T)
-      } else {
-        tf = y
+# given a regex for images, base64 encode these images
+encode_reg = function(r, x) {
+  m = gregexpr(r, x, perl = TRUE)
+  regmatches(x, m) = lapply(regmatches(x, m), function(imgs) {
+    if ((n <- length(imgs)) == 0) return(imgs)
+    x1 = gsub(r, '\\1', imgs, perl = TRUE)
+    x2 = gsub(r, '\\2', imgs, perl = TRUE)
+    x3 = gsub(r, '\\3', imgs, perl = TRUE)
+    for (i in seq_len(n)) {
+      f = x2[i]
+      # don't re-encode if the file has been encoded previously
+      if (!(ok <- !is.null(env_images[[f]]))) {
+        b = encode_file(f)
+        if (b == f) next
+        env_images[[f]] = b
+        ok = TRUE
       }
-      if (file.exists(tf)) {
-        knitr::image_uri(tf)
-      } else {
-        y
-      }
+      # dirty hack: hide paths after a base64 string and we'll replace it
+      # will the actual base64 data after the slides are rendered in browser
+      if (ok) x2[i] = paste0('data:image/png;base64,#', f)
     }
-    encoded_list = sapply(encode_list, encode_file)
-    encoded_list_worked = encode_list != encoded_list
-    if (sum(!encoded_list_worked) > 0) {
-      warning(sprintf("URI encoding failed for %s images",
-                      sum(!encoded_list_worked)))
-    }
+    paste0(x1, x2, x3)
+  })
+  x
+}
 
-    tmp = x[images]
-
-    # Replace only those pieces where the encoding actually worked
-    for(i in which(encoded_list_worked)) {
-      regmatches(tmp, gregexpr(encode_list[i], tmp, fixed = T)) =
-        encoded_list[i]
-    }
-
-    final[images] = tmp
+encode_file = function(x) {
+  if (grepl('^data:[^/]+/[^;]+;base64,', x)) return(x)  # already encoded
+  tf = x
+  if (grepl('^https?://.+', x)) {
+    tf = tempfile(fileext = xfun::url_filename(x))
+    xfun::download_file(x, tf, mode = 'wb', quiet = TRUE)
+    on.exit(unlink(tf), add = TRUE)
   }
-  final
+  if (!file.exists(tf)) {
+    warning('Failed to encode the file ', x)
+    return(x)
+  }
+  xfun::base64_uri(tf)
 }

@@ -1,3 +1,7 @@
+# CHANGES IN xaringan VERSION 0.18
+
+- The option `self_contained: true` for the output format `xaringan::moon_reader` supports images written in the syntax `![]()` (Markdown), `background-image: url()` (background images for slides), and `<img src="" />` (HTML) now. Slides generated in the self-contained mode are also much faster to render in web browsers now, especially for slides containing a lot of images (thanks, @srvanderplas #207, @wolass @RLesur @jaredlander #3).
+
 # CHANGES IN xaringan VERSION 0.17
 
 - Small updates to KI theme (@ellessenne, #267).
@@ -65,8 +69,6 @@
 ## NEW FEATURES
 
 - Added the ability to specify an `institute` in the YAML header that is automatically added to the title slide (@paullemmens, #200).
-
-- The option `self_contained: true` for the output format `xaringan::moon_reader` supports images written in the syntax `![]()` (Markdown), `background-image: url()` (background images for slides), and `<img src="" />` (HTML) now. Slides generated in the self-contained mode are also much faster to render in web browsers now, especially for slides containing a lot of images (thanks, @srvanderplas #207, @wolass @RLesur @jaredlander #3).
 
 ## BUG FIXES
 

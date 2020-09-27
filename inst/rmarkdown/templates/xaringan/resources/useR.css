@@ -23,6 +23,10 @@
   font-weight: bold;
 }
 
+.title-slide h2 {
+  font-size: 0pt;
+}
+
 .title-slide h3 {
   position: absolute;
   top: 75%;

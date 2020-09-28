@@ -28,10 +28,10 @@
 }
 
 .title-slide h3 {
-  position: absolute;
-  top: 75%;
-  left: 10%;
+  margin-top: -40px;
   text-align: left;
+  position: relative ;
+  top: 300px;
   color: #454647;
   font-weight: normal;
 }

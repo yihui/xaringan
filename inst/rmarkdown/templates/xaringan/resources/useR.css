@@ -48,3 +48,27 @@
   text-align: left;
   color: #e8e8e8 ;
 }
+
+/* Two-column layout */
+.left-column {
+  width: 20%;
+  float: left;
+  margin-top: -30px;
+}
+
+.right-column {
+  width: 75%;
+  float: right;
+  margin-top: -30px;
+}
+
+.pull-left {
+  float: left;
+  width: 47%;
+  margin-top: -30px;
+}
+.pull-right {
+  float: right;
+  width: 47%;
+  margin-top: -30px;
+}

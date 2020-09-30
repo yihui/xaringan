@@ -1,6 +1,6 @@
 .remark-slide-content {
   background-image: url("https://www.r-project.org/conferences/useR.png"), linear-gradient(to bottom, white 85%, rgba(227, 227, 227) 95%) ;
-  background-position: 2% 99% , center;
+  background-position: 20px 590px , center;
   background-size: 85px , 100% 100%, cover ;
 }
 
@@ -48,7 +48,3 @@
   text-align: left;
   color: #e8e8e8 ;
 }
-
-
-
-

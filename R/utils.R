@@ -1,6 +1,6 @@
 #' @import utils
 #' @import stats
-#' @importFrom xfun read_utf8 write_utf8 normalize_path
+#' @importFrom xfun read_utf8 write_utf8 normalize_path prose_index protect_math
 
 pkg_resource = function(...) system.file(
   'rmarkdown', 'templates', 'xaringan', 'resources', ..., package = 'xaringan',
@@ -70,9 +70,6 @@ sample2 = function(x, size, ...) {
     rep(x, size)  # should consider replace = FALSE in theory
   } else sample(x, size, ...)
 }
-
-prose_index = function(...) xfun::prose_index(...)
-protect_math = function(...) xfun::protect_math(...)
 
 #' Summon remark.js to your local disk
 #'
@@ -204,4 +201,67 @@ flatten_chunk = function(x) {
 process_slide = function(x) {
   x = protect_math(flatten_chunk(x))
   paste(x, collapse = '\n')
+}
+
+# store the base64 data of images (indexed by image paths)
+env_images = new.env(parent = emptyenv())
+clean_env_images = function() {
+  rm(list = ls(env_images, all.names = TRUE), envir = env_images)
+}
+url_token = 'data:image/png;base64,#'
+
+# find images in Markdown, encode them in base64, and store the data in JSON
+# (the data will be used when post-processing remark.js slides in browser)
+encode_images = function(x) {
+  # only process prose lines and not code blocks
+  if (length(p <- prose_index(x)) == 0) return(x)
+  xp = x[p]
+  # opening and closing tags of images
+  r1 = c('!\\[.*?\\]\\(', '<img .*?src\\s*=\\s*"', '^background-image: url\\("?')
+  r2 = c('\\)',           '".*?/>',                '"?\\)')
+  regs = paste0('(?<!`)(', r1, ')(.*?)(', r2, ')(?!`)')
+  for (r in regs) xp = encode_reg(r, xp)
+  x[p] = xp
+  x
+}
+
+# given a regex for images, base64 encode these images
+encode_reg = function(r, x) {
+  m = gregexpr(r, x, perl = TRUE)
+  regmatches(x, m) = lapply(regmatches(x, m), function(imgs) {
+    if ((n <- length(imgs)) == 0) return(imgs)
+    x1 = gsub(r, '\\1', imgs, perl = TRUE)
+    x2 = gsub(r, '\\2', imgs, perl = TRUE)
+    x3 = gsub(r, '\\3', imgs, perl = TRUE)
+    for (i in seq_len(n)) {
+      f = x2[i]
+      # don't re-encode if the file has been encoded previously
+      if (!(ok <- !is.null(env_images[[f]]))) {
+        b = encode_file(f)
+        if (b == f) next
+        env_images[[f]] = b
+        ok = TRUE
+      }
+      # dirty hack: hide paths after a base64 string and we'll replace it
+      # will the actual base64 data after the slides are rendered in browser
+      if (ok) x2[i] = paste0(url_token, f)
+    }
+    paste0(x1, x2, x3)
+  })
+  x
+}
+
+encode_file = function(x) {
+  if (grepl('^data:[^/]+/[^;]+;base64,', x)) return(x)  # already encoded
+  tf = x
+  if (grepl('^https?://.+', x)) {
+    tf = tempfile(fileext = xfun::url_filename(x))
+    xfun::download_file(x, tf, mode = 'wb', quiet = TRUE)
+    on.exit(unlink(tf), add = TRUE)
+  }
+  if (!file.exists(tf)) {
+    warning('Failed to encode the file ', x)
+    return(x)
+  }
+  xfun::base64_uri(tf)
 }

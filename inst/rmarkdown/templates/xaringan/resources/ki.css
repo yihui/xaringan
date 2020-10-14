@@ -128,7 +128,7 @@ ul {
   width: 45%;
 }
 
-.pull-right~* {
+.pull-right+* {
   clear: both;
 }
 

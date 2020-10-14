@@ -1,7 +1,19 @@
+# CHANGES IN xaringan VERSION 0.18
+
+- The option `self_contained: true` for the output format `xaringan::moon_reader` supports images written in the syntax `![]()` (Markdown), `background-image: url()` (background images for slides), and `<img src="" />` (HTML) now. Slides generated in the self-contained mode are also much faster to render in web browsers now, especially for slides containing a lot of images (thanks, @srvanderplas #207, @wolass @RLesur @jaredlander #3).
+
+- The two internal functions `xaringan:::protect_math()` and `xaringan:::prose_index()` have been removed. They are in the **xfun** package now, so please use `xfun::protect_math()` and `xfun::prose_index()` instead.
+
 # CHANGES IN xaringan VERSION 0.17
 
 - Small updates to KI theme (@ellessenne, #267).
 - Added UiO theme (@wleoncio).
+
+- The `.pull-right` CSS class has been updated so that multiple `.pull-left`/`.pull-right` columns can be used on one slide (@gandebuie #271, thanks @ramongallego #260).
+
+- Added a useR theme based on the conference [useR2020 guidelines](https://gitlab.com/R-conferences/user2020/-/blob/master/content/program/guidelines.md) (thanks, @josschavezf, #276).
+
+- Add nature option `autoplay` can take either a numeric value, or a list of the form `list(interval = N, loop = TRUE)`. The latter form can be used to specify if the autoplay should restart after reaching the last slide (i.e., go to the first slide). By default, the autoplay will not restart after reaching the last slide. See the help page `xaringan::moon_reader` for more information (thanks, @pat-s, #266).
 
 # CHANGES IN xaringan VERSION 0.16
 

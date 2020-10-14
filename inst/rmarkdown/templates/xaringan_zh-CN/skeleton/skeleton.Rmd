@@ -2,7 +2,7 @@
 title: "幻灯忍者"
 subtitle: "写轮眼"
 author: "谢益辉"
-institute: "RStudio"
+institute: "RStudio, PBC"
 date: "2016/12/12"
 output:
   xaringan::moon_reader:
@@ -420,17 +420,17 @@ background-position: 90% 8%
 
 简单介绍一下这个包里那些奇怪的术语的由来：
 
-- [写轮眼](http://naruto.wikia.com/wiki/Sharingan)（包名，已解释）
+- [写轮眼](https://naruto.fandom.com/wiki/Sharingan)（包名，已解释）
 
-- [月读](http://naruto.wikia.com/wiki/Moon_Reader)（我希望这个 R Markdown 格式 `moon_reader` 能将听众控制在幻象中）
+- [月读](https://naruto.fandom.com/wiki/Moon_Reader)（我希望这个 R Markdown 格式 `moon_reader` 能将听众控制在幻象中）
 
-- [查克拉](http://naruto.wikia.com/wiki/Chakra)（月读的参数之一 `chakra`，意思是 remark.js 的路径，它是支撑幻灯片的核心动力）
+- [查克拉](https://naruto.fandom.com/wiki/Chakra)（月读的参数之一 `chakra`，意思是 remark.js 的路径，它是支撑幻灯片的核心动力）
 
-- [性质变化](http://naruto.wikia.com/wiki/Nature_Transformation)（月读的参数之一 `nature`，意思是通过设置选项改变查克拉的性质）
+- [性质变化](https://naruto.fandom.com/wiki/Nature_Transformation)（月读的参数之一 `nature`，意思是通过设置选项改变查克拉的性质）
 
-- [无限月读](http://naruto.wikia.com/wiki/Infinite_Tsukuyomi)（函数 `infinite_moon_reader()` 开启一个服务器不断刷新更新后的幻灯片，RStudio 插件背后对应的就是这个函数）
+- [无限月读](https://naruto.fandom.com/wiki/Infinite_Tsukuyomi)（函数 `infinite_moon_reader()` 开启一个服务器不断刷新更新后的幻灯片，RStudio 插件背后对应的就是这个函数）
 
-- [通灵术](http://naruto.wikia.com/wiki/Summoning_Technique)（`summon_remark()` 从网络上把 remark.js 通灵到本地）
+- [通灵术](https://naruto.fandom.com/wiki/Summoning_Technique)（`summon_remark()` 从网络上把 remark.js 通灵到本地）
 
 月读这个忍术有点邪恶，不过你就当不知道吧。
 
@@ -456,4 +456,4 @@ class: center, middle
 
 本幻灯片由 R 包 [**xaringan**](https://github.com/yihui/xaringan) 生成；
 
-查克拉来自于 [remark.js](https://remarkjs.com)、[**knitr**](http://yihui.org/knitr)、以及 [R Markdown](https://rmarkdown.rstudio.com)。
+查克拉来自于 [remark.js](https://remarkjs.com)、[**knitr**](https://yihui.org/knitr)、以及 [R Markdown](https://rmarkdown.rstudio.com)。

@@ -17,7 +17,9 @@
 #'   e.g., for \code{css = c('default', 'extra.css')}), it means
 #'   \code{default.css} in this package and a user-provided \code{extra.css}. To
 #'   find out all built-in CSS files, use \code{xaringan:::list_css()}.
-#' @param self_contained Whether to produce a self-contained HTML file.
+#' @param self_contained Whether to produce a self-contained HTML file by
+#'   embedding all external resources into the HTML file. See the \sQuote{Note}
+#'   section below.
 #' @param seal Whether to generate a title slide automatically using the YAML
 #'   metadata of the R Markdown document (if \code{FALSE}, you should write the
 #'   title slide by yourself).
@@ -42,33 +44,49 @@
 #'   \url{https://github.com/gnab/remark/wiki/Configuration}. Besides the
 #'   options provided by remark.js, you can also set \code{autoplay} to a number
 #'   (the number of milliseconds) so the slides will be played every
-#'   \code{autoplay} milliseconds. You can also set \code{countdown} to a number
-#'   (the number of milliseconds) to include a countdown timer on each slide. If
-#'   using \code{autoplay}, you can optionally set \code{countdown} to
-#'   \code{TRUE} to include a countdown equal to \code{autoplay}. To alter the
-#'   set of classes applied to the title slide, you can optionally set
-#'   \code{titleSlideClass} to a vector of classes; the default is
-#'   \code{c("center", "middle", "inverse")}.
+#'   \code{autoplay} milliseconds; alternatively, \code{autoplay} can be a list
+#'   of the form \code{list(interval = N, loop = TRUE)}, so the slides will go
+#'   to the next page every \code{N} milliseconds, and optionally go back to the
+#'   first page to restart the play when \code{loop = TRUE}. You can also set
+#'   \code{countdown} to a number (the number of milliseconds) to include a
+#'   countdown timer on each slide. If using \code{autoplay}, you can optionally
+#'   set \code{countdown} to \code{TRUE} to include a countdown equal to
+#'   \code{autoplay}. To alter the set of classes applied to the title slide,
+#'   you can optionally set \code{titleSlideClass} to a vector of classes; the
+#'   default is \code{c("center", "middle", "inverse")}.
 #' @param ... For \code{tsukuyomi()}, arguments passed to \code{moon_reader()};
 #'   for \code{moon_reader()}, arguments passed to
 #'   \code{rmarkdown::\link{html_document}()}.
 #' @note Do not stare at Karl's picture for too long after you turn on the
 #'   \code{yolo} mode. I believe he has Sharingan.
 #'
-#'   Local images that you inserted via the Markdown syntax
-#'   \command{![](path/to/image)} will not be embedded into the HTML file when
-#'   \code{self_contained = TRUE} (only CSS, JavaScript, and R plot files will
-#'   be embedded). You may also download remark.js (via
-#'   \code{\link{summon_remark}()}) and use a local copy instead of the default
-#'   \code{chakra} argument when \code{self_contained = TRUE}, because it may be
-#'   time-consuming for Pandoc to download remark.js each time you compile your
-#'   slides.
+#'   For the option \code{self_contained = TRUE}, it encodes images as base64
+#'   data in the HTML output file. The image path should not contain the string
+#'   \code{")"} when the image is written with the syntax \verb{![](PATH)} or
+#'   \verb{background-image: url(PATH)}, and should not contain the string
+#'   \code{"/>"} when it is written with the syntax \verb{<img src="PATH" />}.
+#'   Rendering slides in the self-contained mode can be time-consuming when you
+#'   have remote resources (such as images or JS libraries) in your slides
+#'   because these resources need to be downloaded first. We strongly recommend
+#'   that you download remark.js (via \code{\link{summon_remark}()}) and use a
+#'   local copy instead of the default \code{chakra} argument when
+#'   \code{self_contained = TRUE}, so remark.js does not need to be downloaded
+#'   each time you compile your slides.
+#'
+#'   When the slides are previewed via \code{xaringan::\link{inf_mr}()},
+#'   \code{self_contained} will be temporarily changed to \code{FALSE} even if
+#'   the author of the slides set it to \code{TRUE}. This will make it faster to
+#'   preview slides locally (by avoiding downloading remote resources explicitly
+#'   and base64 encoding them). You can always click the Knit button in RStudio
+#'   or call \code{rmarkdown::render()} to render the slides in the
+#'   self-contained mode (these approaches will respect the
+#'   \code{self_contained} setting).
 #'
 #'   Each page has its own countdown timer (when the option \code{countdown} is
 #'   set in \code{nature}), and the timer is (re)initialized whenever you
 #'   navigate to a new page. If you need a global timer, you can use the
 #'   presenter's mode (press \kbd{P}).
-#' @references \url{http://naruto.wikia.com/wiki/Tsukuyomi}
+#' @references \url{https://naruto.fandom.com/wiki/Tsukuyomi}
 #' @importFrom htmltools tagList tags htmlEscape HTML
 #' @export
 #' @examples
@@ -87,9 +105,30 @@ moon_reader = function(
   tmp_js = tempfile('xaringan', fileext = '.js')  # write JS config to this file
   tmp_md = tempfile('xaringan', fileext = '.md')  # store md content here (bypass Pandoc)
   options(xaringan.page_number.offset = if (seal) 0L else -1L)
+  if (self_contained && isTRUE(getOption('xaringan.inf_mr.running'))) {
+    if (interactive()) xfun::do_once({
+      message(
+        'You are currently using xaringan::inf_mr() to preview your slides, and ',
+        'you have turned on the self_contained option in xaringan::moon_reader. ',
+        'To make it faster for you to preview slides, I have temporarily turned ',
+        'this option off. If you need self-contained slides at the end, you may ',
+        'click the Knit button in RStudio, or call rmarkdown::render() to render ',
+        'this document.'
+      )
+      readline('Press Enter to continue...')
+    }, 'xaringan.self_contained.message')
+    self_contained = FALSE
+  }
 
-  play_js = if (is.numeric(autoplay <- nature[['autoplay']]) && autoplay > 0)
-    sprintf('setInterval(function() {slideshow.gotoNextSlide();}, %d);', autoplay)
+  if (is.numeric(autoplay <- nature[['autoplay']])) {
+    autoplay = list(interval = autoplay, loop = FALSE)
+  }
+  play_js = if (is.numeric(intv <- autoplay$interval) && intv > 0) sprintf(
+    'setInterval(function() {slideshow.gotoNextSlide();%s}, %d);',
+    if (!isTRUE(autoplay$loop)) '' else
+      ' if (slideshow.getCurrentSlideIndex() == slideshow.getSlideCount() - 1) slideshow.gotoFirstSlide();',
+    intv
+  )
 
   if (isTRUE(countdown <- nature[['countdown']])) countdown = autoplay
   countdown_js = if (is.numeric(countdown) && countdown > 0) sprintf(
@@ -143,16 +182,9 @@ moon_reader = function(
     )
   }
 
-  optk = list()
-
   highlight_hooks = NULL
   if (isTRUE(nature$highlightLines)) {
-    # an ugly way to access hooks of markdown output in knitr
-    hooks = local({
-      ohooks = knitr::knit_hooks$get(); on.exit(knitr::knit_hooks$restore(ohooks))
-      knitr::render_markdown()
-      knitr::knit_hooks$get(c('source', 'output'))
-    })
+    hooks = knitr::hooks_markdown()[c('source', 'output')]
     highlight_hooks = list(
       source = function(x, options) {
         hook = hooks[['source']]
@@ -167,20 +199,23 @@ moon_reader = function(
     )
   }
 
-
   rmarkdown::output_format(
     rmarkdown::knitr_options(knit_hooks = highlight_hooks),
     NULL, clean_supporting = self_contained,
-    pre_knit = function(...) {
-      optk <<- knitr::opts_knit$get()
-      if (self_contained) knitr::opts_knit$set(upload.fun = knitr::image_uri)
-    },
     pre_processor = function(
       metadata, input_file, runtime, knit_meta, files_dir, output_dir
     ) {
       res = split_yaml_body(input_file)
       write_utf8(res$yaml, input_file)
       res$body = protect_math(res$body)
+      if (self_contained) {
+        clean_env_images()
+        res$body = encode_images(res$body)
+        cat(sprintf(
+          "<script>(%s)(%s, '%s');</script>", pkg_file('js/data-uri.js'),
+          xfun::tojson(as.list(env_images, all.names = TRUE)), url_token
+        ), file = tmp_js, append = TRUE)
+      }
       content = htmlEscape(yolofy(res$body, yolo))
       Encoding(content) = 'UTF-8'
       write_utf8(content, tmp_md)
@@ -191,7 +226,6 @@ moon_reader = function(
     },
     on_exit = function() {
       unlink(c(tmp_md, tmp_js))
-      if (self_contained) knitr::opts_knit$restore(optk)
     },
     base_format = html_document2(
       css = css, self_contained = self_contained, theme = NULL, highlight = NULL,
@@ -217,7 +251,7 @@ tsukuyomi = function(...) moon_reader(...)
 #'   active document is used).
 #' @param cast_from The root directory of the server.
 #' @param ... Passed to \code{rmarkdown::\link[rmarkdown]{render}()}.
-#' @references \url{http://naruto.wikia.com/wiki/Infinite_Tsukuyomi}
+#' @references \url{https://naruto.fandom.com/wiki/Infinite_Tsukuyomi}
 #' @note This function is not really tied to the output format
 #'   \code{\link{moon_reader}()}. You can use it to serve any single-HTML-file R
 #'   Markdown output.
@@ -240,7 +274,12 @@ infinite_moon_reader = function(moon, cast_from = '.', ...) {
   dots = list(...)
   dots$envir = parent.frame()
   dots$input = moon
-  rebuild = function() do.call(rmarkdown::render, dots)
+  rebuild = function() {
+    # set an option so we know that the inf moon reader is running
+    opts = options(xaringan.inf_mr.running = TRUE)
+    on.exit(options(opts), add = TRUE)
+    do.call(rmarkdown::render, dots)
+  }
   html = NULL
   # rebuild if moon or any dependencies (CSS/JS/images) have been updated
   build = local({

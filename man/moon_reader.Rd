@@ -27,7 +27,9 @@ e.g., for \code{css = c('default', 'extra.css')}), it means
 \code{default.css} in this package and a user-provided \code{extra.css}. To
 find out all built-in CSS files, use \code{xaringan:::list_css()}.}
 
-\item{self_contained}{Whether to produce a self-contained HTML file.}
+\item{self_contained}{Whether to produce a self-contained HTML file by
+embedding all external resources into the HTML file. See the \sQuote{Note}
+section below.}
 
 \item{seal}{Whether to generate a title slide automatically using the YAML
 metadata of the R Markdown document (if \code{FALSE}, you should write the
@@ -56,13 +58,16 @@ list(click = TRUE))}; see
 \url{https://github.com/gnab/remark/wiki/Configuration}. Besides the
 options provided by remark.js, you can also set \code{autoplay} to a number
 (the number of milliseconds) so the slides will be played every
-\code{autoplay} milliseconds. You can also set \code{countdown} to a number
-(the number of milliseconds) to include a countdown timer on each slide. If
-using \code{autoplay}, you can optionally set \code{countdown} to
-\code{TRUE} to include a countdown equal to \code{autoplay}. To alter the
-set of classes applied to the title slide, you can optionally set
-\code{titleSlideClass} to a vector of classes; the default is
-\code{c("center", "middle", "inverse")}.}
+\code{autoplay} milliseconds; alternatively, \code{autoplay} can be a list
+of the form \code{list(interval = N, loop = TRUE)}, so the slides will go
+to the next page every \code{N} milliseconds, and optionally go back to the
+first page to restart the play when \code{loop = TRUE}. You can also set
+\code{countdown} to a number (the number of milliseconds) to include a
+countdown timer on each slide. If using \code{autoplay}, you can optionally
+set \code{countdown} to \code{TRUE} to include a countdown equal to
+\code{autoplay}. To alter the set of classes applied to the title slide,
+you can optionally set \code{titleSlideClass} to a vector of classes; the
+default is \code{c("center", "middle", "inverse")}.}
 
 \item{...}{For \code{tsukuyomi()}, arguments passed to \code{moon_reader()};
 for \code{moon_reader()}, arguments passed to
@@ -84,14 +89,27 @@ providing CSS slide modification examples.
 Do not stare at Karl's picture for too long after you turn on the
   \code{yolo} mode. I believe he has Sharingan.
 
-  Local images that you inserted via the Markdown syntax
-  \command{![](path/to/image)} will not be embedded into the HTML file when
-  \code{self_contained = TRUE} (only CSS, JavaScript, and R plot files will
-  be embedded). You may also download remark.js (via
-  \code{\link{summon_remark}()}) and use a local copy instead of the default
-  \code{chakra} argument when \code{self_contained = TRUE}, because it may be
-  time-consuming for Pandoc to download remark.js each time you compile your
-  slides.
+  For the option \code{self_contained = TRUE}, it encodes images as base64
+  data in the HTML output file. The image path should not contain the string
+  \code{")"} when the image is written with the syntax \verb{![](PATH)} or
+  \verb{background-image: url(PATH)}, and should not contain the string
+  \code{"/>"} when it is written with the syntax \verb{<img src="PATH" />}.
+  Rendering slides in the self-contained mode can be time-consuming when you
+  have remote resources (such as images or JS libraries) in your slides
+  because these resources need to be downloaded first. We strongly recommend
+  that you download remark.js (via \code{\link{summon_remark}()}) and use a
+  local copy instead of the default \code{chakra} argument when
+  \code{self_contained = TRUE}, so remark.js does not need to be downloaded
+  each time you compile your slides.
+
+  When the slides are previewed via \code{xaringan::\link{inf_mr}()},
+  \code{self_contained} will be temporarily changed to \code{FALSE} even if
+  the author of the slides set it to \code{TRUE}. This will make it faster to
+  preview slides locally (by avoiding downloading remote resources explicitly
+  and base64 encoding them). You can always click the Knit button in RStudio
+  or call \code{rmarkdown::render()} to render the slides in the
+  self-contained mode (these approaches will respect the
+  \code{self_contained} setting).
 
   Each page has its own countdown timer (when the option \code{countdown} is
   set in \code{nature}), and the timer is (re)initialized whenever you
@@ -102,5 +120,5 @@ Do not stare at Karl's picture for too long after you turn on the
 # rmarkdown::render('foo.Rmd', 'xaringan::moon_reader')
 }
 \references{
-\url{http://naruto.wikia.com/wiki/Tsukuyomi}
+\url{https://naruto.fandom.com/wiki/Tsukuyomi}
 }

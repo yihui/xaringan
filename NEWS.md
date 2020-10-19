@@ -6,6 +6,8 @@
 
 - Added UiO theme (thanks, @wleoncio, #270).
 
+- The option `anchor_sections` is disabled by default in `moon_reader()`. This option is for `rmarkdown::html_document()` to generate anchor links for sections, which is not really useful for **xaringan** slides.
+
 # CHANGES IN xaringan VERSION 0.17
 
 - Small updates to KI theme (@ellessenne, #267).

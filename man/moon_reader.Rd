@@ -12,6 +12,7 @@ moon_reader(
   yolo = FALSE,
   chakra = "https://remarkjs.com/downloads/remark-latest.min.js",
   nature = list(),
+  anchor_sections = FALSE,
   ...
 )
 
@@ -69,8 +70,8 @@ set \code{countdown} to \code{TRUE} to include a countdown equal to
 you can optionally set \code{titleSlideClass} to a vector of classes; the
 default is \code{c("center", "middle", "inverse")}.}
 
-\item{...}{For \code{tsukuyomi()}, arguments passed to \code{moon_reader()};
-for \code{moon_reader()}, arguments passed to
+\item{anchor_sections, ...}{For \code{tsukuyomi()}, arguments passed to
+\code{moon_reader()}; for \code{moon_reader()}, arguments passed to
 \code{rmarkdown::\link{html_document}()}.}
 }
 \description{

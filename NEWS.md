@@ -1,3 +1,6 @@
+# CHANGES IN xaringan VERSION 0.19
+
+
 # CHANGES IN xaringan VERSION 0.18
 
 - The option `self_contained: true` for the output format `xaringan::moon_reader` supports images written in the syntax `![]()` (Markdown), `background-image: url()` (background images for slides), and `<img src="" />` (HTML) now. Slides generated in the self-contained mode are also much faster to render in web browsers now, especially for slides containing a lot of images (thanks, @srvanderplas #207, @wolass @RLesur @jaredlander #3).

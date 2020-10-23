@@ -1,5 +1,6 @@
 # CHANGES IN xaringan VERSION 0.19
 
+- Added the nhsr theme for the [NHS-R Community](https://github.com/nhs-r-community/) based on the [NHS identity guidelines](https://www.england.nhs.uk/nhsidentity/identity-guidelines/), and also contributed to the [`nhsrtheme` package](https://github.com/nhs-r-community/nhsrtheme).
 
 # CHANGES IN xaringan VERSION 0.18
 

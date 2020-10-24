@@ -63,10 +63,10 @@ hr {
 /*-- Footnote --*/
 .footnote {
   position:           absolute;
-  bottom:             1em;
+  bottom:             2em;
   padding-right:      4em;
-  font-size:          70%;
-  line-height:        1em;
+  font-size:          80%;
+  line-height:        1.3em;
 }
 
 /*-- Slide number --*/

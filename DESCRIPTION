@@ -26,7 +26,7 @@ Authors@R: c(
     person("Paul", "Klemm", role = "ctb", comment = c(ORCID = "0000-0002-5985-1737")),
     person("Paul", "Lemmens", role = "ctb"),
     person("Sean", "Lopp", role = "ctb"),
-    person("Silvia", "Canelón", role = "ctb", comment = c(ORCID = "0000-0003-1709-1394")),
+    person("Silvia", "Canelon", role = "ctb", comment = c(ORCID = "0000-0003-1709-1394")),
     person("Susan", "VanderPlas", role = "ctb", comment = c(ORCID = "0000-0002-3803-0972")),
     person("Waldir", "Leoncio", role = "ctb", email = "w.l.netto@medisin.uio.no"),
     person("Yongfu", "Liao", role = "ctb"),

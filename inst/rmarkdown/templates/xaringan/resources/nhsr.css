@@ -2,6 +2,7 @@
 a {
   color:              #005EB8;
   border-bottom:      2px solid #005EB8;
+  line-height:        1.5em;
 }
 
 a:hover {
@@ -12,11 +13,13 @@ a:hover {
 .remark-slide-content h1 {
   color:              #005EB8;
   font-size:          45px;
+  line-height:        1em;
 }
 
 .remark-slide-content h2 {
   font-size:          35px;
   color:              #005EB8;
+  line-height:        1em;
 }
 
 .remark-slide-content h3 {
@@ -32,30 +35,11 @@ a:hover {
 
 /*-- HORIZONTAL BARS --*/
 hr {
-  content:            '';
+  content:            none;
   display:            block;
   border:             none;
   background-color:   #231F20;
-  height:             .08em;
-}
-
-/*-- INVERSE SLIDE MODIFICATIONS --*/
-
-/*-- Slide background and text (inverse) --*/
-.inverse {
-  background-color:   #005EB8;
-  color:              #FFFFFF;
-  text-shadow:        none;
-}
-
-/*-- Headings (inverse) --*/
-.inverse h1, .inverse h2, .inverse h3 {
-  color:              #FFFFFF;
-}
-
-/*-- Horizontal bars (inverse) --*/
-.inverse hr {
-  background-color:   #FFFFFF;
+  height:             0.08em;
 }
 
 /*-- BOTTOM-OF-SLIDE PROPERTIES --*/
@@ -108,6 +92,58 @@ pre {
 pre code {
   background:          none;
   font-size:           18px !important;
+}
+
+/*-- TABLES --*/
+.remark-slide table {
+  margin:              auto;
+  border-top:          1px solid #768692;
+  border-bottom:       1px solid #768692;
+}
+
+/*-- Table header --*/
+.remark-slide table thead th {
+  border-bottom:       1px solid #768692;
+}
+
+/*-- Table rows (even) --*/
+.remark-slide thead, .remark-slide tfoot, .remark-slide tr:nth-child(even) {
+  background:          #E8EDEE;
+}
+
+/*-- BLOCK QUOTE --*/
+blockquote {
+  border-left:         solid 5px #E8EDEE;
+  padding-left:        1em;
+}
+
+/*-- INVERSE SLIDE MODIFICATIONS --*/
+
+/*-- Slide background and text (inverse) --*/
+.inverse {
+  background-color:   #005EB8;
+  color:              #FFFFFF;
+  text-shadow:        none;
+}
+
+/*-- Headings (inverse) --*/
+.inverse h1, .inverse h2, .inverse h3 {
+  color:              #FFFFFF;
+}
+
+/*-- Horizontal bars (inverse) --*/
+.inverse hr {
+  background-color:   #FFFFFF;
+}
+
+/*-- Links/anchors (inverse) --*/
+.inverse a {
+  color:              white;
+  border-bottom:      2px solid white;
+}
+
+.inverse a:hover {
+  border-bottom: none;
 }
 
 /*-- CUSTOM CLASS FOR THE TITLE SLIDE --*/

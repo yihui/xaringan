@@ -54,8 +54,8 @@
 #'   \code{autoplay}. To alter the set of classes applied to the title slide,
 #'   you can optionally set \code{titleSlideClass} to a vector of classes; the
 #'   default is \code{c("center", "middle", "inverse")}.
-#' @param ... For \code{tsukuyomi()}, arguments passed to \code{moon_reader()};
-#'   for \code{moon_reader()}, arguments passed to
+#' @param anchor_sections,... For \code{tsukuyomi()}, arguments passed to
+#'   \code{moon_reader()}; for \code{moon_reader()}, arguments passed to
 #'   \code{rmarkdown::\link{html_document}()}.
 #' @note Do not stare at Karl's picture for too long after you turn on the
 #'   \code{yolo} mode. I believe he has Sharingan.
@@ -94,7 +94,7 @@
 moon_reader = function(
   css = c('default', 'default-fonts'), self_contained = FALSE, seal = TRUE, yolo = FALSE,
   chakra = 'https://remarkjs.com/downloads/remark-latest.min.js', nature = list(),
-  ...
+  anchor_sections = FALSE, ...
 ) {
   theme = grep('[.]css$', css, value = TRUE, invert = TRUE)
   deps = if (length(theme)) {
@@ -229,7 +229,8 @@ moon_reader = function(
     },
     base_format = html_document2(
       css = css, self_contained = self_contained, theme = NULL, highlight = NULL,
-      extra_dependencies = deps, template = pkg_resource('default.html'), ...
+      extra_dependencies = deps, template = pkg_resource('default.html'),
+      anchor_sections = anchor_sections, ...
     )
   )
 }

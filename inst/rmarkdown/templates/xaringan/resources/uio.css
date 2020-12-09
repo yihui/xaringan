@@ -1,0 +1,13 @@
+/* Using the default as base */
+@import "default.css";
+
+/* Customizing base for UiO */
+a, a > code {
+  color: #F00;
+}
+.remark-code-line-highlighted {
+  color: #000;
+}
+.inverse {
+  background-color: #000;
+}

@@ -1,13 +1,18 @@
 # CHANGES IN xaringan VERSION 0.19
 
-- The position of headers h1, h2 and h3 were fixed within the useR theme.
-- The logo of the conference was updated within the useR theme in order to match with the recently created visual identity of the conference.
+- The position of headers `h1`, `h2`, and `h3` were fixed within the useR theme. The logo of the conference was updated within the useR theme in order to match with the recently created visual identity of the conference (thanks, @josschavezf, #288).
+
+- Added the nhsr theme for the [NHS-R Community](https://github.com/nhs-r-community/) based on the [NHS identity guidelines](https://www.england.nhs.uk/nhsidentity/identity-guidelines/), and also contributed to the [`nhsrtheme` package](https://github.com/nhs-r-community/nhsrtheme) (thanks, @spcanelon, #280).
 
 # CHANGES IN xaringan VERSION 0.18
 
 - The option `self_contained: true` for the output format `xaringan::moon_reader` supports images written in the syntax `![]()` (Markdown), `background-image: url()` (background images for slides), and `<img src="" />` (HTML) now. Slides generated in the self-contained mode are also much faster to render in web browsers now, especially for slides containing a lot of images (thanks, @srvanderplas #207, @wolass @RLesur @jaredlander #3).
 
 - The two internal functions `xaringan:::protect_math()` and `xaringan:::prose_index()` have been removed. They are in the **xfun** package now, so please use `xfun::protect_math()` and `xfun::prose_index()` instead.
+
+- Added UiO theme (thanks, @wleoncio, #270).
+
+- The option `anchor_sections` is disabled by default in `moon_reader()`. This option is for `rmarkdown::html_document()` to generate anchor links for sections, which is not really useful for **xaringan** slides.
 
 # CHANGES IN xaringan VERSION 0.17
 

@@ -1,5 +1,7 @@
 # CHANGES IN xaringan VERSION 0.19
 
+- The position of headers `h1`, `h2`, and `h3` were fixed within the useR theme. The logo of the conference was updated within the useR theme in order to match with the recently created visual identity of the conference (thanks, @josschavezf, #288).
+
 - Added the nhsr theme for the [NHS-R Community](https://github.com/nhs-r-community/) based on the [NHS identity guidelines](https://www.england.nhs.uk/nhsidentity/identity-guidelines/), and also contributed to the [`nhsrtheme` package](https://github.com/nhs-r-community/nhsrtheme) (thanks, @spcanelon, #280).
 
 # CHANGES IN xaringan VERSION 0.18

@@ -1,6 +1,6 @@
 .remark-slide-content {
-  background-image: url("https://www.r-project.org/conferences/useR.png"), linear-gradient(to bottom, white 85%, rgba(227, 227, 227) 95%) ;
-  background-position: 8% 95% , center;
+  background-image: url("https://www.dropbox.com/s/ff7nr4n2dcm59de/useR_logo.png?dl=1"), linear-gradient(to bottom, white 85%, rgba(227, 227, 227) 95%) ;
+  background-position: 20px 590px , center;
   background-size: 85px , 100% 100%, cover ;
 }
 
@@ -10,25 +10,28 @@
 }
 
 .title-slide {
-  background-image: url("https://www.r-project.org/conferences/useR.png"), linear-gradient(to bottom, rgba(227, 227, 227) 100%, rgba(227, 227, 227) 100%), linear-gradient(to bottom, white 85%, rgba(227, 227, 227) 95%)  ;
-  background-position: 5% 15%, 0% 16%, center ;
-  background-size: 160px, 220px 140px , 100% 100%, cover ;
+  background-image: url("https://www.dropbox.com/s/ff7nr4n2dcm59de/useR_logo.png?dl=1"), linear-gradient(to bottom, white 85%, rgba(227, 227, 227) 95%)  ;
+  background-position: 5% 15%, center ;
+  background-size: 160px, 100% 100%, cover ;
 }
 
 .title-slide h1 {
   position: absolute;
-  top: 60%;
-  left: 10%;
+  bottom: 15%;
   text-align: left;
   color: #454647;
   font-weight: bold;
 }
 
+.title-slide h2 {
+  font-size: 0pt;
+}
+
 .title-slide h3 {
-  position: absolute;
-  top: 75%;
-  left: 10%;
+  margin-top: -40px;
   text-align: left;
+  position: relative ;
+  top: 300px;
   color: #454647;
   font-weight: normal;
 }
@@ -46,6 +49,26 @@
   color: #e8e8e8 ;
 }
 
+/* Two-column layout */
+.left-column {
+  width: 20%;
+  float: left;
+  margin-top: -30px;
+}
 
+.right-column {
+  width: 75%;
+  float: right;
+  margin-top: -30px;
+}
 
-
+.pull-left {
+  float: left;
+  width: 47%;
+  margin-top: -30px;
+}
+.pull-right {
+  float: right;
+  width: 47%;
+  margin-top: -30px;
+}

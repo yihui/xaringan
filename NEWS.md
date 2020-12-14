@@ -1,3 +1,6 @@
+# CHANGES IN xaringan VERSION 0.20
+
+
 # CHANGES IN xaringan VERSION 0.19
 
 - The position of headers `h1`, `h2`, and `h3` were fixed within the useR theme. The logo of the conference was updated within the useR theme in order to match with the recently created visual identity of the conference (thanks, @josschavezf, #288).

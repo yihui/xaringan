@@ -44,7 +44,7 @@ class: inverse, center, middle
 
 ```{r tidy=FALSE}
 if (!requireNamespace("xaringan"))
-  devtools::install_github("yihui/xaringan")
+  remotes::install_github("yihui/xaringan")
 ```
 
 --

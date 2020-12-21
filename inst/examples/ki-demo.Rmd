@@ -20,7 +20,7 @@ options(htmltools.dir.version = FALSE)
 Install the **xaringan** package from [Github](https://github.com/yihui/xaringan):
 
 ```{r eval=FALSE, tidy=FALSE}
-devtools::install_github("yihui/xaringan")
+remotes::install_github("yihui/xaringan")
 ```
 
 --

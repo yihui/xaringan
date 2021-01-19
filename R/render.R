@@ -199,6 +199,9 @@ moon_reader = function(
     )
   }
 
+  # don't use Pandoc raw blocks ```{=} (#293)
+  opts = options(htmltools.preserve.raw = FALSE)
+
   rmarkdown::output_format(
     rmarkdown::knitr_options(knit_hooks = highlight_hooks),
     NULL, clean_supporting = self_contained,
@@ -226,6 +229,7 @@ moon_reader = function(
     },
     on_exit = function() {
       unlink(c(tmp_md, tmp_js))
+      options(opts)
     },
     base_format = html_document2(
       css = css, self_contained = self_contained, theme = NULL, highlight = NULL,

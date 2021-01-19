@@ -1,7 +1,7 @@
 Package: xaringan
 Type: Package
 Title: Presentation Ninja
-Version: 0.19.1
+Version: 0.19.2
 Authors@R: c(
     person("Yihui", "Xie", role = c("aut", "cre"), email = "xie@yihui.name", comment = c(ORCID = "0000-0003-0645-5666")),
     # contributors ordered alphabetically below
@@ -40,7 +40,7 @@ Imports:
     knitr (>= 1.30),
     servr (>= 0.13),
     xfun (>= 0.18),
-    rmarkdown
+    rmarkdown (>= 2.6.5)
 Suggests: rstudioapi, testit
 License: MIT + file LICENSE
 URL: https://github.com/yihui/xaringan
@@ -48,3 +48,4 @@ BugReports: https://github.com/yihui/xaringan/issues
 VignetteBuilder: knitr
 Encoding: UTF-8
 RoxygenNote: 7.1.1
+Remotes: rstudio/rmarkdown

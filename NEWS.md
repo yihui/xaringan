@@ -1,3 +1,6 @@
+# CHANGES IN xaringan VERSION 0.21
+
+
 # CHANGES IN xaringan VERSION 0.20
 
 - Fixed the bug that HTML widgets stopped working with new versions of **htmltools** and **rmarkdown** (thanks, @vcannataro @gadenbuie, #293).

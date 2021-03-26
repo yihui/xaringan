@@ -235,6 +235,7 @@ encode_reg = function(r, x) {
     x3 = gsub(r, '\\3', imgs, perl = TRUE)
     for (i in seq_len(n)) {
       f = x2[i]
+      if (f == '') next  # src shouldn't be empty
       # don't re-encode if the file has been encoded previously
       if (!(ok <- !is.null(env_images[[f]]))) {
         b = encode_file(f)

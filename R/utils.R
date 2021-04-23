@@ -106,9 +106,9 @@ highlight_code = function(x, options) {
   # they came from above
   x = gsub('^\\s?([^*].+?)\\s*#<<\\s*$', '*\\1', split_lines(x))
   # allow to highlight line via option (useful for non R engine)
-  if (!is.null(i <- options$highlight.input)) {
+  if (!is.null(i <- options$highlight.source)) {
     if (!is.numeric(i)) {
-      w = sprintf("%s must be numeric. options will be ignored.", sQuote('highlight.input'))
+      w = sprintf("%s must be numeric. options will be ignored.", sQuote('highlight.source'))
       warning(w, call. = FALSE)
     } else {
       s = grep('^`{3}', x) # find start of code output

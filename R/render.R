@@ -96,7 +96,7 @@ moon_reader = function(
   chakra = 'https://remarkjs.com/downloads/remark-latest.min.js', nature = list(),
   anchor_sections = FALSE, ...
 ) {
-  theme = grep('[.]css$', css, value = TRUE, invert = TRUE)
+  theme = grep('[.](?:sa|sc|c)ss$', css, value = TRUE, invert = TRUE)
   deps = if (length(theme)) {
     css = setdiff(css, theme)
     check_builtin_css(theme)

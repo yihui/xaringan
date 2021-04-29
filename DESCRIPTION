@@ -48,4 +48,4 @@ BugReports: https://github.com/yihui/xaringan/issues
 VignetteBuilder: knitr
 Encoding: UTF-8
 RoxygenNote: 7.1.1
-Remotes: rmarkdown
+Remotes: rstudio/rmarkdown

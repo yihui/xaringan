@@ -226,11 +226,11 @@ knitr::kable(head(iris), format = 'html')
 
 # HTML Widgets
 
-I have not thoroughly tested HTML widgets against **xaringan**. Some may work well, and some may not. It is a little tricky.
+No he probado exhaustivamente los HTML widgets en **xaringan**. Puede que algunos funcionen bien y puede que otros no tanto. Es un poco complicado.
 
-Similarly, the Shiny mode (`runtime: shiny`) does not work. I might get these issues fixed in the future, but these are not of high priority to me. I never turn my presentation into a Shiny app. When I need to demonstrate more complicated examples, I just launch them separately. It is convenient to share slides with other people when they are plain HTML/JS applications.
+Igualmente, el modo Shiny (`runtime: shiny`) no functiona. Puede que arregle estos problemas en el futuro, pero por ahora no son de gran prioridad para mí. Yo nunca convierto mi presentación en una Shiny app. Cuando necesito mostrar ejemplos más complicados, simplemente inicio Xaringan y Shiny independientemente. Es más fácil compartir diapositivas con otra gente cuando son simples aplicaciones HTML/JS.  
 
-See the next page for two HTML widgets.
+Mira las siguientes páginas con dos ejemplos de HTML widgets.
 
 ---
 
@@ -492,15 +492,15 @@ Question: what does `highlight.output = c(TRUE, FALSE)` mean? (Hint: think about
 
 # CSS
 
-Among all options in `xaringan::moon_reader`, the most challenging but perhaps also the most rewarding one is `css`, because it allows you to customize the appearance of your slides using any CSS rules or hacks you know.
+Dentro de todas las opciones en `xaringan::moon_reader`, la más compleja pero quizás también la más gratificante es `css`. Esta opción te permite personalizar la apariencia de tus diapositivas usando cualquier regla o truco CSS que sepas.  
 
-You can see the default CSS file [here](https://github.com/yihui/xaringan/blob/master/inst/rmarkdown/templates/xaringan/resources/default.css). You can completely replace it with your own CSS files, or define new rules to override the default. See the help page `?xaringan::moon_reader` for more information.
+Puedes mirar el archivo CSS predeterminado [aquí](https://github.com/yihui/xaringan/blob/master/inst/rmarkdown/templates/xaringan/resources/default.css). Puedes reemplazarlo completamente con tus propios archivos CSS, o puedes definir nuevas reglas que invaliden a las predeterminadas. Mira la página de ayuda de `?xaringan::moon_reader` para más información.
 
 ---
 
 # CSS
 
-For example, suppose you want to change the font for code from the default "Source Code Pro" to "Ubuntu Mono". You can create a CSS file named, say, `ubuntu-mono.css`:
+Por ejemplo, supongamos que quieres cambiar la fuente de tu código de la predeterminada "Source Code Pro" a "Ubuntu Mono". Puedes crear un archivo CSS llamado, digamos, `ubuntu-mono.css`:
 
 ```css
 @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
@@ -508,7 +508,7 @@ For example, suppose you want to change the font for code from the default "Sour
 .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
 ```
 
-Then set the `css` option in the YAML metadata:
+Ahora, ajusta la opción `css` en los metadatos del YAML:
 
 ```yaml
 output:
@@ -516,9 +516,9 @@ output:
     css: ["default", "ubuntu-mono.css"]
 ```
 
-Here I assume `ubuntu-mono.css` is under the same directory as your Rmd.
+Aquí estoy assumiendo que el archivo `ubuntu-mono.css` está en el mismo directorio que tu Rmd.
 
-See [yihui/xaringan#83](https://github.com/yihui/xaringan/issues/83) for an example of using the [Fira Code](https://github.com/tonsky/FiraCode) font, which supports ligatures in program code.
+Mira [yihui/xaringan#83](https://github.com/yihui/xaringan/issues/83) (en inglés) para un ejemplo de cómo usar la fuente [Fira Code](https://github.com/tonsky/FiraCode), que soporta ligaduras en código de programa.
 
 ---
 
@@ -534,7 +534,7 @@ names(xaringan:::list_css())
 
 # Themes
 
-To use a theme, you can specify the `css` option as an array of CSS filenames (without the `.css` extensions), e.g.,
+Para usar un tema, puedes especificar la opción `css` como un arreglo de archivos CSS (sin las extensiones `.css`). Por ejemplo:
 
 ```yaml
 output:
@@ -542,7 +542,7 @@ output:
     css: [default, metropolis, metropolis-fonts]
 ```
 
-If you want to contribute a theme to **xaringan**, please read [this blog post](https://yihui.org/en/2017/10/xaringan-themes).
+Si quieres contribuir a **xaringan** con un tema, por favor lee [esta entrada del blog](https://yihui.org/en/2017/10/xaringan-themes) (en inglés).
 
 ---
 class: inverse, middle, center
@@ -558,49 +558,49 @@ background-position: 90% 8%
 
 # Sharingan
 
-The R package name **xaringan** was derived<sup>1</sup> from **Sharingan**, a dōjutsu in the Japanese anime _Naruto_ with two abilities:
+El nombre de **xaringan** de este paquete de R se deriva de **Sharingan**<sup>1</sup>, un dōjutsu en el anime japonés _Naruto_ que tiene dos habilidades:
 
-- the "Eye of Insight"
+- el "Ojo de la Percepción"
 
-- the "Eye of Hypnotism"
+- el "Ojo del Hipnotismo"
 
-I think a presentation is basically a way to communicate insights to the audience, and a great presentation may even "hypnotize" the audience.<sup>2,3</sup>
+Creo que una presentación es básicamente una manera de comunicar percepciones a la audiencia y que una buena presentación puede incluso "hipnotizar" a la audiencia.<sup>2,3</sup>
 
 .footnote[
-[1] In Chinese, the pronounciation of _X_ is _Sh_ /ʃ/ (as in _shrimp_). Now you should have a better idea of how to pronounce my last name _Xie_.
+[1] En chino, la pronunciación de _X_ es _Sh_ /ʃ/ (como en _shrimp_). Ahora deberías tener una mejor idea de cómo pronunciar mi apellido: _Xie_.
 
-[2] By comparison, bad presentations only put the audience to sleep.
+[2] En comparación, una mala presentación sólo pone a la audiencia a dormir.
 
-[3] Personally I find that setting background images for slides is a killer feature of remark.js. It is an effective way to bring visual impact into your presentations.
+[3] Personalmente, me parece que usar imágenes de fondo para una diapositiva es una característica muy importante de remark.js. Es una manera efectiva de crear un impacto visual en tus presentaciones.
 ]
 
 ---
 
-# Naruto terminology
+# Terminología Naruto
 
-The **xaringan** package borrowed a few terms from Naruto, such as
+El paquete **xaringan** tomó prestados algunos términos de Naruto, por ejemplo:
 
-- [Sharingan](https://naruto.fandom.com/wiki/Sharingan) (写輪眼; the package name)
+- [Sharingan](https://naruto.fandom.com/wiki/Sharingan) (写輪眼; el nombre del paquete)
 
-- The [moon reader](https://naruto.fandom.com/wiki/Moon_Reader) (月読; an attractive R Markdown output format)
+- El [moon reader (Tsukuyomi)](https://naruto.fandom.com/es/wiki/Tsukuyomi) (月読; un atractivo formato de salida de R Markdown)
 
-- [Chakra](https://naruto.fandom.com/wiki/Chakra) (查克拉; the path to the remark.js library, which is the power to drive the presentation)
+- [Chakra](https://naruto.fandom.com/es/wiki/Chakra) (查克拉; ruta hacia la librería remark.js, que es el motor de la presentación)
 
-- [Nature transformation](https://naruto.fandom.com/wiki/Nature_Transformation) (性質変化; transform the chakra by setting different options)
+- [Nature transformation (Transformación de la Naturaleza)](https://naruto.fandom.com/es/wiki/Transformaci%C3%B3n_de_la_Naturaleza) (性質変化; transforma el chakra mediante el ajuste de diferentes opciones)
 
-- The [infinite moon reader](https://naruto.fandom.com/wiki/Infinite_Tsukuyomi) (無限月読; start a local web server to continuously serve your slides)
+- El [infinite moon reader (Tsukuyomi Infinito)](https://naruto.fandom.com/es/wiki/Tsukuyomi_Infinito_(Jutsu)) (無限月読; inicia un servidor web local para servir tus diapositivas continuamente)
 
-- The [summoning technique](https://naruto.fandom.com/wiki/Summoning_Technique) (download remark.js from the web)
+- The [summoning technique (Jutsu de Invocación)](https://naruto.fandom.com/es/wiki/Jutsu_de_Invocaci%C3%B3n) (bajar remark.js de la web)
 
-You can click the links to know more about them if you want. The jutsu "Moon Reader" may seem a little evil, but that does not mean your slides are evil.
+Puedes visitar los links para saber más sobre los términos. El jutsu "Moon Reader" puede parecer un poco maligno, pero eso no significa que tus diapositivas sean malignas.
 
 ---
 
 class: center
 
-# Hand seals (印)
+# Sellos Manuales (印)
 
-Press `h` or `?` to see the possible ninjutsu you can use in remark.js.
+Presiona `h` o `?` para ver todos los posibles ninjutsu que puedes usar en remark.js.
 
 ![](https://upload.wikimedia.org/wikipedia/commons/7/7e/Mudra-Naruto-KageBunshin.svg)
 
@@ -608,8 +608,8 @@ Press `h` or `?` to see the possible ninjutsu you can use in remark.js.
 
 class: center, middle
 
-# Thanks!
+# Gracias!
 
-Slides created via the R package [**xaringan**](https://github.com/yihui/xaringan).
+Diapositivas creadas mediante el paquete de R [**xaringan**](https://github.com/yihui/xaringan).
 
-The chakra comes from [remark.js](https://remarkjs.com), [**knitr**](https://yihui.org/knitr/), and [R Markdown](https://rmarkdown.rstudio.com).
+El Chakra viene de [remark.js](https://remarkjs.com), [**knitr**](https://yihui.org/knitr/) y [R Markdown](https://rmarkdown.rstudio.com).

@@ -532,9 +532,9 @@ names(xaringan:::list_css())
 
 ---
 
-# Themes
+# Temas
 
-Para usar un tema, puedes especificar la opción `css` como un arreglo de archivos CSS (sin las extensiones `.css`). Por ejemplo:
+Para usar un tema, puedes especificar la opción `css` como un vector con los nombres de los archivos CSS (sin usar la extensión `.css`). Por ejemplo:
 
 ```yaml
 output:
@@ -558,7 +558,7 @@ background-position: 90% 8%
 
 # Sharingan
 
-El nombre de **xaringan** de este paquete de R se deriva de **Sharingan**<sup>1</sup>, un dōjutsu en el anime japonés _Naruto_ que tiene dos habilidades:
+El nombre de este paquete de R, **xaringan**, se deriva de **Sharingan**<sup>1</sup>, un dōjutsu en el anime japonés _Naruto_ que tiene dos habilidades:
 
 - el "Ojo de la Percepción"
 
@@ -567,11 +567,11 @@ El nombre de **xaringan** de este paquete de R se deriva de **Sharingan**<sup>1<
 Creo que una presentación es básicamente una manera de comunicar percepciones a la audiencia y que una buena presentación puede incluso "hipnotizar" a la audiencia.<sup>2,3</sup>
 
 .footnote[
-[1] En chino, la pronunciación de _X_ es _Sh_ /ʃ/ (como en _shrimp_). Ahora deberías tener una mejor idea de cómo pronunciar mi apellido: _Xie_.
+[1] En chino, la pronunciación de _X_ es _Sh_ /ʃ/ (como en _Shakespeare_). Ahora deberías tener una mejor idea de cómo pronunciar mi apellido: _Xie_.
 
 [2] En comparación, una mala presentación sólo pone a la audiencia a dormir.
 
-[3] Personalmente, me parece que usar imágenes de fondo para una diapositiva es una característica muy importante de remark.js. Es una manera efectiva de crear un impacto visual en tus presentaciones.
+[3] Personalmente, me parece que usar imágenes de fondo para una diapositiva es una de las funciones más impresionantes y útiles de remark.js. Es una manera efectiva de crear un impacto visual en tus presentaciones.
 ]
 
 ---
@@ -590,7 +590,7 @@ El paquete **xaringan** tomó prestados algunos términos de Naruto, por ejemplo
 
 - El [infinite moon reader (Tsukuyomi Infinito)](https://naruto.fandom.com/es/wiki/Tsukuyomi_Infinito_(Jutsu)) (無限月読; inicia un servidor web local para servir tus diapositivas continuamente)
 
-- The [summoning technique (Jutsu de Invocación)](https://naruto.fandom.com/es/wiki/Jutsu_de_Invocaci%C3%B3n) (bajar remark.js de la web)
+- The [summoning technique (Jutsu de Invocación)](https://naruto.fandom.com/es/wiki/Jutsu_de_Invocaci%C3%B3n) (descargar remark.js de la web)
 
 Puedes visitar los links para saber más sobre los términos. El jutsu "Moon Reader" puede parecer un poco maligno, pero eso no significa que tus diapositivas sean malignas.
 

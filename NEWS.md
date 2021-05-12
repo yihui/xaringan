@@ -2,7 +2,7 @@
 
 - When an image is empty (e.g., `![]()`), the output format option `self_contained: true` of `xaringan::moon_reader` fails to encode the image (thanks, @Mosk915, #302).
 
-- `css` argument in `moon_reader()` now correctly support `.scss` and `.sass` files following their support in base format `rmarkdown::html_document()` in **rmarkdown** 2.7 (thanks, @abichat, #310).
+- `css` argument in `moon_reader()` now correctly support `.scss` and `.sass` files following their support in base format `rmarkdown::html_document()` in **rmarkdown** 2.8 (thanks, @abichat, #310).
 
 # CHANGES IN xaringan VERSION 0.20
 

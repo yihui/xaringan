@@ -17,6 +17,9 @@
 #'   e.g., for \code{css = c('default', 'extra.css')}), it means
 #'   \code{default.css} in this package and a user-provided \code{extra.css}. To
 #'   find out all built-in CSS files, use \code{xaringan:::list_css()}.
+#'   Following support in \pkg{rmarkdown} 2.8, Sass files can now be used too
+#'   (file ending with \verb{.scss} or \verb{.sass}) and they will be processed by \pkg{sass}
+#'   that needs to be installed.
 #' @param self_contained Whether to produce a self-contained HTML file by
 #'   embedding all external resources into the HTML file. See the \sQuote{Note}
 #'   section below.

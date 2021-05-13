@@ -521,6 +521,28 @@ See [yihui/xaringan#83](https://github.com/yihui/xaringan/issues/83) for an exam
 
 ---
 
+# CSS (with Sass)
+
+**xaringan** also supports Sass support via **rmarkdown**. Suppose you want to use the same color for different elements, e.g., first heading and bold text. You can create a `.scss` file, say `mytheme.scss`, using the [sass](https://sass-lang.com/) syntax with variables:
+
+```scss
+$mycolor: #ff0000; 
+.remark-slide-content > h1 { color: $mycolor; }
+.remark-slide-content strong { color: $mycolor; }
+```
+
+Then set the `css` option in the YAML metadata using this file placed under the same directory as your Rmd:
+
+```yaml
+output:
+  xaringan::moon_reader:
+    css: ["default", "mytheme.scss"]
+```
+
+This requires **rmarkdown** >= 2.8 and the [**sass**](https://rstudio.github.io/sass/) package. You can learn more about **rmarkdown** and **sass** support in [this blog post](https://blog.rstudio.com/2021/04/15/2021-spring-rmd-news/#sass-and-scss-support-for-html-based-output) and in [**sass** overview vignette](https://rstudio.github.io/sass/articles/sass.html).
+
+---
+
 # Themes
 
 Don't want to learn CSS? Okay, you can use some user-contributed themes. A theme typically consists of two CSS files `foo.css` and `foo-fonts.css`, where `foo` is the theme name. Below are some existing themes:

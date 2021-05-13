@@ -16,7 +16,10 @@
 #'   \code{.css}, it is supposed to be a built-in CSS file in this package,
 #'   e.g., for \code{css = c('default', 'extra.css')}), it means
 #'   \code{default.css} in this package and a user-provided \code{extra.css}. To
-#'   find out all built-in CSS files, use \code{xaringan:::list_css()}.
+#'   find out all built-in CSS files, use \code{xaringan:::list_css()}. With
+#'   \pkg{rmarkdown} >= 2.8, Sass files (filenames ending with \file{.scss} or
+#'   \file{.sass}) can also be used, and they will be processed by the
+#'   \pkg{sass} package, which needs to be installed.
 #' @param self_contained Whether to produce a self-contained HTML file by
 #'   embedding all external resources into the HTML file. See the \sQuote{Note}
 #'   section below.
@@ -96,7 +99,7 @@ moon_reader = function(
   chakra = 'https://remarkjs.com/downloads/remark-latest.min.js', nature = list(),
   anchor_sections = FALSE, ...
 ) {
-  theme = grep('[.]css$', css, value = TRUE, invert = TRUE)
+  theme = grep('[.](?:sa|sc|c)ss$', css, value = TRUE, invert = TRUE)
   deps = if (length(theme)) {
     css = setdiff(css, theme)
     check_builtin_css(theme)

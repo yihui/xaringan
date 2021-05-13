@@ -55,9 +55,9 @@ assert('encode_images() identifies images, process their paths, and stores base6
 
 # this requires Internet connection, so only run in CI environments like Travis
 if (!is.na(Sys.getenv('NOT_CRAN', NA))) assert('encode_images() works with online images', {
-  (encode_images("background-image: url(https://www.htmlgoodies.com/images/1x1.gif)") %==%
-     paste0("background-image: url(", url_token, "https://www.htmlgoodies.com/images/1x1.gif)"))
-  (env_images[['https://www.htmlgoodies.com/images/1x1.gif']] %==% test_uri)
+  (encode_images("background-image: url(https://github.com/yihui/xaringan/raw/master/tests/testit/1x1.gif)") %==%
+     paste0("background-image: url(", url_token, "https://github.com/yihui/xaringan/raw/master/tests/testit/1x1.gif)"))
+  (env_images[['https://github.com/yihui/xaringan/raw/master/tests/testit/1x1.gif']] %==% test_uri)
 })
 
 clean_env_images()

@@ -1,3 +1,6 @@
+# CHANGES IN xaringan VERSION 0.22
+
+
 # CHANGES IN xaringan VERSION 0.21
 
 - When an image is empty (e.g., `![]()`), the output format option `self_contained: true` of `xaringan::moon_reader` fails to encode the image (thanks, @Mosk915, #302).

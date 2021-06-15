@@ -221,4 +221,4 @@
 
 - Initial CRAN release. See the documentation at https://slides.yihui.org/xaringan/
 
-- added a new template 'glasgow_template' according to the U of Glasgow colors
+- Added a new theme `glasgow` according to the U of Glasgow colors (thanks, @svd09, #323).

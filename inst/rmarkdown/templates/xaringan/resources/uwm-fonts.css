@@ -1,0 +1,30 @@
+/*
+Wisconsin theme for Xaringan presentations
+Author: Tuo Wang
+Updated: 05/24/2021
+*/
+
+/* Add maven for code font (keep other xaringan defaults */
+@import url(https://fonts.googleapis.com/css?family=Inconsolata);
+@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700);
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+
+body { font-family:'Roboto', 'Droid Serif', 'Palatino Linotype', 'Book Antiqua', Palatino, 'Microsoft YaHei', 'Songti SC', serif; }
+
+h1, h2, h3 {
+  font-family: 'Yanone Kaffeesatz';
+  font-weight: normal;
+}
+
+/*
+h2, h3 {
+  font-family: 'Roboto Condensed';
+  font-weight: normal;
+}
+*/
+
+.remark-code, .remark-inline-code { font-family: 'Inconsolata', monospace; }
+.remark-code-line-highlighted     { background-color: #ffff88; }

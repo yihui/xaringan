@@ -1,5 +1,7 @@
 # CHANGES IN xaringan VERSION 0.22
 
+- Added the University of Wisconsin-Madison theme (thanks, @ttuowang, #322).
+
 - Added a new theme `glasgow` according to the U of Glasgow colors (thanks, @svd09, #323).
 
 # CHANGES IN xaringan VERSION 0.21

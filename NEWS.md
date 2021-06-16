@@ -1,5 +1,6 @@
 # CHANGES IN xaringan VERSION 0.22
 
+- Added a new theme `glasgow` according to the U of Glasgow colors (thanks, @svd09, #323).
 
 # CHANGES IN xaringan VERSION 0.21
 
@@ -220,5 +221,3 @@
 ## NEW FEATURES
 
 - Initial CRAN release. See the documentation at https://slides.yihui.org/xaringan/
-
-- Added a new theme `glasgow` according to the U of Glasgow colors (thanks, @svd09, #323).

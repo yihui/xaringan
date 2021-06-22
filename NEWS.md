@@ -4,6 +4,8 @@
 
 - Added a new theme `glasgow` according to the U of Glasgow colors (thanks, @svd09, #323).
 
+- Fix bug in UseR that prevents standalone mode from working (@zkamvar, #326)
+
 # CHANGES IN xaringan VERSION 0.21
 
 - When an image is empty (e.g., `![]()`), the output format option `self_contained: true` of `xaringan::moon_reader` fails to encode the image (thanks, @Mosk915, #302).

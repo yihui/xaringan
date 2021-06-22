@@ -4,7 +4,7 @@
 
 - Added a new theme `glasgow` according to the U of Glasgow colors (thanks, @svd09, #323).
 
-- Fix bug in UseR that prevents standalone mode from working (@zkamvar, #326)
+- Fixed bug in the `useR` theme that prevents standalone mode from working (thanks, @zkamvar, #326).
 
 # CHANGES IN xaringan VERSION 0.21
 

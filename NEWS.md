@@ -1,3 +1,6 @@
+# CHANGES IN xaringan VERSION 0.23
+
+
 # CHANGES IN xaringan VERSION 0.22
 
 - Added the University of Wisconsin-Madison theme (thanks, @ttuowang, #322).

@@ -1,7 +1,8 @@
 .remark-slide-content {
-  background-image: url("https://www.dropbox.com/s/ff7nr4n2dcm59de/useR_logo.png?dl=1"), linear-gradient(to bottom, white 85%, rgba(227, 227, 227) 95%) ;
+  background-image: url("https://www.r-project.org/conferences/useR.png"), linear-gradient(to bottom, white 85%, rgba(227, 227, 227) 95%) ;
   background-position: 20px 590px , center;
   background-size: 85px , 100% 100%, cover ;
+  font-size: 20pt;
 }
 
 .remark-slide-content h1, .remark-slide-content h2, .remark-slide-content h3 {
@@ -10,7 +11,7 @@
 }
 
 .title-slide {
-  background-image: url("https://www.dropbox.com/s/ff7nr4n2dcm59de/useR_logo.png?dl=1"), linear-gradient(to bottom, white 85%, rgba(227, 227, 227) 95%)  ;
+  background-image: url("https://www.r-project.org/conferences/useR.png"), linear-gradient(to bottom, white 85%, rgba(227, 227, 227) 95%)  ;
   background-position: 5% 15%, center ;
   background-size: 160px, 100% 100%, cover ;
 }
@@ -37,7 +38,9 @@
 }
 
 .chapter-slide {
-  background-color: #1464b4;
+  background-image: url("https://www.r-project.org/conferences/useR.png"), linear-gradient(to bottom, #1464b4 85%, rgba(20, 100, 180) 95%) ;
+  background-position: 10px 590px , center;
+  background-size: 0px, 100% 100%, cover ;
 }
 
 .chapter-slide h1 {

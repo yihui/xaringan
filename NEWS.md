@@ -1,10 +1,6 @@
 # CHANGES IN xaringan VERSION 0.23
 
-- Fix lack of blue background color in useR chapter-slide due to fixed #302.
-
-- Update font-size in useR theme to facilitate reading text from small screens.
-
-- Update source link of the useR logo from Dropbox to the official web page.
+- Fixed lack of blue background color in useR chapter-slide due to the fix for #302. Updated font-size in useR theme to facilitate reading text from small screens. Updated source link of the useR logo from Dropbox to the official web page (thanks, @josschavezf, #328).
 
 # CHANGES IN xaringan VERSION 0.22
 

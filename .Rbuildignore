@@ -7,3 +7,4 @@
 skeleton/libs$
 skeleton/skeleton\.html$
 skeleton/skeleton_files$
+^codecov\.yml$

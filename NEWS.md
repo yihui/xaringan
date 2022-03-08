@@ -1,3 +1,6 @@
+# CHANGES IN xaringan VERSION 0.24
+
+
 # CHANGES IN xaringan VERSION 0.23
 
 - Preserve text wrapping in the `xaringan::moon_reder` output to avoid issues like #345 (thanks, @ellessenne @cderv).

@@ -386,9 +386,8 @@ inf_mr = infinite_moon_reader
 #'   \url{https://www.docker.com}.
 #' @return The output file path (invisibly).
 #' @export
-#' @examples if (interactive()) {
-#'   xaringan::decktape('https://slides.yihui.org/xaringan', 'xaringan.pdf', docker = FALSE)
-#' }
+#' @examplesIf interactive()
+#' xaringan::decktape('https://slides.yihui.org/xaringan', 'xaringan.pdf', docker = FALSE)
 decktape = function(
   file, output, args = '--chrome-arg=--allow-file-access-from-files',
   docker = Sys.which('decktape') == '', version = '', open = FALSE

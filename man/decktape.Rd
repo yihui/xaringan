@@ -46,11 +46,9 @@ For some operating systems you may need to
   is used. In case of errors, you may want to try older versions (e.g.,
   \code{version = '2.8.0'}).
 }
-\examples{
-if (interactive()) {
-    xaringan::decktape("https://slides.yihui.org/xaringan", "xaringan.pdf", 
-        docker = FALSE)
-}
+\examples{\dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+xaringan::decktape("https://slides.yihui.org/xaringan", "xaringan.pdf", docker = FALSE)
+\dontshow{\}) # examplesIf}
 }
 \references{
 DeckTape: \url{https://github.com/astefanutti/decktape}. Docker:

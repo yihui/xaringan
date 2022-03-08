@@ -5,8 +5,9 @@
 [ʃaː.'riŋ.ɡan]
 
 <!-- badges: start -->
-[![R-CMD-check](https://github.com/yihui/xaringan/workflows/R-CMD-check/badge.svg)](https://github.com/yihui/xaringan/actions)
+[![R-CMD-check](https://github.com/yihui/xaringan/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/yihui/xaringan/actions/workflows/R-CMD-check.yaml)
 [![CRAN release](https://www.r-pkg.org/badges/version/xaringan)](https://cran.r-project.org/package=xaringan)
+[![Codecov test coverage](https://codecov.io/gh/yihui/xaringan/branch/master/graph/badge.svg)](https://app.codecov.io/gh/yihui/xaringan?branch=master)
 <!-- badges: end -->
 
 An R package for creating slideshows with [remark.js](https://remarkjs.com) through R Markdown. The package name **xaringan** comes from [Sharingan](https://naruto.fandom.com/wiki/Sharingan), a dōjutsu in Naruto with two abilities: the "Eye of Insight" and the "Eye of Hypnotism". A presentation ninja should have these basic abilities, and I think remark.js may help you acquire these abilities, even if you are not a member of the Uchiha clan.

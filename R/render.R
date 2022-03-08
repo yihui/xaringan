@@ -180,6 +180,9 @@ moon_reader = function(
       mathjax = NULL
     }
     pandoc_args = c(pandoc_args, '-V', paste0('title-slide-class=', title_cls))
+    # avoid automatic wrapping: https://github.com/yihui/xaringan/issues/345
+    if (!length(grep('--wrap', pandoc_args)))
+      pandoc_args = c('--wrap', 'preserve', pandoc_args)
     rmarkdown::html_document(
       ..., includes = includes, mathjax = mathjax, pandoc_args = pandoc_args
     )

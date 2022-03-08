@@ -1,5 +1,7 @@
 # CHANGES IN xaringan VERSION 0.23
 
+- Preserve text wrapping in the `xaringan::moon_reder` output to avoid issues like #345 (thanks, @ellessenne @cderv).
+
 - Fixed lack of blue background color in useR chapter-slide due to the fix for #302. Updated font-size in useR theme to facilitate reading text from small screens. Updated source link of the useR logo from Dropbox to the official web page (thanks, @josschavezf, #328).
 
 # CHANGES IN xaringan VERSION 0.22

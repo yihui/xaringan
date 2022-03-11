@@ -299,7 +299,7 @@ infinite_moon_reader = function(moon, cast_from = '.', ...) {
     d = if (p <- is_package()) 'inst' else dirname(moon)
     files = if (getOption('xaringan.inf_mr.aggressive', TRUE)) function() {
       c(list.files(
-        d, '[.](css|js|png|gif|jpeg)$', full.names = TRUE, recursive = TRUE
+        d, '[.](css|js|png|gif|jpeg|Rmd)$', full.names = TRUE, recursive = TRUE
       ), moon)
     } else function() moon
     mtime = function() file.info(files())[, 'mtime']

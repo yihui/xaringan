@@ -1,20 +1,60 @@
+# CHANGES IN xaringan VERSION 0.24
+
+- When running `xaringan::inf_mr()`, the Rmd file will be recompiled when any Rmd file under the same directory is updated. This allows for rebuilding the slides when child documents are used and updated. Previously, the Rmd file would be recompiled only if itself is updated (thanks, @jvolkening, #349).
+
+- Resolved some major shortcut-key conflicts between **xaringan** and the popular screen reader JAWS for Windows in its virtual cursor environment.
+  - In JAWS 16.0.2136 or later, users must keep turning on a setting called "Allow Web Application Reserved Keystrokes," which is enabled by default.
+  - The shortcut keys available on the slide help page (press `h` on any slide to obtain them) are supported.
+
+# CHANGES IN xaringan VERSION 0.23
+
+- Preserve text wrapping in the `xaringan::moon_reader` output to avoid issues like #345 (thanks, @ellessenne @cderv).
+
+- Fixed lack of blue background color in useR chapter-slide due to the fix for #302. Updated font-size in useR theme to facilitate reading text from small screens. Updated source link of the useR logo from Dropbox to the official web page (thanks, @josschavezf, #328).
+
+# CHANGES IN xaringan VERSION 0.22
+
+- Added the University of Wisconsin-Madison theme (thanks, @ttuowang, #322).
+
+- Added a new theme `glasgow` according to the U of Glasgow colors (thanks, @svd09, #323).
+
+- Fixed bug in the `useR` theme that prevents standalone mode from working (thanks, @zkamvar, #326).
+
+# CHANGES IN xaringan VERSION 0.21
+
+- When an image is empty (e.g., `![]()`), the output format option `self_contained: true` of `xaringan::moon_reader` fails to encode the image (thanks, @Mosk915, #302).
+
+- `css` argument in `moon_reader()` now correctly support `.scss` and `.sass` files following their support in base format `rmarkdown::html_document()` in **rmarkdown** 2.8 (thanks, @abichat, #310).
+
+# CHANGES IN xaringan VERSION 0.20
+
+- Fixed the bug that HTML widgets stopped working with new versions of **htmltools** and **rmarkdown** (thanks, @vcannataro @gadenbuie, #293).
+
+# CHANGES IN xaringan VERSION 0.19
+
+- The position of headers `h1`, `h2`, and `h3` were fixed within the useR theme. The logo of the conference was updated within the useR theme in order to match with the recently created visual identity of the conference (thanks, @josschavezf, #288).
+
+- Added the nhsr theme for the [NHS-R Community](https://github.com/nhs-r-community/) based on the [NHS identity guidelines](https://www.england.nhs.uk/nhsidentity/identity-guidelines/), and also contributed to the [`nhsrtheme` package](https://github.com/nhs-r-community/nhsrtheme) (thanks, @spcanelon, #280).
+
+# CHANGES IN xaringan VERSION 0.18
+
+- The option `self_contained: true` for the output format `xaringan::moon_reader` supports images written in the syntax `![]()` (Markdown), `background-image: url()` (background images for slides), and `<img src="" />` (HTML) now. Slides generated in the self-contained mode are also much faster to render in web browsers now, especially for slides containing a lot of images (thanks, @srvanderplas #207, @wolass @RLesur @jaredlander #3).
+
+- The two internal functions `xaringan:::protect_math()` and `xaringan:::prose_index()` have been removed. They are in the **xfun** package now, so please use `xfun::protect_math()` and `xfun::prose_index()` instead.
+
+- Added UiO theme (thanks, @wleoncio, #270).
+
+- The option `anchor_sections` is disabled by default in `moon_reader()`. This option is for `rmarkdown::html_document()` to generate anchor links for sections, which is not really useful for **xaringan** slides.
+
 # CHANGES IN xaringan VERSION 0.17
 
-## Accessibility
+- Small updates to KI theme (@ellessenne, #267).
 
-- Resolved some major shorcut-key conflicts between xaringan and the popular screen reader JAWS for Windows in its virtual cursor environment.
-  - In JAWS 16.0.2136 or later, users must keep turning on a setting called "Allow Web Application Reserved Keystrokes," which is enabled by default.
-  - The following shorcut keys are supported in xaringan slides for JAWS in virtual cursor:
-    - 'h': 'Toggle help page'
-    - 'k': 'Go the previous slide'
-    - 'j': 'Go the next slide'
-    - 'b': 'Toggle black out a slide'
-    - 'm': 'Toggle mirror a slide'
-    - 'f': 'Toggle fullscreen mode'
-    - 'c': 'Clone slides to a new browser window'
-    - 'p': 'Toggle the presenter mode'
-    - 't': 'Restart timer'
+- The `.pull-right` CSS class has been updated so that multiple `.pull-left`/`.pull-right` columns can be used on one slide (@gandebuie #271, thanks @ramongallego #260).
 
+- Added a useR theme based on the conference [useR2020 guidelines](https://gitlab.com/R-conferences/user2020/-/blob/master/content/program/guidelines.md) (thanks, @josschavezf, #276).
+
+- Add nature option `autoplay` can take either a numeric value, or a list of the form `list(interval = N, loop = TRUE)`. The latter form can be used to specify if the autoplay should restart after reaching the last slide (i.e., go to the first slide). By default, the autoplay will not restart after reaching the last slide. See the help page `xaringan::moon_reader` for more information (thanks, @pat-s, #266).
 
 # CHANGES IN xaringan VERSION 0.16
 

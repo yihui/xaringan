@@ -75,7 +75,7 @@ a, a > code {
   width: 45%;
 }
 
-.pull-right ~ * {
+.pull-right + * {
   clear: both;
 }
 
@@ -145,7 +145,7 @@ thead, tfoot, tr:nth-child(even) { background: none; }
 
 /* H2 fonts */
 .title-slide h2 {
-  color: #4C4B4C; /* Middlebury grey accent 1 */ 
+  color: #4C4B4C; /* Middlebury grey accent 1 */
   font-size: 35px;
   text-align: left;
   text-shadow: none;
@@ -212,7 +212,7 @@ thead, tfoot, tr:nth-child(even) { background: none; }
   background-color: #AAA59F;
   color: #fff;
   padding-left: 100px;
-/*  text-shadow: 0 0 3px #333; */  
+/*  text-shadow: 0 0 3px #333; */
   text-align: center;
 }
 

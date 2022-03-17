@@ -1,0 +1,76 @@
+.remark-slide-content {
+  background-image: url("https://www.r-project.org/conferences/useR.png"), linear-gradient(to bottom, white 85%, rgba(227, 227, 227) 95%) ;
+  background-position: 20px 590px , center;
+  background-size: 85px , 100% 100%, cover ;
+  font-size: 20pt;
+}
+
+.remark-slide-content h1, .remark-slide-content h2, .remark-slide-content h3 {
+  color: #454647;
+  font-weight: bold;
+}
+
+.title-slide {
+  background-image: url("https://www.r-project.org/conferences/useR.png"), linear-gradient(to bottom, white 85%, rgba(227, 227, 227) 95%)  ;
+  background-position: 5% 15%, center ;
+  background-size: 160px, 100% 100%, cover ;
+}
+
+.title-slide h1 {
+  position: absolute;
+  bottom: 15%;
+  text-align: left;
+  color: #454647;
+  font-weight: bold;
+}
+
+.title-slide h2 {
+  font-size: 0pt;
+}
+
+.title-slide h3 {
+  margin-top: -40px;
+  text-align: left;
+  position: relative ;
+  top: 300px;
+  color: #454647;
+  font-weight: normal;
+}
+
+.chapter-slide {
+  background-image: url("https://www.r-project.org/conferences/useR.png"), linear-gradient(to bottom, #1464b4 85%, rgba(20, 100, 180) 95%) ;
+  background-position: 10px 590px , center;
+  background-size: 0px, 100% 100%, cover ;
+}
+
+.chapter-slide h1 {
+  position: absolute;
+  top: 55%;
+  left: 10%;
+  text-align: left;
+  color: #e8e8e8 ;
+}
+
+/* Two-column layout */
+.left-column {
+  width: 20%;
+  float: left;
+  margin-top: -30px;
+}
+
+.right-column {
+  width: 75%;
+  float: right;
+  margin-top: -30px;
+}
+
+.pull-left {
+  float: left;
+  width: 47%;
+  margin-top: -30px;
+}
+.pull-right {
+  float: right;
+  width: 47%;
+  margin-top: -30px;
+}

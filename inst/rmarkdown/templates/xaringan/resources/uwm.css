@@ -1,0 +1,282 @@
+/*
+Title: Wisconsin theme for Xaringan presentations
+Author: Tuo Wang
+Updated: 06/12/2021
+Description: A UW-Madison theme for Xaringan presentations. Modifid based on 
+             Joseph V. Casillas's Rutgers theme
+References: https://github.com/jvcasillas/ru_xaringan
+*/
+
+/* Package defaults with slightly modification*/
+a, a > code {
+  color: #cc0033; /* rgb(249, 38, 114) */
+  text-decoration: none;
+}
+
+/* slightly lower and bigger than default */
+.footnote {
+  position: absolute;
+  bottom: 1em;
+  padding-right: 4em;
+  font-size: 95%;
+}
+
+/* important code slightly red */
+.remark-code-line-highlighted {
+  background-color: #FFD3DE !important;
+}
+
+/* color tweak */
+.inverse {
+  background-color: #272822;
+  color: #777872;
+  text-shadow: 0 0 20px #333;
+}
+
+/* slightly spacing change */
+.inverse h1, .inverse h2, .inverse h3 {
+  color: #f3f3f3;
+  line-height: 1.0em;
+}
+
+/* Two-column layout */
+.left-column {
+  color: #282728	;
+  width: 25%;
+  height: 92%;
+  float: left;
+}
+.left-column h2:last-of-type, .left-column h3:last-child {
+  color: #000;
+}
+.right-column {
+  width: 70%;
+  float: right;
+  padding-top: 0em;
+}
+
+.pull-left {
+  float: left;
+  width: 45%;
+}
+
+.pull-right {
+  float: right;
+  width: 45%;
+}
+
+.pull-right + * {
+  clear: both;
+}
+
+img, video, iframe {
+  max-width: 100%;
+}
+
+blockquote {
+  border-left: solid 5px lightgray;
+  padding-left: 1em;
+}
+
+/* adjust table horizontal spacing */
+th, td {
+    padding:0 15px 0 15px;
+}
+
+.remark-slide table {
+  margin: auto;
+  border-top: 1px solid #666;
+  border-bottom: 1px solid #666;
+}
+.remark-slide table thead th { border-bottom: 1px solid #ddd; }
+th, td { padding: 5px; }
+.remark-slide thead, .remark-slide tfoot, .remark-slide tr:nth-child(even) { background: #eee }
+
+/* leave this alone */
+@page { margin: 0; }
+@media print {
+  .remark-slide-scaler {
+    width: 100% !important;
+    height: 100% !important;
+    transform: scale(1) !important;
+    top: 0 !important;
+    left: 0 !important;
+  }
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~*/
+/* UW-Madison additions */
+/*~~~~~~~~~~~~~~~~~~~~~~*/
+
+/* Title slide */
+
+/* Add image and change bg color */
+.title-slide {
+  background-image: url(https://raw.githubusercontent.com/ttuowang/Xaringan-wisconsin-theme/master/uwm-logo/color-flush-UWlogo-print.png);
+  background-position: 9% 15%;
+  background-size: 300px;
+  background-color: #fff;
+  padding-left: 100px;  /* delete this for 4:3 aspect ratio */
+}
+
+/* H1 fonts */
+.title-slide h1 {
+  color: #cc0033;
+  padding-top: 100px;
+  font-weight: normal;
+  font-size: 60px;
+  text-align: center;
+  text-shadow: none;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+/* H2 fonts */
+.title-slide h2 {
+  color: #cc0033;
+  font-size: 34px;
+  text-align: center;
+  text-shadow: none;
+  padding-bottom: 20px;
+  margin-top: 0px;
+}
+
+/* H3 fonts */
+.title-slide h3 {
+  font-size: 28px;
+  font-weight: normal;
+  color: #666666;
+  text-align: center;
+  text-shadow: none;
+  padding-bottom: 15px;
+  margin: 0px;
+  line-height: 1;
+}
+
+/* Remove slide count shadow */
+.title-slide .remark-slide-number {
+  text-shadow: none;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~*/
+/* Global adjustments */
+/*~~~~~~~~~~~~~~~~~~~~*/
+
+/* Add padding to all slides for 16:9 aspect ratio */
+.remark-slide-content {
+  padding-left: 100px;  /* delete this for 4:3 aspect ratio */
+  font-size: 21px;
+}
+
+/* Color adjustments for text */
+
+strong {
+  color: #ea5455;
+}
+
+.bold { font-weight: bold; }
+
+.uw-red{
+  color: #c5050c;
+}
+
+.uw-red-dark{
+  color: #9b0000;
+}
+
+.uw-gray-blue{
+  color: #dadfe1;
+}
+
+.uw-gray-darker{
+  color: #646569;
+}
+
+.uw-gray-darkest{
+  color: #282728;
+}
+
+.uw-anchor-color{
+  color: #0479a8;
+}
+
+.p1-yellow {
+  color: #f9ed69;
+}
+
+.p1-orange {
+  color: #f08a5d;
+}
+
+.p1-darkred {
+  color: #b83b5e;
+}
+
+.p1-purple {
+  color: #6a2c70;
+}
+
+.p2-green {
+  color: #95e1d3;
+}
+
+.p2-blue {
+  color: #769fcd;
+  font-weight: bold;
+}
+
+.p2-yellow {
+  color: #fce38a;
+  font-weight: bold;
+}
+
+.p2-red {
+  color: #f38181;
+}
+
+/* Color adjustments to headers */
+h1 {
+  color: #cc0033;
+}
+
+h3 {
+  color: #515151;
+}
+
+/* Font size tags */
+.big {
+  font-size: 1.5em;
+}
+
+/* uw-madison blockquote */
+uw-blockquote {
+  display: block;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 40px;
+  margin-right: 40px;
+  border-left: solid 20px #c5050c;
+  background-color: #dadfe1	;
+  padding: 1em;
+  color: #000000;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+/*~~~~~~~~~~~~~~*/
+/* Highlight    */
+/*~~~~~~~~~~~~~~*/
+
+.highlight-last-item > ul > li, 
+.highlight-last-item > ol > li {
+  opacity: 0.5;
+}
+.highlight-last-item > ul > li:last-of-type,
+.highlight-last-item > ol > li:last-of-type {
+  opacity: 1;
+}
+
+.bold-last-item > ul > li:last-of-type,
+.bold-last-item > ol > li:last-of-type {
+  font-weight: bold;
+}

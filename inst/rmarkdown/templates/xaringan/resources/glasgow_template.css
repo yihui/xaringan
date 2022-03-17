@@ -1,0 +1,232 @@
+/* this is the glasgow themplate to modify xaringan slides to conform to
+the University of Glasgow colors and font */
+
+
+/* UofG prefers using a serif font. The official font is either Adobe Garamond or Swiss 721 BT. Neither of these fonts are free. The closest alternative to these in google fonts is Coromorant Garamond. The university recommends using Arial as a sans serif alternative when using routine word processing software. So, I have used the Lato, another google font alternative to Arial for text
+
+Headers are in Garamond while text is in Lato */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Lato&family=Montserrat&family=Roboto&display=swap');
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
+
+
+
+:root{
+  --header-font-family: 'Cormorant Garamond', serif;
+
+  --text-font-family: 'Lato', sans-serif;
+
+  --background-color: #efefef;
+
+  --title-background-color: #003865;
+
+  --title-font-color: #efefef;
+
+  --title-font-color2: rgb(255, 220, 54);
+
+  --base-font-size: 20px;
+
+  --text-font-size: 0.75rem;
+
+  --code-font-size: 0.75rem;
+
+}
+
+
+.title-slide{
+  background-image: linear-gradient(to right, var(--title-background-color), #efefef);
+  font-family: var(--header-font-family);
+  color: var(--title-font-color);
+
+}
+
+
+
+
+
+.title-slide .remark-slide-number{
+  display: none;
+}
+
+.title-slide-content > h1{
+  color: var(--title-background-color);
+  font-weight: 800;
+  text-align: center;
+
+}
+
+.title-slide-content > h2{
+  color: #B30C00;
+  font-weight: 600;
+  text-shadow: -4px -1px 0 #0000, 4px -1px 0 #0000,
+  -4px 1px 0 #0000, 4px 1px 0 #0000;
+}
+
+
+.title-slide-content > h3{
+  color: var(--title-background-color);
+  font-weight: 400;
+}
+
+
+
+
+
+
+
+
+/* set the font for all the other slides */
+
+body{
+
+  background: #efefef;
+  font-family: var(--text-font-family);
+  font-weight: normal;
+
+
+}
+
+
+
+.remark-slide-content h1{
+
+  color: var(--title-background-color);
+  font-weight: 800;
+  text-align: center;
+  text-font-size: 20px;
+  text-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.remark-slide-content h2{
+  color: #B30C00;
+  font-weight: 600;
+  text-font-size: 1.5rem;
+
+}
+
+
+.remark-slide-content h3{
+  color: #9A3A06;
+  font-weight: 400;
+  --text-font-size: 1.25rem;
+}
+
+/* background for inline code */
+
+.remark-inline-code {
+  background: rgb(255,220,54);
+}
+
+
+/* chapter slides
+Chapter slides is a new declared element. Chapter slides can be used as subtitle or to break the presentation into sections. Chapter slides will have center aligned text. BG color = U burgundy and text = white */
+
+.chapter {
+  background-image: linear-gradient(to right, #7D2239, #003865);
+
+}
+
+.chapter > h1{
+  color: #efefef;
+  text-align: center;
+  text-shadow: 0 0 6px #003865;
+
+}
+
+.chapter > h2{
+  color: #efefef;
+  text-align: center;
+}
+
+.chapter > h3{
+  color: #efefef;
+  text-align: center;
+}
+
+.chapter .remark-slide-number{
+  color: #efefef;
+}
+
+
+/* color styles to change the font colors of text for bold and italics as needed
+the colors provided are those that are present in the UofG brand colors*/
+
+.text-cobalt{
+  color: #005C8A;
+}
+
+.text-rust{
+  color: #9A3A06;
+}
+
+.text-moss{
+  color: #385A4F;
+}
+
+.text-thistle{
+  color: #951272;
+}
+
+/* creating blockquotes */
+
+blockquote, .blockquote{
+  display: block;
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
+  margin-right: 5px;
+  margin-left: 5px;
+  border-left: solid 10px #B30C00;
+  border-right:solid 2px #B30C00;
+  border-bottom: solid 2px  #B30C00;
+  border-bottom: solid 2px #B30C00;
+  box-shadow: 0 0 6px rgba(0,0,0,0.5);
+  color: #003865;
+  padding: 0.5em;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+
+/* creating two content slides */
+
+/* two content with small left and large right */
+
+.left-column{
+  width: 20%;
+  height: 92%;
+  float: left;
+  background-color: rgba(0,181,209, 0.5);
+  padding: 20px;
+  border: 2px rgba(0,181,209, 0.5);
+
+}
+
+.left-column h2, {
+  color: ##B30C00;
+}
+
+.left-column h3{
+  color: #9A3A06;
+}
+
+.right-column{
+  width: 70%;
+  height: 92%;
+  float: right;
+}
+
+.pull-right{
+  float:left;
+  width: 47%;
+}
+
+.pull-right{
+  float: right;
+  width: 47%;
+}

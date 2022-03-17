@@ -1,7 +1,7 @@
 :root {
-/*
-Define UoL Colors
-*/
+  /*
+  Define KI colours
+  */
   --plum: #870052;
   --cyclamen: #D40963;
   --grey: #808080;
@@ -11,42 +11,39 @@ Define UoL Colors
   --accent: var(--cyclamen);
   --text: var(--black);
   --text-inverse: var(--white);
-
-/*
-Define font size, to mimick beamer.
-Base font size: 22px
-Calculate relative font sizes:
-round(22 * data.frame(
-  tiny = 0.763650977,
-  scriptsize = 0.916712714,
-  footnotesize = 0.916712714,
-  small = 0.916712714,
-  normalsize = 1.10,
-  large = 1.320088411,
-  Large = 1.583664038,
-  LARGE = 1.900838901,
-  huge = 2.281006681,
-  Huge = 2.281006681,
-  references = 0.8401818))
-*/
-
-  --size-tiny: 17px;
-  --size-scriptsize: 20px;
-  --size-footnotesize: 20px;
-  --size-small: 20px;
-  --size-normalsize: 24px;
-  --size-large: 29px;
-  --size-Large: 35px;
-  --size-LARGE: 42px;
-  --size-huge: 50px;
-  --size-Huge: 50px;
-/* New size for list of reference: halfway through tiny and small */
-  --size-references: 18px;
+  --highlight: var(--plum);
+  /*
+  Define font size, to mimick beamer.
+  Base font size: 24px
+  Calculate relative font sizes:
+  round(24 * data.frame(
+    tiny = 0.763650977,
+    scriptsize = 0.916712714,
+    footnotesize = 0.916712714,
+    small = 0.916712714,
+    normalsize = 1.10,
+    large = 1.320088411,
+    Large = 1.583664038,
+    LARGE = 1.900838901,
+    huge = 2.281006681,
+    Huge = 2.281006681,
+    references = 0.8401818))
+  */
+  --size-tiny: 18px;
+  --size-scriptsize: 22px;
+  --size-footnotesize: 22px;
+  --size-small: 22px;
+  --size-normalsize: 26px;
+  --size-large: 32px;
+  --size-Large: 38px;
+  --size-LARGE: 46px;
+  --size-huge: 55px;
+  --size-Huge: 55px;
+  /* New size for list of reference: halfway through tiny and small */
+  --size-references: 20px;
 }
 
-.remark-slide-content,
-.remark-slide-content p,
-.remark-slide-content li p {
+.remark-slide-content, .remark-slide-content p, .remark-slide-content li p {
   color: var(--text);
   font-size: var(--size-normalsize);
 }
@@ -69,7 +66,7 @@ h3 {
   font-size: var(--size-large);
 }
 
-a, a > code, a:visited {
+a, a>code, a:visited {
   color: var(--accent);
   text-decoration: none;
 }
@@ -103,23 +100,22 @@ ul {
   font-size: var(--size-scriptsize);
 }
 
-.remark-inline-code {
-  font-size: var(--size-normalsize);
-}
-
 .inverse {
   background-image: none;
   background-color: var(--main);
   color: var(--text-inverse);
 }
 
-.inverse h1,
-.inverse h2,
-.inverse h3,
-.inverse h4,
-.inverse h5,
-.inverse h6 {
+.inverse h1, .inverse h2, .inverse h3, .inverse h4, .inverse h5, .inverse h6, .inverse p, .inverse a {
   color: var(--text-inverse);
+}
+
+.inverse a {
+  text-decoration: underline;
+}
+
+.inverse a:hover {
+  text-decoration: underline wavy;
 }
 
 .pull-left {
@@ -132,20 +128,21 @@ ul {
   width: 45%;
 }
 
-.pull-right ~ * {
+.pull-right+* {
   clear: both;
 }
 
-img,
-video,
-iframe {
+img, video, iframe {
   max-width: 100%;
 }
 
 blockquote {
   border-left: solid 5px var(--accent);
   padding-left: 1em;
-  color: var(--main);
+}
+
+.remark-slide-content blockquote p {
+  font-size: 1.1em;
 }
 
 .remark-slide table {
@@ -162,9 +159,7 @@ th, td {
   padding: 5px;
 }
 
-.remark-slide thead,
-.remark-slide tfoot,
-.remark-slide tr:nth-child(even) {
+.remark-slide thead, .remark-slide tfoot, .remark-slide tr:nth-child(even) {
   background: var(--white);
 }
 
@@ -187,8 +182,7 @@ th, td {
   color: var(--text);
 }
 
-.title-slide .remark-slide-number,
-.inverse .remark-slide-number {
+.title-slide .remark-slide-number, .inverse .remark-slide-number {
   display: none;
 }
 
@@ -198,8 +192,8 @@ th, td {
 
 .title-slide {
   background-image: url(https://user-images.githubusercontent.com/10330005/71024315-eee82b00-2104-11ea-928b-be412b1f3687.png);
-  background-position: 95% 5%;
-  background-size: 6cm;
+  background-position: 97.5% 2.5%;
+  background-size: 10cm;
 }
 
 .title-slide h1 {
@@ -209,7 +203,7 @@ th, td {
   margin-bottom: 3%;
 }
 
-.title-slide h2, h3, h4, h5, h6 {
+.title-slide h2, .title-slide h3, .title-slide h4, .title-slide h5, .title-slide h6 {
   text-align: left;
   padding-top: 0%;
   margin-top: 0%;
@@ -221,6 +215,20 @@ th, td {
 
 .inverse {
   text-shadow: none;
+}
+
+.outline h2, .outline h3, .outline h4, .outline h5, .outline h6 {
+  color: black;
+  line-height: 200%;
+}
+
+.mjx-chtml {
+  font-size: inherit;
+}
+
+.remark-code-line-highlighted {
+  background-color: var(--highlight);
+  border-radius: 10px;
 }
 
 /*
@@ -263,46 +271,46 @@ Extra classes for size and color
   color: var(--text-inverse);
 }
 
-.tiny {
+.tiny, .tiny p {
   font-size: var(--size-tiny);
 }
 
-.scriptsize {
+.scriptsize, .scriptsize p {
   font-size: var(--size-scriptsize);
 }
 
-.footnotesize {
+.footnotesize, .footnotesize p {
   font-size: var(--size-footnotesize);
 }
 
-.small {
+.small, .small p {
   font-size: var(--size-small);
 }
 
-.normalsize {
+.normalsize, .normalsize p {
   font-size: var(--size-normalsize);
 }
 
-.large {
+.large, .large p {
   font-size: var(--size-large);
 }
 
-.Large {
+.Large, .Large p {
   font-size: var(--size-Large);
 }
 
-.LARGE {
+.LARGE, .LARGE p {
   font-size: var(--size-LARGE);
 }
 
-.huge {
+.huge, .huge p {
   font-size: var(--size-huge);
 }
 
-.Huge {
+.Huge, .Huge p {
   font-size: var(--size-Huge);
 }
 
-.references {
+.references, .references p {
   font-size: var(--size-references);
 }

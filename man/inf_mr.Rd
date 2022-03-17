@@ -33,7 +33,7 @@ This function is not really tied to the output format
   Markdown output.
 }
 \references{
-\url{http://naruto.wikia.com/wiki/Infinite_Tsukuyomi}
+\url{https://naruto.fandom.com/wiki/Infinite_Tsukuyomi}
 }
 \seealso{
 \code{servr::\link{httw}}

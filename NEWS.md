@@ -1,5 +1,6 @@
 # CHANGES IN xaringan VERSION 0.24
 
+- When running `xaringan::inf_mr()`, the Rmd file will be recompiled when any Rmd file under the same directory is updated. This allows for rebuilding the slides when child documents are used and updated. Previously, the Rmd file would be recompiled only if itself is updated (thanks, @jvolkening, #349).
 
 # CHANGES IN xaringan VERSION 0.23
 

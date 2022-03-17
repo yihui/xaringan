@@ -298,11 +298,14 @@ infinite_moon_reader = function(moon, cast_from = '.', ...) {
     # otherwise watch files under the dir of the moon
     d = if (p <- is_package()) 'inst' else dirname(moon)
     files = if (getOption('xaringan.inf_mr.aggressive', TRUE)) function() {
-      c(list.files(
-        d, '[.](css|js|png|gif|jpeg)$', full.names = TRUE, recursive = TRUE
-      ), moon)
+      list.files(
+        d, '[.](css|js|png|gif|jpeg|Rmd)$', full.names = TRUE, recursive = TRUE
+      )
     } else function() moon
-    mtime = function() file.info(files())[, 'mtime']
+    mtime = function() {
+      fs = files()
+      setNames(file.info(fs)[, 'mtime'], fs)
+    }
     html <<- normalize_path(rebuild())  # render Rmd initially
     l = max(m <- mtime())  # record the latest timestamp of files
     r = servr:::is_rstudio(); info = if (r) slide_context()
@@ -331,9 +334,11 @@ infinite_moon_reader = function(moon, cast_from = '.', ...) {
         }
         return(FALSE)
       }
+      # is any Rmd updated?
+      u2 = !u && any(m2[grep('[.]Rmd$', names(m2))] > l)
       l <<- max(m2)
       # moon or dependencies have been updated, recompile and reload in browser
-      if (p || tail(m2, 1) > tail(m, 1)) {
+      if (p || u2) {
         rebuild(); if (r) info <<- slide_context()
       }
       l <<- max(m <<- mtime())

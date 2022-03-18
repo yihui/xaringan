@@ -2,6 +2,10 @@
 
 - When running `xaringan::inf_mr()`, the Rmd file will be recompiled when any Rmd file under the same directory is updated. This allows for rebuilding the slides when child documents are used and updated. Previously, the Rmd file would be recompiled only if itself is updated (thanks, @jvolkening, #349).
 
+- Resolved some major shortcut-key conflicts between **xaringan** and the popular screen reader JAWS for Windows in its virtual cursor environment.
+  - In JAWS 16.0.2136 or later, users must keep turning on a setting called "Allow Web Application Reserved Keystrokes," which is enabled by default.
+  - The shortcut keys available on the slide help page (press `h` on any slide to obtain them) are supported.
+
 # CHANGES IN xaringan VERSION 0.23
 
 - Preserve text wrapping in the `xaringan::moon_reader` output to avoid issues like #345 (thanks, @ellessenne @cderv).

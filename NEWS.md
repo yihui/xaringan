@@ -6,6 +6,8 @@
   - In JAWS 16.0.2136 or later, users must keep turning on a setting called "Allow Web Application Reserved Keystrokes," which is enabled by default.
   - The shortcut keys available on the slide help page (press `h` on any slide to obtain them) are supported.
 
+- Correctly print output from `sql` chunks as tables (thanks, @thohan88 @gadenbuie @cderv, #307).
+
 # CHANGES IN xaringan VERSION 0.23
 
 - Preserve text wrapping in the `xaringan::moon_reader` output to avoid issues like #345 (thanks, @ellessenne @cderv).

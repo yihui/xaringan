@@ -205,12 +205,15 @@ moon_reader = function(
     )
   }
 
-  # don't use Pandoc raw blocks ```{=} (#293)
-  opts = options(htmltools.preserve.raw = FALSE)
+  opts = list()
 
   rmarkdown::output_format(
     rmarkdown::knitr_options(knit_hooks = highlight_hooks),
     NULL, clean_supporting = self_contained,
+    pre_knit = function(input, ...) {
+      # don't use Pandoc raw blocks ```{=} (#293)
+      opts <<- options(htmltools.preserve.raw = FALSE)
+    }
     pre_processor = function(
       metadata, input_file, runtime, knit_meta, files_dir, output_dir
     ) {

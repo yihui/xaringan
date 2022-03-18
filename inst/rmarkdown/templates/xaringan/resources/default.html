@@ -25,20 +25,30 @@ $if(title-slide)$
 $if(title)$
 class: $title-slide-class$
 
+.title[
 # $title$
+]
 $if(subtitle)$
+.subtitle[
 ## $subtitle$
+]
 $endif$
 $for(author)$
+.author[
 ### $author$
+]
 $endfor$
 $if(institute)$
 $for(institute)$
+.institute[
 ### $institute$
+]
 $endfor$
 $endif$
 $if(date)$
+.date[
 ### $date$
+]
 $endif$
 
 ---

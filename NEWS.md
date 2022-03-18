@@ -1,5 +1,7 @@
 # CHANGES IN xaringan VERSION 0.24
 
+- Added classes to elements on the title slide (thanks, @ccamara, #340). Now the `title` will be placed inside `<div class="title"><h1></h1></div>` (previously it was only put inside `<h1></h1>`), and the `subtitle` will be placed inside a `<div>` with class `subtitle`. Similarly, `author`, `institute`, and `date` will have classes of their names, respectively. This will make it easier to style these elements individually. For example, the CSS selector `.title-slide .author` can be used to select and style the author(s).
+
 - When running `xaringan::inf_mr()`, the Rmd file will be recompiled when any Rmd file under the same directory is updated. This allows for rebuilding the slides when child documents are used and updated. Previously, the Rmd file would be recompiled only if itself is updated (thanks, @jvolkening, #349).
 
 - Resolved some major shortcut-key conflicts between **xaringan** and the popular screen reader JAWS for Windows in its virtual cursor environment.

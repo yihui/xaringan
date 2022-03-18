@@ -14,7 +14,7 @@
   });
 })();
 // add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
-// scren reader (see PR #262)
+// screen reader (see PR #262)
 (function(d) {
   let res = {};
   d.querySelectorAll('.remark-help-content table tr').forEach(tr => {

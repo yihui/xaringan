@@ -213,7 +213,7 @@ moon_reader = function(
     pre_knit = function(input, ...) {
       opts <<- options(
         htmltools.preserve.raw = FALSE,  # don't use Pandoc raw blocks ```{=} (#293)
-        xaringan.format = 'moon_reader'  # indicate xaringan's output format
+        knitr.sql.html_div = FALSE  # do not add <div> to knitr's sql output (#307)
       )
     },
     pre_processor = function(

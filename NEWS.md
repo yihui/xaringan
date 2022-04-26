@@ -1,3 +1,6 @@
+# CHANGES IN xaringan VERSION 0.25
+
+
 # CHANGES IN xaringan VERSION 0.24
 
 - Added classes to elements on the title slide (thanks, @ccamara, #340). Now the `title` will be placed inside `<div class="title"><h1></h1></div>` (previously it was only put inside `<h1></h1>`), and the `subtitle` will be placed inside a `<div>` with class `subtitle`. Similarly, `author`, `institute`, and `date` will have classes of their names, respectively. This will make it easier to style these elements individually. For example, the CSS selector `.title-slide .author` can be used to select and style the author(s).

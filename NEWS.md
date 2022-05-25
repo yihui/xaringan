@@ -1,5 +1,6 @@
 # CHANGES IN xaringan VERSION 0.25
 
+- Added support for embedding audio files from `<source src="...">` in the self-contained mode (thanks, @robertfromont, #353).
 
 # CHANGES IN xaringan VERSION 0.24
 

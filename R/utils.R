@@ -216,9 +216,9 @@ encode_images = function(x) {
   # only process prose lines and not code blocks
   if (length(p <- prose_index(x)) == 0) return(x)
   xp = x[p]
-  # opening and closing tags of images
-  r1 = c('!\\[.*?\\]\\(', '<img .*?src\\s*=\\s*"', '^background-image: url\\("?')
-  r2 = c('\\)',           '".*?/>',                '"?\\)')
+  # opening and closing tags of images and audio files
+  r1 = c('!\\[.*?\\]\\(', '<img .*?src\\s*=\\s*"', '<source .*?src\\s*=\\s*"', '^background-image: url\\("?')
+  r2 = c('\\)',           '".*?/>',              , '".*?>',                    '"?\\)')
   regs = paste0('(?<!`)(', r1, ')(.*?)(', r2, ')(?!`)')
   for (r in regs) xp = encode_reg(r, xp)
   x[p] = xp

@@ -9,10 +9,10 @@ Source: https://github.com/olayabucaro/WICslides
 
 /* Add padding to all slides for 16:9 aspect ratio and WIC head in left corner */
 .remark-slide-content {
-  padding-left: 90px;  /* delete this for 4:3 aspect ratio */
+  padding-left: 3%;  /* edit this for 4:3 aspect ratio */
   background-image: url(https://github.com/olayabucaro/WICslides/raw/master/libs/figures/WIChead.png);
-  background-position: 2% 98%; /* Postion of bottom WIC head */
-  background-size: 40px; /* Size of bottom WIC head */
+  background-position: 3% 97%; /* Postion of bottom WIC head */
+  background-size: 50px; /* Size of bottom WIC head */
   font-size: 16px; /* Base font size, default in most browsers */
 }
 
@@ -21,7 +21,7 @@ Source: https://github.com/olayabucaro/WICslides
   color: #2C95D2; /* WIC blue */
   font-weight: bold;
   font-size: 3em;
-  text-align: center; /* Optional: left */
+  text-align: left; /* Optional: center */
 }
 
 .remark-slide-content h2 {
@@ -51,6 +51,7 @@ a {
 
 ul{
   font-size: 1.5em;
+  padding-left: 2%;
 }
 
 /* Bullet point style */
@@ -60,6 +61,7 @@ ul li::marker {
 
 ol {
   font-size: 1.5em;
+  padding-left: 2%;
 }
 
 /* Numbered list style */
@@ -70,7 +72,8 @@ ol li::marker {
 /* Slide counter */
 .remark-slide-number {
   text-shadow: none;
-  color: #D0D0D0; /* Change to color: white; to hide */
+  opacity: 100%; /* Change opacity to 0 to hide counter */
+  color: #D0D0D0;
 }
 
 /* Title slide settings */
@@ -137,24 +140,24 @@ ol li::marker {
 
 /* Hide slide count from title slide */
 .title-slide .remark-slide-number {
-  text-shadow: none;
-  color: #2C95D2; /* Same color as background */
+  opacity: 0%;
 }
 
 /*  Closing slide settings  */
 
 .title-slide-final {
   background-color: #2C95D2; /* WIC blue */
-  padding-left: 100px;
-  background-size: 75px;
+  padding-left: 3%;
   text-shadow: None;
   text-align: left;
   background-image: url(https://raw.githubusercontent.com/olayabucaro/WICslides/master/libs/figures/logo_head_white.png);
+  background-position: 3% 97%; /* Postion of bottom WIC head */
+  background-size: 50px;
 }
 
 .title-slide-final h1 {
   color: white;
-  text-align: center;
+  text-align: left; /* Optional: center */
   font-size: 3em;
 }
 
@@ -169,14 +172,19 @@ ol li::marker {
 /* Footnote settings */
 .title-slide-final .footnote {
         position: absolute;
-        bottom: 1em;
-        padding-left: 58%; /* 45% for 4:3 ratio */
-        font-size: 95%;
+        bottom: 0.1em;
+        padding-left: 66%; /* 45% for 4:3 ratio */
+        font-size: 88%;
         text-align: right;
 }
 
 .title-slide-final p {
     color: white;
+}
+
+/* Hide slide count from final slide */
+.title-slide-final .remark-slide-number {
+    opacity: 0%;
 }
 
 /* Other settings */

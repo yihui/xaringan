@@ -1,6 +1,6 @@
 # CHANGES IN xaringan VERSION 0.25
 
-- Added `wic` Wittgenstein Centre theme
+- Added `wic` Wittgenstein Centre theme (thanks, @olayabucaro, #354).
 
 - Added support for embedding audio files from `<source src="...">` in the self-contained mode (thanks, @robertfromont, #353).
 

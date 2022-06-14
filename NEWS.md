@@ -1,3 +1,6 @@
+# CHANGES IN xaringan VERSION 0.26
+
+
 # CHANGES IN xaringan VERSION 0.25
 
 - Added `wic` Wittgenstein Centre theme (thanks, @olayabucaro, #354).

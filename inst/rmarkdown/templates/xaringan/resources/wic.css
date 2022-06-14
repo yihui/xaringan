@@ -1,0 +1,295 @@
+/*
+Title: Wittgenstein Centre for Demography and Global Human Capital (WIC) Xaringan theme
+Author: Orlando Olaya Bucaro
+Updated: 31/05/2022
+Source: https://github.com/olayabucaro/WICslides
+*/
+
+/* Content slide settings */
+
+/* Add padding to all slides for 16:9 aspect ratio and WIC head in left corner */
+.remark-slide-content {
+  padding-left: 3%;  /* edit this for 4:3 aspect ratio */
+  background-image: url(https://github.com/olayabucaro/WICslides/raw/master/libs/figures/WIChead.png);
+  background-position: 3% 97%; /* Postion of bottom WIC head */
+  background-size: 50px; /* Size of bottom WIC head */
+  font-size: 16px; /* Base font size, default in most browsers */
+}
+
+/* Header font settings */
+.remark-slide-content h1 {
+  color: #2C95D2; /* WIC blue */
+  font-weight: bold;
+  font-size: 3em;
+  text-align: left; /* Optional: center */
+}
+
+.remark-slide-content h2 {
+  color: #2C95D2; /* WIC blue */
+  font-weight: bold;
+  font-size: 2.3em;
+  text-align: center; /* Optional: left */
+}
+
+.remark-slide-content h3 {
+  color: #2C95D2; /* WIC blue */
+  font-weight: bold;
+  font-size: 1.6em;
+  text-align: center; /* Optional: left */
+}
+
+/* Body font settings */
+p {
+  color: black;
+  font-size: 1.5em;
+}
+
+/* Link color */
+a {
+  color: #2C95D2; /* WIC blue */
+}
+
+ul{
+  font-size: 1.5em;
+  padding-left: 2%;
+}
+
+/* Bullet point style */
+ul li::marker {
+  color: #2C95D2; /* WIC blue */
+}
+
+ol {
+  font-size: 1.5em;
+  padding-left: 2%;
+}
+
+/* Numbered list style */
+ol li::marker {
+  color: #2C95D2; /* WIC blue */
+}
+
+/* Slide counter */
+.remark-slide-number {
+  text-shadow: none;
+  opacity: 100%; /* Change opacity to 0 to hide counter */
+  color: #D0D0D0;
+}
+
+/* Title slide settings */
+
+/* Title slide logo and background color */
+.title-slide {
+  background-image: url(https://github.com/olayabucaro/WICslides/raw/master/libs/figures/WIClogo.png);
+  background-position: 4% 6%; /* Possition of WIC logo */
+  background-size: 300px; /* Size of WIC logo */
+  background-color: #2C95D2; /* WIC blue */
+  padding-left: 3%; /* Placement of title text, delete this for 4:3 aspect ratio */
+}
+
+/* Title field: Title font settings */
+.title-slide .title h1 {
+  color: white;
+  font-size: 3.3em;
+  text-align: left; /* Optional: center */
+  font-weight: bold;
+  margin-top: 15%; /* Distance between logo and title */
+  margin-bottom: 1%; /* Diastance to subtile field */
+}
+
+/* Subtitle field*/
+.title-slide .subtitle h2 {
+  color: white;
+  font-size: 2em;
+  text-align: left; /* Optional: center */
+  font-weight: 400;
+  margin-top: 1%; /* Distance between field lines */
+  margin-bottom: 1%;/* Diastance to author field */
+}
+
+/* Author field: Author font settings */
+.title-slide .author h3 {
+  color: white;
+  font-size: 2.2em;
+  text-align: left; /* Optional: center */
+  font-weight: 400;
+  margin-top: 4%; /* Distance between field lines */
+  margin-bottom: 3%;/* Diastance to date field */
+}
+
+/* Institute field: Affiliation font settings */
+.title-slide .institute h3 {
+  color: white;
+  font-size: 1.6em;
+  text-align: left; /* Optional: center */
+  font-weight: 400;
+  margin-top: 3%; /* Distance between field lines */
+  margin-bottom: 10%;/* Diastance to date field */
+}
+
+/* Date field: Location and date font settings */
+.title-slide .date h3 {
+  font-size: 1.3em;
+  color: white;
+  text-align: left;
+  font-weight: 400;
+  margin: 0px; /* Marign around each line */
+  line-height: 1.5; /* Line spacing  */
+  margin-bottom: 1%;
+}
+
+/* Hide slide count from title slide */
+.title-slide .remark-slide-number {
+  opacity: 0%;
+}
+
+/*  Closing slide settings  */
+
+.title-slide-final {
+  background-color: #2C95D2; /* WIC blue */
+  padding-left: 3%;
+  text-shadow: None;
+  text-align: left;
+  background-image: url(https://raw.githubusercontent.com/olayabucaro/WICslides/master/libs/figures/logo_head_white.png);
+  background-position: 3% 97%; /* Postion of bottom WIC head */
+  background-size: 50px;
+}
+
+.title-slide-final h1 {
+  color: white;
+  text-align: left; /* Optional: center */
+  font-size: 3em;
+}
+
+/* Bullet point style */
+.title-slide-final ul {
+    color: white; /* Text */
+}
+.title-slide-final ul li::marker {
+    color: white;
+}
+
+/* Footnote settings */
+.title-slide-final .footnote {
+        position: absolute;
+        bottom: 0.1em;
+        padding-left: 66%; /* 45% for 4:3 ratio */
+        font-size: 88%;
+        text-align: right;
+}
+
+.title-slide-final p {
+    color: white;
+}
+
+/* Hide slide count from final slide */
+.title-slide-final .remark-slide-number {
+    opacity: 0%;
+}
+
+/* Other settings */
+
+/* blockquote */
+.blockquote {
+  display: block;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 40px;
+  margin-right: 40px;
+  border-top: solid 10px #2C95D2;
+  background-color: #EBF6F9;
+  padding: 1em;
+  color: black;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+/* Inline code highlighting */
+.remark-inline-code{
+  background: #F5F5F5;
+  border-radius: 3px;
+  padding: 4px;
+}
+
+/* Color of code output frame, for style github */
+.hljs-github .hljs {
+    background: #EBF6F9;
+}
+/* Color of code output highlighted numbers, for style github */
+.hljs-github .hljs-number {
+    color: #2C95D2; /* WIC blue */
+}
+
+/* Important code slightly red */
+.remark-code-line-highlighted {
+  background-color: #FFD3DE !important;
+}
+
+/* Footnote settings */
+.footnote {
+  position: absolute;
+  bottom: 1em;
+  padding-right: 4em;
+  font-size: 95%;
+}
+
+.left-column {
+  color: #777;
+  width: 25%;
+  height: 92%;
+  float: left;
+}
+
+.left-column h2:last-of-type, .left-column h3:last-child {
+  color: #000;
+}
+
+.right-column {
+  width: 70%;
+  float: right;
+  padding-top: 1em;
+}
+
+.pull-left {
+  float: left;
+  width: 45%;
+}
+
+.pull-right {
+  float: right;
+  width: 45%;
+}
+
+.pull-right ~ * {
+  clear: both;
+}
+
+img, video, iframe {
+  max-width: 100%;
+}
+
+/* adjust table horizontal spacing */
+th, td {
+    padding:0 15px 0 15px;
+}
+
+/* remove color from tables */
+table {
+  margin: auto;
+  border-top: none;
+  border-bottom: none;
+}
+
+table thead th { border-bottom: none; }
+thead, tfoot, tr:nth-child(even) { background: none; }
+
+@page { margin: 0; }
+@media print {
+  .remark-slide-scaler {
+    width: 100% !important;
+    height: 100% !important;
+    transform: scale(1) !important;
+    top: 0 !important;
+    left: 0 !important;
+  }
+}

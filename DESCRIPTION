@@ -24,6 +24,7 @@ Authors@R: c(
     person("Michael Wayne", "Kearney", role = "ctb"),
     person("Nan-Hung", "Hsieh", role = "ctb"),
     person("Ole Petter", "Bang", role = "ctb", comment = "CSS in rmarkdown/templates/xaringan/resources/default.css"),
+    person("Orlando", "Olaya Bucaro", role = "ctb"),
     person("Patrick", "Schratz", role = "ctb"),
     person("Paul", "Klemm", role = "ctb", comment = c(ORCID = "0000-0002-5985-1737")),
     person("Paul", "Lemmens", role = "ctb"),

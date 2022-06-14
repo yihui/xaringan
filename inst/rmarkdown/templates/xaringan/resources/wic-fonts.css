@@ -1,0 +1,13 @@
+/* Use Raleway font */
+
+@import url(https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700);
+
+body { font-family: 'Raleway';}
+h1, h2, h3 {
+  font-family: 'Raleway';
+  font-weight: 400;
+}
+
+/* Font and color for code highlighting */
+.remark-code, .remark-inline-code { font-family: 'Inconsolata', monospace; }
+.remark-code-line-highlighted     { background-color: #ffff88; }

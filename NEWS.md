@@ -1,5 +1,6 @@
 # CHANGES IN xaringan VERSION 0.26
 
+- Added support for embedding media files from `<audio src="...">` and `<video src="...">` in the self-contained mode (#353).
 
 # CHANGES IN xaringan VERSION 0.25
 

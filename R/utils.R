@@ -220,9 +220,7 @@ encode_images = function(x) {
   rs = matrix(c(
     '!\\[.*?\\]\\(', '\\)',
     '<img .*?src\\s*=\\s*"', '".*?/>',
-    '<audio .*?src\\s*=\\s*"', '".*?>',
-    '<video .*?src\\s*=\\s*"', '".*?>',
-    '<source .*?src\\s*=\\s*"',  '".*?>',
+    sprintf('<%s .*?src\\s*=\\s*"', '".*?>', c('audio', 'video', 'source')),
     '^background-image: url\\("?', '"?\\)'
   ), 2)
   rs = paste0('(?<!`)(', rs[1, ], ')(.*?)(', rs[2, ], ')(?!`)')

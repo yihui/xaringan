@@ -216,11 +216,13 @@ encode_images = function(x) {
   # only process prose lines and not code blocks
   if (length(p <- prose_index(x)) == 0) return(x)
   xp = x[p]
-  # opening and closing tags of images and audio files
+  # opening and closing tags of images and other media
   rs = matrix(c(
     '!\\[.*?\\]\\(', '\\)',
     '<img .*?src\\s*=\\s*"', '".*?/>',
-    sprintf('<%s .*?src\\s*=\\s*"', '".*?>', c('audio', 'video', 'source')),
+    '<audio .*?src\\s*=\\s*"', '".*?>',
+    '<video .*?src\\s*=\\s*"', '".*?>',
+    '<source .*?src\\s*=\\s*"',  '".*?>',
     '^background-image: url\\("?', '"?\\)'
   ), 2)
   rs = paste0('(?<!`)(', rs[1, ], ')(.*?)(', rs[2, ], ')(?!`)')

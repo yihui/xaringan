@@ -3,11 +3,14 @@
 \name{infinite_moon_reader}
 \alias{infinite_moon_reader}
 \alias{inf_mr}
+\alias{mugen_tsukuyomi}
 \title{Serve and live reload slides}
 \usage{
 infinite_moon_reader(moon, cast_from = ".", ...)
 
 inf_mr(moon, cast_from = ".", ...)
+
+mugen_tsukuyomi(moon, cast_from = ".", ...)
 }
 \arguments{
 \item{moon}{The input Rmd file path (if missing and in RStudio, the current
@@ -19,13 +22,15 @@ active document is used).}
 }
 \description{
 Use the \pkg{servr} package to serve and reload slides on change.
-\code{inf_mr()} is an alias of \code{infinite_moon_reader()}.
+\code{inf_mr()} and \code{mugen_tsukuyomi()} are aliases of
+\code{infinite_moon_reader()}.
 }
 \details{
 The Rmd document is compiled continuously to trap the world in the Infinite
 Tsukuyomi. The genjutsu is cast from the directory specified by
 \code{cast_from}, and the Rinne Sharingan will be reflected off of the
-\code{moon}.
+\code{moon}. Use \code{servr::daemon_stop()} to perform a genjutsu Kai and
+break the spell.
 }
 \note{
 This function is not really tied to the output format

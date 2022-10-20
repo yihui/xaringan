@@ -6,9 +6,6 @@ date: "Last updated: `r Sys.Date()`"
 output:
   xaringan::moon_reader:
     css: ["ki", "ki-fonts"]
-    nature:
-      highlightStyle: solarized-dark
-      countIncrementalSlides: false
 ---
 
 ```{r setup, include = FALSE}
@@ -17,17 +14,17 @@ options(htmltools.dir.version = FALSE)
 
 # Hello World
 
-Install the **xaringan** package from [Github](https://github.com/yihui/xaringan):
+Install the **xaringan** package from CRAN:
 
-```{r eval=FALSE, tidy=FALSE}
-remotes::install_github("yihui/xaringan")
+```{r eval = FALSE, tidy = FALSE}
+install.packages("xaringan")
 ```
 
 --
 
 You are recommended to use the [RStudio IDE](https://www.rstudio.com/products/rstudio/), but you do not have to.
 
-- Create a new R Markdown document from the menu `File -> New File -> R Markdown -> From Template -> Ninja Presentation`;<sup>1</sup>
+- Create a new R Markdown document from the menu `File -> New File -> R Markdown -> From Template -> Ninja Presentation`;
 
 --
 
@@ -35,12 +32,10 @@ You are recommended to use the [RStudio IDE](https://www.rstudio.com/products/rs
 
 --
 
-- or use the [RStudio Addin](https://rstudio.github.io/rstudioaddins/)<sup>2</sup> "Infinite Moon Reader".
+- or use the [RStudio Addin](https://rstudio.github.io/rstudioaddins/)<sup>1</sup> "Infinite Moon Reader".
 
 .footnote[
-[1] 中文用户请看[这份教程](https://slides.yihui.org/xaringan/zh-CN.html)
-
-[2] See [#2](https://github.com/yihui/xaringan/issues/2) if you do not see the template or addin in RStudio.
+[1] See [#2](https://github.com/yihui/xaringan/issues/2) if you do not see the template or addin in RStudio.
 ]
 
 ---
@@ -86,8 +81,6 @@ Font-sizes: .tiny[(.)tiny[]], .scriptsize[(.)scriptsize[]], .footnotesize[(.)foo
 s <- summary(cars)
 s
 ```
-
-As you can see above, the monospaced font ([Fira Code](https://github.com/tonsky/FiraCode)) supports ligatures.
 
 ---
 

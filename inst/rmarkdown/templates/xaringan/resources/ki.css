@@ -231,6 +231,24 @@ th, td {
   line-height: 200%;
 }
 
+.remark-slide h1 a,
+.remark-slide h2 a,
+.remark-slide h3 a,
+.remark-slide h4 a,
+.remark-slide h5 a,
+.remark-slide h6 a  {
+	color: var(--dark-plum);
+}
+
+.remark-slide h1 a:hover,
+.remark-slide h2 a:hover,
+.remark-slide h3 a:hover,
+.remark-slide h4 a:hover,
+.remark-slide h5 a:hover,
+.remark-slide h6 a:hover {
+	color: var(--orange);
+}
+
 .mjx-chtml {
   font-size: inherit;
 }

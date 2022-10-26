@@ -59,6 +59,14 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0px;
 }
 
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a  {
+	color: var(--dark-plum);
+}
+
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
+	color: var(--orange);
+}
+
 h1 {
   font-size: var(--size-LARGE);
 }
@@ -124,7 +132,8 @@ ul {
 }
 
 .inverse a:hover {
-  text-decoration: underline wavy;
+	color: var(--text-inverse);
+	text-decoration: underline wavy;
 }
 
 .pull-left {
@@ -229,24 +238,6 @@ th, td {
 .outline h2, .outline h3, .outline h4, .outline h5, .outline h6 {
   color: black;
   line-height: 200%;
-}
-
-.remark-slide h1 a,
-.remark-slide h2 a,
-.remark-slide h3 a,
-.remark-slide h4 a,
-.remark-slide h5 a,
-.remark-slide h6 a  {
-	color: var(--dark-plum);
-}
-
-.remark-slide h1 a:hover,
-.remark-slide h2 a:hover,
-.remark-slide h3 a:hover,
-.remark-slide h4 a:hover,
-.remark-slide h5 a:hover,
-.remark-slide h6 a:hover {
-	color: var(--orange);
 }
 
 .mjx-chtml {

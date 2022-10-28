@@ -4,6 +4,8 @@
 
 - Added `mugen_tsukuyomi()` as another alias of `infinite_moon_reader()` (thanks, @DanChaltiel, #359).
 
+- Updated Karolinska Institutet theme to new visual identity (thanks, @ellessenne, #361).
+
 # CHANGES IN xaringan VERSION 0.26
 
 - Added support for embedding media files from `<audio src="...">` and `<video src="...">` in the self-contained mode (thanks, @robertfromont, #355).

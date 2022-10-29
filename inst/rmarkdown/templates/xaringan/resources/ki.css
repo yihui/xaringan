@@ -3,17 +3,22 @@
   Define KI colours
   */
   --plum: #870052;
-  --cyclamen: #D40963;
-  --grey: #808080;
+  --dark-plum: #4F0433;
+  --orange: #FF876F;
+  --light-orange: #FEEEEB;
+  --light-blue: #EDF4F4;
+  --grey: #666666;
+  --light-grey: #F1F1F1;
   --white: #FFFFFF;
-  --black: #222222;
-  --main: var(--plum);
-  --accent: var(--cyclamen);
-  --text: var(--black);
+  --blackish : rgb(44, 44, 46);
+  --black: #000000;
+  --main: var(--dark-plum);
+  --accent: var(--orange);
+  --text: var(--blackish);
   --text-inverse: var(--white);
-  --highlight: var(--plum);
+  --highlight: var(--dark-plum);
   /*
-  Define font size, to mimick beamer.
+  Define font size, similar to beamer sizes.
   Base font size: 24px
   Calculate relative font sizes:
   round(24 * data.frame(
@@ -54,6 +59,14 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0px;
 }
 
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a  {
+	color: var(--dark-plum);
+}
+
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
+	color: var(--orange);
+}
+
 h1 {
   font-size: var(--size-LARGE);
 }
@@ -67,12 +80,15 @@ h3 {
 }
 
 a, a>code, a:visited {
-  color: var(--accent);
+  color: var(--black);
   text-decoration: none;
+  border-bottom: 1px solid var(--accent);
 }
 
 a:hover {
-  text-decoration: underline;
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent);
 }
 
 ul {
@@ -112,10 +128,12 @@ ul {
 
 .inverse a {
   text-decoration: underline;
+  border-bottom: none;
 }
 
 .inverse a:hover {
-  text-decoration: underline wavy;
+	color: var(--text-inverse);
+	text-decoration: underline wavy;
 }
 
 .pull-left {
@@ -191,9 +209,9 @@ th, td {
 }
 
 .title-slide {
-  background-image: url(https://user-images.githubusercontent.com/10330005/71024315-eee82b00-2104-11ea-928b-be412b1f3687.png);
+  background-image: url(https://user-images.githubusercontent.com/10330005/196986536-eef93de6-12a6-4626-aacc-85b4d1769b47.png);
   background-position: 97.5% 2.5%;
-  background-size: 10cm;
+  background-size: 8cm;
 }
 
 .title-slide h1 {
@@ -239,8 +257,28 @@ Extra classes for size and color
   color: var(--plum);
 }
 
-.cyclamen {
-  color: var(--cyclamen);
+.dark-plum {
+  color: var(--dark-plum);
+}
+
+.orange {
+  color: var(--orange);
+}
+
+.light-orange {
+  color: var(--light-orange);
+}
+
+.light-blue {
+  color: var(--light-blue);
+}
+
+.grey {
+  color: var(--grey);
+}
+
+.light-grey {
+  color: var(--light-grey);
 }
 
 .white {
@@ -251,8 +289,8 @@ Extra classes for size and color
   color: var(--black);
 }
 
-.grey {
-  color: var(--grey);
+.blackish {
+  color: var(--blackish);
 }
 
 .main {

@@ -1,14 +1,11 @@
 ---
 title: "Karolinska Institutet Theme"
-subtitle: "...powered by xaringan"
-author: "Alessandro Gasparini"
+subtitle: "...powered by [xaringan](https://github.com/yihui/xaringan)"
+author: "Developed by Alessandro Gasparini"
 date: "Last updated: `r Sys.Date()`"
 output:
   xaringan::moon_reader:
     css: ["ki", "ki-fonts"]
-    nature:
-      highlightStyle: solarized-dark
-      countIncrementalSlides: false
 ---
 
 ```{r setup, include = FALSE}
@@ -17,17 +14,17 @@ options(htmltools.dir.version = FALSE)
 
 # Hello World
 
-Install the **xaringan** package from [Github](https://github.com/yihui/xaringan):
+Install the **xaringan** package from CRAN:
 
-```{r eval=FALSE, tidy=FALSE}
-remotes::install_github("yihui/xaringan")
+```{r eval = FALSE, tidy = FALSE}
+install.packages("xaringan")
 ```
 
 --
 
 You are recommended to use the [RStudio IDE](https://www.rstudio.com/products/rstudio/), but you do not have to.
 
-- Create a new R Markdown document from the menu `File -> New File -> R Markdown -> From Template -> Ninja Presentation`;<sup>1</sup>
+- Create a new R Markdown document from the menu `File -> New File -> R Markdown -> From Template -> Ninja Presentation`;
 
 --
 
@@ -35,12 +32,10 @@ You are recommended to use the [RStudio IDE](https://www.rstudio.com/products/rs
 
 --
 
-- or use the [RStudio Addin](https://rstudio.github.io/rstudioaddins/)<sup>2</sup> "Infinite Moon Reader".
+- or use the [RStudio Addin](https://rstudio.github.io/rstudioaddins/)<sup>1</sup> "Infinite Moon Reader".
 
 .footnote[
-[1] 中文用户请看[这份教程](https://slides.yihui.org/xaringan/zh-CN.html)
-
-[2] See [#2](https://github.com/yihui/xaringan/issues/2) if you do not see the template or addin in RStudio.
+[1] See [#2](https://github.com/yihui/xaringan/issues/2) if you do not see the template or addin in RStudio.
 ]
 
 ---
@@ -49,7 +44,7 @@ You are recommended to use the [RStudio IDE](https://www.rstudio.com/products/rs
 
 The `ki` theme includes extra colours and font sizes.
 
-Colours: .plum[`.plum[]`], .grey[`.grey[]`], .white[`.white[]`], .black[`.black[]`], .cyclamen[`.cyclamen[]`], .main[`.main[]`], .accent[`.accent[]`], .text[`.text[]`], .text-inverse[`.text-inverse[]`].
+Colours: .plum[`.plum[]`], .dark-plum[`.dark-plum[]`], .grey[`.grey[]`], .light-grey[`.light-grey[]`], .white[`.white[]`], .black[`.black[]`], .blackish[`.blackish[]`], .orange[`.orange[]`], .light-orange[`.light-orange[]`], .light-blue[`.light-blue[]`], .main[`.main[]`], .accent[`.accent[]`], .text[`.text[]`], .text-inverse[`.text-inverse[]`].
 
 The colours of the theme can be easily customised - see `ki.css`.
 
@@ -87,8 +82,6 @@ s <- summary(cars)
 s
 ```
 
-As you can see above, the monospaced font supports ligatures.
-
 ---
 
 # Plot
@@ -101,4 +94,6 @@ plot(pressure)
 
 # Disclaimer
 
-The Karolinska Institutet logo is used for dissemination purposes only - please read the webpage with the visual identity guidelines: https://staff.ki.se/download-karolinska-institutets-logo
+The Karolinska Institutet logo is used for dissemination purposes only.
+
+Please read the webpage with the visual identity guidelines before using this template: https://staff.ki.se/brand-platform-and-graphic-profile

@@ -1,3 +1,5 @@
+# CHANGES IN xaringan VERSION 0.28
+
 # CHANGES IN xaringan VERSION 0.27
 
 - Documented that `servr::daemon_stop()` can be used to stop `inf_mr()` (thanks, @DanChaltiel, #359).

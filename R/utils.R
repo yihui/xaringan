@@ -109,7 +109,7 @@ highlight_code = function(x) {
 }
 
 highlight_output = function(x, options) {
-  if (is.null(i <- options$highlight.output) || xfun::isFALSE(i)) return(x)
+  if (is.null(i <- options$highlight.output) || isFALSE(i)) return(x)
   x = split_lines(x)
   x[i] = paste0('*', x[i])
   paste(x, collapse = '\n')

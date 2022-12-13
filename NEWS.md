@@ -1,12 +1,14 @@
 # CHANGES IN xaringan VERSION 0.28
 
+- This package requires R >= 3.5.0 now.
+
 # CHANGES IN xaringan VERSION 0.27
 
 - Documented that `servr::daemon_stop()` can be used to stop `inf_mr()` (thanks, @DanChaltiel, #359).
 
 - Added `mugen_tsukuyomi()` as another alias of `infinite_moon_reader()` (thanks, @DanChaltiel, #359).
 
-- Updated Karolinska Institutet theme to new visual identity (thanks, @ellessenne, #361).
+- Updated Karolinska Institute theme to new visual identity (thanks, @ellessenne, #361).
 
 # CHANGES IN xaringan VERSION 0.26
 

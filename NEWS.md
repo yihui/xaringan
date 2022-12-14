@@ -1,3 +1,6 @@
+# CHANGES IN xaringan VERSION 0.29
+
+
 # CHANGES IN xaringan VERSION 0.28
 
 - This package requires R >= 3.5.0 now.

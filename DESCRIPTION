@@ -1,7 +1,7 @@
 Package: xaringan
 Type: Package
 Title: Presentation Ninja
-Version: 0.27.1
+Version: 0.28
 Authors@R: c(
     person("Yihui", "Xie", role = c("aut", "cre"), email = "xie@yihui.name", comment = c(ORCID = "0000-0003-0645-5666")),
     # contributors ordered alphabetically below
@@ -54,4 +54,4 @@ URL: https://github.com/yihui/xaringan
 BugReports: https://github.com/yihui/xaringan/issues
 VignetteBuilder: knitr
 Encoding: UTF-8
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3

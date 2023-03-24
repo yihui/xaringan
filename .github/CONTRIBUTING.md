@@ -11,7 +11,7 @@ You can contribute in many ways:
 
 ## To submit a contribution using a Pull Request:
 
-1.  [Fork](https://github.com/rstudio/xaringan/fork) the repository and make your changes in a new branch specific to the PR. It is ok to edit a file in this repository using the `Edit` button on Github if the change is simple enough.
+1.  [Fork](https://github.com/yihui/xaringan/fork) the repository and make your changes in a new branch specific to the PR. It is ok to edit a file in this repository using the `Edit` button on Github if the change is simple enough.
 
 2.  Submit the [pull request](https://help.github.com/articles/using-pull-requests). It is ok to submit as draft if you are still working on it but would like some feedback from us. It always good to share in the open that you are working on it.
 

@@ -323,6 +323,7 @@ infinite_moon_reader = function(moon, cast_from = '.', ...) {
         if (!r || missing(message)) return(FALSE)
         ctx = rstudioapi::getSourceEditorContext()
         if (identical(normalize_path(as.character(ctx[['path']])), moon)) {
+          if (is.character(message)) message = jsonlite::fromJSON(message)
           if (isTRUE(message[['focused']])) {
             # auto-navigate to the slide source corresponding to current HTML
             # page only when the slides are on focus

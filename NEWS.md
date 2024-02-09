@@ -1,3 +1,6 @@
+# CHANGES IN xaringan VERSION 0.30
+
+
 # CHANGES IN xaringan VERSION 0.29
 
 - Internal changes for `xaringan::inf_mr()` according to changes in the **servr** package.

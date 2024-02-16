@@ -1,5 +1,6 @@
 # CHANGES IN xaringan VERSION 0.30
 
+- `inf_mr()` fails to work when the slides URL contains a hash.
 
 # CHANGES IN xaringan VERSION 0.29
 

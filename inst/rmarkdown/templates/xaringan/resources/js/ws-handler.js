@@ -1,5 +1,4 @@
-((interval, path) => {
-const ws = new WebSocket(location.href.replace(/^http/, 'ws').replace(/\/?$/, '/websocket/'));
+((interval, path, ws) => {
 let flag, focused = false;
 
 window.addEventListener('focus', e => { focused = true; });

@@ -1,3 +1,9 @@
+# CHANGES IN xaringan VERSION 0.31
+
+## NEW FEATURES
+
+- Updated CSS theme rutgers (Rutgers University) (#373).
+
 # CHANGES IN xaringan VERSION 0.30
 
 - `inf_mr()` fails to work when the slides URL contains a hash.

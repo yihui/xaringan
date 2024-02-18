@@ -1,7 +1,7 @@
 /*
 CSS for xaringan slides in RU flavor
 Author: Joseph V. Casillas
-Updated: 03/06/2018
+Updated: 02/18/2024
 */
 
 /* Package defaults that we slightly tweak */
@@ -114,9 +114,9 @@ thead, tfoot, tr:nth-child(even) { background: none; }
 
 /* Add image and change bg color */
 .title-slide {
-  background-image: url(https://github.com/jvcasillas/ru_xaringan/raw/master/img/logo/ru_shield.png);
-  background-position: 9% 15%;
-  background-size: 55px;
+  background-image: url(https://github.com/jvcasillas/ru_xaringan/raw/master/img/logo/ru_new.png);
+  background-position: 10% 15%;
+  background-size: 150px;
   background-color: #fff;
   padding-left: 100px;  /* delete this for 4:3 aspect ratio */
 }

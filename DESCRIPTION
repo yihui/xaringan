@@ -46,7 +46,7 @@ Depends: R (>= 3.5.0)
 Imports:
     htmltools,
     knitr (>= 1.30),
-    servr (>= 0.29.2),
+    servr (>= 0.30),
     xfun (>= 0.18),
     rmarkdown (>= 2.8)
 Suggests: rstudioapi, jsonlite, testit
@@ -56,4 +56,3 @@ BugReports: https://github.com/yihui/xaringan/issues
 VignetteBuilder: knitr
 Encoding: UTF-8
 RoxygenNote: 7.3.1
-Remotes: yihui/servr

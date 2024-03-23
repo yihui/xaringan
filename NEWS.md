@@ -1,3 +1,6 @@
+# CHANGES IN xaringan VERSION 0.31
+
+
 # CHANGES IN xaringan VERSION 0.30
 
 - Updated CSS theme rutgers (Rutgers University) (#373).

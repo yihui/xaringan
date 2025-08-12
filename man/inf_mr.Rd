@@ -18,7 +18,7 @@ active document is used).}
 
 \item{cast_from}{The root directory of the server.}
 
-\item{...}{Passed to \code{rmarkdown::\link[rmarkdown]{render}()}.}
+\item{...}{Passed to \code{\link[rmarkdown:render]{rmarkdown::render()}}.}
 }
 \description{
 Use the \pkg{servr} package to serve and reload slides on change.
@@ -34,12 +34,12 @@ break the spell.
 }
 \note{
 This function is not really tied to the output format
-  \code{\link{moon_reader}()}. You can use it to serve any single-HTML-file R
-  Markdown output.
+\code{\link[=moon_reader]{moon_reader()}}. You can use it to serve any single-HTML-file R
+Markdown output.
 }
 \references{
 \url{https://naruto.fandom.com/wiki/Infinite_Tsukuyomi}
 }
 \seealso{
-\code{servr::\link{httw}}
+\code{\link[servr:httd]{servr::httw()}}
 }

@@ -14,17 +14,17 @@ decktape(
 )
 }
 \arguments{
-\item{file}{The path to the HTML presentation file. When \code{docker =
-FALSE}, this path could be a URL to online slides.}
+\item{file}{The path to the HTML presentation file. When \code{docker = FALSE},
+this path could be a URL to online slides.}
 
 \item{output}{The desired output path of the PDF file.}
 
 \item{args}{Command-line arguments to be passed to \code{decktape}.}
 
-\item{docker}{Whether to use Docker (\code{TRUE}) or use the
-\command{decktape} command directly (\code{FALSE}). By default, if
-\pkg{decktape} has been installed in your system and can be found via
-\code{Sys.which('decktape')}, it will be uesd directly.}
+\item{docker}{Whether to use Docker (\code{TRUE}) or use the \command{decktape}
+command directly (\code{FALSE}). By default, if \pkg{decktape} has been
+installed in your system and can be found via \code{Sys.which('decktape')}, it
+will be uesd directly.}
 
 \item{version}{The \pkg{decktape} version when you use Docker.}
 
@@ -40,11 +40,11 @@ docker image of the \pkg{decktape} library to convert HTML slides to PDF
 }
 \note{
 For some operating systems you may need to
-  \href{https://stackoverflow.com/questions/48957195}{add yourself to the
-  \command{docker} group} and restart your machine if you use DeckTape via
-  Docker. By default, the latest version of the \pkg{decktape} Docker image
-  is used. In case of errors, you may want to try older versions (e.g.,
-  \code{version = '2.8.0'}).
+\href{https://stackoverflow.com/questions/48957195}{add yourself to the
+\command{docker} group} and restart your machine if you use DeckTape via
+Docker. By default, the latest version of the \pkg{decktape} Docker image
+is used. In case of errors, you may want to try older versions (e.g.,
+\code{version = '2.8.0'}).
 }
 \examples{\dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 xaringan::decktape("https://slides.yihui.org/xaringan", "xaringan.pdf", docker = FALSE)
@@ -52,5 +52,5 @@ xaringan::decktape("https://slides.yihui.org/xaringan", "xaringan.pdf", docker =
 }
 \references{
 DeckTape: \url{https://github.com/astefanutti/decktape}. Docker:
-  \url{https://www.docker.com}.
+\url{https://www.docker.com}.
 }

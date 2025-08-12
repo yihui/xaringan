@@ -1,95 +1,89 @@
 #' An R Markdown output format for remark.js slides
 #'
 #' This output format produces an HTML file that contains the Markdown source
-#' (knitted from R Markdown) and JavaScript code to render slides.
-#' \code{tsukuyomi()} is an alias of \code{moon_reader()}.
+#' (knitted from R Markdown) and JavaScript code to render slides. `tsukuyomi()`
+#' is an alias of `moon_reader()`.
 #'
 #' Tsukuyomi is a genjutsu to trap the target in an illusion on eye contact.
 #'
-#' If you are unfamiliar with CSS, please see the
-#' \href{https://github.com/yihui/xaringan/wiki}{xaringan wiki on Github}
-#' providing CSS slide modification examples.
+#' If you are unfamiliar with CSS, please see the [xaringan wiki on
+#' Github](https://github.com/yihui/xaringan/wiki) providing CSS slide
+#' modification examples.
 #' @param css A vector of CSS file paths. Two default CSS files
 #'   (\file{default.css} and \file{default-fonts.css}) are provided in this
-#'   package, which was borrowed from \url{https://remarkjs.com}. If the
-#'   character vector \code{css} contains a value that does not end with
-#'   \code{.css}, it is supposed to be a built-in CSS file in this package,
-#'   e.g., for \code{css = c('default', 'extra.css')}), it means
-#'   \code{default.css} in this package and a user-provided \code{extra.css}. To
-#'   find out all built-in CSS files, use \code{xaringan:::list_css()}. With
-#'   \pkg{rmarkdown} >= 2.8, Sass files (filenames ending with \file{.scss} or
-#'   \file{.sass}) can also be used, and they will be processed by the
-#'   \pkg{sass} package, which needs to be installed.
+#'   package, which was borrowed from <https://remarkjs.com>. If the character
+#'   vector `css` contains a value that does not end with `.css`, it is supposed
+#'   to be a built-in CSS file in this package, e.g., for `css = c('default',
+#'   'extra.css')`), it means `default.css` in this package and a user-provided
+#'   `extra.css`. To find out all built-in CSS files, use
+#'   `xaringan:::list_css()`. With \pkg{rmarkdown} >= 2.8, Sass files (filenames
+#'   ending with \file{.scss} or \file{.sass}) can also be used, and they will
+#'   be processed by the \pkg{sass} package, which needs to be installed.
 #' @param self_contained Whether to produce a self-contained HTML file by
 #'   embedding all external resources into the HTML file. See the \sQuote{Note}
 #'   section below.
 #' @param seal Whether to generate a title slide automatically using the YAML
-#'   metadata of the R Markdown document (if \code{FALSE}, you should write the
-#'   title slide by yourself).
-#' @param yolo Whether to insert the
-#'   \href{https://kbroman.wordpress.com/2014/08/28/the-mustache-photo/}{Mustache
-#'    Karl (TM)} randomly in the slides. \code{TRUE} means insert his picture on
-#'   one slide, and if you want him to be on multiple slides, set \code{yolo} to
-#'   a positive integer or a percentage (e.g. 0.3 means 30\% of your slides will
-#'   be the Mustache Karl). Alternatively, \code{yolo} can also be a list of the
-#'   form \code{list(times = n, img = path)}: \code{n} is the number of times to
-#'   show an image, and \code{path} is the path to an image (by default, it is
-#'   Karl).
+#'   metadata of the R Markdown document (if `FALSE`, you should write the title
+#'   slide by yourself).
+#' @param yolo Whether to insert the [Mustache Karl
+#'   (TM)](https://kbroman.wordpress.com/2014/08/28/the-mustache-photo/)
+#'   randomly in the slides. `TRUE` means insert his picture on one slide, and
+#'   if you want him to be on multiple slides, set `yolo` to a positive integer
+#'   or a percentage (e.g. 0.3 means 30\% of your slides will be the Mustache
+#'   Karl). Alternatively, `yolo` can also be a list of the form `list(times =
+#'   n, img = path)`: `n` is the number of times to show an image, and `path` is
+#'   the path to an image (by default, it is Karl).
 #' @param chakra A path to the remark.js library (can be either local or
 #'   remote). Please note that if you use the default remote latest version of
 #'   remark.js, your slides will not work when you do not have Internet access.
 #'   They might also be broken after a newer version of remark.js is released.
 #'   If these issues concern you, you should download remark.js locally (e.g.,
-#'   via \code{\link{summon_remark}()}), and use the local version instead.
+#'   via [summon_remark()]), and use the local version instead.
 #' @param nature (Nature transformation) A list of configurations to be passed
-#'   to \code{remark.create()}, e.g. \code{list(ratio = '16:9', navigation =
-#'   list(click = TRUE))}; see
-#'   \url{https://github.com/gnab/remark/wiki/Configuration}. Besides the
-#'   options provided by remark.js, you can also set \code{autoplay} to a number
-#'   (the number of milliseconds) so the slides will be played every
-#'   \code{autoplay} milliseconds; alternatively, \code{autoplay} can be a list
-#'   of the form \code{list(interval = N, loop = TRUE)}, so the slides will go
-#'   to the next page every \code{N} milliseconds, and optionally go back to the
-#'   first page to restart the play when \code{loop = TRUE}. You can also set
-#'   \code{countdown} to a number (the number of milliseconds) to include a
-#'   countdown timer on each slide. If using \code{autoplay}, you can optionally
-#'   set \code{countdown} to \code{TRUE} to include a countdown equal to
-#'   \code{autoplay}. To alter the set of classes applied to the title slide,
-#'   you can optionally set \code{titleSlideClass} to a vector of classes; the
-#'   default is \code{c("center", "middle", "inverse")}.
-#' @param anchor_sections,... For \code{tsukuyomi()}, arguments passed to
-#'   \code{moon_reader()}; for \code{moon_reader()}, arguments passed to
-#'   \code{rmarkdown::\link{html_document}()}.
+#'   to `remark.create()`, e.g. `list(ratio = '16:9', navigation = list(click =
+#'   TRUE))`; see <https://github.com/gnab/remark/wiki/Configuration>. Besides
+#'   the options provided by remark.js, you can also set `autoplay` to a number
+#'   (the number of milliseconds) so the slides will be played every `autoplay`
+#'   milliseconds; alternatively, `autoplay` can be a list of the form
+#'   `list(interval = N, loop = TRUE)`, so the slides will go to the next page
+#'   every `N` milliseconds, and optionally go back to the first page to restart
+#'   the play when `loop = TRUE`. You can also set `countdown` to a number (the
+#'   number of milliseconds) to include a countdown timer on each slide. If
+#'   using `autoplay`, you can optionally set `countdown` to `TRUE` to include a
+#'   countdown equal to `autoplay`. To alter the set of classes applied to the
+#'   title slide, you can optionally set `titleSlideClass` to a vector of
+#'   classes; the default is `c("center", "middle", "inverse")`.
+#' @param anchor_sections,... For `tsukuyomi()`, arguments passed to
+#'   `moon_reader()`; for `moon_reader()`, arguments passed to
+#'   [rmarkdown::html_document()].
 #' @note Do not stare at Karl's picture for too long after you turn on the
-#'   \code{yolo} mode. I believe he has Sharingan.
+#'   `yolo` mode. I believe he has Sharingan.
 #'
-#'   For the option \code{self_contained = TRUE}, it encodes images as base64
-#'   data in the HTML output file. The image path should not contain the string
-#'   \code{")"} when the image is written with the syntax \verb{![](PATH)} or
-#'   \verb{background-image: url(PATH)}, and should not contain the string
-#'   \code{"/>"} when it is written with the syntax \verb{<img src="PATH" />}.
-#'   Rendering slides in the self-contained mode can be time-consuming when you
-#'   have remote resources (such as images or JS libraries) in your slides
-#'   because these resources need to be downloaded first. We strongly recommend
-#'   that you download remark.js (via \code{\link{summon_remark}()}) and use a
-#'   local copy instead of the default \code{chakra} argument when
-#'   \code{self_contained = TRUE}, so remark.js does not need to be downloaded
-#'   each time you compile your slides.
+#'   For the option `self_contained = TRUE`, it encodes images as base64 data in
+#'   the HTML output file. The image path should not contain the string `")"`
+#'   when the image is written with the syntax `![](PATH)` or `background-image:
+#'   url(PATH)`, and should not contain the string `"/>"` when it is written
+#'   with the syntax `<img src="PATH" />`. Rendering slides in the
+#'   self-contained mode can be time-consuming when you have remote resources
+#'   (such as images or JS libraries) in your slides because these resources
+#'   need to be downloaded first. We strongly recommend that you download
+#'   remark.js (via [summon_remark()]) and use a local copy instead of the
+#'   default `chakra` argument when `self_contained = TRUE`, so remark.js does
+#'   not need to be downloaded each time you compile your slides.
 #'
-#'   When the slides are previewed via \code{xaringan::\link{inf_mr}()},
-#'   \code{self_contained} will be temporarily changed to \code{FALSE} even if
-#'   the author of the slides set it to \code{TRUE}. This will make it faster to
-#'   preview slides locally (by avoiding downloading remote resources explicitly
-#'   and base64 encoding them). You can always click the Knit button in RStudio
-#'   or call \code{rmarkdown::render()} to render the slides in the
-#'   self-contained mode (these approaches will respect the
-#'   \code{self_contained} setting).
+#'   When the slides are previewed via [xaringan::inf_mr()], `self_contained`
+#'   will be temporarily changed to `FALSE` even if the author of the slides set
+#'   it to `TRUE`. This will make it faster to preview slides locally (by
+#'   avoiding downloading remote resources explicitly and base64 encoding them).
+#'   You can always click the Knit button in RStudio or call
+#'   `rmarkdown::render()` to render the slides in the self-contained mode
+#'   (these approaches will respect the `self_contained` setting).
 #'
-#'   Each page has its own countdown timer (when the option \code{countdown} is
-#'   set in \code{nature}), and the timer is (re)initialized whenever you
-#'   navigate to a new page. If you need a global timer, you can use the
-#'   presenter's mode (press \kbd{P}).
-#' @references \url{https://naruto.fandom.com/wiki/Tsukuyomi}
+#'   Each page has its own countdown timer (when the option `countdown` is set
+#'   in `nature`), and the timer is (re)initialized whenever you navigate to a
+#'   new page. If you need a global timer, you can use the presenter's mode
+#'   (press \kbd{P}).
+#' @references <https://naruto.fandom.com/wiki/Tsukuyomi>
 #' @importFrom htmltools tagList tags htmlEscape HTML
 #' @export
 #' @examples
@@ -257,23 +251,23 @@ tsukuyomi = function(...) moon_reader(...)
 #' Serve and live reload slides
 #'
 #' Use the \pkg{servr} package to serve and reload slides on change.
-#' \code{inf_mr()} and \code{mugen_tsukuyomi()} are aliases of
-#' \code{infinite_moon_reader()}.
+#' `inf_mr()` and `mugen_tsukuyomi()` are aliases of
+#' `infinite_moon_reader()`.
 #'
 #' The Rmd document is compiled continuously to trap the world in the Infinite
 #' Tsukuyomi. The genjutsu is cast from the directory specified by
-#' \code{cast_from}, and the Rinne Sharingan will be reflected off of the
-#' \code{moon}. Use \code{servr::daemon_stop()} to perform a genjutsu Kai and
+#' `cast_from`, and the Rinne Sharingan will be reflected off of the
+#' `moon`. Use `servr::daemon_stop()` to perform a genjutsu Kai and
 #' break the spell.
 #' @param moon The input Rmd file path (if missing and in RStudio, the current
 #'   active document is used).
 #' @param cast_from The root directory of the server.
-#' @param ... Passed to \code{rmarkdown::\link[rmarkdown]{render}()}.
-#' @references \url{https://naruto.fandom.com/wiki/Infinite_Tsukuyomi}
+#' @param ... Passed to [rmarkdown::render()].
+#' @references <https://naruto.fandom.com/wiki/Infinite_Tsukuyomi>
 #' @note This function is not really tied to the output format
-#'   \code{\link{moon_reader}()}. You can use it to serve any single-HTML-file R
+#'   [moon_reader()]. You can use it to serve any single-HTML-file R
 #'   Markdown output.
-#' @seealso \code{servr::\link{httw}}
+#' @seealso [servr::httw()]
 #' @export
 #' @rdname inf_mr
 infinite_moon_reader = function(moon, cast_from = '.', ...) {
@@ -383,14 +377,14 @@ mugen_tsukuyomi = infinite_moon_reader
 #' This function can use either the \command{decktape} command or the hosted
 #' docker image of the \pkg{decktape} library to convert HTML slides to PDF
 #' (including slides produced by \pkg{xaringan}).
-#' @param file The path to the HTML presentation file. When \code{docker =
-#'   FALSE}, this path could be a URL to online slides.
+#' @param file The path to the HTML presentation file. When `docker = FALSE`,
+#'   this path could be a URL to online slides.
 #' @param output The desired output path of the PDF file.
-#' @param args Command-line arguments to be passed to \code{decktape}.
-#' @param docker Whether to use Docker (\code{TRUE}) or use the
-#'   \command{decktape} command directly (\code{FALSE}). By default, if
-#'   \pkg{decktape} has been installed in your system and can be found via
-#'   \code{Sys.which('decktape')}, it will be uesd directly.
+#' @param args Command-line arguments to be passed to `decktape`.
+#' @param docker Whether to use Docker (`TRUE`) or use the \command{decktape}
+#'   command directly (`FALSE`). By default, if \pkg{decktape} has been
+#'   installed in your system and can be found via `Sys.which('decktape')`, it
+#'   will be uesd directly.
 #' @param version The \pkg{decktape} version when you use Docker.
 #' @param open Whether to open the resulting PDF with your system PDF viewer.
 #' @note For some operating systems you may need to
@@ -398,9 +392,9 @@ mugen_tsukuyomi = infinite_moon_reader
 #'   \command{docker} group} and restart your machine if you use DeckTape via
 #'   Docker. By default, the latest version of the \pkg{decktape} Docker image
 #'   is used. In case of errors, you may want to try older versions (e.g.,
-#'   \code{version = '2.8.0'}).
-#' @references DeckTape: \url{https://github.com/astefanutti/decktape}. Docker:
-#'   \url{https://www.docker.com}.
+#'   `version = '2.8.0'`).
+#' @references DeckTape: <https://github.com/astefanutti/decktape>. Docker:
+#'   <https://www.docker.com>.
 #' @return The output file path (invisibly).
 #' @export
 #' @examplesIf interactive()

@@ -74,10 +74,9 @@ sample2 = function(x, size, ...) {
 #' Summon remark.js to your local disk
 #'
 #' Download a version of the remark.js script to your local disk, so you can
-#' render slides offline. You need to change the \code{chakra} argument of
-#' \code{\link{moon_reader}()} after downloading remark.js.
-#' @param version The version of remark.js (e.g. \code{latest}, \code{0.13}, or
-#'   \code{0.14.1}).
+#' render slides offline. You need to change the `chakra` argument of
+#' [moon_reader()] after downloading remark.js.
+#' @param version The version of remark.js (e.g. `latest`, `0.13`, or `0.14.1`).
 #' @param to The destination directory.
 #' @export
 summon_remark = function(version = 'latest', to = 'libs/') {

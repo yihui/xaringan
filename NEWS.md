@@ -1,5 +1,6 @@
 # CHANGES IN xaringan VERSION 0.31
 
+- Switched to Markdown for roxygen comments (addressing the `\link{}` target issue that CRAN reported).
 
 # CHANGES IN xaringan VERSION 0.30
 

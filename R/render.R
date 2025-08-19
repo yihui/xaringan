@@ -189,7 +189,7 @@ moon_reader = function(
       source = function(x, options) {
         hook = hooks[['source']]
         res = hook(x, options)
-        highlight_code(res)
+        highlight_code(res, options)
       },
       output = function(x, options) {
         hook = hooks[['output']]

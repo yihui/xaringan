@@ -90,7 +90,7 @@ summon_remark = function(version = 'latest', to = 'libs/') {
 
 # replace {{code}} with *code so that this line can be highlighted in remark.js;
 # this also works with multiple lines
-highlight_code = function(x) {
+highlight_code = function(x, options) {
   x = paste0('\n', x)  # prepend \n and remove it later
   r = '(\n)([ \t]*)\\{\\{(.+?)\\}\\}(?=(\n|$))'
   m = gregexpr(r, x, perl = TRUE)
@@ -104,6 +104,18 @@ highlight_code = function(x) {
   # catch `#<<` at end of the line but ignores lines that start with `*` since
   # they came from above
   x = gsub('^\\s?([^*].+?)\\s*#<<\\s*$', '*\\1', split_lines(x))
+  # allow to highlight line via option (useful for non R engine)
+  if (!is.null(i <- options$highlight.source)) {
+    if (!is.numeric(i)) {
+      w = sprintf("%s must be numeric. options will be ignored.", sQuote('highlight.source'))
+      warning(w, call. = FALSE)
+    } else {
+      s = grep('^`{3}', x) # find start of code output
+      i = s[1] + i
+      # ignore lines already marked as highlighted with `x`
+      x[i] = gsub('^\\s?([^*].+?)', '*\\1', x[i])
+    }
+  }
   paste(x, collapse = '\n')
 }
 
